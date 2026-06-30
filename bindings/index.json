@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-29T14:03:13.499181Z",
-  "version": "151.0.7920.0",
+  "generated_at": "2026-06-30T12:05:28.257660Z",
+  "version": "151.0.7922.2",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -265,6 +265,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -299,6 +300,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -1183,7 +1185,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -1469,6 +1474,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -1489,6 +1495,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -1512,6 +1519,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -1547,6 +1555,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -1742,6 +1751,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -1766,6 +1776,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -1798,6 +1809,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -1863,6 +1875,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -1885,6 +1898,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -1913,6 +1927,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -2594,6 +2609,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -2653,6 +2669,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -2677,6 +2694,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -2703,6 +2721,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -2763,6 +2782,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3258,6 +3278,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3418,6 +3439,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
@@ -3475,6 +3497,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
@@ -3500,6 +3523,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
@@ -3646,6 +3670,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3704,6 +3729,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3737,6 +3763,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -4579,6 +4606,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -4608,6 +4636,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule"
@@ -4716,6 +4745,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -4743,6 +4773,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -4770,6 +4801,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -4796,6 +4828,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kAiOverlayDialog"
@@ -4820,6 +4853,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kAiOverlayDialog"
@@ -4849,6 +4883,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kAiOverlayDialog"
@@ -4904,6 +4939,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -4935,6 +4971,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -4962,6 +4999,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -5067,6 +5105,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -5092,6 +5131,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -5116,6 +5156,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -5154,6 +5195,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -5178,6 +5220,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -5204,6 +5247,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -5232,6 +5276,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -5276,6 +5321,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -5298,6 +5344,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kImeSystemEmojiPickerMojoSearch"
@@ -5335,6 +5382,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kImeSystemEmojiPickerMojoSearch"
@@ -5380,6 +5428,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kImeSystemEmojiPickerMojoSearch"
@@ -5405,6 +5454,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kImeSystemEmojiPickerMojoSearch"
@@ -5431,6 +5481,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kImeSystemEmojiPickerMojoSearch"
@@ -5454,6 +5505,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -5478,6 +5530,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -5501,6 +5554,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -5523,6 +5577,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kImeSystemEmojiPickerMojoSearch"
@@ -5549,6 +5604,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kImeSystemEmojiPickerMojoSearch"
@@ -6028,6 +6084,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault"
@@ -6052,6 +6109,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault"
@@ -6075,6 +6133,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -6099,6 +6158,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -6146,6 +6206,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kImeSystemEmojiPickerMojoSearch"
@@ -6170,6 +6231,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kImeSystemEmojiPickerMojoSearch"
@@ -6279,6 +6341,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -6305,6 +6368,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -6333,6 +6397,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -6666,6 +6731,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -6693,6 +6759,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -6721,6 +6788,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -6745,6 +6813,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -6772,6 +6841,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -6800,6 +6870,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -6904,6 +6975,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -6926,6 +6998,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7014,6 +7087,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -7040,6 +7114,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
@@ -7067,31 +7142,11 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
-        ]
-      }
-    },
-    {
-      "name": "VmDiagnosticsProvider",
-      "module": "ash.vm.mojom",
-      "file": "chrome_browser_ui_webui_ash_vm_vm.mojom.js",
-      "methods": [
-        "GetPluginVmDiagnostics"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kImeSystemEmojiPickerMojoSearch"
         ]
       }
     },
@@ -7175,6 +7230,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7198,6 +7254,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7220,6 +7277,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7242,6 +7300,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
@@ -7269,6 +7328,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
@@ -7365,6 +7425,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kWebUIToolbarProcessOverheadExperiment",
@@ -7398,6 +7459,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kWebUIToolbarProcessOverheadExperiment",
@@ -7429,6 +7491,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kWebUIToolbarProcessOverheadExperiment",
@@ -7454,6 +7517,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter"
@@ -7479,6 +7543,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter"
@@ -7502,6 +7567,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter"
@@ -7615,6 +7681,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7660,6 +7727,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7688,6 +7756,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7724,6 +7793,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7750,6 +7820,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7772,6 +7843,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7813,6 +7885,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7835,6 +7908,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8048,6 +8122,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8073,6 +8148,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter"
@@ -8096,6 +8172,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter"
@@ -8119,6 +8196,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8144,6 +8222,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8170,6 +8249,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8193,6 +8273,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8216,6 +8297,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8238,9 +8320,47 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
+      }
+    },
+    {
+      "name": "FinishOrContinuePageHandlerFactory",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_finish_or_continue.mojom.js",
+      "methods": [
+        "CreateFinishOrContinuePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "FinishOrContinuePageHandler",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_finish_or_continue.mojom.js",
+      "methods": [
+        "StartBrowsing",
+        "ContinueEducation"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: intro.mojom.FinishOrContinuePageHandlerFactory.CreateFinishOrContinuePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -8428,6 +8548,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSurfaceEmbed",
@@ -8455,6 +8576,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSurfaceEmbed",
@@ -8479,6 +8601,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSurfaceEmbed",
@@ -8755,6 +8878,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -8822,6 +8946,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
@@ -8879,6 +9004,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
@@ -8916,6 +9042,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
@@ -9007,6 +9134,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -9031,6 +9159,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -9058,6 +9187,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -9082,6 +9212,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9174,6 +9305,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9198,6 +9330,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9214,12 +9347,13 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)"
+            "Source: BrowserInterfaceBroker (Global Broker)"
           ]
         },
         "scope": "context",
-        "category": "internal",
+        "category": "direct",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9242,6 +9376,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kOptimizationGuideOnDeviceModel"
@@ -9263,6 +9398,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kOptimizationGuideOnDeviceModel"
@@ -9289,6 +9425,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kOptimizationGuideOnDeviceModel"
@@ -9354,6 +9491,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9368,7 +9506,8 @@
         "CloseUI",
         "OnManualBlur",
         "OnSelectionChanged",
-        "Revert"
+        "Revert",
+        "LogEscapeAction"
       ],
       "metadata": {
         "usage": {
@@ -9380,6 +9519,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9407,6 +9547,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9429,6 +9570,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9452,6 +9594,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9482,6 +9625,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9504,6 +9648,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSurfaceEmbed",
@@ -9537,6 +9682,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSurfaceEmbed",
@@ -9565,6 +9711,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kSurfaceEmbed",
@@ -9589,6 +9736,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9612,6 +9760,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9637,6 +9786,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9659,6 +9809,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule"
@@ -9674,6 +9825,10 @@
         "DeleteAllPasswordManagerData",
         "CopyPlaintextBackupPassword",
         "RemoveBackupPassword",
+        "RemovePasswordException",
+        "StartBulkPasswordCheck",
+        "MovePasswordsToAccount",
+        "ResetImporter",
         "GetActorLoginPermissions",
         "RevokeActorLoginPermission",
         "ChangePasswordManagerPin",
@@ -9702,6 +9857,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule"
@@ -9728,6 +9884,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule"
@@ -9756,6 +9913,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -9781,6 +9939,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
@@ -9807,6 +9966,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
@@ -9890,6 +10050,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9916,6 +10077,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9938,6 +10100,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -9964,6 +10127,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -9991,6 +10155,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -10110,6 +10275,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
@@ -10135,6 +10301,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
@@ -10161,6 +10328,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
@@ -10431,6 +10599,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
@@ -10466,6 +10635,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
@@ -10495,6 +10665,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule",
@@ -10520,6 +10691,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -10544,6 +10716,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -10569,6 +10742,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -10591,6 +10765,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -10616,6 +10791,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -10642,6 +10818,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -10664,6 +10841,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -10690,6 +10868,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -10715,6 +10894,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -10738,6 +10918,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -10766,6 +10947,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -10897,6 +11079,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule"
@@ -10925,6 +11108,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule"
@@ -10948,6 +11132,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter"
@@ -10982,6 +11167,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter"
@@ -11012,6 +11198,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter"
@@ -11035,6 +11222,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11057,6 +11245,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11082,6 +11271,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11104,6 +11294,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter"
@@ -11128,6 +11319,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter"
@@ -11152,6 +11344,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter"
@@ -11175,6 +11368,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11203,6 +11397,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11226,6 +11421,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11315,6 +11511,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11338,6 +11535,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11400,6 +11598,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11428,6 +11627,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11450,6 +11650,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11472,6 +11673,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11515,6 +11717,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11538,6 +11741,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11560,6 +11764,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -11585,6 +11790,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -11615,6 +11821,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -11639,6 +11846,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -11671,6 +11879,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -11707,6 +11916,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -18069,6 +18279,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -18093,6 +18304,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -18116,6 +18328,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -19009,7 +19222,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -21398,24 +21614,6 @@
       }
     },
     {
-      "name": "TelemetryDiagnosticRoutineObserver",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_telemetry_diagnostic_routine_service.mojom.js",
-      "methods": [
-        "OnRoutineStateChange"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "TelemetryEventObserver",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_telemetry_event_service.mojom.js",
@@ -22467,6 +22665,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -22494,6 +22693,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -22523,6 +22723,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -22551,6 +22752,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -22575,6 +22777,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -22598,6 +22801,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -22837,6 +23041,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -22863,6 +23068,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -22887,6 +23093,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
@@ -23165,6 +23372,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -23191,6 +23399,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -23220,6 +23429,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpFooter",
@@ -23272,7 +23482,8 @@
         "ShowAvatarMenu",
         "SetAvatarButtonHovered",
         "SetAvatarButtonFocused",
-        "SetAvatarButtonIphPromoShowing"
+        "SetAvatarButtonIphPromoShowing",
+        "OnAppMenuFocusChanged"
       ],
       "metadata": {
         "usage": {
@@ -23308,6 +23519,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -23608,6 +23820,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -23806,6 +24019,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -23830,6 +24044,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -23856,6 +24071,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -23978,6 +24194,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -24146,6 +24363,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -24172,6 +24390,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -24197,6 +24416,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -24293,6 +24513,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -24317,6 +24538,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -24343,6 +24565,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -25034,6 +25257,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -25094,6 +25318,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -25140,6 +25365,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -25282,6 +25508,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -25308,6 +25535,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -27711,6 +27939,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -27735,6 +27964,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -27759,6 +27989,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -28020,6 +28251,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -28045,6 +28277,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -28654,6 +28887,7 @@
         "SetCompositionRangeInfo",
         "CancelComposition",
         "SetShowingContextMenu",
+        "SetSupportsAutoFill",
         "DisplayCursor",
         "SetCursorLocked",
         "SetCursorLockedUnacceleratedMovement",
@@ -30605,10 +30839,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kMojoServices"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -31231,6 +31462,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -31256,6 +31488,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -31278,6 +31511,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -49737,6 +49971,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -49761,6 +49996,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -49783,6 +50019,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -49822,6 +50059,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -49849,6 +50087,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -49871,6 +50110,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -49896,6 +50136,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -49918,6 +50159,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
@@ -49953,6 +50195,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
@@ -49978,6 +50221,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
@@ -50279,6 +50523,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -50306,6 +50551,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -50342,6 +50588,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -50372,6 +50619,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -50394,6 +50642,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -50416,6 +50665,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -50443,6 +50693,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -50468,6 +50719,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -50650,6 +50902,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -50673,6 +50926,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -50698,6 +50952,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kMojoServices",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -51531,14 +51786,6 @@
       "imports": []
     },
     {
-      "filename": "chrome_browser_ash_guest_os_guest_os_diagnostics.mojom.js",
-      "source": "chrome/browser/ash/guest_os/guest_os_diagnostics.mojom",
-      "module": "guest_os.mojom",
-      "imports": [
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
       "filename": "chrome_browser_contextual_tasks_contextual_tasks.mojom.js",
       "source": "chrome/browser/contextual_tasks/contextual_tasks.mojom",
       "module": "contextual_tasks.mojom",
@@ -52105,14 +52352,6 @@
       "imports": []
     },
     {
-      "filename": "chrome_browser_ui_webui_ash_vm_vm.mojom.js",
-      "source": "chrome/browser/ui/webui/ash/vm/vm.mojom",
-      "module": "ash.vm.mojom",
-      "imports": [
-        "chrome/browser/ash/guest_os/guest_os_diagnostics.mojom"
-      ]
-    },
-    {
       "filename": "chrome_browser_ui_webui_bluetooth_internals_bluetooth_internals.mojom.js",
       "source": "chrome/browser/ui/webui/bluetooth_internals/bluetooth_internals.mojom",
       "module": "mojom",
@@ -52263,6 +52502,12 @@
       "filename": "chrome_browser_ui_webui_infobar_internals_infobar_internals.mojom.js",
       "source": "chrome/browser/ui/webui/infobar_internals/infobar_internals.mojom",
       "module": "infobar_internals.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_intro_finish_or_continue.mojom.js",
+      "source": "chrome/browser/ui/webui/intro/finish_or_continue.mojom",
+      "module": "intro.mojom",
       "imports": []
     },
     {
