@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-30T12:05:28.257660Z",
-  "version": "151.0.7922.2",
+  "generated_at": "2026-07-01T12:29:01.297934Z",
+  "version": "152.0.7923.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7316,7 +7316,8 @@
       "file": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
       "methods": [
         "GenerateAutoTodos",
-        "GetAllEntries"
+        "GetAllMemoryBankEntries",
+        "DeleteMemoryBankEntries"
       ],
       "metadata": {
         "usage": {
@@ -11004,7 +11005,8 @@
       "module": "skills.mojom",
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
-        "SyncCookies"
+        "SyncCookies",
+        "ShowToast"
       ],
       "metadata": {
         "usage": {
@@ -12726,6 +12728,56 @@
       }
     },
     {
+      "name": "ReadAloudPlayer",
+      "module": "read_aloud.mojom",
+      "file": "chrome_common_readaloud_read_aloud.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: read_aloud.mojom.ReadAloudPlayerFactory.CreatePlayer"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ReadAloudPlayerObserver",
+      "module": "read_aloud.mojom",
+      "file": "chrome_common_readaloud_read_aloud.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ReadAloudPlayerFactory",
+      "module": "read_aloud.mojom",
+      "file": "chrome_common_readaloud_read_aloud.mojom.js",
+      "methods": [
+        "CreatePlayer"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "BoundSessionRequestThrottledHandler",
       "module": "chrome.mojom",
       "file": "chrome_common_renderer_configuration.mojom.js",
@@ -13658,7 +13710,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
       }
@@ -21491,9 +21542,6 @@
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_account_manager.mojom.js",
       "methods": [
-        "OnTokenUpserted",
-        "OnAccountRemoved",
-        "OnAuthErrorChanged",
         "OnSigninDialogClosed"
       ],
       "metadata": {
@@ -21516,8 +21564,7 @@
         "ShowAddAccountDialog",
         "ShowReauthAccountDialog",
         "GetPersistentErrorForAccount",
-        "CreateAccessTokenFetcher",
-        "ReportAuthError"
+        "CreateAccessTokenFetcher"
       ],
       "metadata": {
         "usage": {
@@ -22642,9 +22689,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kXuControls",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kXuControls"
         ]
       }
     },
@@ -25607,6 +25652,24 @@
       }
     },
     {
+      "name": "ModelBrokerDebugObserver",
+      "module": "optimization_guide.mojom",
+      "file": "components_optimization_guide_public_mojom_model_broker_debug.mojom.js",
+      "methods": [
+        "OnBrokerStateChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "ModelBrokerDebug",
       "module": "optimization_guide.mojom",
       "file": "components_optimization_guide_public_mojom_model_broker_debug.mojom.js",
@@ -25614,7 +25677,8 @@
         "GetStateInfo",
         "SetUseCaseRequested",
         "UninstallModels",
-        "ResetModelCrashCount"
+        "ResetModelCrashCount",
+        "AddObserver"
       ],
       "metadata": {
         "usage": {
@@ -49149,6 +49213,7 @@
         "StartTokenRequest",
         "RegisterIdP",
         "UnregisterIdP",
+        "CloseModalDialogView",
         "PreventSilentAccess",
         "RequestUserInfo",
         "Disconnect",
@@ -50552,6 +50617,31 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kMojoServices",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "HistoryCrossDeviceSigninPromoHandler",
+      "module": "history_cross_device_signin_promo.mojom",
+      "file": "ui_webui_resources_cr_components_history_history_cross_device_signin_promo.mojom.js",
+      "methods": [
+        "ShouldShowPromoCard",
+        "OnPromoCardShown",
+        "OnPromoCardDismissed",
+        "OnPromoCardActionClicked"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -53164,6 +53254,15 @@
         "ui/accessibility/mojom/ax_tree_id.mojom",
         "ui/accessibility/mojom/ax_tree_update.mojom",
         "mojo/public/mojom/base/values.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_common_readaloud_read_aloud.mojom.js",
+      "source": "chrome/common/readaloud/read_aloud.mojom",
+      "module": "read_aloud.mojom",
+      "imports": [
+        "mojo/public/mojom/base/work_in_progress.mojom",
+        "sandbox/policy/mojom/sandbox.mojom"
       ]
     },
     {
@@ -61838,6 +61937,7 @@
       "source": "services/network/public/mojom/url_loader_completion_status.mojom",
       "module": "network.mojom",
       "imports": [
+        "mojo/public/mojom/base/byte_size.mojom",
         "mojo/public/mojom/base/time.mojom",
         "services/network/public/mojom/blocked_by_response_reason.mojom",
         "services/network/public/mojom/cors.mojom",
@@ -63447,6 +63547,7 @@
       "imports": [
         "services/on_device_model/public/mojom/download_observer.mojom",
         "third_party/blink/public/mojom/ai/ai_common.mojom",
+        "third_party/blink/public/mojom/ai/ai_semantic_embedder.mojom",
         "third_party/blink/public/mojom/ai/ai_language_model.mojom",
         "third_party/blink/public/mojom/ai/ai_proofreader.mojom",
         "third_party/blink/public/mojom/ai/ai_rewriter.mojom",
@@ -67820,6 +67921,12 @@
       "imports": [
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "ui_webui_resources_cr_components_history_history_cross_device_signin_promo.mojom.js",
+      "source": "ui/webui/resources/cr_components/history/history_cross_device_signin_promo.mojom",
+      "module": "history_cross_device_signin_promo.mojom",
+      "imports": []
     },
     {
       "filename": "ui_webui_resources_cr_components_history_clusters_history_clusters.mojom.js",
