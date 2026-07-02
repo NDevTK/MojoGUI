@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-01T12:29:01.297934Z",
-  "version": "152.0.7923.0",
+  "generated_at": "2026-07-02T12:03:24.716111Z",
+  "version": "152.0.7925.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3868,6 +3868,51 @@
       }
     },
     {
+      "name": "SkillsHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "CreateSkill",
+        "UpdateSkill",
+        "ShowManageSkillsUi",
+        "ShowBrowseSkillsUi",
+        "GetSkill",
+        "RecordSkillsWebClientEvent"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: glic.mojom.WebClientHandler.CreateSkillsHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "SkillsClient",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "NotifySkillPreviewsChanged",
+        "NotifyContextualSkillPreviewsChanged",
+        "NotifySkillPreviewChanged",
+        "NotifySkillDeleted",
+        "NotifySkillToInvokeChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "WebClientHandler",
       "module": "glic.mojom",
       "file": "chrome_browser_glic_host_glic.mojom.js",
@@ -3877,6 +3922,7 @@
         "WebClientInitializeFailed",
         "CreateActorHandler",
         "CreateAnnotationHandler",
+        "CreateSkillsHandler",
         "CreateTab",
         "ActivateTabWithUrl",
         "OpenLinkInPopup",
@@ -3897,12 +3943,6 @@
         "PinTabs",
         "UnpinTabs",
         "UnpinAllTabs",
-        "CreateSkill",
-        "UpdateSkill",
-        "ShowManageSkillsUi",
-        "ShowBrowseSkillsUi",
-        "GetSkill",
-        "RecordSkillsWebClientEvent",
         "SubscribeToPinCandidates",
         "ActivateTab",
         "ResizeWidget",
@@ -4038,10 +4078,6 @@
         "NotifyClosedCaptioningSettingChanged",
         "NotifyPinnedTabsChanged",
         "NotifyPinnedTabDataChanged",
-        "NotifySkillDeleted",
-        "NotifySkillPreviewChanged",
-        "NotifyContextualSkillPreviewsChanged",
-        "NotifySkillPreviewsChanged",
         "NotifyZeroStateSuggestionsChanged",
         "NotifyPageMetadataChanged",
         "NotifyDefaultTabContextPermissionStateChanged",
@@ -12819,6 +12855,24 @@
         "SetInitialConfiguration",
         "SetConfiguration",
         "SetConfigurationOnProcessLockUpdate"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ChromeCompanero",
+      "module": "request_header_integrity.mojom",
+      "file": "chrome_common_request_header_integrity_chrome_companero.mojom.js",
+      "methods": [
+        "GetHeaderNameAndValue"
       ],
       "metadata": {
         "usage": {
@@ -53277,6 +53331,12 @@
       ]
     },
     {
+      "filename": "chrome_common_request_header_integrity_chrome_companero.mojom.js",
+      "source": "chrome/common/request_header_integrity/chrome_companero.mojom",
+      "module": "request_header_integrity.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_common_sandbox_status_extension_android.mojom.js",
       "source": "chrome/common/sandbox_status_extension_android.mojom",
       "module": "chrome.mojom",
@@ -60308,6 +60368,7 @@
         "services/device/public/mojom/geolocation_context.mojom",
         "services/device/public/mojom/geolocation_control.mojom",
         "services/device/public/mojom/geolocation_internals.mojom",
+        "services/device/public/mojom/hid.mojom",
         "services/device/public/mojom/power_monitor.mojom",
         "services/device/public/mojom/public_ip_address_geolocation_provider.mojom",
         "services/device/public/mojom/screen_orientation.mojom",
@@ -60318,7 +60379,6 @@
         "services/device/public/mojom/usb_manager_test.mojom",
         "services/device/public/mojom/vibration_manager.mojom",
         "services/device/public/mojom/wake_lock_provider.mojom",
-        "services/device/public/mojom/hid.mojom",
         "services/device/public/mojom/input_service.mojom",
         "services/device/public/mojom/pressure_manager.mojom"
       ]
