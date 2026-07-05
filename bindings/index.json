@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-04T11:18:23.708018Z",
-  "version": "152.0.7929.0",
+  "generated_at": "2026-07-05T11:23:44.880672Z",
+  "version": "152.0.7932.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7556,6 +7556,80 @@
       }
     },
     {
+      "name": "Page",
+      "module": "visual_guided_setter.mojom",
+      "file": "chrome_browser_ui_webui_default_browser_visual_guided_setter.mojom.js",
+      "methods": [
+        "SetErrorState"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "visual_guided_setter.mojom",
+      "file": "chrome_browser_ui_webui_default_browser_visual_guided_setter.mojom.js",
+      "methods": [
+        "SetAnchorRect",
+        "OpenSettings"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: visual_guided_setter.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "visual_guided_setter.mojom",
+      "file": "chrome_browser_ui_webui_default_browser_visual_guided_setter.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kMojoServices",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
       "name": "DetailsProvider",
       "module": "discards.mojom",
       "file": "chrome_browser_ui_webui_discards_discards.mojom.js",
@@ -7969,7 +8043,8 @@
       "module": "feature_showcase.mojom",
       "file": "chrome_browser_ui_webui_feature_showcase_google_lens.mojom.js",
       "methods": [
-        "EnableGoogleLens"
+        "EnableGoogleLens",
+        "SkipGoogleLens"
       ],
       "metadata": {
         "usage": {
@@ -8005,7 +8080,8 @@
       "module": "feature_showcase.mojom",
       "file": "chrome_browser_ui_webui_feature_showcase_password_manager.mojom.js",
       "methods": [
-        "PinPasswordManager"
+        "PinPasswordManager",
+        "SkipPasswordManager"
       ],
       "metadata": {
         "usage": {
@@ -11225,8 +11301,7 @@
         "gates": [
           "feature:kMojoServices",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11249,8 +11324,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11273,8 +11347,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -52332,6 +52405,14 @@
       "source": "chrome/browser/ui/webui/default_browser/default_browser_modal.mojom",
       "module": "default_browser_modal.mojom",
       "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_default_browser_visual_guided_setter.mojom.js",
+      "source": "chrome/browser/ui/webui/default_browser/visual_guided_setter.mojom",
+      "module": "visual_guided_setter.mojom",
+      "imports": [
+        "ui/gfx/geometry/mojom/geometry.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_ui_webui_discards_discards.mojom.js",
