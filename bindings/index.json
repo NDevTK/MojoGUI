@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-06T13:38:52.430775Z",
-  "version": "152.0.7934.0",
+  "generated_at": "2026-07-08T11:44:34.197040Z",
+  "version": "152.0.7938.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7302,7 +7302,10 @@
       "methods": [
         "GenerateAutoTodos",
         "GetAllMemoryBankEntries",
-        "DeleteMemoryBankEntries"
+        "DeleteMemoryBankEntries",
+        "GetTabs",
+        "ClusterTabs",
+        "SwitchToTab"
       ],
       "metadata": {
         "usage": {
@@ -10758,6 +10761,51 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "cross_device_signin.mojom",
+      "file": "chrome_browser_ui_webui_signin_cross_device_signin_qr_bubble_cross_device_signin_qr_bubble.mojom.js",
+      "methods": [
+        "CreateCrossDeviceSigninQrBubbleHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kMojoServices",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "cross_device_signin.mojom",
+      "file": "chrome_browser_ui_webui_signin_cross_device_signin_qr_bubble_cross_device_signin_qr_bubble.mojom.js",
+      "methods": [
+        "GetRegistrationData"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: cross_device_signin.mojom.PageHandlerFactory.CreateCrossDeviceSigninQrBubbleHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -21566,7 +21614,6 @@
         "AddObserver",
         "ShowAddAccountDialog",
         "ShowReauthAccountDialog",
-        "GetPersistentErrorForAccount",
         "CreateAccessTokenFetcher"
       ],
       "metadata": {
@@ -21669,25 +21716,6 @@
       "file": "chromeos_crosapi_mojom_telemetry_event_service.mojom.js",
       "methods": [
         "OnEvent"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "TelemetryEventService",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_telemetry_event_service.mojom.js",
-      "methods": [
-        "AddEventObserver",
-        "IsEventSupported"
       ],
       "metadata": {
         "usage": {
@@ -22914,7 +22942,8 @@
         "PreviewPasswordSuggestion",
         "PreviewPasswordGenerationSuggestion",
         "GetPotentialLastFourCombinationsForStandaloneCvc",
-        "SendEmailVerificationToken"
+        "SendEmailVerificationToken",
+        "UpdateEmailVerificationState"
       ],
       "metadata": {
         "usage": {
@@ -22999,7 +23028,8 @@
         "SuppressAutomaticRefills",
         "RequestRefill",
         "JavaScriptChangedAutofilledValue",
-        "FormWithEmailVerificationTokenSubmitted"
+        "FormWithEmailVerificationTokenSubmitted",
+        "DidDetectJavaScriptAutofill"
       ],
       "metadata": {
         "usage": {
@@ -36331,15 +36361,18 @@
       }
     },
     {
-      "name": "SensorConnectionWatcher",
+      "name": "SensorClientController",
       "module": "device.mojom",
-      "file": "services_device_public_mojom_sensor.mojom.js",
-      "methods": [],
+      "file": "services_device_public_mojom_sensor_provider.mojom.js",
+      "methods": [
+        "Suspend",
+        "Resume"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Internal Interface: device.mojom.SensorProvider.GetSensor"
           ]
         },
         "scope": "context",
@@ -52821,6 +52854,12 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_ui_webui_signin_cross_device_signin_qr_bubble_cross_device_signin_qr_bubble.mojom.js",
+      "source": "chrome/browser/ui/webui/signin/cross_device_signin_qr_bubble/cross_device_signin_qr_bubble.mojom",
+      "module": "cross_device_signin.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_signin_history_sync_optin_history_sync_optin.mojom.js",
       "source": "chrome/browser/ui/webui/signin/history_sync_optin/history_sync_optin.mojom",
       "module": "history_sync_optin.mojom",
@@ -53206,7 +53245,9 @@
       "filename": "chrome_common_request_header_integrity_chrome_companero.mojom.js",
       "source": "chrome/common/request_header_integrity/chrome_companero.mojom",
       "module": "request_header_integrity.mojom",
-      "imports": []
+      "imports": [
+        "services/network/public/mojom/http_request_headers.mojom"
+      ]
     },
     {
       "filename": "chrome_common_sandbox_status_extension_android.mojom.js",
@@ -56554,7 +56595,7 @@
       "source": "components/page_load_metrics/common/page_load_metrics.mojom",
       "module": "page_load_metrics.mojom",
       "imports": [
-        "mojo/public/mojom/base/byte_count.mojom",
+        "mojo/public/mojom/base/byte_size.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
@@ -65208,6 +65249,7 @@
       "source": "third_party/blink/public/mojom/loader/resource_load_info_notifier.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/byte_size.mojom",
         "services/network/public/mojom/fetch_api.mojom",
         "services/network/public/mojom/url_loader.mojom",
         "services/network/public/mojom/url_loader_completion_status.mojom",
@@ -65992,6 +66034,7 @@
         "third_party/blink/public/mojom/peerconnection/webrtc_ip_handling_policy.mojom",
         "third_party/blink/public/mojom/user_agent/user_agent_metadata.mojom",
         "ui/gfx/mojom/font_render_params.mojom",
+        "ui/events/mojom/keyboard_codes.mojom",
         "third_party/blink/public/mojom/peerconnection/webrtc_ip_handling_url_entry.mojom"
       ]
     },
