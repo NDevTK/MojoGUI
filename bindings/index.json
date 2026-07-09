@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-08T11:44:34.197040Z",
-  "version": "152.0.7938.0",
+  "generated_at": "2026-07-09T12:31:26.189573Z",
+  "version": "152.0.7940.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3405,6 +3405,7 @@
         "OnWebviewMessage",
         "GetCommonSearchParams",
         "OnboardingTooltipDismissed",
+        "LensSearchTooltipDismissed",
         "ReopenTabs",
         "PinSidePanel",
         "UnpinSidePanel",
@@ -3903,6 +3904,7 @@
         "WebClientInitialized",
         "WebClientInitializeFailed",
         "CreateActorHandler",
+        "CreateExperimentalTriggeringClient",
         "CreateAnnotationHandler",
         "CreateSkillsHandler",
         "CreateTab",
@@ -4038,6 +4040,25 @@
       }
     },
     {
+      "name": "ExperimentalTriggeringClient",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "UploadEncryptedScreenshot",
+        "GetExperimentalTriggeringUpdates"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "WebClient",
       "module": "glic.mojom",
       "file": "chrome_browser_glic_host_glic.mojom.js",
@@ -4069,8 +4090,7 @@
         "NotifyOnboardingCompletedChanged",
         "NotifyGeminiEnterpriseSettingsChanged",
         "NotifyActorTaskListRowClicked",
-        "Invoke",
-        "GetExperimentalTriggeringUpdates"
+        "Invoke"
       ],
       "metadata": {
         "usage": {
@@ -7304,7 +7324,7 @@
         "GetAllMemoryBankEntries",
         "DeleteMemoryBankEntries",
         "GetTabs",
-        "ClusterTabs",
+        "RetrieveAndGroupTabs",
         "SwitchToTab"
       ],
       "metadata": {
@@ -7838,7 +7858,11 @@
       "name": "PageHandler",
       "module": "drive_picker_host_untrusted.mojom",
       "file": "chrome_browser_ui_webui_drive_picker_host_untrusted_drive_picker_host_untrusted.mojom.js",
-      "methods": [],
+      "methods": [
+        "OnConsentKitIframeMessage",
+        "OnConsentKitPrivacyFlowResult",
+        "OnConsentKitError"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -9543,10 +9567,11 @@
       "methods": [
         "ShowContextMenu",
         "CloseUI",
-        "OnManualBlur",
         "OnSelectionChanged",
         "Revert",
-        "LogEscapeAction"
+        "LogEscapeAction",
+        "OnInputCleared",
+        "RequestInputState"
       ],
       "metadata": {
         "usage": {
@@ -9570,7 +9595,8 @@
       "methods": [
         "OnShow",
         "OnContextMenuClosed",
-        "SetInputState"
+        "SetInputState",
+        "SetFocus"
       ],
       "metadata": {
         "usage": {
@@ -9899,6 +9925,7 @@
       "module": "password_manager.mojom",
       "file": "chrome_browser_ui_webui_password_manager_password_manager.mojom.js",
       "methods": [
+        "OnPasswordAutomaticChangeStateUpdated",
         "OnPasswordsExportProgress"
       ],
       "metadata": {
@@ -10001,45 +10028,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
-      }
-    },
-    {
-      "name": "PrivateAiInternalsPage",
-      "module": "private_ai_internals.mojom",
-      "file": "chrome_browser_ui_webui_private_ai_internals_private_ai_internals.mojom.js",
-      "methods": [
-        "OnLogMessage"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "PrivateAiInternalsPageHandler",
-      "module": "private_ai_internals.mojom",
-      "file": "chrome_browser_ui_webui_private_ai_internals_private_ai_internals.mojom.js",
-      "methods": [
-        "SetPage",
-        "Connect",
-        "Close",
-        "SendRequest"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
       }
     },
     {
@@ -12681,6 +12669,7 @@
         "OnFontChange",
         "OnFontSizeChange",
         "OnLinksEnabledChanged",
+        "OnTranslationRequested",
         "OnImagesEnabledChanged",
         "OnColorChange",
         "OnSpeechRateChange",
@@ -23553,7 +23542,9 @@
         "SetAvatarButtonHovered",
         "SetAvatarButtonFocused",
         "SetAvatarButtonIphPromoShowing",
-        "OnAppMenuFocusChanged"
+        "OnAppMenuFocusChanged",
+        "ExecuteExtensionAction",
+        "ShowExtensionContextMenu"
       ],
       "metadata": {
         "usage": {
@@ -26063,6 +26054,45 @@
       }
     },
     {
+      "name": "PrivateAiInternalsPage",
+      "module": "private_ai_internals.mojom",
+      "file": "components_private_ai_private_ai_internals_webui_private_ai_internals.mojom.js",
+      "methods": [
+        "OnLogMessage"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PrivateAiInternalsPageHandler",
+      "module": "private_ai_internals.mojom",
+      "file": "components_private_ai_private_ai_internals_webui_private_ai_internals.mojom.js",
+      "methods": [
+        "SetPage",
+        "Connect",
+        "Close",
+        "SendRequest"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PrivateVerificationTokensProvider",
       "module": "private_verification_tokens.mojom",
       "file": "components_private_verification_tokens_mojom_private_verification_tokens_service.mojom.js",
@@ -28467,7 +28497,8 @@
       "file": "content_common_child_process.mojom.js",
       "methods": [
         "Ping",
-        "BindHostReceiver"
+        "BindHostReceiver",
+        "BindHostReceivers"
       ],
       "metadata": {
         "usage": {
@@ -30450,6 +30481,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork"
         ]
       }
@@ -30473,7 +30505,8 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ]
       }
     },
@@ -31313,6 +31346,7 @@
         "WaitForTokenInRange",
         "WaitForGetOffsetInRange",
         "CopyToGpuMemoryBufferAsync",
+        "GetGLGpuFence",
         "CopyNativeGmbToSharedMemoryAsync"
       ],
       "metadata": {
@@ -34522,6 +34556,7 @@
         "GetMostVisiblePageIndex",
         "HasMeaningfulText",
         "HasJavaScript",
+        "IsPasswordProtected",
         "GetSaveDataBufferHandlerForDrive"
       ],
       "metadata": {
@@ -35847,8 +35882,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ]
       }
     },
@@ -36334,6 +36369,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork",
           "feature:kImeSystemEmojiPickerMojoSearch"
         ],
@@ -36401,6 +36437,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork"
         ],
         "scrambled": false
@@ -37975,7 +38012,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ]
       }
@@ -39355,6 +39392,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork"
         ]
       }
@@ -39479,7 +39517,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
+          "feature:kEnforceGamepadPermissionsPolicy"
         ]
       }
     },
@@ -42855,6 +42893,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork"
         ]
       }
@@ -43047,7 +43086,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
+          "feature:kEnforceGamepadPermissionsPolicy"
         ]
       }
     },
@@ -43240,6 +43279,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork"
         ],
         "scrambled": false
@@ -43812,7 +43852,8 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "feature:kFencedFramesLocalUnpartitionedDataAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -44317,7 +44358,8 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -44568,7 +44610,8 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -44729,7 +44772,8 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -44752,7 +44796,8 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -44984,7 +45029,6 @@
         "AdvanceFocusForIME",
         "ReportContentSecurityPolicyViolation",
         "DidUpdateFramePolicy",
-        "OnFrameVisibilityChanged",
         "PostMessageEvent",
         "JavaScriptMethodExecuteRequest",
         "JavaScriptExecuteRequest",
@@ -45110,6 +45154,7 @@
         "category": "internal",
         "gates": [
           "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kFencedFramesLocalUnpartitionedDataAccess"
         ],
         "scrambled": false
@@ -45354,8 +45399,8 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -45415,6 +45460,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork"
         ],
         "scrambled": false
@@ -45498,7 +45544,8 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -45724,7 +45771,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
+          "feature:kEnforceGamepadPermissionsPolicy"
         ]
       }
     },
@@ -46263,7 +46310,8 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -46500,7 +46548,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -47256,6 +47304,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork"
         ],
         "scrambled": false
@@ -47908,6 +47957,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork"
         ],
         "scrambled": false
@@ -48119,6 +48169,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork"
         ],
         "scrambled": false
@@ -48992,7 +49043,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -49151,7 +49202,7 @@
     {
       "name": "FederatedRequest",
       "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_webid_federated_auth_request.mojom.js",
+      "file": "third_party_blink_public_mojom_webid_federated_request.mojom.js",
       "methods": [
         "Abort"
       ],
@@ -49174,7 +49225,7 @@
     {
       "name": "FederatedRequestService",
       "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_webid_federated_auth_request.mojom.js",
+      "file": "third_party_blink_public_mojom_webid_federated_request.mojom.js",
       "methods": [
         "StartTokenRequest",
         "RegisterIdP",
@@ -49301,7 +49352,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kWebMachineLearningNeuralNetwork"
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -49323,6 +49374,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork"
         ],
         "scrambled": false
@@ -49481,7 +49533,8 @@
         "category": "internal",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -49524,7 +49577,8 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ]
       }
     },
@@ -52485,6 +52539,7 @@
       "module": "drive_picker_host_untrusted.mojom",
       "imports": [
         "chrome/browser/ui/views/drive_picker_host/drive_picker_result_handler.mojom",
+        "mojo/public/mojom/base/proto_wrapper.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -52766,12 +52821,6 @@
       "filename": "chrome_browser_ui_webui_personal_context_internals_personal_context_internals.mojom.js",
       "source": "chrome/browser/ui/webui/personal_context_internals/personal_context_internals.mojom",
       "module": "browser.personal_context_internals.mojom",
-      "imports": []
-    },
-    {
-      "filename": "chrome_browser_ui_webui_private_ai_internals_private_ai_internals.mojom.js",
-      "source": "chrome/browser/ui/webui/private_ai_internals/private_ai_internals.mojom",
-      "module": "private_ai_internals.mojom",
       "imports": []
     },
     {
@@ -55802,7 +55851,8 @@
       "source": "components/browser_apis/ui_controllers/toolbar/extensions_bar_data_model.mojom",
       "module": "extensions_bar.mojom",
       "imports": [
-        "components/browser_apis/ui_controllers/toolbar/icon_handle.mojom"
+        "components/browser_apis/ui_controllers/toolbar/icon_handle.mojom",
+        "mojo/public/mojom/base/string16.mojom"
       ]
     },
     {
@@ -56715,6 +56765,12 @@
       "imports": [
         "sandbox/policy/mojom/sandbox.mojom"
       ]
+    },
+    {
+      "filename": "components_private_ai_private_ai_internals_webui_private_ai_internals.mojom.js",
+      "source": "components/private_ai/private_ai_internals/webui/private_ai_internals.mojom",
+      "module": "private_ai_internals.mojom",
+      "imports": []
     },
     {
       "filename": "components_private_verification_tokens_mojom_private_verification_tokens_service.mojom.js",
@@ -59634,12 +59690,6 @@
       "imports": [
         "mojo/public/mojom/base/generic_pending_receiver.mojom"
       ]
-    },
-    {
-      "filename": "mojo_public_mojom_base_byte_count.mojom.js",
-      "source": "mojo/public/mojom/base/byte_count.mojom",
-      "module": "mojo_base.mojom",
-      "imports": []
     },
     {
       "filename": "mojo_public_mojom_base_byte_size.mojom.js",
@@ -63948,7 +63998,8 @@
       "module": "blink.mojom",
       "imports": [
         "third_party/blink/public/mojom/tokens/tokens.mojom",
-        "url/mojom/origin.mojom"
+        "url/mojom/origin.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom"
       ]
     },
     {
@@ -66706,8 +66757,8 @@
       "imports": []
     },
     {
-      "filename": "third_party_blink_public_mojom_webid_federated_auth_request.mojom.js",
-      "source": "third_party/blink/public/mojom/webid/federated_auth_request.mojom",
+      "filename": "third_party_blink_public_mojom_webid_federated_request.mojom.js",
+      "source": "third_party/blink/public/mojom/webid/federated_request.mojom",
       "module": "blink.mojom",
       "imports": [
         "mojo/public/mojom/base/time.mojom",
