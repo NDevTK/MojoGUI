@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-09T12:31:26.189573Z",
-  "version": "152.0.7940.0",
+  "generated_at": "2026-07-10T12:22:50.407983Z",
+  "version": "152.0.7942.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -12752,15 +12752,25 @@
       }
     },
     {
-      "name": "ReadAloudPlayer",
+      "name": "ReadAloudPlaybackController",
       "module": "read_aloud.mojom",
       "file": "chrome_common_readaloud_read_aloud.mojom.js",
-      "methods": [],
+      "methods": [
+        "InitializeAudio",
+        "SetTextContent",
+        "Play",
+        "Pause",
+        "SeekToWord",
+        "SeekToTime",
+        "SetVoice",
+        "SetPlaybackRate",
+        "FlushBuffers"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: read_aloud.mojom.ReadAloudPlayerFactory.CreatePlayer"
+            "Internal Interface: read_aloud.mojom.ReadAloudPlaybackControllerFactory.CreateController"
           ]
         },
         "scope": "context",
@@ -12768,10 +12778,15 @@
       }
     },
     {
-      "name": "ReadAloudPlayerObserver",
+      "name": "ReadAloudPlaybackControllerClient",
       "module": "read_aloud.mojom",
       "file": "chrome_common_readaloud_read_aloud.mojom.js",
-      "methods": [],
+      "methods": [
+        "OnPlaybackStateChanged",
+        "OnPlaybackDurationChanged",
+        "OnWordBoundaryReached",
+        "RequestSpeechSynthesis"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -12784,11 +12799,11 @@
       }
     },
     {
-      "name": "ReadAloudPlayerFactory",
+      "name": "ReadAloudPlaybackControllerFactory",
       "module": "read_aloud.mojom",
       "file": "chrome_common_readaloud_read_aloud.mojom.js",
       "methods": [
-        "CreatePlayer"
+        "CreateController"
       ],
       "metadata": {
         "usage": {
@@ -16928,6 +16943,7 @@
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
           "permission:MIDI_SYSEX",
+          "feature:kFontDataServiceForCSSLocalFonts",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -21578,31 +21594,10 @@
       }
     },
     {
-      "name": "AccountManagerObserver",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_account_manager.mojom.js",
-      "methods": [
-        "OnSigninDialogClosed"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "AccountManager",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_account_manager.mojom.js",
       "methods": [
-        "AddObserver",
-        "ShowAddAccountDialog",
-        "ShowReauthAccountDialog",
         "CreateAccessTokenFetcher"
       ],
       "metadata": {
@@ -26726,7 +26721,10 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts"
+        ]
       }
     },
     {
@@ -27042,7 +27040,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts"
+        ]
       }
     },
     {
@@ -31346,7 +31347,6 @@
         "WaitForTokenInRange",
         "WaitForGetOffsetInRange",
         "CopyToGpuMemoryBufferAsync",
-        "GetGLGpuFence",
         "CopyNativeGmbToSharedMemoryAsync"
       ],
       "metadata": {
@@ -40041,6 +40041,7 @@
         "scope": "process",
         "category": "direct",
         "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -40061,7 +40062,10 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts"
+        ]
       }
     },
     {
@@ -40222,6 +40226,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts",
           "feature:kPolicyPageMojoMigration"
         ]
       }
@@ -41734,6 +41739,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts",
           "feature:kIndigo"
         ]
       }
@@ -42721,7 +42727,8 @@
         "gates": [
           "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kFontAccess",
+          "feature:kFontDataServiceForCSSLocalFonts"
         ],
         "scrambled": false
       }
@@ -44297,7 +44304,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts"
+        ]
       }
     },
     {
@@ -44773,7 +44783,8 @@
         "gates": [
           "feature:kComputePressure",
           "feature:kFontAccess",
-          "feature:kEnforceGamepadPermissionsPolicy"
+          "feature:kEnforceGamepadPermissionsPolicy",
+          "feature:kFontDataServiceForCSSLocalFonts"
         ],
         "scrambled": false
       }
@@ -44819,6 +44830,9 @@
         },
         "scope": "context",
         "category": "internal",
+        "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts"
+        ],
         "scrambled": false
       }
     },
@@ -45420,7 +45434,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts"
+        ]
       }
     },
     {
@@ -45505,6 +45522,9 @@
         },
         "scope": "context",
         "category": "internal",
+        "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts"
+        ],
         "scrambled": false
       }
     },
@@ -46284,8 +46304,7 @@
         "gates": [
           "feature:kBrowsingTopics",
           "feature:kBrowsingTopicsDocumentAPI",
-          "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kComputePressure"
         ],
         "scrambled": false
       }
@@ -46310,8 +46329,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess",
-          "feature:kEnforceGamepadPermissionsPolicy"
+          "feature:kFontAccess"
         ],
         "scrambled": false
       }
@@ -46884,6 +46902,9 @@
         },
         "scope": "context",
         "category": "internal",
+        "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts"
+        ],
         "scrambled": false
       }
     },
@@ -46939,6 +46960,9 @@
         },
         "scope": "context",
         "category": "internal",
+        "gates": [
+          "feature:kFontDataServiceForCSSLocalFonts"
+        ],
         "scrambled": false
       }
     },
@@ -53275,6 +53299,11 @@
       "source": "chrome/common/readaloud/read_aloud.mojom",
       "module": "read_aloud.mojom",
       "imports": [
+        "media/mojo/mojom/audio_data_pipe.mojom",
+        "media/mojo/mojom/audio_output_stream.mojom",
+        "mojo/public/mojom/base/big_buffer.mojom",
+        "mojo/public/mojom/base/string16.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/work_in_progress.mojom",
         "sandbox/policy/mojom/sandbox.mojom"
       ]
