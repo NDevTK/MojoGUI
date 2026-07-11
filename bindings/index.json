@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-10T12:22:50.407983Z",
-  "version": "152.0.7942.0",
+  "generated_at": "2026-07-11T10:56:30.759229Z",
+  "version": "152.0.7944.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -21657,62 +21657,6 @@
       }
     },
     {
-      "name": "TelemetryProbeService",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_probe_service.mojom.js",
-      "methods": [
-        "ProbeTelemetryInfo"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "TelemetryDiagnosticRoutineControl",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_telemetry_diagnostic_routine_service.mojom.js",
-      "methods": [
-        "GetState",
-        "Start",
-        "ReplyToInquiry"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "TelemetryEventObserver",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_telemetry_event_service.mojom.js",
-      "methods": [
-        "OnEvent"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "CfmBrowser",
       "module": "chromeos.cfm.mojom",
       "file": "chromeos_services_chromebox_for_meetings_public_mojom_cfm_browser.mojom.js",
@@ -25341,6 +25285,7 @@
         "AddFileContext",
         "AddTabContext",
         "DeleteContext",
+        "DeleteTabContext",
         "ClearFiles",
         "SubmitQuery",
         "OpenLensSearch",
@@ -27652,7 +27597,8 @@
       "methods": [
         "SetSurfaceEmbed",
         "AttachConnector",
-        "SynchronizeVisualProperties"
+        "SynchronizeVisualProperties",
+        "SetParentAccessibilityInfo"
       ],
       "metadata": {
         "usage": {
@@ -55269,7 +55215,6 @@
         "chromeos/components/payments/mojom/payment_app.mojom",
         "chromeos/components/sensors/mojom/cros_sensor_service.mojom",
         "chromeos/crosapi/mojom/account_manager.mojom",
-        "chromeos/crosapi/mojom/probe_service.mojom",
         "chromeos/services/chromebox_for_meetings/public/mojom/cfm_service_manager.mojom",
         "chromeos/services/machine_learning/public/mojom/machine_learning_service.mojom",
         "mojo/public/mojom/base/generic_pending_receiver.mojom",
@@ -55283,49 +55228,6 @@
       "source": "chromeos/crosapi/mojom/nullable_primitives.mojom",
       "module": "crosapi.mojom",
       "imports": []
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_probe_service.mojom.js",
-      "source": "chromeos/crosapi/mojom/probe_service.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "chromeos/crosapi/mojom/nullable_primitives.mojom",
-        "chromeos/services/network_health/public/mojom/network_health_types.mojom"
-      ]
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_telemetry_diagnostic_routine_service.mojom.js",
-      "source": "chromeos/crosapi/mojom/telemetry_diagnostic_routine_service.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "chromeos/crosapi/mojom/telemetry_extension_exception.mojom",
-        "mojo/public/mojom/base/time.mojom"
-      ]
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_telemetry_event_service.mojom.js",
-      "source": "chromeos/crosapi/mojom/telemetry_event_service.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "chromeos/crosapi/mojom/probe_service.mojom",
-        "chromeos/crosapi/mojom/telemetry_extension_exception.mojom",
-        "chromeos/crosapi/mojom/telemetry_keyboard_event.mojom",
-        "chromeos/crosapi/mojom/nullable_primitives.mojom"
-      ]
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_telemetry_extension_exception.mojom.js",
-      "source": "chromeos/crosapi/mojom/telemetry_extension_exception.mojom",
-      "module": "crosapi.mojom",
-      "imports": []
-    },
-    {
-      "filename": "chromeos_crosapi_mojom_telemetry_keyboard_event.mojom.js",
-      "source": "chromeos/crosapi/mojom/telemetry_keyboard_event.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "chromeos/crosapi/mojom/nullable_primitives.mojom"
-      ]
     },
     {
       "filename": "chromeos_services_chromebox_for_meetings_public_mojom_cfm_browser.mojom.js",
@@ -55919,6 +55821,7 @@
         "components/content_settings/core/common/content_settings_types.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/range/mojom/range.mojom"
       ]
     },
@@ -59795,6 +59698,12 @@
       "imports": []
     },
     {
+      "filename": "mojo_public_mojom_base_language_tag.mojom.js",
+      "source": "mojo/public/mojom/base/language_tag.mojom",
+      "module": "mojo_base.mojom",
+      "imports": []
+    },
+    {
       "filename": "mojo_public_mojom_base_logfont_win.mojom.js",
       "source": "mojo/public/mojom/base/logfont_win.mojom",
       "module": "mojo_base.mojom",
@@ -59983,6 +59892,12 @@
       ]
     },
     {
+      "filename": "remoting_host_mojom_common.mojom.js",
+      "source": "remoting/host/mojom/common.mojom",
+      "module": "remoting.mojom",
+      "imports": []
+    },
+    {
       "filename": "remoting_host_mojom_desktop_session.mojom.js",
       "source": "remoting/host/mojom/desktop_session.mojom",
       "module": "remoting.mojom",
@@ -59991,6 +59906,7 @@
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "remoting/host/mojom/common.mojom",
         "remoting/host/mojom/keyboard_layout.mojom",
         "remoting/host/mojom/remote_security_key.mojom",
         "remoting/host/mojom/webrtc_types.mojom",
@@ -60046,6 +59962,7 @@
       "imports": [
         "mojo/public/mojom/base/values.mojom",
         "remoting/host/mojom/chromoting_host_services.mojom",
+        "remoting/host/mojom/common.mojom",
         "services/network/public/mojom/ip_endpoint.mojom"
       ]
     },
@@ -61635,6 +61552,7 @@
       "module": "network.mojom",
       "imports": [
         "mojo/public/mojom/base/big_string.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "services/network/public/mojom/network_param.mojom",
         "url/mojom/scheme_host_port.mojom"
       ]
@@ -64054,7 +63972,8 @@
         "third_party/blink/public/mojom/forms/form_control_type.mojom",
         "ui/base/mojom/menu_source_type.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
-        "url/mojom/url.mojom"
+        "url/mojom/url.mojom",
+        "third_party/blink/public/mojom/dom/dom_node_id.mojom"
       ]
     },
     {
@@ -64219,6 +64138,12 @@
         "components/schema_org/common/metadata.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_dom_dom_node_id.mojom.js",
+      "source": "third_party/blink/public/mojom/dom/dom_node_id.mojom",
+      "module": "blink.mojom",
+      "imports": []
     },
     {
       "filename": "third_party_blink_public_mojom_dom_storage_dom_storage.mojom.js",
@@ -64627,6 +64552,7 @@
         "third_party/blink/public/mojom/devtools/console_message.mojom",
         "third_party/blink/public/mojom/devtools/devtools_agent.mojom",
         "third_party/blink/public/mojom/devtools/inspector_issue.mojom",
+        "third_party/blink/public/mojom/dom/dom_node_id.mojom",
         "third_party/blink/public/mojom/dom_storage/storage_area.mojom",
         "third_party/blink/public/mojom/drag/drag.mojom",
         "third_party/blink/public/mojom/favicon/favicon_url.mojom",
