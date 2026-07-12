@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-11T10:56:30.759229Z",
-  "version": "152.0.7944.0",
+  "generated_at": "2026-07-12T11:05:14.342483Z",
+  "version": "152.0.7946.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -10322,32 +10322,6 @@
       }
     },
     {
-      "name": "Page",
-      "module": "comments.mojom",
-      "file": "chrome_browser_ui_webui_side_panel_comments_comments.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule",
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
-        ]
-      }
-    },
-    {
       "name": "CustomizeChromePageHandlerFactory",
       "module": "side_panel.mojom",
       "file": "chrome_browser_ui_webui_side_panel_customize_chrome_customize_chrome.mojom.js",
@@ -11365,29 +11339,6 @@
       }
     },
     {
-      "name": "Page",
-      "module": "unexportable_keys_internals.mojom",
-      "file": "chrome_browser_ui_webui_unexportable_keys_internals_unexportable_keys_internals.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
       "name": "PageHandlerFactory",
       "module": "updater_ui.mojom",
       "file": "chrome_browser_ui_webui_updater_updater_ui.mojom.js",
@@ -11433,29 +11384,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "Page",
-      "module": "updater_ui.mojom",
-      "file": "chrome_browser_ui_webui_updater_updater_ui.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11748,29 +11676,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "Page",
-      "module": "whats_new.mojom",
-      "file": "chrome_browser_ui_webui_whats_new_whats_new.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
