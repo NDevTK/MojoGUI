@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7946.0';
+        const versionStr = window.mojoVersion || '152.0.7947.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -271,6 +271,12 @@ mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ParamsS
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ResponseParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.searchbox.mojom.PageHandler_SetSmartTabSharingActive_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_SetSmartTabSharingActive_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.searchbox.mojom.PageHandler_SetSmartTabSharingActive_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_SetSmartTabSharingActive_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_SetSmartTabSharingActive_ParamsSpec.$ = {};
+mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ParamsSpec.$ = {};
+mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ResponseParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.Page = mojo.internal.bindings.searchbox.mojom.Page || {};
 mojo.internal.bindings.searchbox.mojom.PageSpec = mojo.internal.bindings.searchbox.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.searchbox.mojom.PageSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageSpec.$ = {};
@@ -307,6 +313,8 @@ mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpe
 if (mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.Page_UpdateAimPopupEligibility_ParamsSpec = mojo.internal.bindings.searchbox.mojom.Page_UpdateAimPopupEligibility_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.Page_UpdateAimPopupEligibility_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.Page_UpdateAimPopupEligibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.Page_UpdateAimPopupEligibility_ParamsSpec.$ = {};
+mojo.internal.bindings.searchbox.mojom.Page_UpdateSmartTabSharingActive_ParamsSpec = mojo.internal.bindings.searchbox.mojom.Page_UpdateSmartTabSharingActive_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.searchbox.mojom.Page_UpdateSmartTabSharingActive_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.Page_UpdateSmartTabSharingActive_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.Page_UpdateSmartTabSharingActive_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.Page_OnPermissionPromptChanged_ParamsSpec = mojo.internal.bindings.searchbox.mojom.Page_OnPermissionPromptChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.Page_OnPermissionPromptChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.Page_OnPermissionPromptChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.Page_OnPermissionPromptChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.Page_SetRestoredTabIds_ParamsSpec = mojo.internal.bindings.searchbox.mojom.Page_SetRestoredTabIds_ParamsSpec || { $: {} };
@@ -695,12 +703,20 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemote = class {
   getPageClassification() {
     return this.$.getPageClassification();
   }
+  setSmartTabSharingActive(arg_active) {
+    return this.$.setSmartTabSharingActive(arg_active);
+  }
+  getSmartTabSharingActive() {
+    return this.$.getSmartTabSharingActive();
+  }
 };
 
 mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1064,6 +1080,24 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
+  setSmartTabSharingActive(arg_active) {
+    return this.proxy.sendMessage(
+      this.ordinals[36],  // ordinal
+      mojo.internal.bindings.searchbox.mojom.PageHandler_SetSmartTabSharingActive_ParamsSpec,
+      null,
+      [arg_active],
+      false);
+  }
+
+  getSmartTabSharingActive() {
+    return this.proxy.sendMessage(
+      this.ordinals[37],  // ordinal
+      mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.searchbox.mojom.PageHandler.getRemote = function() {
@@ -1082,6 +1116,8 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1501,6 +1537,31 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+        case 36: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SetSmartTabSharingActive_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setSmartTabSharingActive');
+          const result = this.impl.setSmartTabSharingActive(params.arg_active);
+          break;
+        }
+        case 37: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getSmartTabSharingActive');
+          const result = this.impl.getSmartTabSharingActive();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_active' in response) ? response['arg_active'] : response;
+              const resp_obj = { 'arg_active': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getSmartTabSharingActive FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -1593,6 +1654,9 @@ mojo.internal.bindings.searchbox.mojom.PageRemote = class {
   updateAimPopupEligibility(arg_eligible) {
     return this.$.updateAimPopupEligibility(arg_eligible);
   }
+  updateSmartTabSharingActive(arg_active) {
+    return this.$.updateSmartTabSharingActive(arg_active);
+  }
   onPermissionPromptChanged(arg_is_showing, arg_prompt_size) {
     return this.$.onPermissionPromptChanged(arg_is_showing, arg_prompt_size);
   }
@@ -1608,6 +1672,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1774,9 +1839,18 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       false);
   }
 
-  onPermissionPromptChanged(arg_is_showing, arg_prompt_size) {
+  updateSmartTabSharingActive(arg_active) {
     return this.proxy.sendMessage(
       this.ordinals[16],  // ordinal
+      mojo.internal.bindings.searchbox.mojom.Page_UpdateSmartTabSharingActive_ParamsSpec,
+      null,
+      [arg_active],
+      false);
+  }
+
+  onPermissionPromptChanged(arg_is_showing, arg_prompt_size) {
+    return this.proxy.sendMessage(
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_OnPermissionPromptChanged_ParamsSpec,
       null,
       [arg_is_showing, arg_prompt_size],
@@ -1785,7 +1859,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
 
   setRestoredTabIds(arg_ids) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_SetRestoredTabIds_ParamsSpec,
       null,
       [arg_ids],
@@ -1794,7 +1868,7 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
 
   setAimThreadRestoredTabs(arg_tabs) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec,
       null,
       [arg_tabs],
@@ -1819,6 +1893,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1995,19 +2070,26 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateSmartTabSharingActive_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateSmartTabSharingActive');
+          const result = this.impl.updateSmartTabSharingActive(params.arg_active);
+          break;
+        }
+        case 17: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnPermissionPromptChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPermissionPromptChanged');
           const result = this.impl.onPermissionPromptChanged(params.arg_is_showing, params.arg_prompt_size);
           break;
         }
-        case 17: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetRestoredTabIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRestoredTabIds');
           const result = this.impl.setRestoredTabIds(params.arg_ids);
           break;
         }
-        case 18: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAimThreadRestoredTabs');
@@ -2531,6 +2613,23 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_SetSmartTabSharingActive_ParamsSpec, 'searchbox.mojom.PageHandler_SetSmartTabSharingActive_Params', [
+      mojo.internal.StructField('arg_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ParamsSpec, 'searchbox.mojom.PageHandler_GetSmartTabSharingActive_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetSmartTabSharingActive_ResponseParams', [
+      mojo.internal.StructField('arg_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec, 'searchbox.mojom.Page_AutocompleteResultChanged_Params', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec, null, false, 0, undefined),
     ],
@@ -2628,6 +2727,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.Page_UpdateAimPopupEligibility_ParamsSpec, 'searchbox.mojom.Page_UpdateAimPopupEligibility_Params', [
       mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateSmartTabSharingActive_ParamsSpec, 'searchbox.mojom.Page_UpdateSmartTabSharingActive_Params', [
+      mojo.internal.StructField('arg_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

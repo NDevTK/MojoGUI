@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-12T11:05:14.342483Z",
-  "version": "152.0.7946.0",
+  "generated_at": "2026-07-13T12:27:41.333110Z",
+  "version": "152.0.7947.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -25202,7 +25202,9 @@
         "GetDriveDisclaimerStatus",
         "OnDriveDisclaimerAccepted",
         "OnDriveUploadClicked",
-        "GetPageClassification"
+        "GetPageClassification",
+        "SetSmartTabSharingActive",
+        "GetSmartTabSharingActive"
       ],
       "metadata": {
         "usage": {
@@ -25244,6 +25246,7 @@
         "UpdateLensSearchEligibility",
         "UpdateContentSharingPolicy",
         "UpdateAimPopupEligibility",
+        "UpdateSmartTabSharingActive",
         "OnPermissionPromptChanged",
         "SetRestoredTabIds",
         "SetAimThreadRestoredTabs"
