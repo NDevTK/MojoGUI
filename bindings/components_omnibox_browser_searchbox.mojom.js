@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7947.0';
+        const versionStr = window.mojoVersion || '152.0.7949.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -598,11 +598,11 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemote = class {
   onFocusChanged(arg_focused) {
     return this.$.onFocusChanged(arg_focused);
   }
-  queryAutocomplete(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position) {
-    return this.$.queryAutocomplete(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position);
+  queryAutocomplete(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_is_on_focus) {
+    return this.$.queryAutocomplete(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_is_on_focus);
   }
-  queryAutocompleteWithSuggestInventory(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_suggest_inventory) {
-    return this.$.queryAutocompleteWithSuggestInventory(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_suggest_inventory);
+  queryAutocompleteWithSuggestInventory(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_suggest_inventory, arg_is_on_focus) {
+    return this.$.queryAutocompleteWithSuggestInventory(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_suggest_inventory, arg_is_on_focus);
   }
   stopAutocomplete(arg_clear_result) {
     return this.$.stopAutocomplete(arg_clear_result);
@@ -765,21 +765,21 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
-  queryAutocomplete(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position) {
+  queryAutocomplete(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_is_on_focus) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec,
       null,
-      [arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position],
+      [arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_is_on_focus],
       false);
   }
 
-  queryAutocompleteWithSuggestInventory(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_suggest_inventory) {
+  queryAutocompleteWithSuggestInventory(arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_suggest_inventory, arg_is_on_focus) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocompleteWithSuggestInventory_ParamsSpec,
       null,
-      [arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_suggest_inventory],
+      [arg_query_id, arg_input, arg_prevent_inline_autocomplete, arg_cursor_position, arg_suggest_inventory, arg_is_on_focus],
       false);
   }
 
@@ -1208,14 +1208,14 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queryAutocomplete');
-          const result = this.impl.queryAutocomplete(params.arg_query_id, params.arg_input, params.arg_prevent_inline_autocomplete, params.arg_cursor_position);
+          const result = this.impl.queryAutocomplete(params.arg_query_id, params.arg_input, params.arg_prevent_inline_autocomplete, params.arg_cursor_position, params.arg_is_on_focus);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocompleteWithSuggestInventory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queryAutocompleteWithSuggestInventory');
-          const result = this.impl.queryAutocompleteWithSuggestInventory(params.arg_query_id, params.arg_input, params.arg_prevent_inline_autocomplete, params.arg_cursor_position, params.arg_suggest_inventory);
+          const result = this.impl.queryAutocompleteWithSuggestInventory(params.arg_query_id, params.arg_input, params.arg_prevent_inline_autocomplete, params.arg_cursor_position, params.arg_suggest_inventory, params.arg_is_on_focus);
           break;
         }
         case 3: {
@@ -2329,6 +2329,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec, 'searchbox.mojom.PageHandler_QueryAutocomplete_Params', [
       mojo.internal.StructField('arg_query_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_prevent_inline_autocomplete', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_on_focus', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_input', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_cursor_position', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
@@ -2338,6 +2339,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocompleteWithSuggestInventory_ParamsSpec, 'searchbox.mojom.PageHandler_QueryAutocompleteWithSuggestInventory_Params', [
       mojo.internal.StructField('arg_query_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_prevent_inline_autocomplete', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_on_focus', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_input', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_cursor_position', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_suggest_inventory', 20, 0, mojo.internal.bindings.searchbox.mojom.SuggestInventorySpec, null, false, 0, undefined),

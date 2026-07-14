@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7947.0';
+        const versionStr = window.mojoVersion || '152.0.7949.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -178,6 +178,10 @@ mojo.internal.bindings.content.mojom.TestService_GetPseudonymizationSalt_ParamsS
 if (mojo.internal.bindings.content.mojom.TestService_GetPseudonymizationSalt_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_GetPseudonymizationSalt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_GetPseudonymizationSalt_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.TestService_GetPseudonymizationSalt_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_GetPseudonymizationSalt_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.TestService_GetPseudonymizationSalt_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_GetPseudonymizationSalt_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_GetPseudonymizationSalt_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ParamsSpec.$ = {};
+mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.TestService_IsPseudonymizationSaltInitialized_ParamsSpec = mojo.internal.bindings.content.mojom.TestService_IsPseudonymizationSaltInitialized_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.TestService_IsPseudonymizationSaltInitialized_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.TestService_IsPseudonymizationSaltInitialized_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.TestService_IsPseudonymizationSaltInitialized_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.TestService_IsPseudonymizationSaltInitialized_ResponseParamsSpec = mojo.internal.bindings.content.mojom.TestService_IsPseudonymizationSaltInitialized_ResponseParamsSpec || { $: {} };
@@ -275,6 +279,9 @@ mojo.internal.bindings.content.mojom.TestServiceRemote = class {
   getPseudonymizationSalt() {
     return this.$.getPseudonymizationSalt();
   }
+  isSkiaInitialized() {
+    return this.$.isSkiaInitialized();
+  }
   isPseudonymizationSaltInitialized() {
     return this.$.isPseudonymizationSaltInitialized();
   }
@@ -293,6 +300,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -420,9 +428,18 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
       false);
   }
 
-  isPseudonymizationSaltInitialized() {
+  isSkiaInitialized() {
     return this.proxy.sendMessage(
       this.ordinals[12],  // ordinal
+      mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ParamsSpec,
+      mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  isPseudonymizationSaltInitialized() {
+    return this.proxy.sendMessage(
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_IsPseudonymizationSaltInitialized_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_IsPseudonymizationSaltInitialized_ResponseParamsSpec,
       [],
@@ -431,7 +448,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
 
   passWriteableFile(arg_file) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ResponseParamsSpec,
       [arg_file],
@@ -440,7 +457,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
 
   verifyCheckIsTest() {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_VerifyCheckIsTest_ParamsSpec,
       mojo.internal.bindings.content.mojom.TestService_VerifyCheckIsTest_ResponseParamsSpec,
       [],
@@ -449,7 +466,7 @@ mojo.internal.bindings.content.mojom.TestServiceRemoteCallHandler = class {
 
   writeToPreloadedPipe() {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec,
       null,
       [],
@@ -474,6 +491,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('content.mojom.TestService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -748,6 +766,24 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.isSkiaInitialized');
+          const result = this.impl.isSkiaInitialized();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_is_initialized' in response) ? response['arg_is_initialized'] : response;
+              const resp_obj = { 'arg_is_initialized': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] isSkiaInitialized FAILED:', e));
+          }
+          break;
+        }
+        case 13: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_IsPseudonymizationSaltInitialized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isPseudonymizationSaltInitialized');
           const result = this.impl.isPseudonymizationSaltInitialized();
@@ -764,7 +800,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_PassWriteableFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passWriteableFile');
@@ -781,7 +817,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_VerifyCheckIsTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.verifyCheckIsTest');
@@ -799,7 +835,7 @@ mojo.internal.bindings.content.mojom.TestServiceReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.TestService_WriteToPreloadedPipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeToPreloadedPipe');
@@ -952,6 +988,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.TestService_GetPseudonymizationSalt_ResponseParamsSpec, 'content.mojom.TestService_GetPseudonymizationSalt_ResponseParams', [
       mojo.internal.StructField('arg_salt', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ParamsSpec, 'content.mojom.TestService_IsSkiaInitialized_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.TestService_IsSkiaInitialized_ResponseParamsSpec, 'content.mojom.TestService_IsSkiaInitialized_ResponseParams', [
+      mojo.internal.StructField('arg_is_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

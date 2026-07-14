@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7947.0';
+        const versionStr = window.mojoVersion || '152.0.7949.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -152,6 +152,10 @@ mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromManifest_ParamsS
 if (mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromManifest_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromManifest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromManifest_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromManifest_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromManifest_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromManifest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromManifest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromManifest_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ParamsSpec = mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
@@ -207,12 +211,16 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceRemote = class {
   installFromManifest(arg_options) {
     return this.$.installFromManifest(arg_options);
   }
+  elementInstallFromManifest(arg_options) {
+    return this.$.elementInstallFromManifest(arg_options);
+  }
 };
 
 mojo.internal.bindings.blink.mojom.WebInstallServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebInstallService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -256,6 +264,15 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceRemoteCallHandler = class {
       false);
   }
 
+  elementInstallFromManifest(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ResponseParamsSpec,
+      [arg_options],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.blink.mojom.WebInstallService.getRemote = function() {
@@ -274,6 +291,7 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebInstallService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -391,6 +409,24 @@ mojo.internal.bindings.blink.mojom.WebInstallServiceReceiver = class {
           }
           break;
         }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.elementInstallFromManifest');
+          const result = this.impl.elementInstallFromManifest(params.arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] elementInstallFromManifest FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -468,6 +504,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebInstallService_InstallFromManifest_ResponseParamsSpec, 'blink.mojom.WebInstallService_InstallFromManifest_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.WebInstallServiceResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ParamsSpec, 'blink.mojom.WebInstallService_ElementInstallFromManifest_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.ManifestInstallOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebInstallService_ElementInstallFromManifest_ResponseParamsSpec, 'blink.mojom.WebInstallService_ElementInstallFromManifest_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.WebInstallServiceResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-13T12:27:41.333110Z",
-  "version": "152.0.7947.0",
+  "generated_at": "2026-07-14T11:20:52.636042Z",
+  "version": "152.0.7949.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -23372,6 +23372,7 @@
         "OnPageActionClick",
         "OnPageActionChipShowingChanged",
         "InvokePinnedToolbarAction",
+        "OnLocationBarFocusWithinChanged",
         "OnLhsChipMousePressed",
         "OnLhsChipClicked",
         "OnLhsChipPointerEntered",
@@ -23388,7 +23389,8 @@
         "SetAvatarButtonIphPromoShowing",
         "OnAppMenuFocusChanged",
         "ExecuteExtensionAction",
-        "ShowExtensionContextMenu"
+        "ShowExtensionContextMenu",
+        "AdjustOmniboxTextForCopy"
       ],
       "metadata": {
         "usage": {
@@ -27505,8 +27507,7 @@
       "methods": [
         "SetSurfaceEmbed",
         "AttachConnector",
-        "SynchronizeVisualProperties",
-        "SetParentAccessibilityInfo"
+        "SynchronizeVisualProperties"
       ],
       "metadata": {
         "usage": {
@@ -29295,6 +29296,7 @@
         "IsProcessSandboxed",
         "PseudonymizeString",
         "GetPseudonymizationSalt",
+        "IsSkiaInitialized",
         "IsPseudonymizationSaltInitialized",
         "PassWriteableFile",
         "VerifyCheckIsTest",
@@ -48956,7 +48958,8 @@
         "IsInstalled",
         "Install",
         "InstallFromElement",
-        "InstallFromManifest"
+        "InstallFromManifest",
+        "ElementInstallFromManifest"
       ],
       "metadata": {
         "usage": {
@@ -55132,12 +55135,6 @@
       ]
     },
     {
-      "filename": "chromeos_crosapi_mojom_nullable_primitives.mojom.js",
-      "source": "chromeos/crosapi/mojom/nullable_primitives.mojom",
-      "module": "crosapi.mojom",
-      "imports": []
-    },
-    {
       "filename": "chromeos_services_chromebox_for_meetings_public_mojom_cfm_browser.mojom.js",
       "source": "chromeos/services/chromebox_for_meetings/public/mojom/cfm_browser.mojom",
       "module": "chromeos.cfm.mojom",
@@ -55715,6 +55712,7 @@
         "ui/gfx/geometry/mojom/geometry.mojom",
         "mojo/public/mojom/base/empty.mojom",
         "mojo/public/mojom/base/error.mojom",
+        "mojo/public/mojom/base/string16.mojom",
         "url/mojom/url.mojom"
       ]
     },
