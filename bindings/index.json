@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-14T11:20:52.636042Z",
-  "version": "152.0.7949.0",
+  "generated_at": "2026-07-15T11:23:08.160739Z",
+  "version": "152.0.7951.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -11025,7 +11025,8 @@
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
         "SyncCookies",
-        "ShowToast"
+        "ShowToast",
+        "InvokeSkill"
       ],
       "metadata": {
         "usage": {
@@ -18324,29 +18325,6 @@
       }
     },
     {
-      "name": "Page",
-      "module": "ash.borealis_motd.mojom",
-      "file": "chromeos_ash_experiences_guest_os_borealis_motd_borealis_motd.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
       "name": "FactorObserver",
       "module": "ash.auth.mojom",
       "file": "chromeos_ash_services_auth_factor_config_public_mojom_auth_factor_config.mojom.js",
@@ -21499,47 +21477,10 @@
       }
     },
     {
-      "name": "AccountManager",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_account_manager.mojom.js",
-      "methods": [
-        "CreateAccessTokenFetcher"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: crosapi.mojom.Crosapi.BindAccountManager"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "AccessTokenFetcher",
-      "module": "crosapi.mojom",
-      "file": "chromeos_crosapi_mojom_account_manager.mojom.js",
-      "methods": [
-        "Start"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "Crosapi",
       "module": "crosapi.mojom",
       "file": "chromeos_crosapi_mojom_crosapi.mojom.js",
       "methods": [
-        "BindAccountManager",
         "BindBrowserCdmFactory",
         "BindCfmServiceContext",
         "BindInSessionAuth",
@@ -22732,29 +22673,6 @@
       }
     },
     {
-      "name": "DataHost",
-      "module": "attribution_reporting.mojom",
-      "file": "components_attribution_reporting_data_host.mojom.js",
-      "methods": [
-        "SourceDataAvailable",
-        "TriggerDataAvailable",
-        "OsSourceDataAvailable",
-        "OsTriggerDataAvailable",
-        "ReportRegistrationHeaderError"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: blink.mojom.AttributionHost.RegisterDataHost",
-            "Internal Interface: blink.mojom.AttributionHost.RegisterNavigationDataHost"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "AutofillAgent",
       "module": "autofill.mojom",
       "file": "components_autofill_content_common_mojom_autofill_agent.mojom.js",
@@ -23373,6 +23291,8 @@
         "OnPageActionChipShowingChanged",
         "InvokePinnedToolbarAction",
         "OnLocationBarFocusWithinChanged",
+        "MovePinnedToolbarAction",
+        "MovePinnedToolbarActionBy",
         "OnLhsChipMousePressed",
         "OnLhsChipClicked",
         "OnLhsChipPointerEntered",
@@ -27934,105 +27854,6 @@
       }
     },
     {
-      "name": "Page",
-      "module": "chrome_urls.mojom",
-      "file": "components_webui_chrome_urls_mojom_chrome_urls.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kPolicyPageMojoMigration",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "Observer",
-      "module": "attribution_internals.mojom",
-      "file": "content_browser_attribution_reporting_attribution_internals.mojom.js",
-      "methods": [
-        "OnSourcesChanged",
-        "OnReportsChanged",
-        "OnSourceHandled",
-        "OnReportHandled",
-        "OnDebugReportSent",
-        "OnAggregatableDebugReportSent",
-        "OnTriggerHandled",
-        "OnOsRegistration",
-        "OnDebugModeChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "Handler",
-      "module": "attribution_internals.mojom",
-      "file": "content_browser_attribution_reporting_attribution_internals.mojom.js",
-      "methods": [
-        "IsAttributionReportingEnabled",
-        "SendReport",
-        "ClearStorage"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: attribution_internals.mojom.Factory.Create"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "Factory",
-      "module": "attribution_internals.mojom",
-      "file": "content_browser_attribution_reporting_attribution_internals.mojom.js",
-      "methods": [
-        "Create"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kInterestGroupStorage",
-          "feature:kWebOTP",
-          "feature:kLazyBrowserInterfaceBroker",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
       "name": "IdbInternalsHandler",
       "module": "storage.mojom",
       "file": "content_browser_indexed_db_indexed_db_internals.mojom.js",
@@ -28120,6 +27941,7 @@
         "category": "internal",
         "gates": [
           "feature:kInterestGroupStorage",
+          "feature:kWebOTP",
           "feature:kLazyBrowserInterfaceBroker",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -28261,6 +28083,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kInterestGroupStorage",
           "feature:kWebOTP"
         ]
       }
@@ -43564,27 +43387,6 @@
       }
     },
     {
-      "name": "AttributionHost",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_conversions_conversions.mojom.js",
-      "methods": [
-        "RegisterDataHost",
-        "RegisterNavigationDataHost",
-        "NotifyNavigationWithBackgroundRegistrationsWillStart"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [
-            "Source: Associated Interface (RFH/Navigation)"
-          ],
-          "direct": []
-        },
-        "scope": "context",
-        "category": "associated",
-        "scrambled": false
-      }
-    },
-    {
       "name": "CookieStore",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_cookie_store_cookie_store.mojom.js",
@@ -47056,7 +46858,6 @@
         "SetPageBaseBackgroundColor",
         "CreateRemoteMainFrame",
         "UpdatePageBrowsingContextGroup",
-        "SetPageAttributionSupport",
         "UpdateColorProviders",
         "SetSupportsDraggableRegions"
       ],
@@ -50121,6 +49922,7 @@
         "category": "internal",
         "gates": [
           "feature:kMojoServices",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
@@ -50156,6 +49958,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
@@ -50181,6 +49984,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
@@ -50304,8 +50108,6 @@
         "gates": [
           "feature:kSubApps",
           "feature:kPaymentLinkDetection",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kNtpTabGroupsModule"
         ]
@@ -50354,8 +50156,6 @@
         "gates": [
           "feature:kSubApps",
           "feature:kPaymentLinkDetection",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kNtpTabGroupsModule"
         ]
@@ -55110,14 +54910,6 @@
       "imports": []
     },
     {
-      "filename": "chromeos_crosapi_mojom_account_manager.mojom.js",
-      "source": "chromeos/crosapi/mojom/account_manager.mojom",
-      "module": "crosapi.mojom",
-      "imports": [
-        "mojo/public/mojom/base/time.mojom"
-      ]
-    },
-    {
       "filename": "chromeos_crosapi_mojom_crosapi.mojom.js",
       "source": "chromeos/crosapi/mojom/crosapi.mojom",
       "module": "crosapi.mojom",
@@ -55125,7 +54917,6 @@
         "chromeos/components/in_session_auth/mojom/in_session_auth.mojom",
         "chromeos/components/payments/mojom/payment_app.mojom",
         "chromeos/components/sensors/mojom/cros_sensor_service.mojom",
-        "chromeos/crosapi/mojom/account_manager.mojom",
         "chromeos/services/chromebox_for_meetings/public/mojom/cfm_service_manager.mojom",
         "chromeos/services/machine_learning/public/mojom/machine_learning_service.mojom",
         "mojo/public/mojom/base/generic_pending_receiver.mojom",
@@ -55422,88 +55213,6 @@
       "imports": [
         "mojo/public/mojom/base/time.mojom"
       ]
-    },
-    {
-      "filename": "components_attribution_reporting_data_host.mojom.js",
-      "source": "components/attribution_reporting/data_host.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": [
-        "components/attribution_reporting/registration.mojom",
-        "components/attribution_reporting/registration_header_error.mojom"
-      ]
-    },
-    {
-      "filename": "components_attribution_reporting_debug_types.mojom.js",
-      "source": "components/attribution_reporting/debug_types.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "components_attribution_reporting_os_registration_error.mojom.js",
-      "source": "components/attribution_reporting/os_registration_error.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "components_attribution_reporting_registration.mojom.js",
-      "source": "components/attribution_reporting/registration.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": [
-        "components/attribution_reporting/source_registration_time_config.mojom",
-        "components/attribution_reporting/trigger_data_matching.mojom",
-        "components/attribution_reporting/debug_types.mojom",
-        "mojo/public/mojom/base/int128.mojom",
-        "mojo/public/mojom/base/time.mojom",
-        "services/network/public/mojom/schemeful_site.mojom",
-        "url/mojom/origin.mojom",
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
-      "filename": "components_attribution_reporting_registration_eligibility.mojom.js",
-      "source": "components/attribution_reporting/registration_eligibility.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "components_attribution_reporting_registration_header_error.mojom.js",
-      "source": "components/attribution_reporting/registration_header_error.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": [
-        "components/attribution_reporting/os_registration_error.mojom",
-        "components/attribution_reporting/source_registration_error.mojom",
-        "components/attribution_reporting/trigger_registration_error.mojom"
-      ]
-    },
-    {
-      "filename": "components_attribution_reporting_source_registration_error.mojom.js",
-      "source": "components/attribution_reporting/source_registration_error.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "components_attribution_reporting_source_registration_time_config.mojom.js",
-      "source": "components/attribution_reporting/source_registration_time_config.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "components_attribution_reporting_source_type.mojom.js",
-      "source": "components/attribution_reporting/source_type.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "components_attribution_reporting_trigger_data_matching.mojom.js",
-      "source": "components/attribution_reporting/trigger_data_matching.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "components_attribution_reporting_trigger_registration_error.mojom.js",
-      "source": "components/attribution_reporting/trigger_registration_error.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
     },
     {
       "filename": "components_autofill_content_common_mojom_autofill_agent.mojom.js",
@@ -57319,54 +57028,6 @@
       ]
     },
     {
-      "filename": "content_browser_attribution_reporting_aggregatable_result.mojom.js",
-      "source": "content/browser/attribution_reporting/aggregatable_result.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "content_browser_attribution_reporting_attribution_internals.mojom.js",
-      "source": "content/browser/attribution_reporting/attribution_internals.mojom",
-      "module": "attribution_internals.mojom",
-      "imports": [
-        "components/attribution_reporting/registration.mojom",
-        "components/attribution_reporting/source_type.mojom",
-        "components/attribution_reporting/trigger_data_matching.mojom",
-        "content/browser/attribution_reporting/aggregatable_result.mojom",
-        "content/browser/attribution_reporting/process_aggregatable_debug_report_result.mojom",
-        "content/browser/attribution_reporting/attribution_reporting.mojom",
-        "content/browser/attribution_reporting/event_level_result.mojom",
-        "content/browser/attribution_reporting/store_source_result.mojom",
-        "services/network/public/mojom/attribution.mojom",
-        "url/mojom/origin.mojom",
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
-      "filename": "content_browser_attribution_reporting_attribution_reporting.mojom.js",
-      "source": "content/browser/attribution_reporting/attribution_reporting.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "content_browser_attribution_reporting_event_level_result.mojom.js",
-      "source": "content/browser/attribution_reporting/event_level_result.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "content_browser_attribution_reporting_process_aggregatable_debug_report_result.mojom.js",
-      "source": "content/browser/attribution_reporting/process_aggregatable_debug_report_result.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
-      "filename": "content_browser_attribution_reporting_store_source_result.mojom.js",
-      "source": "content/browser/attribution_reporting/store_source_result.mojom",
-      "module": "attribution_reporting.mojom",
-      "imports": []
-    },
-    {
       "filename": "content_browser_indexed_db_indexed_db_internals.mojom.js",
       "source": "content/browser/indexed_db/indexed_db_internals.mojom",
       "module": "storage.mojom",
@@ -57490,7 +57151,6 @@
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "skia/public/mojom/skcolor.mojom",
-        "services/network/public/mojom/attribution.mojom",
         "services/network/public/mojom/content_security_policy.mojom",
         "services/network/public/mojom/url_loader.mojom",
         "services/network/public/mojom/url_loader_completion_status.mojom",
@@ -57504,7 +57164,6 @@
         "third_party/blink/public/mojom/blob/blob_url_store.mojom",
         "third_party/blink/public/mojom/browser_interface_broker.mojom",
         "third_party/blink/public/mojom/commit_result/commit_result.mojom",
-        "third_party/blink/public/mojom/conversions/conversions.mojom",
         "third_party/blink/public/mojom/devtools/console_message.mojom",
         "third_party/blink/public/mojom/fenced_frame/fenced_frame.mojom",
         "third_party/blink/public/mojom/fenced_frame/fenced_frame_config.mojom",
@@ -60560,12 +60219,6 @@
       "imports": []
     },
     {
-      "filename": "services_network_public_mojom_attribution.mojom.js",
-      "source": "services/network/public/mojom/attribution.mojom",
-      "module": "network.mojom",
-      "imports": []
-    },
-    {
       "filename": "services_network_public_mojom_auth.mojom.js",
       "source": "services/network/public/mojom/auth.mojom",
       "module": "network.mojom",
@@ -61865,7 +61518,6 @@
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "services/network/public/mojom/accept_ch_frame_observer.mojom",
-        "services/network/public/mojom/attribution.mojom",
         "services/network/public/mojom/chunked_data_pipe_getter.mojom",
         "services/network/public/mojom/client_security_state.mojom",
         "services/network/public/mojom/cookie_access_observer.mojom",
@@ -61907,7 +61559,6 @@
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "services/network/public/mojom/alternate_protocol_usage.mojom",
-        "services/network/public/mojom/attribution.mojom",
         "services/network/public/mojom/auth.mojom",
         "services/network/public/mojom/cors.mojom",
         "services/network/public/mojom/device_bound_sessions.mojom",
@@ -63874,24 +63525,11 @@
         "mojo/public/mojom/base/string16.mojom",
         "services/network/public/mojom/referrer_policy.mojom",
         "third_party/blink/public/mojom/annotation/annotation.mojom",
-        "third_party/blink/public/mojom/conversions/conversions.mojom",
         "third_party/blink/public/mojom/forms/form_control_type.mojom",
         "ui/base/mojom/menu_source_type.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom",
         "third_party/blink/public/mojom/dom/dom_node_id.mojom"
-      ]
-    },
-    {
-      "filename": "third_party_blink_public_mojom_conversions_conversions.mojom.js",
-      "source": "third_party/blink/public/mojom/conversions/conversions.mojom",
-      "module": "blink.mojom",
-      "imports": [
-        "components/attribution_reporting/data_host.mojom",
-        "components/attribution_reporting/registration_eligibility.mojom",
-        "third_party/blink/public/mojom/tokens/tokens.mojom",
-        "services/network/public/mojom/attribution.mojom",
-        "url/mojom/origin.mojom"
       ]
     },
     {
@@ -64157,7 +63795,6 @@
       "module": "blink.mojom",
       "imports": [
         "mojo/public/mojom/base/unguessable_token.mojom",
-        "services/network/public/mojom/attribution.mojom",
         "services/network/public/mojom/ip_address_space.mojom",
         "services/network/public/mojom/chunked_data_pipe_getter.mojom",
         "services/network/public/mojom/fetch_api.mojom",
@@ -64439,7 +64076,6 @@
         "services/network/public/mojom/source_location.mojom",
         "services/network/public/mojom/storage_access_api.mojom",
         "services/network/public/mojom/url_loader_completion_status.mojom",
-        "services/network/public/mojom/attribution.mojom",
         "services/viz/public/mojom/compositing/offset_tag.mojom",
         "services/viz/public/mojom/compositing/frame_sink_id.mojom",
         "services/viz/public/mojom/compositing/local_surface_id.mojom",
@@ -64609,7 +64245,6 @@
         "services/network/public/mojom/web_sandbox_flags.mojom",
         "services/viz/public/mojom/compositing/frame_sink_id.mojom",
         "third_party/blink/public/mojom/blob/blob_url_store.mojom",
-        "third_party/blink/public/mojom/conversions/conversions.mojom",
         "third_party/blink/public/mojom/frame/frame_owner_properties.mojom",
         "third_party/blink/public/mojom/frame/frame_policy.mojom",
         "third_party/blink/public/mojom/frame/frame_replication_state.mojom",
@@ -65452,7 +65087,6 @@
         "services/network/public/mojom/web_sandbox_flags.mojom",
         "services/viz/public/mojom/compositing/local_surface_id.mojom",
         "third_party/blink/public/mojom/back_forward_cache_not_restored_reasons.mojom",
-        "third_party/blink/public/mojom/conversions/conversions.mojom",
         "third_party/blink/public/mojom/fenced_frame/fenced_frame_config.mojom",
         "third_party/blink/public/mojom/fetch/fetch_api_request.mojom",
         "third_party/blink/public/mojom/frame/agent_cluster_key.mojom",
@@ -65611,7 +65245,6 @@
       "imports": [
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
-        "services/network/public/mojom/attribution.mojom",
         "skia/public/mojom/skcolor.mojom",
         "third_party/blink/public/mojom/frame/frame_replication_state.mojom",
         "third_party/blink/public/mojom/frame/remote_frame.mojom",
