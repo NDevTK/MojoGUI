@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-15T11:23:08.160739Z",
-  "version": "152.0.7951.0",
+  "generated_at": "2026-07-16T11:28:08.014331Z",
+  "version": "152.0.7953.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -13520,6 +13520,24 @@
       }
     },
     {
+      "name": "RedirectionService",
+      "module": "redirection.mojom",
+      "file": "chrome_services_redirection_public_mojom_redirection_service.mojom.js",
+      "methods": [
+        "Start"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "RemovableStorageWriter",
       "module": "chrome.mojom",
       "file": "chrome_services_removable_storage_writer_public_mojom_removable_storage_writer.mojom.js",
@@ -22694,7 +22712,8 @@
         "PreviewPasswordGenerationSuggestion",
         "GetPotentialLastFourCombinationsForStandaloneCvc",
         "SendEmailVerificationToken",
-        "UpdateEmailVerificationState"
+        "UpdateEmailVerificationState",
+        "ObserveFieldVisibility"
       ],
       "metadata": {
         "usage": {
@@ -22924,6 +22943,24 @@
           "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
+      }
+    },
+    {
+      "name": "AutofillVisibilityObserver",
+      "module": "autofill.mojom",
+      "file": "components_autofill_core_common_mojom_autofill_types.mojom.js",
+      "methods": [
+        "OnFieldBecameVisible"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -25095,6 +25132,7 @@
         "StopAutocomplete",
         "OpenAutocompleteMatch",
         "SetSmartComposeStats",
+        "SetInputMethod",
         "SetPopupSelection",
         "OpenPopupSelection",
         "OnNavigationLikely",
@@ -25157,7 +25195,6 @@
         "StepSelection",
         "OpenCurrentSelection",
         "SetAimButtonVisible",
-        "SetKeywordSelected",
         "SetInputText",
         "SetThumbnail",
         "OnContextualInputStatusChanged",
@@ -51849,7 +51886,8 @@
       "source": "chrome/browser/ui/webui/ai_overlay_dialog/ai_overlay_dialog.mojom",
       "module": "ai_overlay_dialog.mojom",
       "imports": [
-        "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom"
+        "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -53219,6 +53257,16 @@
         "chrome/services/printing/public/mojom/pdf_to_pwg_raster_converter.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
         "chrome/services/printing/public/mojom/pdf_to_emf_converter.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_services_redirection_public_mojom_redirection_service.mojom.js",
+      "source": "chrome/services/redirection/public/mojom/redirection_service.mojom",
+      "module": "redirection.mojom",
+      "imports": [
+        "media/mojo/mojom/remoting_common.mojom",
+        "sandbox/policy/mojom/context.mojom",
+        "sandbox/policy/mojom/sandbox.mojom"
       ]
     },
     {
@@ -62848,7 +62896,6 @@
       "imports": [
         "gpu/ipc/common/mailbox.mojom",
         "gpu/ipc/common/sync_token.mojom",
-        "mojo/public/mojom/base/big_buffer.mojom",
         "services/webnn/public/mojom/features.mojom",
         "services/webnn/public/mojom/webnn_compiler_context.mojom",
         "services/webnn/public/mojom/webnn_tensor.mojom",
