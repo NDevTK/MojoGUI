@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-16T11:28:08.014331Z",
-  "version": "152.0.7953.0",
+  "generated_at": "2026-07-17T11:16:25.697196Z",
+  "version": "152.0.7955.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -8921,10 +8921,10 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
-          "feature:kPolicyPageMojoMigration"
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -8970,10 +8970,10 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
-          "feature:kPolicyPageMojoMigration"
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -9896,13 +9896,16 @@
         "IsPasswordManagerPinAvailable",
         "SwitchBiometricAuthBeforeFillingState",
         "StartPasswordChange",
+        "StopPasswordChange",
         "GetPasswordManagerActionableError",
         "ShowLastExportedFileInShell",
         "DisconnectCloudAuthenticator",
         "IsConnectedToCloudAuthenticator",
         "UndoRemoveSavedPasswordOrException",
         "RequestPasswordsExport",
-        "GetPasswordsExportProgress"
+        "GetPasswordsExportProgress",
+        "ImportPasswords",
+        "ContinueImport"
       ],
       "metadata": {
         "usage": {
@@ -12464,6 +12467,24 @@
       }
     },
     {
+      "name": "RemoteActorCredentialSharing",
+      "module": "chrome.mojom",
+      "file": "chrome_common_password_manager_remote_actor_credential_sharing.mojom.js",
+      "methods": [
+        "RequestAgentAuthentication"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [
+            "Source: Associated Interface (RFH/Navigation)"
+          ],
+          "direct": []
+        },
+        "scope": "context",
+        "category": "associated"
+      }
+    },
+    {
       "name": "PluginHost",
       "module": "chrome.mojom",
       "file": "chrome_common_plugin.mojom.js",
@@ -12639,7 +12660,8 @@
         "OnPinStatusReceived",
         "UpdateContent",
         "OnReadabilityDistillationStateChanged",
-        "OnMainFrameSameDocumentNavigation"
+        "OnMainFrameSameDocumentNavigation",
+        "OnReadingModeShown"
       ],
       "metadata": {
         "usage": {
@@ -41559,11 +41581,30 @@
       }
     },
     {
+      "name": "WeightsFileSession",
+      "module": "webnn.mojom",
+      "file": "services_webnn_public_mojom_webnn_context_provider.mojom.js",
+      "methods": [
+        "RequestCapacityChange",
+        "Finalize"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "WebNNWeightsFileCreator",
       "module": "webnn.mojom",
       "file": "services_webnn_public_mojom_webnn_context_provider.mojom.js",
       "methods": [
-        "CreateWeightsFile"
+        "OpenWeightsFile"
       ],
       "metadata": {
         "usage": {
@@ -49403,10 +49444,6 @@
         },
         "scope": "context",
         "category": "internal",
-        "gates": [
-          "feature:kServiceWorkerInDedicatedWorker",
-          "feature:kServiceWorkerBackgroundSyncInDedicatedWorker"
-        ],
         "scrambled": false
       }
     },
@@ -52950,6 +52987,12 @@
       "imports": [
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "chrome_common_password_manager_remote_actor_credential_sharing.mojom.js",
+      "source": "chrome/common/password_manager/remote_actor_credential_sharing.mojom",
+      "module": "chrome.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_common_plugin.mojom.js",
@@ -62879,9 +62922,7 @@
       "source": "services/webnn/public/mojom/webnn_compiler_service.mojom",
       "module": "webnn.mojom",
       "imports": [
-        "mojo/public/mojom/base/file_path.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
-        "services/webnn/public/mojom/ep_device_info.mojom",
         "services/webnn/public/mojom/features.mojom",
         "services/webnn/public/mojom/webnn_compiler_context.mojom",
         "services/webnn/public/mojom/webnn_context_properties.mojom",
