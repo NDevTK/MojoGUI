@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-17T11:16:25.697196Z",
-  "version": "152.0.7955.0",
+  "generated_at": "2026-07-18T10:56:45.104083Z",
+  "version": "152.0.7957.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3414,7 +3414,8 @@
         "NotifySmartTabSharingDefaultOnIphResult",
         "RegisterWindow",
         "CloseWindow",
-        "MaybeTriggerPinningPromo"
+        "MaybeTriggerPinningPromo",
+        "ShowPageInfoBubble"
       ],
       "metadata": {
         "usage": {
@@ -3445,6 +3446,7 @@
         "PostMessageToWebview",
         "OnHandshakeComplete",
         "SetOAuthToken",
+        "OnCookieSyncCompleted",
         "OnContextUpdated",
         "HideInput",
         "RestoreInput",
@@ -4129,6 +4131,7 @@
         "GetInternalsDataPayload",
         "SetGuestUrlPresets",
         "TriggerInvokeFromInternalsAction",
+        "GetOpenTabs",
         "SetWebContinuityOriginatingHostUrlPreset",
         "SetShowErrorAllowed",
         "ShowExperimentalOptIn"
@@ -4900,7 +4903,8 @@
       "methods": [
         "DidChangePage",
         "UpdateCurrentPageContext",
-        "SetCaptionsVisible",
+        "SetInputCaptionsVisible",
+        "SetOutputCaptionsVisible",
         "SetUsePersona"
       ],
       "metadata": {
@@ -5894,7 +5898,6 @@
         "EstablishGeminiIntroScreenPipe",
         "EstablishConsumerUpdateScreenPipe",
         "EstablishPackagedLicenseScreenPipe",
-        "EstablishArcVmDataMigrationScreenPipe",
         "EstablishEncryptionMigrationScreenPipe",
         "EstablishLocalDataLossWarningScreenPipe"
       ],
@@ -5911,51 +5914,6 @@
           "feature:kSkyVault",
           "feature:kSkyVaultV2"
         ]
-      }
-    },
-    {
-      "name": "ArcVmDataMigrationPageHandler",
-      "module": "ash.screens_login.mojom",
-      "file": "chrome_browser_ui_webui_ash_login_mojom_screens_login.mojom.js",
-      "methods": [
-        "OnResumeClicked",
-        "OnUpdateClicked",
-        "OnFinishClicked",
-        "OnSkipClicked",
-        "OnReportClicked"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ash.screens_factory.mojom.ScreensFactory.EstablishArcVmDataMigrationScreenPipe"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "ArcVmDataMigrationPage",
-      "module": "ash.screens_login.mojom",
-      "file": "chrome_browser_ui_webui_ash_login_mojom_screens_login.mojom.js",
-      "methods": [
-        "SetUIState",
-        "SetRequiredFreeDiskSpace",
-        "SetMinimumBatteryPercent",
-        "SetBatteryState",
-        "SetMigrationProgress",
-        "SetEstimatedRemainingTime"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
       }
     },
     {
@@ -27940,74 +27898,6 @@
       }
     },
     {
-      "name": "Observer",
-      "module": "private_aggregation_internals.mojom",
-      "file": "content_browser_private_aggregation_private_aggregation_internals.mojom.js",
-      "methods": [
-        "OnRequestStorageModified",
-        "OnReportHandled"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "Handler",
-      "module": "private_aggregation_internals.mojom",
-      "file": "content_browser_private_aggregation_private_aggregation_internals.mojom.js",
-      "methods": [
-        "GetReports",
-        "SendReports",
-        "ClearStorage"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: private_aggregation_internals.mojom.Factory.Create"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "Factory",
-      "module": "private_aggregation_internals.mojom",
-      "file": "content_browser_private_aggregation_private_aggregation_internals.mojom.js",
-      "methods": [
-        "Create"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kInterestGroupStorage",
-          "feature:kWebOTP",
-          "feature:kLazyBrowserInterfaceBroker",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
       "name": "ProcessInternalsHandler",
       "module": "mojom",
       "file": "content_browser_process_internals_process_internals.mojom.js",
@@ -29035,6 +28925,7 @@
         "category": "associated",
         "gates": [
           "feature:kInterestGroupStorage",
+          "feature:kWebOTP",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -29395,6 +29286,46 @@
       "file": "content_services_auction_worklet_public_mojom_trusted_signals_cache.mojom.js",
       "methods": [
         "GetTrustedSignals"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "DevToolsMediaEncodingServiceClient",
+      "module": "devtools_media_encoding_service.mojom",
+      "file": "content_services_devtools_media_encoding_service_public_mojom_devtools_media_encoding_service.mojom.js",
+      "methods": [
+        "OnData",
+        "OnClosed"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "DevToolsMediaEncodingService",
+      "module": "devtools_media_encoding_service.mojom",
+      "file": "content_services_devtools_media_encoding_service_public_mojom_devtools_media_encoding_service.mojom.js",
+      "methods": [
+        "StartRecording",
+        "RecordVideoFrame",
+        "RecordAudioBuffer",
+        "StopRecording"
       ],
       "metadata": {
         "usage": {
@@ -30795,10 +30726,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kSharedStorageAPI"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -30828,10 +30756,7 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated",
-        "gates": [
-          "feature:kSharedStorageAPI"
-        ]
+        "category": "associated"
       }
     },
     {
@@ -40010,7 +39935,6 @@
         "category": "internal",
         "gates": [
           "feature:kIndigo",
-          "feature:kSharedStorageAPI",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -41765,25 +41689,6 @@
       }
     },
     {
-      "name": "AIClassifier",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_ai_ai_classifier.mojom.js",
-      "methods": [
-        "Classify"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "scrambled": false
-      }
-    },
-    {
       "name": "AIManagerCreateLanguageModelClient",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_ai_ai_language_model.mojom.js",
@@ -41907,26 +41812,6 @@
       }
     },
     {
-      "name": "AIManagerCreateClassifierClient",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_ai_ai_manager.mojom.js",
-      "methods": [
-        "OnResult",
-        "OnError"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "scrambled": false
-      }
-    },
-    {
       "name": "AIManagerCreateSemanticEmbedderClient",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_ai_ai_manager.mojom.js",
@@ -41962,8 +41847,6 @@
         "CreateRewriter",
         "CanCreateProofreader",
         "CreateProofreader",
-        "CanCreateClassifier",
-        "CreateClassifier",
         "CanCreateSemanticEmbedder",
         "CreateSemanticEmbedder"
       ],
@@ -44588,10 +44471,7 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated",
-        "gates": [
-          "feature:kSharedStorageAPI"
-        ]
+        "category": "associated"
       }
     },
     {
@@ -44724,10 +44604,7 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated",
-        "gates": [
-          "feature:kSharedStorageAPI"
-        ]
+        "category": "associated"
       }
     },
     {
@@ -44813,10 +44690,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kSharedStorageAPI"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -48424,16 +48298,13 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [
-            "Source: Associated Interface (RFH/Navigation)"
-          ],
-          "direct": []
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
         },
         "scope": "context",
-        "category": "associated",
-        "gates": [
-          "feature:kSharedStorageAPI"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -50032,32 +49903,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
-        ]
-      }
-    },
-    {
-      "name": "Page",
-      "module": "composebox.mojom",
-      "file": "ui_webui_resources_cr_components_composebox_composebox.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
@@ -52221,8 +52066,8 @@
       "source": "chrome/browser/ui/webui/context_hub/context_hub.mojom",
       "module": "browser.context_hub.mojom",
       "imports": [
-        "url/mojom/url.mojom",
-        "mojo/public/mojom/base/time.mojom"
+        "mojo/public/mojom/base/time.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -57130,15 +56975,6 @@
       ]
     },
     {
-      "filename": "content_browser_private_aggregation_private_aggregation_internals.mojom.js",
-      "source": "content/browser/private_aggregation/private_aggregation_internals.mojom",
-      "module": "private_aggregation_internals.mojom",
-      "imports": [
-        "url/mojom/url.mojom",
-        "mojo/public/mojom/base/int128.mojom"
-      ]
-    },
-    {
       "filename": "content_browser_process_internals_process_internals.mojom.js",
       "source": "content/browser/process_internals/process_internals.mojom",
       "module": "mojom",
@@ -57670,6 +57506,15 @@
       "imports": [
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom"
+      ]
+    },
+    {
+      "filename": "content_services_devtools_media_encoding_service_public_mojom_devtools_media_encoding_service.mojom.js",
+      "source": "content/services/devtools_media_encoding_service/public/mojom/devtools_media_encoding_service.mojom",
+      "module": "devtools_media_encoding_service.mojom",
+      "imports": [
+        "media/mojo/mojom/media_types.mojom",
+        "sandbox/policy/mojom/sandbox.mojom"
       ]
     },
     {
@@ -63128,16 +62973,6 @@
       ]
     },
     {
-      "filename": "third_party_blink_public_mojom_ai_ai_classifier.mojom.js",
-      "source": "third_party/blink/public/mojom/ai/ai_classifier.mojom",
-      "module": "blink.mojom",
-      "imports": [
-        "third_party/blink/public/mojom/ai/ai_common.mojom",
-        "third_party/blink/public/mojom/ai/model_streaming_responder.mojom",
-        "mojo/public/mojom/base/work_in_progress.mojom"
-      ]
-    },
-    {
       "filename": "third_party_blink_public_mojom_ai_ai_common.mojom.js",
       "source": "third_party/blink/public/mojom/ai/ai_common.mojom",
       "module": "blink.mojom",
@@ -63168,7 +63003,6 @@
         "third_party/blink/public/mojom/ai/ai_rewriter.mojom",
         "third_party/blink/public/mojom/ai/ai_summarizer.mojom",
         "third_party/blink/public/mojom/ai/ai_writer.mojom",
-        "third_party/blink/public/mojom/ai/ai_classifier.mojom",
         "third_party/blink/public/mojom/ai/ai_semantic_embedder.mojom"
       ]
     },
@@ -64569,6 +64403,7 @@
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "third_party/blink/public/mojom/dom/dom_node_id.mojom",
         "third_party/blink/public/mojom/input/gesture_event.mojom",
         "third_party/blink/public/mojom/input/handwriting_gesture_result.mojom",
         "third_party/blink/public/mojom/input/input_event.mojom",
