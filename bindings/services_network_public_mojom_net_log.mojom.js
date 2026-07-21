@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7959.0';
+        const versionStr = window.mojoVersion || '152.0.7962.2';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -221,8 +221,8 @@ mojo.internal.bindings.network.mojom.NetLogExporterRemote = class {
   close() {
     this.proxy.close();
   }
-  start(arg_destination, arg_extra_constants, arg_capture_mode, arg_max_file_size) {
-    return this.$.start(arg_destination, arg_extra_constants, arg_capture_mode, arg_max_file_size);
+  start(arg_destination, arg_extra_constants, arg_capture_mode, arg_file_format, arg_max_file_size) {
+    return this.$.start(arg_destination, arg_extra_constants, arg_capture_mode, arg_file_format, arg_max_file_size);
   }
   stop(arg_polled_values) {
     return this.$.stop(arg_polled_values);
@@ -238,12 +238,12 @@ mojo.internal.bindings.network.mojom.NetLogExporterRemoteCallHandler = class {
     ]);
   }
 
-  start(arg_destination, arg_extra_constants, arg_capture_mode, arg_max_file_size) {
+  start(arg_destination, arg_extra_constants, arg_capture_mode, arg_file_format, arg_max_file_size) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec,
       mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec,
-      [arg_destination, arg_extra_constants, arg_capture_mode, arg_max_file_size],
+      [arg_destination, arg_extra_constants, arg_capture_mode, arg_file_format, arg_max_file_size],
       false);
   }
 
@@ -323,7 +323,7 @@ mojo.internal.bindings.network.mojom.NetLogExporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_destination, params.arg_extra_constants, params.arg_capture_mode, params.arg_max_file_size);
+          const result = this.impl.start(params.arg_destination, params.arg_extra_constants, params.arg_capture_mode, params.arg_file_format, params.arg_max_file_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -645,6 +645,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_destination', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_extra_constants', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_capture_mode', 16, 0, mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_format', 20, 0, mojo.internal.bindings.network.mojom.NetLogFileFormatSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_max_file_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
     [[0, 40]]);
