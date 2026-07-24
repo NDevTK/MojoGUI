@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-23T11:47:35.989394Z",
-  "version": "152.0.7967.0",
+  "generated_at": "2026-07-24T11:31:16.460572Z",
+  "version": "152.0.7969.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -85,8 +85,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kWebViewMemoryProfilingClient"
         ]
@@ -7815,7 +7813,8 @@
       "methods": [
         "OnConsentKitIframeMessage",
         "OnConsentKitPrivacyFlowResult",
-        "OnConsentKitError"
+        "OnConsentKitError",
+        "OnShowErrorDialog"
       ],
       "metadata": {
         "usage": {
@@ -11071,7 +11070,8 @@
       "methods": [
         "SyncCookies",
         "ShowToast",
-        "InvokeSkill"
+        "InvokeSkill",
+        "CloseDialog"
       ],
       "metadata": {
         "usage": {
@@ -16931,8 +16931,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "permission:MIDI_SYSEX",
           "feature:kFontDataServiceForCSSLocalFonts",
           "feature:kGlicActorUi",
@@ -19339,7 +19337,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kBrowsingTopics",
           "permission:MIDI",
           "permission:MIDI_SYSEX"
         ]
@@ -25003,7 +25000,7 @@
         "BindGpu",
         "GetVideoCaptureHost",
         "GetVideoEncoderMetricsProvider",
-        "GetNetworkContext",
+        "GetSocketFactory",
         "CreateAudioStream",
         "ConnectToRemotingSource"
       ],
@@ -25130,7 +25127,6 @@
       "methods": [
         "OnFocusChanged",
         "QueryAutocomplete",
-        "QueryAutocompleteWithSuggestInventory",
         "StopAutocomplete",
         "OpenAutocompleteMatch",
         "SetSmartComposeStats",
@@ -28103,8 +28099,7 @@
       "methods": [
         "BindAssociatedInterfaces",
         "CreateView",
-        "CreateFrame",
-        "CreateSharedStorageWorkletService"
+        "CreateFrame"
       ],
       "metadata": {
         "usage": {
@@ -28748,8 +28743,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kWebViewMemoryProfilingClient"
         ]
@@ -30703,8 +30696,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kWebViewMemoryProfilingClient"
         ]
@@ -33198,8 +33189,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kWebViewMemoryProfilingClient"
         ]
@@ -33303,8 +33292,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
         ]
       }
@@ -33328,8 +33315,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
         ]
       }
@@ -33453,8 +33438,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
         ]
       }
@@ -34816,8 +34799,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
         ]
       }
@@ -37679,6 +37660,7 @@
       "file": "services_network_public_mojom_network_context.mojom.js",
       "methods": [
         "SetClient",
+        "CreateSocketFactory",
         "CreateURLLoaderFactory",
         "ResetURLLoaderFactories",
         "GetViaObliviousHttp",
@@ -37772,7 +37754,6 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: mirroring.mojom.ResourceProvider.GetNetworkContext",
             "Internal Interface: network.mojom.NetworkService.CreateNetworkContext",
             "Internal Interface: network.mojom.NetworkContextCreator.CreateNetworkContext"
           ]
@@ -38424,6 +38405,26 @@
       }
     },
     {
+      "name": "SocketFactory",
+      "module": "network.mojom",
+      "file": "services_network_public_mojom_socket_factory.mojom.js",
+      "methods": [
+        "CreateTCPConnectedSocket",
+        "CreateUDPSocket"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: mirroring.mojom.ResourceProvider.GetSocketFactory",
+            "Internal Interface: network.mojom.NetworkContext.CreateSocketFactory"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "SSLConfigClient",
       "module": "network.mojom",
       "file": "services_network_public_mojom_ssl_config.mojom.js",
@@ -38495,6 +38496,7 @@
           "direct": [
             "Internal Interface: sharing.mojom.TcpSocketFactory.CreateTCPConnectedSocket",
             "Internal Interface: network.mojom.NetworkContext.CreateTCPConnectedSocket",
+            "Internal Interface: network.mojom.SocketFactory.CreateTCPConnectedSocket",
             "Internal Interface: network.mojom.TCPBoundSocket.Connect",
             "Internal Interface: blink.mojom.DirectSocketsService.OpenTCPSocket"
           ]
@@ -38621,7 +38623,8 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: network.mojom.NetworkContext.CreateUDPSocket"
+            "Internal Interface: network.mojom.NetworkContext.CreateUDPSocket",
+            "Internal Interface: network.mojom.SocketFactory.CreateUDPSocket"
           ]
         },
         "scope": "context",
@@ -42149,7 +42152,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kFontAccess",
           "feature:kFontDataServiceForCSSLocalFonts"
@@ -42217,7 +42219,6 @@
         "scope": "context",
         "category": "associated",
         "gates": [
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure",
           "feature:kFontAccess"
         ],
@@ -42447,29 +42448,6 @@
       }
     },
     {
-      "name": "BrowsingTopicsDocumentService",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_browsing_topics_browsing_topics.mojom.js",
-      "methods": [
-        "GetBrowsingTopics"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (Global Broker)"
-          ]
-        },
-        "scope": "context",
-        "category": "direct",
-        "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI"
-        ],
-        "scrambled": false
-      }
-    },
-    {
       "name": "BucketHost",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_buckets_bucket_manager_host.mojom.js",
@@ -42569,8 +42547,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
         ],
         "scrambled": false
@@ -43033,10 +43009,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI"
-        ],
         "scrambled": false
       }
     },
@@ -43184,8 +43156,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "permission:MIDI_SYSEX"
         ]
       }
@@ -43501,8 +43471,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
         ]
       }
@@ -44518,7 +44486,8 @@
         "Restore",
         "SetResizable",
         "DraggableRegionsChanged",
-        "OnFirstContentfulPaint"
+        "OnFirstContentfulPaint",
+        "OnLargestContentfulPaint"
       ],
       "metadata": {
         "usage": {
@@ -45546,8 +45515,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "permission:MIDI_SYSEX"
         ],
         "scrambled": false
@@ -45620,8 +45587,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
         ],
         "scrambled": false
@@ -45755,8 +45720,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "permission:MIDI_SYSEX"
         ],
         "scrambled": false
@@ -46561,11 +46524,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -46589,11 +46548,7 @@
           ]
         },
         "scope": "context",
-        "category": "direct",
-        "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI"
-        ]
+        "category": "direct"
       }
     },
     {
@@ -46627,7 +46582,6 @@
         "GetPaymentInstrument",
         "KeysOfPaymentInstruments",
         "HasPaymentInstrument",
-        "SetPaymentInstrument",
         "ClearPaymentInstruments",
         "SetUserHint",
         "EnableDelegations"
@@ -46745,8 +46699,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "permission:MIDI_SYSEX",
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
@@ -47076,7 +47028,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
           "permission:MIDI",
           "permission:MIDI_SYSEX"
         ],
@@ -47971,110 +47922,6 @@
       }
     },
     {
-      "name": "SharedStorageWorkletHost",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_shared_storage_shared_storage.mojom.js",
-      "methods": [
-        "SelectURL",
-        "Run"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [
-            "blink.mojom.SharedStorageDocumentService.CreateWorklet"
-          ],
-          "direct": []
-        },
-        "scope": "context",
-        "category": "associated"
-      }
-    },
-    {
-      "name": "SharedStorageDocumentService",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_shared_storage_shared_storage.mojom.js",
-      "methods": [
-        "CreateWorklet",
-        "SharedStorageUpdate",
-        "SharedStorageBatchUpdate"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "SharedStorageEntriesListener",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_shared_storage_shared_storage_worklet_service.mojom.js",
-      "methods": [
-        "DidReadEntries"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "SharedStorageWorkletServiceClient",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_shared_storage_shared_storage_worklet_service.mojom.js",
-      "methods": [
-        "SharedStorageUpdate",
-        "SharedStorageBatchUpdate",
-        "SharedStorageGet",
-        "SharedStorageKeys",
-        "SharedStorageEntries",
-        "SharedStorageLength",
-        "SharedStorageRemainingBudget",
-        "DidAddMessageToConsole",
-        "RecordUseCounters"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "SharedStorageWorkletService",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_shared_storage_shared_storage_worklet_service.mojom.js",
-      "methods": [
-        "Initialize",
-        "AddModule",
-        "RunURLSelectionOperation",
-        "RunOperation"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: content.mojom.AgentSchedulingGroup.CreateSharedStorageWorkletService"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "SmartCardService",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_smart_card_smart_card.mojom.js",
@@ -48123,7 +47970,8 @@
       "file": "third_party_blink_public_mojom_speculation_rules_speculation_rules.mojom.js",
       "methods": [
         "UpdateSpeculationCandidates",
-        "OnLCPPredicted"
+        "OnLCPPredicted",
+        "EnactCandidate"
       ],
       "metadata": {
         "usage": {
@@ -48282,8 +48130,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
         ],
         "scrambled": false
@@ -48347,8 +48193,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
         ]
       }
@@ -48419,8 +48263,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
@@ -48468,8 +48310,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI",
           "feature:kComputePressure"
         ],
         "scrambled": false
@@ -48788,10 +48628,6 @@
         },
         "scope": "context",
         "category": "associated",
-        "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI"
-        ],
         "scrambled": false
       }
     },
@@ -48818,10 +48654,6 @@
         },
         "scope": "context",
         "category": "internal",
-        "gates": [
-          "feature:kBrowsingTopics",
-          "feature:kBrowsingTopicsDocumentAPI"
-        ],
         "scrambled": false
       }
     },
@@ -55622,7 +55454,7 @@
       "module": "mirroring.mojom",
       "imports": [
         "media/capture/mojom/video_capture.mojom",
-        "services/network/public/mojom/network_context.mojom",
+        "services/network/public/mojom/socket_factory.mojom",
         "media/mojo/mojom/remoting.mojom",
         "media/mojo/mojom/audio_data_pipe.mojom",
         "media/mojo/mojom/audio_input_stream.mojom",
@@ -56704,7 +56536,6 @@
         "third_party/blink/public/mojom/frame/frame.mojom",
         "third_party/blink/public/mojom/frame/frame_replication_state.mojom",
         "third_party/blink/public/mojom/frame/tree_scope_type.mojom",
-        "third_party/blink/public/mojom/shared_storage/shared_storage_worklet_service.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom",
         "third_party/blink/public/mojom/worker/worklet_global_scope_creation_params.mojom"
       ]
@@ -60339,6 +60170,7 @@
         "services/network/public/mojom/shared_dictionary_usage_info.mojom",
         "services/network/public/mojom/site_for_cookies.mojom",
         "services/network/public/mojom/socket_broker.mojom",
+        "services/network/public/mojom/socket_factory.mojom",
         "services/network/public/mojom/ssl_config.mojom",
         "services/network/public/mojom/ssl_info.mojom",
         "services/network/public/mojom/storage_access_api.mojom",
@@ -60806,6 +60638,18 @@
       "source": "services/network/public/mojom/socket_connection_tracker.mojom",
       "module": "network.mojom",
       "imports": []
+    },
+    {
+      "filename": "services_network_public_mojom_socket_factory.mojom.js",
+      "source": "services/network/public/mojom/socket_factory.mojom",
+      "module": "network.mojom",
+      "imports": [
+        "services/network/public/mojom/ip_endpoint.mojom",
+        "services/network/public/mojom/address_list.mojom",
+        "services/network/public/mojom/tcp_socket.mojom",
+        "services/network/public/mojom/udp_socket.mojom",
+        "services/network/public/mojom/mutable_network_traffic_annotation_tag.mojom"
+      ]
     },
     {
       "filename": "services_network_public_mojom_source_location.mojom.js",
@@ -64299,6 +64143,12 @@
       "imports": []
     },
     {
+      "filename": "third_party_blink_public_mojom_manifest_application_context.mojom.js",
+      "source": "third_party/blink/public/mojom/manifest/application_context.mojom",
+      "module": "blink.mojom",
+      "imports": []
+    },
+    {
       "filename": "third_party_blink_public_mojom_manifest_display_mode.mojom.js",
       "source": "third_party/blink/public/mojom/manifest/display_mode.mojom",
       "module": "blink.mojom",
@@ -65435,39 +65285,6 @@
       ]
     },
     {
-      "filename": "third_party_blink_public_mojom_shared_storage_shared_storage.mojom.js",
-      "source": "third_party/blink/public/mojom/shared_storage/shared_storage.mojom",
-      "module": "blink.mojom",
-      "imports": [
-        "mojo/public/mojom/base/string16.mojom",
-        "mojo/public/mojom/base/time.mojom",
-        "services/network/public/mojom/fetch_api.mojom",
-        "services/network/public/mojom/shared_storage.mojom",
-        "third_party/blink/public/mojom/fenced_frame/fenced_frame_config.mojom",
-        "third_party/blink/public/mojom/messaging/cloneable_message.mojom",
-        "third_party/blink/public/mojom/origin_trials/origin_trial_feature.mojom",
-        "url/mojom/origin.mojom",
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
-      "filename": "third_party_blink_public_mojom_shared_storage_shared_storage_worklet_service.mojom.js",
-      "source": "third_party/blink/public/mojom/shared_storage/shared_storage_worklet_service.mojom",
-      "module": "blink.mojom",
-      "imports": [
-        "mojo/public/mojom/base/string16.mojom",
-        "third_party/blink/public/mojom/private_aggregation/private_aggregation_host.mojom",
-        "services/network/public/mojom/url_loader_factory.mojom",
-        "services/network/public/mojom/shared_storage.mojom",
-        "third_party/blink/public/mojom/shared_storage/shared_storage.mojom",
-        "third_party/blink/public/mojom/tokens/tokens.mojom",
-        "third_party/blink/public/mojom/use_counter/metrics/web_feature.mojom",
-        "third_party/blink/public/mojom/messaging/cloneable_message.mojom",
-        "third_party/blink/public/mojom/devtools/console_message.mojom",
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
       "filename": "third_party_blink_public_mojom_site_engagement_site_engagement.mojom.js",
       "source": "third_party/blink/public/mojom/site_engagement/site_engagement.mojom",
       "module": "blink.mojom",
@@ -65832,6 +65649,7 @@
       "imports": [
         "cc/mojom/browser_controls_params.mojom",
         "services/viz/public/mojom/compositing/local_surface_id.mojom",
+        "third_party/blink/public/mojom/manifest/application_context.mojom",
         "third_party/blink/public/mojom/manifest/display_mode.mojom",
         "ui/display/mojom/screen_infos.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
