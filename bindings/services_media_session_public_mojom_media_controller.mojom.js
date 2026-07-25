@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -184,6 +184,8 @@ mojo.internal.bindings.media_session.mojom.MediaController_EnterAutoPictureInPic
 if (mojo.internal.bindings.media_session.mojom.MediaController_EnterAutoPictureInPicture_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaController_EnterAutoPictureInPicture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaController_EnterAutoPictureInPicture_ParamsSpec.$ = {};
 mojo.internal.bindings.media_session.mojom.MediaController_SkipAd_ParamsSpec = mojo.internal.bindings.media_session.mojom.MediaController_SkipAd_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.media_session.mojom.MediaController_SkipAd_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaController_SkipAd_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaController_SkipAd_ParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.MediaController_SaveVideoFrame_ParamsSpec = mojo.internal.bindings.media_session.mojom.MediaController_SaveVideoFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.MediaController_SaveVideoFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaController_SaveVideoFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaController_SaveVideoFrame_ParamsSpec.$ = {};
 mojo.internal.bindings.media_session.mojom.MediaControllerObserver = mojo.internal.bindings.media_session.mojom.MediaControllerObserver || {};
 mojo.internal.bindings.media_session.mojom.MediaControllerObserverSpec = mojo.internal.bindings.media_session.mojom.MediaControllerObserverSpec || { $ : {} };
 if (mojo.internal.bindings.media_session.mojom.MediaControllerObserverSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaControllerObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaControllerObserverSpec.$ = {};
@@ -506,6 +508,9 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemote = class {
   skipAd() {
     return this.$.skipAd();
   }
+  saveVideoFrame() {
+    return this.$.saveVideoFrame();
+  }
 };
 
 mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = class {
@@ -534,6 +539,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       { explicit: 19 },
       { explicit: 20 },
       { explicit: 21 },
+      { explicit: 22 },
     ]);
   }
 
@@ -735,6 +741,15 @@ mojo.internal.bindings.media_session.mojom.MediaControllerRemoteCallHandler = cl
       false);
   }
 
+  saveVideoFrame() {
+    return this.proxy.sendMessage(
+      this.ordinals[22],  // ordinal
+      mojo.internal.bindings.media_session.mojom.MediaController_SaveVideoFrame_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.media_session.mojom.MediaController.getRemote = function() {
@@ -775,6 +790,7 @@ mojo.internal.bindings.media_session.mojom.MediaControllerReceiver = class {
       { explicit: 19 },
       { explicit: 20 },
       { explicit: 21 },
+      { explicit: 22 },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -970,6 +986,13 @@ mojo.internal.bindings.media_session.mojom.MediaControllerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaController_SkipAd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.skipAd');
           const result = this.impl.skipAd();
+          break;
+        }
+        case 22: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaController_SaveVideoFrame_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.saveVideoFrame');
+          const result = this.impl.saveVideoFrame();
           break;
         }
       }
@@ -1497,6 +1520,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.media_session.mojom.MediaController_SkipAd_ParamsSpec, 'media_session.mojom.MediaController_SkipAd_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaController_SaveVideoFrame_ParamsSpec, 'media_session.mojom.MediaController_SaveVideoFrame_Params', [
     ],
     [[0, 8]]);
 

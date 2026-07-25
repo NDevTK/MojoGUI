@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -150,9 +150,10 @@ if (mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec.$.struct
 mojo.internal.bindings.blink.mojom.SubAppsServiceResultCode = {
   kWrongContext: 0,
   kUserDeclined: 1,
-  kLimitExceeded: 2,
-  kWebAppsNotUserInstallable: 3,
-  kGenericError: 4,
+  kTotalLimitExceeded: 2,
+  kPerPromptLimitExceeded: 3,
+  kWebAppsNotUserInstallable: 4,
+  kGenericError: 5,
 };
 
 // Enum: SubAppsServiceAddResultType

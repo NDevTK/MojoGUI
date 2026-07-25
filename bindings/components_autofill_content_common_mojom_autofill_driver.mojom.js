@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -236,6 +236,9 @@ mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom ||
 mojo.internal.bindings.autofill.mojom.FormRendererIdSpec = mojo.internal.bindings.autofill.mojom.FormRendererIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
 mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.JavaScriptFieldModificationSpec = mojo.internal.bindings.autofill.mojom.JavaScriptFieldModificationSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
 mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec = mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
 mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
@@ -343,8 +346,8 @@ mojo.internal.bindings.autofill.mojom.AutofillDriverRemote = class {
   formWithEmailVerificationTokenSubmitted(arg_form, arg_field_id) {
     return this.$.formWithEmailVerificationTokenSubmitted(arg_form, arg_field_id);
   }
-  didDetectJavaScriptAutofill(arg_form, arg_trigger_field_id, arg_field_ids) {
-    return this.$.didDetectJavaScriptAutofill(arg_form, arg_trigger_field_id, arg_field_ids);
+  didDetectJavaScriptAutofill(arg_form, arg_trigger_field_id, arg_field_modifications) {
+    return this.$.didDetectJavaScriptAutofill(arg_form, arg_trigger_field_id, arg_field_modifications);
   }
 };
 
@@ -526,12 +529,12 @@ mojo.internal.bindings.autofill.mojom.AutofillDriverRemoteCallHandler = class {
       false);
   }
 
-  didDetectJavaScriptAutofill(arg_form, arg_trigger_field_id, arg_field_ids) {
+  didDetectJavaScriptAutofill(arg_form, arg_trigger_field_id, arg_field_modifications) {
     return this.proxy.sendMessage(
       this.ordinals[17],  // ordinal
       mojo.internal.bindings.autofill.mojom.AutofillDriver_DidDetectJavaScriptAutofill_ParamsSpec,
       null,
-      [arg_form, arg_trigger_field_id, arg_field_ids],
+      [arg_form, arg_trigger_field_id, arg_field_modifications],
       false);
   }
 
@@ -737,7 +740,7 @@ mojo.internal.bindings.autofill.mojom.AutofillDriverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.AutofillDriver_DidDetectJavaScriptAutofill_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didDetectJavaScriptAutofill');
-          const result = this.impl.didDetectJavaScriptAutofill(params.arg_form, params.arg_trigger_field_id, params.arg_field_ids);
+          const result = this.impl.didDetectJavaScriptAutofill(params.arg_form, params.arg_trigger_field_id, params.arg_field_modifications);
           break;
         }
       }
@@ -1502,7 +1505,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.AutofillDriver_DidDetectJavaScriptAutofill_ParamsSpec, 'autofill.mojom.AutofillDriver_DidDetectJavaScriptAutofill_Params', [
       mojo.internal.StructField('arg_form', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_trigger_field_id', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_field_ids', 16, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_field_modifications', 16, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.JavaScriptFieldModificationSpec, false), null, false, 0, undefined),
     ],
     [[0, 32]]);
 

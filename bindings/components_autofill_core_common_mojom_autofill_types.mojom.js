@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -144,6 +144,7 @@ mojo.internal.bindings.autofill.mojom.FormActionTypeSpec = mojo.internal.binding
 mojo.internal.bindings.autofill.mojom.FieldActionTypeSpec = mojo.internal.bindings.autofill.mojom.FieldActionTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSourceSpec = mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSourceSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.autofill.mojom.EmailVerificationStateSpec = mojo.internal.bindings.autofill.mojom.EmailVerificationStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.autofill.mojom.JavaScriptModificationTypeSpec = mojo.internal.bindings.autofill.mojom.JavaScriptModificationTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.autofill.mojom.FrameTokenSpec = mojo.internal.bindings.autofill.mojom.FrameTokenSpec || { $: {} };
 if (mojo.internal.bindings.autofill.mojom.FrameTokenSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.FrameTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.FrameTokenSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.FrameTokenWithPredecessorSpec = mojo.internal.bindings.autofill.mojom.FrameTokenWithPredecessorSpec || { $: {} };
@@ -184,6 +185,8 @@ mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec = mojo.inter
 if (mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.ParsingResultSpec = mojo.internal.bindings.autofill.mojom.ParsingResultSpec || { $: {} };
 if (mojo.internal.bindings.autofill.mojom.ParsingResultSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.ParsingResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.ParsingResultSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.JavaScriptFieldModificationSpec = mojo.internal.bindings.autofill.mojom.JavaScriptFieldModificationSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.JavaScriptFieldModificationSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.JavaScriptFieldModificationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.JavaScriptFieldModificationSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.AutofillVisibilityObserver = mojo.internal.bindings.autofill.mojom.AutofillVisibilityObserver || {};
 mojo.internal.bindings.autofill.mojom.AutofillVisibilityObserverSpec = mojo.internal.bindings.autofill.mojom.AutofillVisibilityObserverSpec || { $ : {} };
 if (mojo.internal.bindings.autofill.mojom.AutofillVisibilityObserverSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillVisibilityObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillVisibilityObserverSpec.$ = {};
@@ -412,9 +415,10 @@ mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSource = {
   kPlusAddressUpdatedInBrowserProcess: 19,
   kProactivePasswordRecovery: 20,
   kGlic: 21,
-  kAtMemory: 22,
+  kAtMemoryTriggerString: 22,
   kAtMemoryContextMenu: 23,
   kAtMemoryInactivityNudge: 24,
+  kAtMemoryKeyboardShortcut: 25,
 };
 
 // Enum: EmailVerificationState
@@ -424,6 +428,15 @@ mojo.internal.bindings.autofill.mojom.EmailVerificationState = {
   kVerified: 2,
   kLoggedOutOrUnsupported: 3,
   kFailed: 4,
+};
+
+// Enum: JavaScriptModificationType
+mojo.internal.bindings.autofill.mojom.JavaScriptModificationType = {
+  kTrivial: 0,
+  kReassignment: 1,
+  kEmptyToNonEmpty: 2,
+  kClearing: 3,
+  kPrefixCompletion: 4,
 };
 
 // Interface: AutofillVisibilityObserver
@@ -815,6 +828,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_confirm_password_renderer_id', 24, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
     ],
     [[0, 40]]);
+
+// Struct: JavaScriptFieldModification
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.JavaScriptFieldModificationSpec, 'autofill.mojom.JavaScriptFieldModification', [
+      mojo.internal.StructField('arg_field_id', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_modification_type', 8, 0, mojo.internal.bindings.autofill.mojom.JavaScriptModificationTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.AutofillVisibilityObserver_OnFieldBecameVisible_ParamsSpec, 'autofill.mojom.AutofillVisibilityObserver_OnFieldBecameVisible_Params', [
     ],

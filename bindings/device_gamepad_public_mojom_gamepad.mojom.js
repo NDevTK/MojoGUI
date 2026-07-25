@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,6 +126,7 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
+mojo.internal.bindings.device.mojom.GamepadButtonTypeSpec = mojo.internal.bindings.device.mojom.GamepadButtonTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.GamepadMappingSpec = mojo.internal.bindings.device.mojom.GamepadMappingSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.GamepadHandSpec = mojo.internal.bindings.device.mojom.GamepadHandSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.GamepadHapticActuatorTypeSpec = mojo.internal.bindings.device.mojom.GamepadHapticActuatorTypeSpec || { $: mojo.internal.Enum().$ };
@@ -188,6 +189,13 @@ if (mojo.internal.bindings.device.mojom.GamepadHapticsManager_ResetVibrationActu
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: GamepadButtonType
+mojo.internal.bindings.device.mojom.GamepadButtonType = {
+  GamepadButtonTypeNonStandard: 0,
+  GamepadButtonTypeStandard: 1,
+  GamepadButtonTypeTrackpad: 2,
+};
 
 // Enum: GamepadMapping
 mojo.internal.bindings.device.mojom.GamepadMapping = {
@@ -804,6 +812,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.GamepadButtonSpec, 'device.mojom.GamepadButton', [
       mojo.internal.StructField('arg_pressed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_touched', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.device.mojom.GamepadButtonTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);

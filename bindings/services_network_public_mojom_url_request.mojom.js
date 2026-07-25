@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -365,23 +365,22 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_skip_service_worker', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_keepalive', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_browsing_topics', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ad_auction_headers', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_storage_writable_eligible', 24, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_user_gesture', 25, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_load_timing', 25, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_upload_progress', 25, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_do_not_prompt_for_login', 25, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_outermost_main_frame', 25, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_reload_navigation', 25, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_upgrade_if_insecure', 25, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_revalidating', 25, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_fetch_like_api', 26, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_fetch_later_api', 26, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_favicon', 26, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_ad_tagged', 26, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_dictionary_writer_enabled', 26, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_client_side_content_decoding_enabled', 26, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allows_device_bound_sessions', 26, 6, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_storage_writable_eligible', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_user_gesture', 24, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_load_timing', 25, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_upload_progress', 25, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_do_not_prompt_for_login', 25, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_outermost_main_frame', 25, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_reload_navigation', 25, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_upgrade_if_insecure', 25, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_revalidating', 25, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_fetch_like_api', 25, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_fetch_later_api', 26, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_favicon', 26, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_ad_tagged', 26, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_dictionary_writer_enabled', 26, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_client_side_content_decoding_enabled', 26, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allows_device_bound_sessions', 26, 5, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('arg_referrer_policy', 28, 0, mojo.internal.bindings.network.mojom.URLRequestReferrerPolicySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_request_initiator', 32, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_navigation_redirect_chain', 40, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),

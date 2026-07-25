@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -5205,8 +5205,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_required_connection_allowlist', 8, 0, mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_credentialless', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_browsing_topics', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ad_auction_headers', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_storage_writable_opted_in', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_storage_writable_opted_in', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_src', 40, 0, mojo.internal.String, null, true, 0, undefined),

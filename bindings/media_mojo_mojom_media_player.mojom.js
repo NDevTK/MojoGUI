@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -164,6 +164,8 @@ mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ResponseParamsS
 if (mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaPlayer_RequestVisibility_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec = mojo.internal.bindings.media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaPlayer_RequestSaveVideoFrame_ParamsSpec = mojo.internal.bindings.media.mojom.MediaPlayer_RequestSaveVideoFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaPlayer_RequestSaveVideoFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaPlayer_RequestSaveVideoFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaPlayer_RequestSaveVideoFrame_ParamsSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaPlayerObserverClient = mojo.internal.bindings.media.mojom.MediaPlayerObserverClient || {};
 mojo.internal.bindings.media.mojom.MediaPlayerObserverClientSpec = mojo.internal.bindings.media.mojom.MediaPlayerObserverClientSpec || { $ : {} };
 if (mojo.internal.bindings.media.mojom.MediaPlayerObserverClientSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaPlayerObserverClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaPlayerObserverClientSpec.$ = {};
@@ -202,6 +204,8 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataC
 if (mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnRemotePlaybackMetadataChange_ParamsSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec = mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoFrameAvailabilityChanged_ParamsSpec = mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoFrameAvailabilityChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoFrameAvailabilityChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoFrameAvailabilityChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoFrameAvailabilityChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.media.mojom.MediaPlayerHost = mojo.internal.bindings.media.mojom.MediaPlayerHost || {};
 mojo.internal.bindings.media.mojom.MediaPlayerHostSpec = mojo.internal.bindings.media.mojom.MediaPlayerHostSpec || { $ : {} };
 if (mojo.internal.bindings.media.mojom.MediaPlayerHostSpec.$.structSpec && mojo.internal.bindings.media.mojom.MediaPlayerHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.MediaPlayerHostSpec.$ = {};
@@ -307,12 +311,16 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemote = class {
   recordAutoPictureInPictureInfo(arg_auto_picture_in_picture_info) {
     return this.$.recordAutoPictureInPictureInfo(arg_auto_picture_in_picture_info);
   }
+  requestSaveVideoFrame() {
+    return this.$.requestSaveVideoFrame();
+  }
 };
 
 mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayer', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -466,6 +474,15 @@ mojo.internal.bindings.media.mojom.MediaPlayerRemoteCallHandler = class {
       false);
   }
 
+  requestSaveVideoFrame() {
+    return this.proxy.sendMessage(
+      this.ordinals[15],  // ordinal
+      mojo.internal.bindings.media.mojom.MediaPlayer_RequestSaveVideoFrame_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.media.mojom.MediaPlayer.getRemote = function() {
@@ -484,6 +501,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayer', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -656,6 +674,13 @@ mojo.internal.bindings.media.mojom.MediaPlayerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RecordAutoPictureInPictureInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordAutoPictureInPictureInfo');
           const result = this.impl.recordAutoPictureInPictureInfo(params.arg_auto_picture_in_picture_info);
+          break;
+        }
+        case 15: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayer_RequestSaveVideoFrame_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestSaveVideoFrame');
+          const result = this.impl.requestSaveVideoFrame();
           break;
         }
       }
@@ -887,12 +912,16 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemote = class {
   onVideoVisibilityChanged(arg_meets_visibility_threshold) {
     return this.$.onVideoVisibilityChanged(arg_meets_visibility_threshold);
   }
+  onVideoFrameAvailabilityChanged(arg_available) {
+    return this.$.onVideoFrameAvailabilityChanged(arg_available);
+  }
 };
 
 mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayerObserver', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1026,6 +1055,15 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverRemoteCallHandler = class 
       false);
   }
 
+  onVideoFrameAvailabilityChanged(arg_available) {
+    return this.proxy.sendMessage(
+      this.ordinals[13],  // ordinal
+      mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoFrameAvailabilityChanged_ParamsSpec,
+      null,
+      [arg_available],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.media.mojom.MediaPlayerObserver.getRemote = function() {
@@ -1044,6 +1082,7 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('media.mojom.MediaPlayerObserver', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1189,6 +1228,13 @@ mojo.internal.bindings.media.mojom.MediaPlayerObserverReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoVisibilityChanged');
           const result = this.impl.onVideoVisibilityChanged(params.arg_meets_visibility_threshold);
+          break;
+        }
+        case 13: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoFrameAvailabilityChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onVideoFrameAvailabilityChanged');
+          const result = this.impl.onVideoFrameAvailabilityChanged(params.arg_available);
           break;
         }
       }
@@ -1435,6 +1481,11 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaPlayer_RequestSaveVideoFrame_ParamsSpec, 'media.mojom.MediaPlayer_RequestSaveVideoFrame_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_ParamsSpec, 'media.mojom.MediaPlayerObserverClient_GetHasPlayedBefore_Params', [
     ],
     [[0, 8]]);
@@ -1520,6 +1571,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnVideoVisibilityChanged_Params', [
       mojo.internal.StructField('arg_meets_visibility_threshold', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaPlayerObserver_OnVideoFrameAvailabilityChanged_ParamsSpec, 'media.mojom.MediaPlayerObserver_OnVideoFrameAvailabilityChanged_Params', [
+      mojo.internal.StructField('arg_available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

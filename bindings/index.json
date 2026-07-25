@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-24T11:31:16.460572Z",
-  "version": "152.0.7969.0",
+  "generated_at": "2026-07-25T11:03:12.951862Z",
+  "version": "152.0.7971.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -189,8 +189,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -212,8 +211,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -847,8 +845,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -871,8 +868,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -1842,8 +1838,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -2431,8 +2426,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -3150,7 +3144,6 @@
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed",
           "feature:kImeSystemEmojiPickerMojoSearch"
         ]
       }
@@ -4166,8 +4159,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -4806,7 +4798,6 @@
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -4833,7 +4824,6 @@
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -4860,7 +4850,6 @@
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -5073,7 +5062,7 @@
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -7009,8 +6998,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -7281,7 +7269,10 @@
         "DeleteMemoryBankEntries",
         "GetTabs",
         "RetrieveAndGroupTabs",
-        "SwitchToTab"
+        "GetExistingTabGroupsAndChats",
+        "SwitchToTab",
+        "ClearTabGroups",
+        "ClearTabGroupChatHistory"
       ],
       "metadata": {
         "usage": {
@@ -8588,7 +8579,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -8617,7 +8607,6 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -8641,7 +8630,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -8686,7 +8674,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -8713,7 +8700,6 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -8737,7 +8723,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -9765,7 +9750,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -9798,7 +9782,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -9826,7 +9809,6 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -10027,7 +10009,7 @@
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -10491,8 +10473,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -10518,8 +10499,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -10560,8 +10540,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -10593,8 +10572,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -11493,8 +11471,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -12626,8 +12603,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -12683,8 +12659,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -12725,8 +12700,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -22571,7 +22545,7 @@
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -22598,7 +22572,7 @@
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -22627,7 +22601,7 @@
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -22841,7 +22815,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -22870,7 +22847,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -22894,7 +22874,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -22921,7 +22904,7 @@
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -22946,7 +22929,7 @@
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -22969,7 +22952,7 @@
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -24203,7 +24186,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -27437,7 +27419,7 @@
         "SetFrameSinkId",
         "UpdateLocalSurfaceIdFromChild",
         "ChildProcessGone",
-        "RequestFocus"
+        "RequestFocusOnEmbedElement"
       ],
       "metadata": {
         "usage": {
@@ -27449,8 +27431,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kSurfaceEmbed",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kSurfaceEmbed"
         ]
       }
     },
@@ -27461,20 +27442,20 @@
       "methods": [
         "SetSurfaceEmbed",
         "AttachConnector",
-        "SynchronizeVisualProperties"
+        "SynchronizeVisualProperties",
+        "OnEmbedElementFocused"
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
+          "associated": [
+            "Source: Associated Interface (RFH/Navigation)"
+          ],
+          "direct": []
         },
         "scope": "context",
-        "category": "internal",
+        "category": "associated",
         "gates": [
-          "feature:kSurfaceEmbed",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kSurfaceEmbed"
         ]
       }
     },
@@ -32841,7 +32822,8 @@
         "SuspendForFrameClosed",
         "RequestMediaRemoting",
         "RequestVisibility",
-        "RecordAutoPictureInPictureInfo"
+        "RecordAutoPictureInPictureInfo",
+        "RequestSaveVideoFrame"
       ],
       "metadata": {
         "usage": {
@@ -32889,7 +32871,8 @@
         "OnUseAudioServiceChanged",
         "OnAudioOutputSinkChangingDisabled",
         "OnRemotePlaybackMetadataChange",
-        "OnVideoVisibilityChanged"
+        "OnVideoVisibilityChanged",
+        "OnVideoFrameAvailabilityChanged"
       ],
       "metadata": {
         "usage": {
@@ -36150,6 +36133,7 @@
           "associated": [],
           "direct": [
             "Internal Interface: device.mojom.UsbDeviceManager.GetDevice",
+            "Internal Interface: device.mojom.UsbDeviceManager.GetUnrestrictedDevice",
             "Internal Interface: device.mojom.UsbDeviceManager.GetSecurityKeyDevice",
             "Internal Interface: blink.mojom.WebUsbService.GetDevice"
           ]
@@ -36187,6 +36171,7 @@
         "EnumerateDevicesAndSetClient",
         "GetDevices",
         "GetDevice",
+        "GetUnrestrictedDevice",
         "GetSecurityKeyDevice",
         "SetClient"
       ],
@@ -36410,7 +36395,7 @@
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution",
-          "feature:kSurfaceEmbed"
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -36566,7 +36551,8 @@
         "SetMute",
         "RequestMediaRemoting",
         "EnterAutoPictureInPicture",
-        "SkipAd"
+        "SkipAd",
+        "SaveVideoFrame"
       ],
       "metadata": {
         "usage": {
@@ -36675,7 +36661,8 @@
         "PreviousSlide",
         "NextSlide",
         "EnterAutoPictureInPicture",
-        "GetVisibility"
+        "GetVisibility",
+        "SaveVideoFrame"
       ],
       "metadata": {
         "usage": {
@@ -39090,7 +39077,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kSurfaceEmbed",
           "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
@@ -56343,7 +56329,8 @@
         "mojo/public/mojom/base/unguessable_token.mojom",
         "services/viz/public/mojom/compositing/frame_sink_id.mojom",
         "services/viz/public/mojom/compositing/local_surface_id.mojom",
-        "third_party/blink/public/mojom/frame/frame_visual_properties.mojom"
+        "third_party/blink/public/mojom/frame/frame_visual_properties.mojom",
+        "third_party/blink/public/mojom/input/focus_type.mojom"
       ]
     },
     {

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -200,8 +200,8 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote = cla
   clone(arg_clone) {
     return this.$.clone(arg_clone);
   }
-  allowStorageAccess(arg_frame_token, arg_storage_type, arg_origin, arg_site_for_cookies, arg_top_frame_origin) {
-    return this.$.allowStorageAccess(arg_frame_token, arg_storage_type, arg_origin, arg_site_for_cookies, arg_top_frame_origin);
+  allowStorageAccess(arg_frame_token, arg_storage_type, arg_origin, arg_site_for_cookies, arg_top_frame_origin, arg_enable_logging_usage) {
+    return this.$.allowStorageAccess(arg_frame_token, arg_storage_type, arg_origin, arg_site_for_cookies, arg_top_frame_origin, arg_enable_logging_usage);
   }
   onContentBlocked(arg_frame_token, arg_type) {
     return this.$.onContentBlocked(arg_frame_token, arg_type);
@@ -227,12 +227,12 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemoteCallHa
       false);
   }
 
-  allowStorageAccess(arg_frame_token, arg_storage_type, arg_origin, arg_site_for_cookies, arg_top_frame_origin) {
+  allowStorageAccess(arg_frame_token, arg_storage_type, arg_origin, arg_site_for_cookies, arg_top_frame_origin, arg_enable_logging_usage) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec,
       mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec,
-      [arg_frame_token, arg_storage_type, arg_origin, arg_site_for_cookies, arg_top_frame_origin],
+      [arg_frame_token, arg_storage_type, arg_origin, arg_site_for_cookies, arg_top_frame_origin, arg_enable_logging_usage],
       false);
   }
 
@@ -320,7 +320,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allowStorageAccess');
-          const result = this.impl.allowStorageAccess(params.arg_frame_token, params.arg_storage_type, params.arg_origin, params.arg_site_for_cookies, params.arg_top_frame_origin);
+          const result = this.impl.allowStorageAccess(params.arg_frame_token, params.arg_storage_type, params.arg_origin, params.arg_site_for_cookies, params.arg_top_frame_origin, params.arg_enable_logging_usage);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -366,6 +366,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_AllowStorageAccess_Params', [
       mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_storage_type', 8, 0, mojo.internal.bindings.content_settings.mojom.StorageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_logging_usage', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_site_for_cookies', 24, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_top_frame_origin', 32, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),

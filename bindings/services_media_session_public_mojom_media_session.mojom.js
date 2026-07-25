@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -236,6 +236,8 @@ mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ParamsSpec
 if (mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ParamsSpec.$ = {};
 mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec = mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.media_session.mojom.MediaSession_SaveVideoFrame_ParamsSpec = mojo.internal.bindings.media_session.mojom.MediaSession_SaveVideoFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.media_session.mojom.MediaSession_SaveVideoFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.media_session.mojom.MediaSession_SaveVideoFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media_session.mojom.MediaSession_SaveVideoFrame_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
@@ -275,6 +277,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionAction = {
   kEnterPictureInPicture: 10,
   kExitPictureInPicture: 11,
   kSwitchAudioDevice: 12,
+  MinVersion: 12,
   MinVersion: 12,
   MinVersion: 12,
   MinVersion: 12,
@@ -674,6 +677,9 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemote = class {
   getVisibility() {
     return this.$.getVisibility();
   }
+  saveVideoFrame() {
+    return this.$.saveVideoFrame();
+  }
 };
 
 mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class {
@@ -708,6 +714,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       { explicit: 25 },
       { explicit: 26 },
       { explicit: 27 },
+      { explicit: 28 },
     ]);
   }
 
@@ -963,6 +970,15 @@ mojo.internal.bindings.media_session.mojom.MediaSessionRemoteCallHandler = class
       false);
   }
 
+  saveVideoFrame() {
+    return this.proxy.sendMessage(
+      this.ordinals[28],  // ordinal
+      mojo.internal.bindings.media_session.mojom.MediaSession_SaveVideoFrame_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.media_session.mojom.MediaSession.getRemote = function() {
@@ -1009,6 +1025,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
       { explicit: 25 },
       { explicit: 26 },
       { explicit: 27 },
+      { explicit: 28 },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -1290,6 +1307,13 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] getVisibility FAILED:', e));
           }
+          break;
+        }
+        case 28: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_SaveVideoFrame_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.saveVideoFrame');
+          const result = this.impl.saveVideoFrame();
           break;
         }
       }
@@ -1608,4 +1632,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_has_sufficiently_visible_video', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_SaveVideoFrame_ParamsSpec, 'media_session.mojom.MediaSession_SaveVideoFrame_Params', [
+    ],
+    [[0, 8]]);
 

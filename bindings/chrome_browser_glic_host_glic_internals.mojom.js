@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -134,6 +134,8 @@ mojo.internal.bindings.glic.mojom.InternalsDataPayloadSpec = mojo.internal.bindi
 if (mojo.internal.bindings.glic.mojom.InternalsDataPayloadSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InternalsDataPayloadSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InternalsDataPayloadSpec.$ = {};
 mojo.internal.bindings.glic.mojom.InternalsDebugInfoSpec = mojo.internal.bindings.glic.mojom.InternalsDebugInfoSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.InternalsDebugInfoSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InternalsDebugInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InternalsDebugInfoSpec.$ = {};
+mojo.internal.bindings.glic.mojom.ScreenshotTestKeyConfigurationSpec = mojo.internal.bindings.glic.mojom.ScreenshotTestKeyConfigurationSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.ScreenshotTestKeyConfigurationSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ScreenshotTestKeyConfigurationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ScreenshotTestKeyConfigurationSpec.$ = {};
 mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec = mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.InternalsPageHandler = mojo.internal.bindings.glic.mojom.InternalsPageHandler || {};
@@ -698,6 +700,14 @@ mojo.internal.Struct(
     ],
     [[0, 72]]);
 
+// Struct: ScreenshotTestKeyConfiguration
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.ScreenshotTestKeyConfigurationSpec, 'glic.mojom.ScreenshotTestKeyConfiguration', [
+      mojo.internal.StructField('arg_public_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_auth_secret', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: TriggerInvokeFromInternalsOptions
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.TriggerInvokeFromInternalsOptionsSpec, 'glic.mojom.TriggerInvokeFromInternalsOptions', [
@@ -714,6 +724,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_show_panel_$flag', 40, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_show_panel_$value', originalFieldName: 'arg_show_panel' }),
       mojo.internal.StructField('arg_show_panel_$value', 40, 6, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_show_panel_$flag', originalFieldName: 'arg_show_panel' }),
       mojo.internal.StructField('arg_specific_tab_index_$flag', 40, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_specific_tab_index_$value', originalFieldName: 'arg_specific_tab_index' }),
+      mojo.internal.StructField('arg_take_screenshot', 41, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_fre_override', 44, 0, mojo.internal.bindings.glic.mojom.FreOverrideSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_zss_config', 48, 0, mojo.internal.bindings.glic.mojom.ZssConfigSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_skill_id', 56, 0, mojo.internal.String, null, true, 0, undefined),
@@ -724,8 +735,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_surface', 88, 0, mojo.internal.bindings.glic.mojom.InvokeTargetSurfaceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_actuation_target', 104, 0, mojo.internal.bindings.glic.mojom.ActuationTargetSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_payload', 112, 0, mojo.internal.bindings.glic.mojom.InvocationPayloadSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_key_config', 128, 0, mojo.internal.bindings.glic.mojom.ScreenshotTestKeyConfigurationSpec, null, true, 0, undefined),
     ],
-    [[0, 136]]);
+    [[0, 144]]);
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.InternalsPageHandler_GetInternalsDataPayload_ParamsSpec, 'glic.mojom.InternalsPageHandler_GetInternalsDataPayload_Params', [
     ],

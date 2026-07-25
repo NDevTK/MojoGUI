@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,6 +129,7 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.browser.context_hub.mojom.EntryTypeSpec = mojo.internal.bindings.browser.context_hub.mojom.EntryTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.browser.context_hub.mojom.ChatRoleSpec = mojo.internal.bindings.browser.context_hub.mojom.ChatRoleSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec = mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.GmailReferenceSpec = mojo.internal.bindings.browser.context_hub.mojom.GmailReferenceSpec || { $: {} };
@@ -143,6 +144,8 @@ mojo.internal.bindings.browser.context_hub.mojom.TabInfoSpec = mojo.internal.bin
 if (mojo.internal.bindings.browser.context_hub.mojom.TabInfoSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TabInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TabInfoSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.TabGroupSpec = mojo.internal.bindings.browser.context_hub.mojom.TabGroupSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.TabGroupSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TabGroupSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TabGroupSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.ChatMessageSpec = mojo.internal.bindings.browser.context_hub.mojom.ChatMessageSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.ChatMessageSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.ChatMessageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.ChatMessageSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandlerFactory = mojo.internal.bindings.browser.context_hub.mojom.PageHandlerFactory || {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandlerFactorySpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandlerFactorySpec.$ = {};
@@ -173,8 +176,20 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTab
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SwitchToTab_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SwitchToTab_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SwitchToTab_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SwitchToTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SwitchToTab_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.browser = mojo.internal.bindings.browser || {};
@@ -200,6 +215,12 @@ mojo.internal.bindings.browser.context_hub.mojom.default_state = false;
 mojo.internal.bindings.browser.context_hub.mojom.EntryType = {
   kTab: 0,
   kTextSelection: 1,
+};
+
+// Enum: ChatRole
+mojo.internal.bindings.browser.context_hub.mojom.ChatRole = {
+  kUser: 0,
+  kAssistant: 1,
 };
 
 // Interface: PageHandlerFactory
@@ -382,8 +403,17 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemote = class {
   retrieveAndGroupTabs(arg_user_command) {
     return this.$.retrieveAndGroupTabs(arg_user_command);
   }
+  getExistingTabGroupsAndChats() {
+    return this.$.getExistingTabGroupsAndChats();
+  }
   switchToTab(arg_tab_id) {
     return this.$.switchToTab(arg_tab_id);
+  }
+  clearTabGroups() {
+    return this.$.clearTabGroups();
+  }
+  clearTabGroupChatHistory() {
+    return this.$.clearTabGroupChatHistory();
   }
 };
 
@@ -391,6 +421,9 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -445,12 +478,39 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
       false);
   }
 
-  switchToTab(arg_tab_id) {
+  getExistingTabGroupsAndChats() {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  switchToTab(arg_tab_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SwitchToTab_ParamsSpec,
       null,
       [arg_tab_id],
+      false);
+  }
+
+  clearTabGroups() {
+    return this.proxy.sendMessage(
+      this.ordinals[7],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  clearTabGroupChatHistory() {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ResponseParamsSpec,
+      [],
       false);
   }
 
@@ -472,6 +532,9 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -611,9 +674,60 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getExistingTabGroupsAndChats');
+          const result = this.impl.getExistingTabGroupsAndChats();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getExistingTabGroupsAndChats FAILED:', e));
+          }
+          break;
+        }
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SwitchToTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.switchToTab');
           const result = this.impl.switchToTab(params.arg_tab_id);
+          break;
+        }
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.clearTabGroups');
+          const result = this.impl.clearTabGroups();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] clearTabGroups FAILED:', e));
+          }
+          break;
+        }
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.clearTabGroupChatHistory');
+          const result = this.impl.clearTabGroupChatHistory();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] clearTabGroupChatHistory FAILED:', e));
+          }
           break;
         }
       }
@@ -701,6 +815,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_tabs', 8, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.TabInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
+
+// Struct: ChatMessage
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.ChatMessageSpec, 'browser.context_hub.mojom.ChatMessage', [
+      mojo.internal.StructField('arg_role', 0, 0, mojo.internal.bindings.browser.context_hub.mojom.ChatRoleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'browser.context_hub.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.browser.context_hub.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),
@@ -761,12 +883,46 @@ mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ResponseParams', [
       mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.TabGroupSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_ungrouped_tabs', 8, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.TabInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_llm_response', 16, 0, mojo.internal.bindings.browser.context_hub.mojom.ChatMessageSpec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ParamsSpec, 'browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ResponseParams', [
+      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.TabGroupSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ungrouped_tabs', 8, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.TabInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_history', 16, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.ChatMessageSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SwitchToTab_ParamsSpec, 'browser.context_hub.mojom.PageHandler_SwitchToTab_Params', [
       mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ParamsSpec, 'browser.context_hub.mojom.PageHandler_ClearTabGroups_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_ClearTabGroups_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ParamsSpec, 'browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ResponseParams', [
+    ],
+    [[0, 8]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7969.0';
+        const versionStr = window.mojoVersion || '152.0.7971.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -140,6 +140,8 @@ mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSp
 if (mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevices_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevice_ParamsSpec = mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevice_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevice_ParamsSpec.$ = {};
+mojo.internal.bindings.device.mojom.UsbDeviceManager_GetUnrestrictedDevice_ParamsSpec = mojo.internal.bindings.device.mojom.UsbDeviceManager_GetUnrestrictedDevice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.UsbDeviceManager_GetUnrestrictedDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.UsbDeviceManager_GetUnrestrictedDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.UsbDeviceManager_GetUnrestrictedDevice_ParamsSpec.$ = {};
 mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec = mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$ = {};
 mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec = mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec || { $: {} };
@@ -207,6 +209,9 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemote = class {
   getDevice(arg_guid, arg_blocked_interface_classes, arg_device_receiver, arg_device_client) {
     return this.$.getDevice(arg_guid, arg_blocked_interface_classes, arg_device_receiver, arg_device_client);
   }
+  getUnrestrictedDevice(arg_guid, arg_blocked_interface_classes, arg_device_receiver, arg_device_client) {
+    return this.$.getUnrestrictedDevice(arg_guid, arg_blocked_interface_classes, arg_device_receiver, arg_device_client);
+  }
   getSecurityKeyDevice(arg_guid, arg_device_receiver, arg_device_client) {
     return this.$.getSecurityKeyDevice(arg_guid, arg_device_receiver, arg_device_client);
   }
@@ -219,6 +224,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.UsbDeviceManager', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -254,9 +260,18 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemoteCallHandler = class {
       false);
   }
 
-  getSecurityKeyDevice(arg_guid, arg_device_receiver, arg_device_client) {
+  getUnrestrictedDevice(arg_guid, arg_blocked_interface_classes, arg_device_receiver, arg_device_client) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
+      mojo.internal.bindings.device.mojom.UsbDeviceManager_GetUnrestrictedDevice_ParamsSpec,
+      null,
+      [arg_guid, arg_blocked_interface_classes, arg_device_receiver, arg_device_client],
+      false);
+  }
+
+  getSecurityKeyDevice(arg_guid, arg_device_receiver, arg_device_client) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec,
       null,
       [arg_guid, arg_device_receiver, arg_device_client],
@@ -265,7 +280,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerRemoteCallHandler = class {
 
   setClient(arg_client) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec,
       null,
       [arg_client],
@@ -290,6 +305,7 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('device.mojom.UsbDeviceManager', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -383,12 +399,19 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_GetUnrestrictedDevice_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getUnrestrictedDevice');
+          const result = this.impl.getUnrestrictedDevice(params.arg_guid, params.arg_blocked_interface_classes, params.arg_device_receiver, params.arg_device_client);
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_GetSecurityKeyDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSecurityKeyDevice');
           const result = this.impl.getSecurityKeyDevice(params.arg_guid, params.arg_device_receiver, params.arg_device_client);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManager_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
@@ -436,6 +459,15 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.UsbDeviceManager_GetDevice_ParamsSpec, 'device.mojom.UsbDeviceManager_GetDevice_Params', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blocked_interface_classes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.UsbDevicePendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_client', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.UsbDeviceClientRemote), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceManager_GetUnrestrictedDevice_ParamsSpec, 'device.mojom.UsbDeviceManager_GetUnrestrictedDevice_Params', [
       mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_blocked_interface_classes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_device_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.UsbDevicePendingReceiver), null, false, 0, undefined),
