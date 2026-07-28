@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7975.0';
+        const versionStr = window.mojoVersion || '152.0.7977.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -5279,6 +5279,8 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kHTMLMicrophoneElement: 5970,
   kV8WorkerNavigator_GlobalPrivacyControl_AttributeGetter: 5971,
   kV8Navigator_GlobalPrivacyControl_AttributeGetter: 5972,
+  kXmlCAPAlert: 5973,
+  kXmlCAPAlertWithXSLT: 5974,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

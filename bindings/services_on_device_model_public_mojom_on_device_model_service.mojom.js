@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7975.0';
+        const versionStr = window.mojoVersion || '152.0.7977.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -958,8 +958,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_assets', 8, 0, mojo.internal.bindings.on_device_model.mojom.ModelAssetsSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_adaptation_ranks', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_performance_hint', 24, 0, mojo.internal.bindings.on_device_model.mojom.ModelPerformanceHintSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vram_mb', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: TextSafetyModelParams
 mojo.internal.Struct(

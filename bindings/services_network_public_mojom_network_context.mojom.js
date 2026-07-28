@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '152.0.7975.0';
+        const versionStr = window.mojoVersion || '152.0.7977.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1969,8 +1969,8 @@ mojo.internal.bindings.network.mojom.NetworkContextRemote = class {
   clearNetworkRestrictions(arg_network_restrictions_ids) {
     return this.$.clearNetworkRestrictions(arg_network_restrictions_ids);
   }
-  prefetch(arg_request_id, arg_options, arg_request, arg_traffic_annotation) {
-    return this.$.prefetch(arg_request_id, arg_options, arg_request, arg_traffic_annotation);
+  prefetch(arg_request_id, arg_options, arg_request, arg_traffic_annotation, arg_network_restrictions_id) {
+    return this.$.prefetch(arg_request_id, arg_options, arg_request, arg_traffic_annotation, arg_network_restrictions_id);
   }
   getBoundNetworkForTesting() {
     return this.$.getBoundNetworkForTesting();
@@ -2848,12 +2848,12 @@ mojo.internal.bindings.network.mojom.NetworkContextRemoteCallHandler = class {
       false);
   }
 
-  prefetch(arg_request_id, arg_options, arg_request, arg_traffic_annotation) {
+  prefetch(arg_request_id, arg_options, arg_request, arg_traffic_annotation, arg_network_restrictions_id) {
     return this.proxy.sendMessage(
       this.ordinals[85],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContext_Prefetch_ParamsSpec,
       null,
-      [arg_request_id, arg_options, arg_request, arg_traffic_annotation],
+      [arg_request_id, arg_options, arg_request, arg_traffic_annotation, arg_network_restrictions_id],
       false);
   }
 
@@ -4128,7 +4128,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_Prefetch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prefetch');
-          const result = this.impl.prefetch(params.arg_request_id, params.arg_options, params.arg_request, params.arg_traffic_annotation);
+          const result = this.impl.prefetch(params.arg_request_id, params.arg_options, params.arg_request, params.arg_traffic_annotation, params.arg_network_restrictions_id);
           break;
         }
         case 86: {
@@ -5373,8 +5373,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_options', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_request', 8, 0, mojo.internal.bindings.network.mojom.URLRequestSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_traffic_annotation', 16, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_restrictions_id', 24, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_GetBoundNetworkForTesting_ParamsSpec, 'network.mojom.NetworkContext_GetBoundNetworkForTesting_Params', [
