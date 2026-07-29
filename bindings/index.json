@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-28T11:53:12.189153Z",
-  "version": "152.0.7977.0",
+  "generated_at": "2026-07-29T11:57:07.953024Z",
+  "version": "153.0.7978.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7794,7 +7794,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kOptimizationGuideOnDeviceModel"
+        ]
       }
     },
     {
@@ -7818,7 +7821,8 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -7844,7 +7848,8 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -7866,7 +7871,8 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -23160,7 +23166,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
@@ -26044,7 +26049,8 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement"
+          "feature:kInstallElement",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -50028,6 +50034,53 @@
       }
     },
     {
+      "name": "SigninPageHandler",
+      "module": "signin.mojom",
+      "file": "ui_webui_resources_cr_components_signin_signin.mojom.js",
+      "methods": [
+        "StartSignin",
+        "SigninWithAccount",
+        "RecordSigninPendingOffered",
+        "RecordSigninOffered"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: signin.mojom.SigninPageHandlerFactory.CreateSigninPageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
+        ]
+      }
+    },
+    {
+      "name": "SigninPageHandlerFactory",
+      "module": "signin.mojom",
+      "file": "ui_webui_resources_cr_components_signin_signin.mojom.js",
+      "methods": [
+        "CreateSigninPageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
+        ]
+      }
+    },
+    {
       "name": "ThemeColorPickerHandlerFactory",
       "module": "theme_color_picker.mojom",
       "file": "ui_webui_resources_cr_components_theme_color_picker_theme_color_picker.mojom.js",
@@ -58330,7 +58383,8 @@
       "source": "media/mojo/mojom/speech_recognition_result.mojom",
       "module": "media.mojom",
       "imports": [
-        "mojo/public/mojom/base/string16.mojom"
+        "mojo/public/mojom/base/string16.mojom",
+        "mojo/public/mojom/base/time.mojom"
       ]
     },
     {
@@ -66738,6 +66792,12 @@
         "skia/public/mojom/skcolor.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "ui_webui_resources_cr_components_signin_signin.mojom.js",
+      "source": "ui/webui/resources/cr_components/signin/signin.mojom",
+      "module": "signin.mojom",
+      "imports": []
     },
     {
       "filename": "ui_webui_resources_cr_components_theme_color_picker_theme_color_picker.mojom.js",
