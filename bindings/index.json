@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-29T11:57:07.953024Z",
-  "version": "153.0.7978.0",
+  "generated_at": "2026-07-30T11:52:26.901508Z",
+  "version": "153.0.7980.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -23364,7 +23364,9 @@
         "OnAppMenuFocusChanged",
         "ExecuteExtensionAction",
         "ShowExtensionContextMenu",
-        "AdjustOmniboxTextForCopy"
+        "AdjustOmniboxTextForCopy",
+        "OnPerformanceInterventionButtonClicked",
+        "OnPerformanceInterventionButtonMousePressed"
       ],
       "metadata": {
         "usage": {
@@ -23823,6 +23825,7 @@
       "file": "components_content_settings_common_content_settings_manager.mojom.js",
       "methods": [
         "Clone",
+        "IsStorageAccessAllowed",
         "AllowStorageAccess",
         "OnContentBlocked"
       ],
@@ -25080,6 +25083,79 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "notebooks_internals.mojom",
+      "file": "components_notebooks_internals_webui_notebooks_internals.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "notebooks_internals.mojom",
+      "file": "components_notebooks_internals_webui_notebooks_internals.mojom.js",
+      "methods": [
+        "GetFeatureFlagState",
+        "GetProfileEligibility"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: notebooks_internals.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
+      "name": "Page",
+      "module": "notebooks_internals.mojom",
+      "file": "components_notebooks_internals_webui_notebooks_internals.mojom.js",
+      "methods": [
+        "OnProfileEligibilityChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -27481,7 +27557,8 @@
         "SetAlbum",
         "SetThumbnail",
         "SetPosition",
-        "ClearMetadata"
+        "ClearMetadata",
+        "ClearPosition"
       ],
       "metadata": {
         "usage": {
@@ -38777,7 +38854,6 @@
         "OnClearSiteData",
         "OnLoadingStateUpdate",
         "OnDataUseUpdate",
-        "OnSharedStorageHeaderReceived",
         "Clone",
         "OnWebSocketConnectedToLocalNetwork",
         "OnUrlLoaderConnectedToLocalNetwork"
@@ -45248,6 +45324,7 @@
         "ImeFinishComposingText",
         "RequestTextInputStateUpdate",
         "RequestCompositionUpdates",
+        "PasteIntoNode",
         "DispatchEvent",
         "DispatchNonBlockingEvent",
         "WaitForInputProcessed",
@@ -55539,6 +55616,14 @@
       "imports": []
     },
     {
+      "filename": "components_notebooks_internals_webui_notebooks_internals.mojom.js",
+      "source": "components/notebooks/internals/webui/notebooks_internals.mojom",
+      "module": "notebooks_internals.mojom",
+      "imports": [
+        "url/mojom/url.mojom"
+      ]
+    },
+    {
       "filename": "components_ntp_tiles_tile_source.mojom.js",
       "source": "components/ntp_tiles/tile_source.mojom",
       "module": "ntp_tiles.mojom",
@@ -60633,14 +60718,6 @@
       ]
     },
     {
-      "filename": "services_network_public_mojom_shared_storage.mojom.js",
-      "source": "services/network/public/mojom/shared_storage.mojom",
-      "module": "network.mojom",
-      "imports": [
-        "mojo/public/mojom/base/string16.mojom"
-      ]
-    },
-    {
       "filename": "services_network_public_mojom_signed_certificate_timestamp.mojom.js",
       "source": "services/network/public/mojom/signed_certificate_timestamp.mojom",
       "module": "network.mojom",
@@ -60889,7 +60966,6 @@
         "services/network/public/mojom/ip_address.mojom",
         "services/network/public/mojom/ip_address_space.mojom",
         "services/network/public/mojom/network_param.mojom",
-        "services/network/public/mojom/shared_storage.mojom",
         "services/network/public/mojom/ssl_info.mojom",
         "services/network/public/mojom/x509_certificate.mojom",
         "url/mojom/origin.mojom",
@@ -62166,6 +62242,7 @@
       "imports": [
         "services/viz/public/mojom/compositing/frame_sink_id.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
+        "ui/gfx/mojom/rrect_f.mojom",
         "ui/gfx/mojom/transform.mojom"
       ]
     },
@@ -62177,6 +62254,7 @@
         "services/viz/public/mojom/compositing/frame_sink_id.mojom",
         "services/viz/public/mojom/compositing/surface_id.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
+        "ui/gfx/mojom/rrect_f.mojom",
         "ui/gfx/mojom/transform.mojom"
       ]
     },
@@ -62455,8 +62533,7 @@
         "third_party/blink/public/mojom/ai/ai_proofreader.mojom",
         "third_party/blink/public/mojom/ai/ai_rewriter.mojom",
         "third_party/blink/public/mojom/ai/ai_summarizer.mojom",
-        "third_party/blink/public/mojom/ai/ai_writer.mojom",
-        "third_party/blink/public/mojom/ai/ai_semantic_embedder.mojom"
+        "third_party/blink/public/mojom/ai/ai_writer.mojom"
       ]
     },
     {
