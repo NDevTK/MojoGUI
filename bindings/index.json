@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-30T11:52:26.901508Z",
-  "version": "153.0.7980.0",
+  "generated_at": "2026-07-31T11:53:34.275083Z",
+  "version": "153.0.7982.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3602,6 +3602,71 @@
       }
     },
     {
+      "name": "PageHandlerFactory",
+      "module": "contextual_tasks_toolbar.mojom",
+      "file": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "contextual_tasks_toolbar.mojom",
+      "file": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: contextual_tasks_toolbar.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "Page",
+      "module": "contextual_tasks_toolbar.mojom",
+      "file": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
       "name": "ExperimentalOptInPageHandler",
       "module": "glic.mojom",
       "file": "chrome_browser_glic_experimental_opt_in_glic_experimental_opt_in.mojom.js",
@@ -4145,7 +4210,10 @@
         "GetOpenTabs",
         "SetWebContinuityOriginatingHostUrlPreset",
         "SetShowErrorAllowed",
-        "ShowExperimentalOptIn"
+        "ShowExperimentalOptIn",
+        "RevokeExperimentalTriggeringConsent",
+        "RevokeGlicConsent",
+        "RevokeActuationConsent"
       ],
       "metadata": {
         "usage": {
@@ -4159,7 +4227,8 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -4950,6 +5019,9 @@
         "PauseVideo",
         "SeekToTimestamp",
         "TranslatePage",
+        "AddBookmark",
+        "RemoveBookmark",
+        "OpenPage",
         "InvokeGlic"
       ],
       "metadata": {
@@ -4957,6 +5029,24 @@
           "associated": [],
           "direct": [
             "Internal Interface: ai_overlay_dialog.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "AiOverlayToolRegistry",
+      "module": "ai_overlay_dialog.mojom",
+      "file": "chrome_browser_ui_webui_ai_overlay_dialog_tools_tools.mojom.js",
+      "methods": [
+        "GetToolDefinitions"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -7265,6 +7355,10 @@
       "file": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
       "methods": [
         "GenerateAutoTodos",
+        "SetTodoFeedback",
+        "DeleteTodoFeedback",
+        "ClearTodoFeedbacks",
+        "GetTodoFeedbacks",
         "GetAllMemoryBankEntries",
         "DeleteMemoryBankEntries",
         "GetTabs",
@@ -7272,7 +7366,8 @@
         "GetExistingTabGroupsAndChats",
         "SwitchToTab",
         "ClearTabGroups",
-        "ClearTabGroupChatHistory"
+        "ClearTabGroupChatHistory",
+        "AskGeminiWithContext"
       ],
       "metadata": {
         "usage": {
@@ -9990,36 +10085,6 @@
       }
     },
     {
-      "name": "PageHandler",
-      "module": "personal_context.notice.mojom",
-      "file": "chrome_browser_ui_webui_personal_context_personal_context_notice.mojom.js",
-      "methods": [
-        "GetAccountInfo",
-        "OnNoticeAcknowledged",
-        "OnNoticeDismissed",
-        "OnManageSettingsClicked",
-        "OnLearnMoreClicked",
-        "ShowUi"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
-        ]
-      }
-    },
-    {
       "name": "PageHandlerFactory",
       "module": "browser.personal_context_internals.mojom",
       "file": "chrome_browser_ui_webui_personal_context_internals_personal_context_internals.mojom.js",
@@ -11477,7 +11542,8 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kOptimizationGuideOnDeviceModel"
         ]
       }
     },
@@ -13229,62 +13295,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: chrome.mojom.AppShim.BindNotificationProvider"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "MediaParser",
-      "module": "chrome.mojom",
-      "file": "chrome_services_media_gallery_util_public_mojom_media_parser.mojom.js",
-      "methods": [
-        "ParseMediaMetadata",
-        "CheckMediaFile",
-        "GetCpuInfo"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "MediaParserFactory",
-      "module": "chrome.mojom",
-      "file": "chrome_services_media_gallery_util_public_mojom_media_parser.mojom.js",
-      "methods": [
-        "CreateMediaParser"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "MediaDataSource",
-      "module": "chrome.mojom",
-      "file": "chrome_services_media_gallery_util_public_mojom_media_parser.mojom.js",
-      "methods": [
-        "Read"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -24600,6 +24610,62 @@
       }
     },
     {
+      "name": "MediaParser",
+      "module": "chrome.mojom",
+      "file": "components_media_gallery_util_public_mojom_media_parser.mojom.js",
+      "methods": [
+        "ParseMediaMetadata",
+        "CheckMediaFile",
+        "GetCpuInfo"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "MediaParserFactory",
+      "module": "chrome.mojom",
+      "file": "components_media_gallery_util_public_mojom_media_parser.mojom.js",
+      "methods": [
+        "CreateMediaParser"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "MediaDataSource",
+      "module": "chrome.mojom",
+      "file": "components_media_gallery_util_public_mojom_media_parser.mojom.js",
+      "methods": [
+        "Read"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "Debugger",
       "module": "media_router.mojom",
       "file": "components_media_router_common_mojom_debugger.mojom.js",
@@ -27525,7 +27591,8 @@
         "SetSurfaceEmbed",
         "AttachConnector",
         "SynchronizeVisualProperties",
-        "OnEmbedElementFocused"
+        "OnEmbedElementFocused",
+        "OnEmbedElementThrottlingStatusChanged"
       ],
       "metadata": {
         "usage": {
@@ -29662,7 +29729,8 @@
       "module": "content.mojom",
       "file": "content_web_test_common_web_test.mojom.js",
       "methods": [
-        "SetLCPPNavigationHint"
+        "SetLCPPNavigationHint",
+        "SetIsXrOverlaySetup"
       ],
       "metadata": {
         "usage": {
@@ -51150,6 +51218,12 @@
       ]
     },
     {
+      "filename": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
+      "source": "chrome/browser/contextual_tasks/contextual_tasks_toolbar.mojom",
+      "module": "contextual_tasks_toolbar.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_contextual_tasks_contextual_tasks_types.mojom.js",
       "source": "chrome/browser/contextual_tasks/contextual_tasks_types.mojom",
       "module": "contextual_tasks.mojom",
@@ -51946,6 +52020,7 @@
       "source": "chrome/browser/ui/webui/new_tab_page/action_chips/action_chips.mojom",
       "module": "action_chips.mojom",
       "imports": [
+        "components/omnibox/browser/fusebox_action.mojom",
         "components/omnibox/browser/searchbox.mojom",
         "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
@@ -52075,12 +52150,6 @@
       "imports": [
         "url/mojom/url.mojom"
       ]
-    },
-    {
-      "filename": "chrome_browser_ui_webui_personal_context_personal_context_notice.mojom.js",
-      "source": "chrome/browser/ui/webui/personal_context/personal_context_notice.mojom",
-      "module": "personal_context.notice.mojom",
-      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_personal_context_internals_personal_context_internals.mojom.js",
@@ -52689,18 +52758,6 @@
         "sandbox/policy/mojom/sandbox.mojom",
         "ui/gfx/image/mojom/image.mojom",
         "url/mojom/url.mojom"
-      ]
-    },
-    {
-      "filename": "chrome_services_media_gallery_util_public_mojom_media_parser.mojom.js",
-      "source": "chrome/services/media_gallery_util/public/mojom/media_parser.mojom",
-      "module": "chrome.mojom",
-      "imports": [
-        "media/mojo/mojom/media_types.mojom",
-        "mojo/public/mojom/base/file.mojom",
-        "mojo/public/mojom/base/time.mojom",
-        "mojo/public/mojom/base/values.mojom",
-        "sandbox/policy/mojom/sandbox.mojom"
       ]
     },
     {
@@ -55419,6 +55476,18 @@
       ]
     },
     {
+      "filename": "components_media_gallery_util_public_mojom_media_parser.mojom.js",
+      "source": "components/media_gallery_util/public/mojom/media_parser.mojom",
+      "module": "chrome.mojom",
+      "imports": [
+        "media/mojo/mojom/media_types.mojom",
+        "mojo/public/mojom/base/file.mojom",
+        "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/values.mojom",
+        "sandbox/policy/mojom/sandbox.mojom"
+      ]
+    },
+    {
       "filename": "components_media_router_common_mojom_debugger.mojom.js",
       "source": "components/media_router/common/mojom/debugger.mojom",
       "module": "media_router.mojom",
@@ -55634,6 +55703,15 @@
       "source": "components/ntp_tiles/tile_type.mojom",
       "module": "ntp_tiles.mojom",
       "imports": []
+    },
+    {
+      "filename": "components_omnibox_browser_fusebox_action.mojom.js",
+      "source": "components/omnibox/browser/fusebox_action.mojom",
+      "module": "fusebox_action.mojom",
+      "imports": [
+        "components/omnibox/browser/searchbox.mojom",
+        "components/omnibox/composebox/composebox_query.mojom"
+      ]
     },
     {
       "filename": "components_omnibox_browser_omnibox.mojom.js",
@@ -61071,6 +61149,7 @@
       "imports": [
         "mojo/public/mojom/base/read_only_buffer.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "services/network/public/mojom/http_request_headers.mojom",
         "services/network/public/mojom/http_response_headers.mojom",
         "services/network/public/mojom/ip_endpoint.mojom",
         "services/network/public/mojom/network_param.mojom"
@@ -62756,12 +62835,6 @@
       "imports": [
         "mojo/public/mojom/base/generic_pending_receiver.mojom"
       ]
-    },
-    {
-      "filename": "third_party_blink_public_mojom_browsing_topics_browsing_topics.mojom.js",
-      "source": "third_party/blink/public/mojom/browsing_topics/browsing_topics.mojom",
-      "module": "blink.mojom",
-      "imports": []
     },
     {
       "filename": "third_party_blink_public_mojom_buckets_bucket_manager_host.mojom.js",
