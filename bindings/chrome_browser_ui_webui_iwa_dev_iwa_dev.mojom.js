@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7982.0';
+        const versionStr = window.mojoVersion || '153.0.7984.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -141,6 +141,14 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandler_GetInstalledAppsInfo_ParamsSpec
 if (mojo.internal.bindings.iwa_dev.mojom.PageHandler_GetInstalledAppsInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.PageHandler_GetInstalledAppsInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.PageHandler_GetInstalledAppsInfo_ParamsSpec.$ = {};
 mojo.internal.bindings.iwa_dev.mojom.PageHandler_GetInstalledAppsInfo_ResponseParamsSpec = mojo.internal.bindings.iwa_dev.mojom.PageHandler_GetInstalledAppsInfo_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.iwa_dev.mojom.PageHandler_GetInstalledAppsInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.PageHandler_GetInstalledAppsInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.PageHandler_GetInstalledAppsInfo_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ParamsSpec = mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ParamsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ParamsSpec.$ = {};
+mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ResponseParamsSpec = mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ParamsSpec = mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ParamsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ParamsSpec.$ = {};
+mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ResponseParamsSpec = mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec = mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec.$ = {};
 mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ResponseParamsSpec = mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ResponseParamsSpec || { $: {} };
@@ -209,6 +217,12 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerRemote = class {
   getInstalledAppsInfo() {
     return this.$.getInstalledAppsInfo();
   }
+  installAppFromDevProxy(arg_url) {
+    return this.$.installAppFromDevProxy(arg_url);
+  }
+  selectAndInstallAppFromLocalWebBundle() {
+    return this.$.selectAndInstallAppFromLocalWebBundle();
+  }
   uninstallApp(arg_app_id) {
     return this.$.uninstallApp(arg_app_id);
   }
@@ -218,6 +232,8 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('iwa_dev.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -232,9 +248,27 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
-  uninstallApp(arg_app_id) {
+  installAppFromDevProxy(arg_url) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
+      mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ParamsSpec,
+      mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ResponseParamsSpec,
+      [arg_url],
+      false);
+  }
+
+  selectAndInstallAppFromLocalWebBundle() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ParamsSpec,
+      mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  uninstallApp(arg_app_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec,
       mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ResponseParamsSpec,
       [arg_app_id],
@@ -259,6 +293,8 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('iwa_dev.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -323,6 +359,42 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerReceiver = class {
           break;
         }
         case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.installAppFromDevProxy');
+          const result = this.impl.installAppFromDevProxy(params.arg_url);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] installAppFromDevProxy FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.selectAndInstallAppFromLocalWebBundle');
+          const result = this.impl.selectAndInstallAppFromLocalWebBundle();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_error' in response) ? response['arg_error'] : response;
+              const resp_obj = { 'arg_error': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] selectAndInstallAppFromLocalWebBundle FAILED:', e));
+          }
+          break;
+        }
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uninstallApp');
@@ -714,6 +786,29 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.iwa_dev.mojom.PageHandler_GetInstalledAppsInfo_ResponseParamsSpec, 'iwa_dev.mojom.PageHandler_GetInstalledAppsInfo_ResponseParams', [
       mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.iwa_dev.mojom.IwaDevModeAppInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ParamsSpec, 'iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ResponseParamsSpec, 'iwa_dev.mojom.PageHandler_InstallAppFromDevProxy_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ParamsSpec, 'iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ResponseParamsSpec, 'iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

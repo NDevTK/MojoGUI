@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7982.0';
+        const versionStr = window.mojoVersion || '153.0.7984.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -168,6 +168,14 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_RemoveBookmark_Par
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_RemoveBookmark_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_RemoveBookmark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_RemoveBookmark_ParamsSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_OpenPage_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_OpenPage_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_OpenPage_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_OpenPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_OpenPage_ParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetText_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetText_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetText_ParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_ClickElement_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_ClickElement_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_ClickElement_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_ClickElement_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_ClickElement_ParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetFullscreen_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetFullscreen_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetFullscreen_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetFullscreen_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetFullscreen_ParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SelectOption_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SelectOption_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SelectOption_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SelectOption_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SelectOption_ParamsSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_InvokeGlic_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_InvokeGlic_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_InvokeGlic_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_InvokeGlic_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_InvokeGlic_ParamsSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolRegistry = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolRegistry || {};
@@ -271,6 +279,18 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsRemote = class {
   openPage(arg_query) {
     return this.$.openPage(arg_query);
   }
+  setText(arg_dom_node_id, arg_text) {
+    return this.$.setText(arg_dom_node_id, arg_text);
+  }
+  clickElement(arg_dom_node_id) {
+    return this.$.clickElement(arg_dom_node_id);
+  }
+  setFullscreen(arg_fullscreen) {
+    return this.$.setFullscreen(arg_fullscreen);
+  }
+  selectOption(arg_dom_node_id, arg_value) {
+    return this.$.selectOption(arg_dom_node_id, arg_value);
+  }
   invokeGlic(arg_prompt) {
     return this.$.invokeGlic(arg_prompt);
   }
@@ -280,6 +300,10 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsRemoteCallHandler =
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ai_overlay_dialog.mojom.AiOverlayTools', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -454,9 +478,45 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsRemoteCallHandler =
       false);
   }
 
-  invokeGlic(arg_prompt) {
+  setText(arg_dom_node_id, arg_text) {
     return this.proxy.sendMessage(
       this.ordinals[17],  // ordinal
+      mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetText_ParamsSpec,
+      null,
+      [arg_dom_node_id, arg_text],
+      false);
+  }
+
+  clickElement(arg_dom_node_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[18],  // ordinal
+      mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_ClickElement_ParamsSpec,
+      null,
+      [arg_dom_node_id],
+      false);
+  }
+
+  setFullscreen(arg_fullscreen) {
+    return this.proxy.sendMessage(
+      this.ordinals[19],  // ordinal
+      mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetFullscreen_ParamsSpec,
+      null,
+      [arg_fullscreen],
+      false);
+  }
+
+  selectOption(arg_dom_node_id, arg_value) {
+    return this.proxy.sendMessage(
+      this.ordinals[20],  // ordinal
+      mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SelectOption_ParamsSpec,
+      null,
+      [arg_dom_node_id, arg_value],
+      false);
+  }
+
+  invokeGlic(arg_prompt) {
+    return this.proxy.sendMessage(
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_InvokeGlic_ParamsSpec,
       null,
       [arg_prompt],
@@ -481,6 +541,10 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('ai_overlay_dialog.mojom.AiOverlayTools', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -662,6 +726,34 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsReceiver = class {
           break;
         }
         case 17: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetText_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setText');
+          const result = this.impl.setText(params.arg_dom_node_id, params.arg_text);
+          break;
+        }
+        case 18: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_ClickElement_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.clickElement');
+          const result = this.impl.clickElement(params.arg_dom_node_id);
+          break;
+        }
+        case 19: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetFullscreen_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setFullscreen');
+          const result = this.impl.setFullscreen(params.arg_fullscreen);
+          break;
+        }
+        case 20: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SelectOption_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.selectOption');
+          const result = this.impl.selectOption(params.arg_dom_node_id, params.arg_value);
+          break;
+        }
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_InvokeGlic_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.invokeGlic');
@@ -934,6 +1026,32 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetText_ParamsSpec, 'ai_overlay_dialog.mojom.AiOverlayTools_SetText_Params', [
+      mojo.internal.StructField('arg_dom_node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_ClickElement_ParamsSpec, 'ai_overlay_dialog.mojom.AiOverlayTools_ClickElement_Params', [
+      mojo.internal.StructField('arg_dom_node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SetFullscreen_ParamsSpec, 'ai_overlay_dialog.mojom.AiOverlayTools_SetFullscreen_Params', [
+      mojo.internal.StructField('arg_fullscreen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_SelectOption_ParamsSpec, 'ai_overlay_dialog.mojom.AiOverlayTools_SelectOption_Params', [
+      mojo.internal.StructField('arg_dom_node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayTools_InvokeGlic_ParamsSpec, 'ai_overlay_dialog.mojom.AiOverlayTools_InvokeGlic_Params', [

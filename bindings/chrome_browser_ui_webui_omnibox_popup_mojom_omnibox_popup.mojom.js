@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7982.0';
+        const versionStr = window.mojoVersion || '153.0.7984.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -154,6 +154,8 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestInputState_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestInputState_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestInputState_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestInputState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestInputState_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenAimPopup_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenAimPopup_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenAimPopup_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenAimPopup_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenAimPopup_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.Page = mojo.internal.bindings.omnibox_popup.mojom.Page || {};
 mojo.internal.bindings.omnibox_popup.mojom.PageSpec = mojo.internal.bindings.omnibox_popup.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.PageSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageSpec.$ = {};
@@ -370,12 +372,16 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemote = class {
   requestInputState() {
     return this.$.requestInputState();
   }
+  openAimPopup(arg_via_keyboard) {
+    return this.$.openAimPopup(arg_via_keyboard);
+  }
 };
 
 mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('omnibox_popup.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -449,6 +455,15 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
       false);
   }
 
+  openAimPopup(arg_via_keyboard) {
+    return this.proxy.sendMessage(
+      this.ordinals[7],  // ordinal
+      mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenAimPopup_ParamsSpec,
+      null,
+      [arg_via_keyboard],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.omnibox_popup.mojom.PageHandler.getRemote = function() {
@@ -467,6 +482,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('omnibox_popup.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -564,6 +580,13 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestInputState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestInputState');
           const result = this.impl.requestInputState();
+          break;
+        }
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenAimPopup_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openAimPopup');
+          const result = this.impl.openAimPopup(params.arg_via_keyboard);
           break;
         }
       }
@@ -842,6 +865,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestInputState_ParamsSpec, 'omnibox_popup.mojom.PageHandler_RequestInputState_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenAimPopup_ParamsSpec, 'omnibox_popup.mojom.PageHandler_OpenAimPopup_Params', [
+      mojo.internal.StructField('arg_via_keyboard', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.Page_OnShow_ParamsSpec, 'omnibox_popup.mojom.Page_OnShow_Params', [

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7982.0';
+        const versionStr = window.mojoVersion || '153.0.7984.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -294,6 +294,9 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.InitialAddressMapSpec = mojo.internal.bindings.network.mojom.InitialAddressMapSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.InsecureDnsModeSpec = mojo.internal.bindings.network.mojom.InsecureDnsModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec = mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
@@ -431,8 +434,8 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemote = class {
   createNetworkContext(arg_context, arg_params) {
     return this.$.createNetworkContext(arg_context, arg_params);
   }
-  configureStubHostResolver(arg_insecure_dns_client_enabled, arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode, arg_dns_over_https_config, arg_additional_dns_types_enabled, arg_fallback_doh_nameservers, arg_insecure_dns_via_platform_apis_enabled) {
-    return this.$.configureStubHostResolver(arg_insecure_dns_client_enabled, arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode, arg_dns_over_https_config, arg_additional_dns_types_enabled, arg_fallback_doh_nameservers, arg_insecure_dns_via_platform_apis_enabled);
+  configureStubHostResolver(arg_insecure_dns_mode, arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode, arg_dns_over_https_config, arg_additional_dns_types_enabled, arg_fallback_doh_nameservers) {
+    return this.$.configureStubHostResolver(arg_insecure_dns_mode, arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode, arg_dns_over_https_config, arg_additional_dns_types_enabled, arg_fallback_doh_nameservers);
   }
   disableQuic() {
     return this.$.disableQuic();
@@ -602,12 +605,12 @@ mojo.internal.bindings.network.mojom.NetworkServiceRemoteCallHandler = class {
       false);
   }
 
-  configureStubHostResolver(arg_insecure_dns_client_enabled, arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode, arg_dns_over_https_config, arg_additional_dns_types_enabled, arg_fallback_doh_nameservers, arg_insecure_dns_via_platform_apis_enabled) {
+  configureStubHostResolver(arg_insecure_dns_mode, arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode, arg_dns_over_https_config, arg_additional_dns_types_enabled, arg_fallback_doh_nameservers) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec,
       null,
-      [arg_insecure_dns_client_enabled, arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode, arg_dns_over_https_config, arg_additional_dns_types_enabled, arg_fallback_doh_nameservers, arg_insecure_dns_via_platform_apis_enabled],
+      [arg_insecure_dns_mode, arg_happy_eyeballs_v3_enabled, arg_secure_dns_mode, arg_dns_over_https_config, arg_additional_dns_types_enabled, arg_fallback_doh_nameservers],
       false);
   }
 
@@ -987,7 +990,7 @@ mojo.internal.bindings.network.mojom.NetworkServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configureStubHostResolver');
-          const result = this.impl.configureStubHostResolver(params.arg_insecure_dns_client_enabled, params.arg_happy_eyeballs_v3_enabled, params.arg_secure_dns_mode, params.arg_dns_over_https_config, params.arg_additional_dns_types_enabled, params.arg_fallback_doh_nameservers, params.arg_insecure_dns_via_platform_apis_enabled);
+          const result = this.impl.configureStubHostResolver(params.arg_insecure_dns_mode, params.arg_happy_eyeballs_v3_enabled, params.arg_secure_dns_mode, params.arg_dns_over_https_config, params.arg_additional_dns_types_enabled, params.arg_fallback_doh_nameservers);
           break;
         }
         case 6: {
@@ -1713,15 +1716,14 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_ConfigureStubHostResolver_ParamsSpec, 'network.mojom.NetworkService_ConfigureStubHostResolver_Params', [
-      mojo.internal.StructField('arg_insecure_dns_client_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_happy_eyeballs_v3_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_additional_dns_types_enabled', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_insecure_dns_via_platform_apis_enabled', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_dns_mode', 4, 0, mojo.internal.bindings.network.mojom.SecureDnsModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dns_over_https_config', 8, 0, mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fallback_doh_nameservers', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPEndPointSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_insecure_dns_mode', 0, 0, mojo.internal.bindings.network.mojom.InsecureDnsModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_happy_eyeballs_v3_enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_dns_types_enabled', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_dns_mode', 8, 0, mojo.internal.bindings.network.mojom.SecureDnsModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dns_over_https_config', 16, 0, mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fallback_doh_nameservers', 24, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPEndPointSpec, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkService_DisableQuic_ParamsSpec, 'network.mojom.NetworkService_DisableQuic_Params', [

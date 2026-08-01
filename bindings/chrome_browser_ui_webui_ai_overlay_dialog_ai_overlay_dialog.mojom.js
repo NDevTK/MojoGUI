@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7982.0';
+        const versionStr = window.mojoVersion || '153.0.7984.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -145,6 +145,8 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_Resp
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetMockAudioData_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_UpdateAudioEnergy_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_UpdateAudioEnergy_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_UpdateAudioEnergy_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_UpdateAudioEnergy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_UpdateAudioEnergy_ParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.Page = mojo.internal.bindings.ai_overlay_dialog.mojom.Page || {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$ = {};
@@ -341,12 +343,16 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemote = class {
   updateAudioEnergy(arg_energy) {
     return this.$.updateAudioEnergy(arg_energy);
   }
+  close() {
+    return this.$.close();
+  }
 };
 
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ai_overlay_dialog.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -370,6 +376,15 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemoteCallHandler = cl
       false);
   }
 
+  close() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler.getRemote = function() {
@@ -388,6 +403,7 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('ai_overlay_dialog.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -456,6 +472,13 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_UpdateAudioEnergy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAudioEnergy');
           const result = this.impl.updateAudioEnergy(params.arg_energy);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.close');
+          const result = this.impl.close();
           break;
         }
       }
@@ -728,6 +751,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_energy', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec, 'ai_overlay_dialog.mojom.PageHandler_Close_Params', [
+    ],
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ai_overlay_dialog.mojom.Page_DidChangePage_ParamsSpec, 'ai_overlay_dialog.mojom.Page_DidChangePage_Params', [

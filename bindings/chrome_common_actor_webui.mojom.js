@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7982.0';
+        const versionStr = window.mojoVersion || '153.0.7984.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -333,8 +333,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.actor.webui.mojom.TaskDurationSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_feature_mode', 12, 0, mojo.internal.bindings.glic.mojom.FeatureModeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_actuation_tab_id_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_actuation_tab_id_$value', originalFieldName: 'arg_actuation_tab_id' }),
+      mojo.internal.StructField('arg_actuation_tab_id_$value', 20, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_actuation_tab_id_$flag', originalFieldName: 'arg_actuation_tab_id' }),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: Credential
 mojo.internal.Struct(

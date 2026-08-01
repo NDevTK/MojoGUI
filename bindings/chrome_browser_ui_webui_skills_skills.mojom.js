@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7982.0';
+        const versionStr = window.mojoVersion || '153.0.7984.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -217,6 +217,8 @@ mojo.internal.bindings.skills.mojom.SkillsPageHandler_ShowToast_ParamsSpec = moj
 if (mojo.internal.bindings.skills.mojom.SkillsPageHandler_ShowToast_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPageHandler_ShowToast_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPageHandler_ShowToast_ParamsSpec.$ = {};
 mojo.internal.bindings.skills.mojom.SkillsPageHandler_InvokeSkill_ParamsSpec = mojo.internal.bindings.skills.mojom.SkillsPageHandler_InvokeSkill_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.skills.mojom.SkillsPageHandler_InvokeSkill_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPageHandler_InvokeSkill_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPageHandler_InvokeSkill_ParamsSpec.$ = {};
+mojo.internal.bindings.skills.mojom.SkillsPageHandler_SendPrompt_ParamsSpec = mojo.internal.bindings.skills.mojom.SkillsPageHandler_SendPrompt_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.skills.mojom.SkillsPageHandler_SendPrompt_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPageHandler_SendPrompt_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPageHandler_SendPrompt_ParamsSpec.$ = {};
 mojo.internal.bindings.skills.mojom.SkillsPageHandler_CloseDialog_ParamsSpec = mojo.internal.bindings.skills.mojom.SkillsPageHandler_CloseDialog_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.skills.mojom.SkillsPageHandler_CloseDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPageHandler_CloseDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPageHandler_CloseDialog_ParamsSpec.$ = {};
 
@@ -1270,6 +1272,9 @@ mojo.internal.bindings.skills.mojom.SkillsPageHandlerRemote = class {
   invokeSkill(arg_skill_id, arg_skill_name, arg_skill_icon) {
     return this.$.invokeSkill(arg_skill_id, arg_skill_name, arg_skill_icon);
   }
+  sendPrompt(arg_prompt) {
+    return this.$.sendPrompt(arg_prompt);
+  }
   closeDialog() {
     return this.$.closeDialog();
   }
@@ -1279,6 +1284,7 @@ mojo.internal.bindings.skills.mojom.SkillsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('skills.mojom.SkillsPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1313,9 +1319,18 @@ mojo.internal.bindings.skills.mojom.SkillsPageHandlerRemoteCallHandler = class {
       false);
   }
 
-  closeDialog() {
+  sendPrompt(arg_prompt) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
+      mojo.internal.bindings.skills.mojom.SkillsPageHandler_SendPrompt_ParamsSpec,
+      null,
+      [arg_prompt],
+      false);
+  }
+
+  closeDialog() {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.skills.mojom.SkillsPageHandler_CloseDialog_ParamsSpec,
       null,
       [],
@@ -1340,6 +1355,7 @@ mojo.internal.bindings.skills.mojom.SkillsPageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('skills.mojom.SkillsPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1420,6 +1436,13 @@ mojo.internal.bindings.skills.mojom.SkillsPageHandlerReceiver = class {
           break;
         }
         case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.SkillsPageHandler_SendPrompt_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.sendPrompt');
+          const result = this.impl.sendPrompt(params.arg_prompt);
+          break;
+        }
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.SkillsPageHandler_CloseDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeDialog');
@@ -1652,6 +1675,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_skill_icon', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.skills.mojom.SkillsPageHandler_SendPrompt_ParamsSpec, 'skills.mojom.SkillsPageHandler_SendPrompt_Params', [
+      mojo.internal.StructField('arg_prompt', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.skills.mojom.SkillsPageHandler_CloseDialog_ParamsSpec, 'skills.mojom.SkillsPageHandler_CloseDialog_Params', [

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-31T11:53:34.275083Z",
-  "version": "153.0.7982.0",
+  "generated_at": "2026-08-01T11:13:43.676196Z",
+  "version": "153.0.7984.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3454,7 +3454,7 @@
         "SetThreadTitle",
         "SetTaskDetails",
         "OnSidePanelStateChanged",
-        "PostMessageToWebview",
+        "PostAimMessage",
         "OnHandshakeComplete",
         "SetOAuthToken",
         "OnCookieSyncCompleted",
@@ -4952,7 +4952,8 @@
       "file": "chrome_browser_ui_webui_ai_overlay_dialog_ai_overlay_dialog.mojom.js",
       "methods": [
         "GetMockAudioData",
-        "UpdateAudioEnergy"
+        "UpdateAudioEnergy",
+        "Close"
       ],
       "metadata": {
         "usage": {
@@ -5022,6 +5023,10 @@
         "AddBookmark",
         "RemoveBookmark",
         "OpenPage",
+        "SetText",
+        "ClickElement",
+        "SetFullscreen",
+        "SelectOption",
         "InvokeGlic"
       ],
       "metadata": {
@@ -8666,6 +8671,8 @@
       "file": "chrome_browser_ui_webui_iwa_dev_iwa_dev.mojom.js",
       "methods": [
         "GetInstalledAppsInfo",
+        "InstallAppFromDevProxy",
+        "SelectAndInstallAppFromLocalWebBundle",
         "UninstallApp"
       ],
       "metadata": {
@@ -9712,7 +9719,8 @@
         "Revert",
         "LogEscapeAction",
         "OnInputCleared",
-        "RequestInputState"
+        "RequestInputState",
+        "OpenAimPopup"
       ],
       "metadata": {
         "usage": {
@@ -11120,6 +11128,7 @@
         "SyncCookies",
         "ShowToast",
         "InvokeSkill",
+        "SendPrompt",
         "CloseDialog"
       ],
       "metadata": {
@@ -25289,6 +25298,7 @@
         "GetDriveDisclaimerStatus",
         "OnDriveDisclaimerAccepted",
         "OnDriveUploadClicked",
+        "OpenProfilePicker",
         "GetPageClassification",
         "SetSmartTabSharingActive",
         "GetSmartTabSharingActive"
@@ -25322,6 +25332,7 @@
         "StepSelection",
         "OpenCurrentSelection",
         "SetAimButtonVisible",
+        "SetAimButtonConfig",
         "SetInputText",
         "SetThumbnail",
         "OnContextualInputStatusChanged",
@@ -27828,6 +27839,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kWebOTP",
           "feature:kWebLockScreenApi"
         ]
       }
@@ -27851,6 +27863,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
+          "feature:kWebOTP",
           "feature:kWebLockScreenApi"
         ]
       }
@@ -36397,11 +36410,7 @@
           ]
         },
         "scope": "context",
-        "category": "direct",
-        "gates": [
-          "feature:kWebOTP",
-          "feature:kWebLockScreenApi"
-        ]
+        "category": "direct"
       }
     },
     {
@@ -36419,11 +36428,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebOTP",
-          "feature:kWebLockScreenApi"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -62463,7 +62468,6 @@
         "mojo/public/mojom/base/file_path.mojom",
         "services/webnn/public/mojom/webnn_device.mojom",
         "services/webnn/public/mojom/webnn_error.mojom",
-        "services/webnn/public/mojom/webnn_graph.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom"
       ]
     },

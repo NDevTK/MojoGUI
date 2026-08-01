@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7982.0';
+        const versionStr = window.mojoVersion || '153.0.7984.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,8 +127,6 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
-mojo.internal.bindings.webnn.mojom.CompiledOperandDescriptorSpec = mojo.internal.bindings.webnn.mojom.CompiledOperandDescriptorSpec || { $: {} };
-if (mojo.internal.bindings.webnn.mojom.CompiledOperandDescriptorSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.CompiledOperandDescriptorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.CompiledOperandDescriptorSpec.$ = {};
 mojo.internal.bindings.webnn.mojom.CompiledGraphSpec = mojo.internal.bindings.webnn.mojom.CompiledGraphSpec || { $: {} };
 if (mojo.internal.bindings.webnn.mojom.CompiledGraphSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.CompiledGraphSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.CompiledGraphSpec.$ = {};
 mojo.internal.bindings.webnn.mojom.LoadedGraphInfoSpec = mojo.internal.bindings.webnn.mojom.LoadedGraphInfoSpec || { $: {} };
@@ -150,9 +148,6 @@ mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mo
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.DeviceSpec = mojo.internal.bindings.webnn.mojom.DeviceSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
-mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
-mojo.internal.bindings.webnn.mojom.OperandDescriptorSpec = mojo.internal.bindings.webnn.mojom.OperandDescriptorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: WebNNModelLoader
 mojo.internal.bindings.webnn.mojom.WebNNModelLoaderPendingReceiver = class {
@@ -291,20 +286,12 @@ mojo.internal.bindings.webnn.mojom.WebNNModelLoaderRequest = mojo.internal.bindi
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
-// Struct: CompiledOperandDescriptor
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.CompiledOperandDescriptorSpec, 'webnn.mojom.CompiledOperandDescriptor', [
-      mojo.internal.StructField('arg_binding_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_descriptor', 8, 0, mojo.internal.bindings.webnn.mojom.OperandDescriptorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Struct: CompiledGraph
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.CompiledGraphSpec, 'webnn.mojom.CompiledGraph', [
       mojo.internal.StructField('arg_compiled_model_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_inputs', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.webnn.mojom.CompiledOperandDescriptorSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_outputs', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.webnn.mojom.CompiledOperandDescriptorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_binding_names', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_binding_names', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
 

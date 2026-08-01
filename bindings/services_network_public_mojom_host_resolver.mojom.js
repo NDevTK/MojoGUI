@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7982.0';
+        const versionStr = window.mojoVersion || '153.0.7984.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,6 +129,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.network.mojom.OptionalSecureDnsModeSpec = mojo.internal.bindings.network.mojom.OptionalSecureDnsModeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.SecureDnsModeSpec = mojo.internal.bindings.network.mojom.SecureDnsModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.InsecureDnsModeSpec = mojo.internal.bindings.network.mojom.InsecureDnsModeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.SecureDnsPolicySpec = mojo.internal.bindings.network.mojom.SecureDnsPolicySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.TristateSpec = mojo.internal.bindings.network.mojom.TristateSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.DnsQueryTypeSpec = mojo.internal.bindings.network.mojom.DnsQueryTypeSpec || { $: mojo.internal.Enum().$ };
@@ -248,6 +249,14 @@ mojo.internal.bindings.network.mojom.SecureDnsMode = {
   OFF: 0,
   AUTOMATIC: 1,
   SECURE: 2,
+};
+
+// Enum: InsecureDnsMode
+mojo.internal.bindings.network.mojom.InsecureDnsMode = {
+  DISABLED: 0,
+  ENABLED_BUILT_IN: 1,
+  ENABLED_PLATFORM: 2,
+  ENABLED_PLATFORM_NO_SYSTEM: 3,
 };
 
 // Enum: SecureDnsPolicy

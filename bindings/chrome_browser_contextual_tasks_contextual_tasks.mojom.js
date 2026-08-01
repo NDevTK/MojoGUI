@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7982.0';
+        const versionStr = window.mojoVersion || '153.0.7984.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -243,8 +243,8 @@ mojo.internal.bindings.contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec = m
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_SetTaskDetails_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_OnSidePanelStateChanged_ParamsSpec.$ = {};
-mojo.internal.bindings.contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.Page_PostAimMessage_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_PostAimMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.Page_PostAimMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_PostAimMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_PostAimMessage_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.Page_OnHandshakeComplete_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.Page_SetOAuthToken_ParamsSpec || { $: {} };
@@ -1290,8 +1290,8 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemote = class {
   onSidePanelStateChanged() {
     return this.$.onSidePanelStateChanged();
   }
-  postMessageToWebview(arg_message) {
-    return this.$.postMessageToWebview(arg_message);
+  postAimMessage(arg_message) {
+    return this.$.postAimMessage(arg_message);
   }
   onHandshakeComplete() {
     return this.$.onHandshakeComplete();
@@ -1441,10 +1441,10 @@ mojo.internal.bindings.contextual_tasks.mojom.PageRemoteCallHandler = class {
       false);
   }
 
-  postMessageToWebview(arg_message) {
+  postAimMessage(arg_message) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      mojo.internal.bindings.contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec,
+      mojo.internal.bindings.contextual_tasks.mojom.Page_PostAimMessage_ParamsSpec,
       null,
       [arg_message],
       false);
@@ -1808,9 +1808,9 @@ mojo.internal.bindings.contextual_tasks.mojom.PageReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.postMessageToWebview');
-          const result = this.impl.postMessageToWebview(params.arg_message);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.Page_PostAimMessage_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.postAimMessage');
+          const result = this.impl.postAimMessage(params.arg_message);
           break;
         }
         case 4: {
@@ -2498,7 +2498,7 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.contextual_tasks.mojom.Page_PostMessageToWebview_ParamsSpec, 'contextual_tasks.mojom.Page_PostMessageToWebview_Params', [
+    mojo.internal.bindings.contextual_tasks.mojom.Page_PostAimMessage_ParamsSpec, 'contextual_tasks.mojom.Page_PostAimMessage_Params', [
       mojo.internal.StructField('arg_message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
