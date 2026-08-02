@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7984.0';
+        const versionStr = window.mojoVersion || '153.0.7986.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,6 +125,7 @@
 mojo.internal.bindings.ai_overlay_dialog.mojom = mojo.internal.bindings.ai_overlay_dialog.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageContentNodeSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageContentNodeSpec || { $: {} };
@@ -147,6 +148,10 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_UpdateAudioEnergy_Par
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_UpdateAudioEnergy_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_UpdateAudioEnergy_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_UpdateAudioEnergy_ParamsSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ResponseParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.Page = mojo.internal.bindings.ai_overlay_dialog.mojom.Page || {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$ = {};
@@ -168,6 +173,9 @@ mojo.internal.bindings.ai_overlay_dialog.mojom = mojo.internal.bindings.ai_overl
 mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsRemote = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsRemote || class {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsPendingReceiver = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsPendingReceiver || class { constructor(handle) { this.handle = handle; } };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -346,12 +354,16 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemote = class {
   close() {
     return this.$.close();
   }
+  getCursorPosition() {
+    return this.$.getCursorPosition();
+  }
 };
 
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ai_overlay_dialog.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -385,6 +397,15 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemoteCallHandler = cl
       false);
   }
 
+  getCursorPosition() {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ParamsSpec,
+      mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler.getRemote = function() {
@@ -403,6 +424,7 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('ai_overlay_dialog.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -479,6 +501,24 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close();
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getCursorPosition');
+          const result = this.impl.getCursorPosition();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_position' in response) ? response['arg_position'] : response;
+              const resp_obj = { 'arg_position': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getCursorPosition FAILED:', e));
+          }
           break;
         }
       }
@@ -756,6 +796,17 @@ mojo.internal.Struct(
     mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_Close_ParamsSpec, 'ai_overlay_dialog.mojom.PageHandler_Close_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ParamsSpec, 'ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ResponseParamsSpec, 'ai_overlay_dialog.mojom.PageHandler_GetCursorPosition_ResponseParams', [
+      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ai_overlay_dialog.mojom.Page_DidChangePage_ParamsSpec, 'ai_overlay_dialog.mojom.Page_DidChangePage_Params', [

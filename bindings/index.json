@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-01T11:13:43.676196Z",
-  "version": "153.0.7984.0",
+  "generated_at": "2026-08-02T11:11:15.094176Z",
+  "version": "153.0.7986.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4953,7 +4953,8 @@
       "methods": [
         "GetMockAudioData",
         "UpdateAudioEnergy",
-        "Close"
+        "Close",
+        "GetCursorPosition"
       ],
       "metadata": {
         "usage": {
@@ -51496,6 +51497,7 @@
       "module": "ai_overlay_dialog.mojom",
       "imports": [
         "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom"
       ]
     },
