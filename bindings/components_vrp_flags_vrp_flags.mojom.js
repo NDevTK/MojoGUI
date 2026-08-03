@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '153.0.7986.0';
+        const versionStr = window.mojoVersion || '153.0.7988.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,6 +126,7 @@ mojo.internal.bindings.vrp_flags.mojom = mojo.internal.bindings.vrp_flags.mojom 
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
+mojo.internal.bindings.vrp_flags.mojom.VictimDispositionSpec = mojo.internal.bindings.vrp_flags.mojom.VictimDispositionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.vrp_flags.mojom.VrpFlags = mojo.internal.bindings.vrp_flags.mojom.VrpFlags || {};
 mojo.internal.bindings.vrp_flags.mojom.VrpFlagsSpec = mojo.internal.bindings.vrp_flags.mojom.VrpFlagsSpec || { $ : {} };
 if (mojo.internal.bindings.vrp_flags.mojom.VrpFlagsSpec.$.structSpec && mojo.internal.bindings.vrp_flags.mojom.VrpFlagsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.vrp_flags.mojom.VrpFlagsSpec.$ = {};
@@ -156,11 +157,22 @@ mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_BindNetworkVrpFlags_Param
 if (mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_BindNetworkVrpFlags_ParamsSpec.$.structSpec && mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_BindNetworkVrpFlags_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_BindNetworkVrpFlags_ParamsSpec.$ = {};
 mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_BindGpuVrpFlags_ParamsSpec = mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_BindGpuVrpFlags_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_BindGpuVrpFlags_ParamsSpec.$.structSpec && mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_BindGpuVrpFlags_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_BindGpuVrpFlags_ParamsSpec.$ = {};
+mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ParamsSpec = mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ParamsSpec.$.structSpec && mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ParamsSpec.$ = {};
+mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ResponseParamsSpec = mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: VictimDisposition
+mojo.internal.bindings.vrp_flags.mojom.VictimDisposition = {
+  kSpawnForegroundTab: 0,
+  kSpawnBackgroundTab: 1,
+  kManualSpawn: 2,
+};
 
 // Interface: VrpFlags
 mojo.internal.bindings.vrp_flags.mojom.VrpFlagsPendingReceiver = class {
@@ -442,12 +454,16 @@ mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactoryRemote = class {
   bindGpuVrpFlags(arg_receiver) {
     return this.$.bindGpuVrpFlags(arg_receiver);
   }
+  startRendererForVrpFlags(arg_disposition, arg_receiver) {
+    return this.$.startRendererForVrpFlags(arg_disposition, arg_receiver);
+  }
 };
 
 mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactoryRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('vrp_flags.mojom.VrpFlagsFactory', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -481,6 +497,15 @@ mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactoryRemoteCallHandler = class 
       false);
   }
 
+  startRendererForVrpFlags(arg_disposition, arg_receiver) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ParamsSpec,
+      mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ResponseParamsSpec,
+      [arg_disposition, arg_receiver],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory.getRemote = function() {
@@ -499,6 +524,7 @@ mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactoryReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('vrp_flags.mojom.VrpFlagsFactory', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -564,6 +590,24 @@ mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactoryReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_BindGpuVrpFlags_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGpuVrpFlags');
           const result = this.impl.bindGpuVrpFlags(params.arg_receiver);
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.startRendererForVrpFlags');
+          const result = this.impl.startRendererForVrpFlags(params.arg_disposition, params.arg_receiver);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_port' in response) ? response['arg_port'] : response;
+              const resp_obj = { 'arg_port': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] startRendererForVrpFlags FAILED:', e));
+          }
           break;
         }
       }
@@ -643,6 +687,19 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_BindGpuVrpFlags_ParamsSpec, 'vrp_flags.mojom.VrpFlagsFactory_BindGpuVrpFlags_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.vrp_flags.mojom.VrpFlagsPendingReceiver), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ParamsSpec, 'vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_Params', [
+      mojo.internal.StructField('arg_disposition', 0, 0, mojo.internal.bindings.vrp_flags.mojom.VictimDispositionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.vrp_flags.mojom.VrpFlagsPendingReceiver), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ResponseParamsSpec, 'vrp_flags.mojom.VrpFlagsFactory_StartRendererForVrpFlags_ResponseParams', [
+      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 

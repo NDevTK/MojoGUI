@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-02T11:11:15.094176Z",
-  "version": "153.0.7986.0",
+  "generated_at": "2026-08-03T12:51:34.824519Z",
+  "version": "153.0.7988.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -27834,7 +27834,8 @@
           "direct": [
             "Internal Interface: vrp_flags.mojom.VrpFlagsFactory.BindBrowserVrpFlags",
             "Internal Interface: vrp_flags.mojom.VrpFlagsFactory.BindNetworkVrpFlags",
-            "Internal Interface: vrp_flags.mojom.VrpFlagsFactory.BindGpuVrpFlags"
+            "Internal Interface: vrp_flags.mojom.VrpFlagsFactory.BindGpuVrpFlags",
+            "Internal Interface: vrp_flags.mojom.VrpFlagsFactory.StartRendererForVrpFlags"
           ]
         },
         "scope": "context",
@@ -27852,7 +27853,8 @@
       "methods": [
         "BindBrowserVrpFlags",
         "BindNetworkVrpFlags",
-        "BindGpuVrpFlags"
+        "BindGpuVrpFlags",
+        "StartRendererForVrpFlags"
       ],
       "metadata": {
         "usage": {
