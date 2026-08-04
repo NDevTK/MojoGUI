@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-03T12:51:34.824519Z",
-  "version": "153.0.7988.0",
+  "generated_at": "2026-08-04T12:04:44.350290Z",
+  "version": "153.0.7990.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3717,7 +3717,8 @@
         "IntentToShow",
         "SetProfileReadyState",
         "UpdatePageState",
-        "Zoom"
+        "Zoom",
+        "WebClientStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -3811,7 +3812,7 @@
         "SignInAndClosePanel",
         "ResizeWidget",
         "EnableDragResize",
-        "WebUiStateChanged"
+        "OnWebUiStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -4140,6 +4141,7 @@
       "module": "glic.mojom",
       "file": "chrome_browser_glic_host_glic.mojom.js",
       "methods": [
+        "CheckResponsive",
         "NotifyPanelWillOpen",
         "NotifyPanelWasClosed",
         "NotifyPanelStateChange",
@@ -25836,6 +25838,7 @@
         "CheckPromotionEligibility",
         "SetBannerDismissed",
         "RecordBannerRedirected",
+        "CheckCommandLineSwitches",
         "GetPoliciesJson"
       ],
       "metadata": {
@@ -29359,7 +29362,8 @@
       "module": "content.mojom",
       "file": "content_shell_common_render_frame_test_helper.mojom.js",
       "methods": [
-        "GetDocumentToken"
+        "GetDocumentToken",
+        "GetInitiatorStateToken"
       ],
       "metadata": {
         "usage": {
@@ -34224,7 +34228,7 @@
           "associated": [],
           "direct": [
             "Internal Interface: remoting.mojom.ChromotingHostServices.BindSessionServices",
-            "Internal Interface: remoting.mojom.DesktopSessionConnectionEvents.OnSessionServicesClientConnected"
+            "Internal Interface: remoting.mojom.DesktopSessionEvents.OnSessionServicesClientConnected"
           ]
         },
         "scope": "context",
@@ -34252,14 +34256,50 @@
       }
     },
     {
+      "name": "DesktopSession",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_desktop_session.mojom.js",
+      "methods": [
+        "SetScreenResolution",
+        "CloseDesktopSession"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: remoting.mojom.DesktopSessionManager.GetDesktopSession"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "DesktopSessionEvents",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_desktop_session.mojom.js",
+      "methods": [
+        "OnTerminalDisconnected",
+        "OnDesktopSessionAgentAttached",
+        "OnSessionServicesClientConnected"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "DesktopSessionManager",
       "module": "remoting.mojom",
       "file": "remoting_host_mojom_desktop_session.mojom.js",
       "methods": [
-        "CreateDesktopSession",
-        "ReconnectDesktopSession",
-        "CloseDesktopSession",
-        "SetScreenResolution"
+        "GetDesktopSession"
       ],
       "metadata": {
         "usage": {
@@ -34593,26 +34633,6 @@
       "methods": [
         "ApplyHostConfig",
         "InitializePairingRegistry"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "DesktopSessionConnectionEvents",
-      "module": "remoting.mojom",
-      "file": "remoting_host_mojom_remoting_host.mojom.js",
-      "methods": [
-        "OnTerminalDisconnected",
-        "OnDesktopSessionAgentAttached",
-        "OnSessionServicesClientConnected"
       ],
       "metadata": {
         "usage": {
@@ -57164,6 +57184,7 @@
       "source": "content/shell/common/render_frame_test_helper.mojom",
       "module": "content.mojom",
       "imports": [
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "third_party/blink/public/mojom/fingerprinting_protection/noise_token.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom"
       ]
@@ -59027,9 +59048,11 @@
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "remoting/host/mojom/chromoting_host_services.mojom",
         "remoting/host/mojom/common.mojom",
         "remoting/host/mojom/keyboard_layout.mojom",
         "remoting/host/mojom/remote_security_key.mojom",
+        "remoting/host/mojom/remoting_host.mojom",
         "remoting/host/mojom/webrtc_types.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
