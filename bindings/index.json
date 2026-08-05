@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-04T12:04:44.350290Z",
-  "version": "153.0.7990.0",
+  "generated_at": "2026-08-05T11:53:00.414625Z",
+  "version": "153.0.7991.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3548,7 +3548,8 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -3574,7 +3575,8 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -3597,7 +3599,8 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -4253,7 +4256,8 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -8762,7 +8766,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -10092,58 +10097,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule"
-        ]
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
-      "module": "browser.personal_context_internals.mojom",
-      "file": "chrome_browser_ui_webui_personal_context_internals_personal_context_internals.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "browser.personal_context_internals.mojom",
-      "file": "chrome_browser_ui_webui_personal_context_internals_personal_context_internals.mojom.js",
-      "methods": [
-        "TriggerFirstRun"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: browser.personal_context_internals.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -22654,6 +22607,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -22678,6 +22632,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -22701,6 +22656,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -25852,7 +25808,8 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -25892,7 +25849,8 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -52179,12 +52137,6 @@
       "imports": [
         "url/mojom/url.mojom"
       ]
-    },
-    {
-      "filename": "chrome_browser_ui_webui_personal_context_internals_personal_context_internals.mojom.js",
-      "source": "chrome/browser/ui/webui/personal_context_internals/personal_context_internals.mojom",
-      "module": "browser.personal_context_internals.mojom",
-      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_reset_password_reset_password.mojom.js",
