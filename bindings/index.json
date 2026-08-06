@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-05T11:53:00.414625Z",
-  "version": "153.0.7991.0",
+  "generated_at": "2026-08-06T11:58:29.475642Z",
+  "version": "153.0.7993.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3407,6 +3407,7 @@
         "OpenMyActivityUi",
         "OpenFeedbackUi",
         "OpenOnboardingHelpUi",
+        "OpenOverflowMenuHelpUi",
         "OpenUrl",
         "MoveTaskUiToNewTab",
         "OnTabClickedFromSourcesMenu",
@@ -4059,11 +4060,12 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: glic.mojom.PageHandler.CreateWebClient"
+            "Source: BrowserInterfaceBroker (Global Broker)",
+            "glic.mojom.PageHandler.CreateWebClient"
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "direct"
       }
     },
     {
@@ -4960,7 +4962,8 @@
         "GetMockAudioData",
         "UpdateAudioEnergy",
         "Close",
-        "GetCursorPosition"
+        "GetCursorPosition",
+        "CaptureRawViewportRegion"
       ],
       "metadata": {
         "usage": {
@@ -7336,6 +7339,35 @@
       }
     },
     {
+      "name": "Page",
+      "module": "browser.context_hub.mojom",
+      "file": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
+      "methods": [
+        "OnAutoTodosChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
       "name": "PageHandlerFactory",
       "module": "browser.context_hub.mojom",
       "file": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
@@ -7366,7 +7398,9 @@
       "module": "browser.context_hub.mojom",
       "file": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
       "methods": [
-        "GenerateAutoTodos",
+        "GenerateFirstPartyAutoTodos",
+        "GetAutoTodos",
+        "UpdateAutoTodo",
         "SetTodoFeedback",
         "DeleteTodoFeedback",
         "ClearTodoFeedbacks",
@@ -8679,6 +8713,8 @@
       "methods": [
         "GetInstalledAppsInfo",
         "InstallAppFromDevProxy",
+        "InstallAppFromUpdateManifest",
+        "ParseUpdateManifestFromUrl",
         "SelectAndInstallAppFromLocalWebBundle",
         "UninstallApp"
       ],
@@ -9695,6 +9731,80 @@
       }
     },
     {
+      "name": "Page",
+      "module": "omnibox_everywhere_debug.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_everywhere_debug_omnibox_everywhere_debug.mojom.js",
+      "methods": [
+        "OnBackgroundModeChanged",
+        "OnHotkeyChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "omnibox_everywhere_debug.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_everywhere_debug_omnibox_everywhere_debug.mojom.js",
+      "methods": [
+        "SetBackgroundModeEnabled",
+        "GetBackgroundModeEnabled",
+        "SetHotkeyEnabled",
+        "GetHotkeyEnabled",
+        "InvokeOmniboxEverywhere"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: omnibox_everywhere_debug.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "omnibox_everywhere_debug.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_everywhere_debug_omnibox_everywhere_debug.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
       "name": "PageHandlerFactory",
       "module": "omnibox_popup.mojom",
       "file": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
@@ -9727,6 +9837,7 @@
         "Revert",
         "LogEscapeAction",
         "OnInputCleared",
+        "OnPaste",
         "RequestInputState",
         "OpenAimPopup"
       ],
@@ -10055,7 +10166,8 @@
         "RequestPasswordsExport",
         "GetPasswordsExportProgress",
         "ImportPasswords",
-        "ContinueImport"
+        "ContinueImport",
+        "StartTrustedVaultUnlock"
       ],
       "metadata": {
         "usage": {
@@ -11082,7 +11194,8 @@
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
         "SyncCookies",
-        "ShowToast",
+        "ShowSaveToast",
+        "ShowDeleteToast",
         "InvokeSkill",
         "SendPrompt",
         "CloseDialog"
@@ -23316,6 +23429,7 @@
         "ShowContextMenu",
         "OnOmniboxAction",
         "OnPageInitialized",
+        "OnContentSettingImagePointerDown",
         "ShowContentSettingsBubble",
         "OnPageActionClick",
         "OnPageActionChipShowingChanged",
@@ -25235,7 +25349,7 @@
         "ActivateKeyword",
         "ExecuteAction",
         "OnThumbnailRemoved",
-        "GetPlaceholderConfig",
+        "GetCyclingPlaceholderConfig",
         "GetRecentTabs",
         "GetTabPreview",
         "WaitForTabFaviconLoad",
@@ -38957,7 +39071,8 @@
         "StopSending",
         "SetOutgoingDatagramExpirationDuration",
         "GetStats",
-        "Close"
+        "Close",
+        "SetStreamPriority"
       ],
       "metadata": {
         "usage": {
@@ -38984,7 +39099,8 @@
         "OnOutgoingStreamClosed",
         "OnReceivedStopSending",
         "OnReceivedResetStream",
-        "OnClosed"
+        "OnClosed",
+        "OnDraining"
       ],
       "metadata": {
         "usage": {
@@ -51438,12 +51554,6 @@
       ]
     },
     {
-      "filename": "chrome_browser_privacy_sandbox_notice_notice.mojom.js",
-      "source": "chrome/browser/privacy_sandbox/notice/notice.mojom",
-      "module": "privacy_sandbox.notice.mojom",
-      "imports": []
-    },
-    {
       "filename": "chrome_browser_resource_coordinator_lifecycle_unit_state.mojom.js",
       "source": "chrome/browser/resource_coordinator/lifecycle_unit_state.mojom",
       "module": "mojom",
@@ -52092,6 +52202,12 @@
       ]
     },
     {
+      "filename": "chrome_browser_ui_webui_omnibox_everywhere_debug_omnibox_everywhere_debug.mojom.js",
+      "source": "chrome/browser/ui/webui/omnibox_everywhere/debug/omnibox_everywhere_debug.mojom",
+      "module": "omnibox_everywhere_debug.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_omnibox_popup_mojom_omnibox_popup.mojom.js",
       "source": "chrome/browser/ui/webui/omnibox_popup/mojom/omnibox_popup.mojom",
       "module": "omnibox_popup.mojom",
@@ -52459,6 +52575,7 @@
       "source": "chrome/common/importer/profile_import.mojom",
       "module": "chrome.mojom",
       "imports": [
+        "components/user_data_importer/mojom/bookmark_html_parser.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
         "url/mojom/url.mojom"
@@ -63729,6 +63846,7 @@
       "source": "third_party/blink/public/mojom/frame/policy_container.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "services/network/public/mojom/connection_allowlist.mojom",
         "services/network/public/mojom/content_security_policy.mojom",
         "services/network/public/mojom/cross_origin_embedder_policy.mojom",
