@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-06T11:58:29.475642Z",
-  "version": "153.0.7993.0",
+  "generated_at": "2026-08-07T10:45:56.358533Z",
+  "version": "153.0.7995.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3417,6 +3417,7 @@
         "GetCommonSearchParams",
         "OnboardingTooltipDismissed",
         "LensSearchTooltipDismissed",
+        "AskGTooltipDismissed",
         "ReopenTabs",
         "PinSidePanel",
         "UnpinSidePanel",
@@ -3528,6 +3529,69 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
+      }
+    },
+    {
+      "name": "ExtensionPageHandlerFactory",
+      "module": "contextual_tasks.mojom",
+      "file": "chrome_browser_contextual_tasks_contextual_tasks.mojom.js",
+      "methods": [
+        "CreateExtensionPageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ExtensionPageHandler",
+      "module": "contextual_tasks.mojom",
+      "file": "chrome_browser_contextual_tasks_contextual_tasks.mojom.js",
+      "methods": [
+        "GetHandshakeMessage",
+        "OnWebviewMessage",
+        "SetTaskId"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: contextual_tasks.mojom.ExtensionPageHandlerFactory.CreateExtensionPageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ExtensionPage",
+      "module": "contextual_tasks.mojom",
+      "file": "chrome_browser_contextual_tasks_contextual_tasks.mojom.js",
+      "methods": [
+        "PostAimMessage",
+        "OnHandshakeComplete",
+        "HideInput",
+        "RestoreInput",
+        "EnterBasicMode",
+        "ExitBasicMode",
+        "LockInput",
+        "UnlockInput"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -7401,6 +7465,7 @@
         "GenerateFirstPartyAutoTodos",
         "GetAutoTodos",
         "UpdateAutoTodo",
+        "GenerateTabBasedTodos",
         "SetTodoFeedback",
         "DeleteTodoFeedback",
         "ClearTodoFeedbacks",
@@ -9108,7 +9173,8 @@
       "methods": [
         "StartActionChipsRetrieval",
         "ActivateMetricsFunnel",
-        "SetActionChipsVisibility"
+        "SetActionChipsVisibility",
+        "NavigateToAim"
       ],
       "metadata": {
         "usage": {
@@ -11198,7 +11264,8 @@
         "ShowDeleteToast",
         "InvokeSkill",
         "SendPrompt",
-        "CloseDialog"
+        "CloseDialog",
+        "GetPendingEditorData"
       ],
       "metadata": {
         "usage": {
@@ -25341,7 +25408,6 @@
         "StopAutocomplete",
         "OpenAutocompleteMatch",
         "SetSmartComposeStats",
-        "SetInputMethod",
         "SetPopupSelection",
         "OpenPopupSelection",
         "OnNavigationLikely",
@@ -25699,7 +25765,8 @@
         "SetUseCaseRequested",
         "UninstallModels",
         "ResetModelCrashCount",
-        "AddObserver"
+        "AddObserver",
+        "AddAssetDownloadObserver"
       ],
       "metadata": {
         "usage": {
@@ -34300,7 +34367,8 @@
           "associated": [],
           "direct": [
             "Internal Interface: remoting.mojom.ChromotingHostServices.BindSessionServices",
-            "Internal Interface: remoting.mojom.DesktopSessionEvents.OnSessionServicesClientConnected"
+            "Internal Interface: remoting.mojom.DesktopSessionEvents.OnSessionServicesClientConnected",
+            "Internal Interface: remoting.mojom.PeerSession.OnSessionServicesClientConnected"
           ]
         },
         "scope": "context",
@@ -34359,7 +34427,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Internal Interface: remoting.mojom.PeerSession.Start"
           ]
         },
         "scope": "context",
@@ -34617,11 +34685,70 @@
       }
     },
     {
+      "name": "PeerSessionManager",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_peer_session.mojom.js",
+      "methods": [
+        "LaunchPeerSession"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PeerSessionEventHandler",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_peer_session.mojom.js",
+      "methods": [
+        "OnSessionChannelsConnected",
+        "OnSessionClosed",
+        "OnSessionRouteChange"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PeerSession",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_peer_session.mojom.js",
+      "methods": [
+        "Start",
+        "DisconnectSession",
+        "OnSessionServicesClientConnected"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: remoting.mojom.PeerSessionManager.LaunchPeerSession",
+            "Internal Interface: remoting.mojom.PeerConnectionProcessControl.BindPeerSession"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PeerConnectionProcessControl",
       "module": "remoting.mojom",
       "file": "remoting_host_mojom_peer_session.mojom.js",
       "methods": [
-        "ConnectDesktopChannel"
+        "BindPeerSession"
       ],
       "metadata": {
         "usage": {
@@ -37366,7 +37493,8 @@
         "DeleteAllSessions",
         "AddObserver",
         "AddEventObserver",
-        "CreateBoundSessions"
+        "CreateBoundSessions",
+        "PrewarmSessionsForUrl"
       ],
       "metadata": {
         "usage": {
@@ -37983,10 +38111,10 @@
         "RestrictNetworkForIds",
         "ClearNetworkRestrictions",
         "Prefetch",
-        "GetBoundNetworkForTesting",
         "GetDeviceBoundSessionManager",
         "AddQuicHints",
-        "SetVariationsHeaders"
+        "SetVariationsHeaders",
+        "SetExpectedTargetNetworkForTesting"
       ],
       "metadata": {
         "usage": {
@@ -41342,7 +41470,10 @@
         "SetVisible",
         "UpdateDisplayTree",
         "UpdateDisplayTiling",
-        "SetTargetLocalSurfaceId"
+        "SetTargetLocalSurfaceId",
+        "SetUnboundedFrameSinkId",
+        "SetUnboundedLocalSurfaceId",
+        "DismissUnboundedFrameSink"
       ],
       "metadata": {
         "usage": {
@@ -51305,6 +51436,7 @@
       "imports": [
         "mojo/public/mojom/base/uuid.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
+        "mojo/public/mojom/base/proto_wrapper.mojom",
         "url/mojom/url.mojom",
         "ui/base/mojom/window_open_disposition.mojom"
       ]
@@ -52359,7 +52491,8 @@
       "module": "skills.mojom",
       "imports": [
         "components/skills/public/skill.mojom",
-        "components/skills/public/skill_metrics.mojom"
+        "components/skills/public/skill_metrics.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -59106,7 +59239,9 @@
       "filename": "remoting_host_mojom_common.mojom.js",
       "source": "remoting/host/mojom/common.mojom",
       "module": "remoting.mojom",
-      "imports": []
+      "imports": [
+        "services/network/public/mojom/ip_endpoint.mojom"
+      ]
     },
     {
       "filename": "remoting_host_mojom_desktop_session.mojom.js",
@@ -59142,7 +59277,11 @@
       "filename": "remoting_host_mojom_peer_session.mojom.js",
       "source": "remoting/host/mojom/peer_session.mojom",
       "module": "remoting.mojom",
-      "imports": []
+      "imports": [
+        "remoting/host/mojom/chromoting_host_services.mojom",
+        "remoting/host/mojom/common.mojom",
+        "remoting/host/mojom/desktop_session.mojom"
+      ]
     },
     {
       "filename": "remoting_host_mojom_remote_security_key.mojom.js",
@@ -62175,6 +62314,7 @@
         "ui/gfx/mojom/display_color_spaces.mojom",
         "ui/gfx/mojom/overlay_transform.mojom",
         "ui/gfx/mojom/delegated_ink_metadata.mojom",
+        "services/viz/public/mojom/compositing/frame_sink_id.mojom",
         "ui/latency/mojom/latency_info.mojom"
       ]
     },
