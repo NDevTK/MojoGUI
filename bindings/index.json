@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-07T10:45:56.358533Z",
-  "version": "153.0.7995.0",
+  "generated_at": "2026-08-08T10:23:05.132765Z",
+  "version": "153.0.7997.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4053,6 +4053,7 @@
         "CreateExperimentalTriggeringClient",
         "CreateAnnotationHandler",
         "CreateSkillsHandler",
+        "CreateZeroStateSuggestionsHandler",
         "CreateTab",
         "ActivateTabWithUrl",
         "OpenLinkInPopup",
@@ -4109,7 +4110,6 @@
         "SetSyntheticExperimentState",
         "OpenOsPermissionSettingsMenu",
         "GetOsMicrophonePermissionStatus",
-        "GetZeroStateSuggestionsAndSubscribe",
         "GetZeroStateSuggestionsForFocusedTab",
         "MaybeRefreshUserStatus",
         "IsDebuggerAttached",
@@ -4130,6 +4130,42 @@
         },
         "scope": "context",
         "category": "direct"
+      }
+    },
+    {
+      "name": "ZeroStateSuggestionsHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "GetZeroStateSuggestionsAndSubscribe"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: glic.mojom.WebClientHandler.CreateZeroStateSuggestionsHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ZeroStateSuggestionsClient",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic.mojom.js",
+      "methods": [
+        "NotifyZeroStateSuggestionsChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -4230,7 +4266,6 @@
         "NotifyClosedCaptioningSettingChanged",
         "NotifyPinnedTabsChanged",
         "NotifyPinnedTabDataChanged",
-        "NotifyZeroStateSuggestionsChanged",
         "NotifyPageMetadataChanged",
         "NotifyDefaultTabContextPermissionStateChanged",
         "NotifyAdditionalContext",
@@ -5027,7 +5062,9 @@
         "UpdateAudioEnergy",
         "Close",
         "GetCursorPosition",
-        "CaptureRawViewportRegion"
+        "CaptureRawViewportRegion",
+        "SetRememberedNote",
+        "GetRememberedNotes"
       ],
       "metadata": {
         "usage": {
@@ -9930,7 +9967,8 @@
         "OnShow",
         "OnContextMenuClosed",
         "SetInputState",
-        "SetFocus"
+        "SetFocus",
+        "ClearAutocompleteMatches"
       ],
       "metadata": {
         "usage": {
@@ -11261,6 +11299,7 @@
       "methods": [
         "SyncCookies",
         "ShowSaveToast",
+        "ShowSaveAndInvokeToast",
         "ShowDeleteToast",
         "InvokeSkill",
         "SendPrompt",
@@ -12830,6 +12869,7 @@
       "file": "chrome_common_read_anything_read_anything.mojom.js",
       "methods": [
         "GetDependencyParserModel",
+        "ShouldShowLineFocusNewBadge",
         "GetPresentationState",
         "GetVoicePackInfo",
         "InstallVoicePack",
@@ -12849,6 +12889,7 @@
         "LogExtensionState",
         "OnHighlightGranularityChanged",
         "OnLineFocusChanged",
+        "OnLineFocusFeatureUsed",
         "OnReadAloudAudioStateChange",
         "OnLinkClicked",
         "OnImageDataRequested",
@@ -51729,6 +51770,7 @@
       "module": "ai_overlay_dialog.mojom",
       "imports": [
         "mojo/public/mojom/base/empty.mojom",
+        "third_party/blink/public/mojom/dom/dom_node_id.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -62718,7 +62760,6 @@
       "source": "services/webnn/public/mojom/webnn_tensor.mojom",
       "module": "webnn.mojom",
       "imports": [
-        "gpu/ipc/common/sync_token.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
         "services/webnn/public/mojom/webnn_graph.mojom",
         "services/webnn/public/mojom/webnn_error.mojom"
