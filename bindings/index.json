@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-10T10:59:01.138837Z",
-  "version": "153.0.7997.0",
+  "generated_at": "2026-08-11T10:42:25.030999Z",
+  "version": "153.0.8001.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -1045,7 +1045,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -1140,7 +1143,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
       }
     },
     {
@@ -2431,27 +2437,6 @@
       }
     },
     {
-      "name": "DestinationProvider",
-      "module": "ash.printing.print_preview.mojom",
-      "file": "ash_webui_print_preview_cros_mojom_destination_provider.mojom.js",
-      "methods": [
-        "FetchCapabilities"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kImeSystemEmojiPickerMojoSearch"
-        ]
-      }
-    },
-    {
       "name": "UntrustedProjectorPageHandler",
       "module": "ash.projector.mojom",
       "file": "ash_webui_projector_app_mojom_untrusted_projector.mojom.js",
@@ -3613,8 +3598,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -3640,8 +3624,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -3664,8 +3647,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -4357,8 +4339,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -8904,8 +8885,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -9855,7 +9835,8 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -9881,7 +9862,8 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -9903,7 +9885,8 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -9968,7 +9951,8 @@
         "OnContextMenuClosed",
         "SetInputState",
         "SetFocus",
-        "ClearAutocompleteMatches"
+        "ClearAutocompleteMatches",
+        "ClearPopup"
       ],
       "metadata": {
         "usage": {
@@ -11379,9 +11363,12 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11407,9 +11394,12 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -26030,8 +26020,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -26071,8 +26060,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -26214,24 +26202,6 @@
           "associated": [],
           "direct": [
             "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "PrivateVerificationTokensProvider",
-      "module": "private_verification_tokens.mojom",
-      "file": "components_private_verification_tokens_mojom_private_verification_tokens_service.mojom.js",
-      "methods": [
-        "GetTokens"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -44713,6 +44683,7 @@
         "RunBeforeUnloadConfirm",
         "UpdateFaviconURL",
         "DownloadURL",
+        "ShowCaptionSettings",
         "FocusedElementChanged",
         "TextSelectionChanged",
         "ShowPopupMenu",
@@ -51176,21 +51147,6 @@
       ]
     },
     {
-      "filename": "ash_webui_print_preview_cros_mojom_destination_provider.mojom.js",
-      "source": "ash/webui/print_preview_cros/mojom/destination_provider.mojom",
-      "module": "ash.printing.print_preview.mojom",
-      "imports": [
-        "ash/webui/print_preview_cros/mojom/printer_capabilities.mojom",
-        "printing/mojom/print.mojom"
-      ]
-    },
-    {
-      "filename": "ash_webui_print_preview_cros_mojom_printer_capabilities.mojom.js",
-      "source": "ash/webui/print_preview_cros/mojom/printer_capabilities.mojom",
-      "module": "ash.printing.print_preview.mojom",
-      "imports": []
-    },
-    {
       "filename": "ash_webui_projector_app_mojom_untrusted_projector.mojom.js",
       "source": "ash/webui/projector_app/mojom/untrusted_projector.mojom",
       "module": "ash.projector.mojom",
@@ -56252,14 +56208,6 @@
       "source": "components/private_ai/private_ai_internals/webui/private_ai_internals.mojom",
       "module": "private_ai_internals.mojom",
       "imports": []
-    },
-    {
-      "filename": "components_private_verification_tokens_mojom_private_verification_tokens_service.mojom.js",
-      "source": "components/private_verification_tokens/mojom/private_verification_tokens_service.mojom",
-      "module": "private_verification_tokens.mojom",
-      "imports": [
-        "url/mojom/origin.mojom"
-      ]
     },
     {
       "filename": "components_record_replay_core_common_record_replay.mojom.js",
