@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-11T10:42:25.030999Z",
-  "version": "153.0.8001.0",
+  "generated_at": "2026-08-12T10:53:37.025609Z",
+  "version": "153.0.8003.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3427,7 +3427,6 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3485,7 +3484,6 @@
           "feature:kInstallElement",
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3510,7 +3508,6 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9203,7 +9200,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
@@ -9252,7 +9248,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule"
@@ -9819,7 +9814,8 @@
       "file": "chrome_browser_ui_webui_omnibox_everywhere_debug_omnibox_everywhere_debug.mojom.js",
       "methods": [
         "OnBackgroundModeChanged",
-        "OnHotkeyChanged"
+        "OnHotkeyChanged",
+        "OnEphemeralModelChanged"
       ],
       "metadata": {
         "usage": {
@@ -9849,6 +9845,8 @@
         "GetBackgroundModeEnabled",
         "SetHotkeyEnabled",
         "GetHotkeyEnabled",
+        "SetEphemeralModelEnabled",
+        "GetEphemeralModelEnabled",
         "InvokeOmniboxEverywhere"
       ],
       "metadata": {
@@ -9924,6 +9922,7 @@
         "LogEscapeAction",
         "OnInputCleared",
         "OnPaste",
+        "OnCutOrCopy",
         "RequestInputState",
         "OpenAimPopup"
       ],
@@ -11322,8 +11321,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule"
+          "feature:kNtpMostRelevantTabResumptionModule"
         ]
       }
     },
@@ -22818,7 +22816,6 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -22843,7 +22840,6 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -22867,7 +22863,6 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -22899,6 +22894,7 @@
         "ScrollFieldIntoView",
         "TriggerFormExtraction",
         "TriggerFormExtractionWithResponse",
+        "ClearFormCache",
         "ApplyFieldsAction",
         "ApplyFieldAction",
         "ExtractFormWithField",
@@ -30440,8 +30436,7 @@
         "WaitGetDeviceConfig",
         "WaitGetPresentingPose",
         "WaitGetMagicWindowPose",
-        "WaitGetControllerRoleForTrackedDeviceIndex",
-        "WaitGetControllerData",
+        "WaitGetAllControllerData",
         "WaitGetEventData",
         "WaitGetCanCreateSession",
         "WaitGetVisibilityMask"
@@ -34302,7 +34297,7 @@
       "methods": [
         "SetCaretPosition",
         "MoveRangeSelectionExtent",
-        "SetSelectionBounds",
+        "SetSelectionBase",
         "GetPdfBytes",
         "GetPageText",
         "GetMostVisiblePageIndex",
@@ -47586,27 +47581,6 @@
       }
     },
     {
-      "name": "PrivateAggregationHost",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_private_aggregation_private_aggregation_host.mojom.js",
-      "methods": [
-        "ContributeToHistogram",
-        "ContributeToHistogramOnEvent",
-        "EnableDebugMode"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "scrambled": false
-      }
-    },
-    {
       "name": "PushMessaging",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_push_messaging_push_messaging.mojom.js",
@@ -52342,6 +52316,7 @@
       "source": "chrome/browser/ui/webui/omnibox_popup/mojom/omnibox_popup.mojom",
       "module": "omnibox_popup.mojom",
       "imports": [
+        "components/omnibox/browser/searchbox.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/range/mojom/range.mojom"
       ]
@@ -57533,8 +57508,11 @@
       "source": "device/vr/public/mojom/test/browser_test_interfaces.mojom",
       "module": "device_test.mojom",
       "imports": [
+        "device/gamepad/public/mojom/gamepad.mojom",
         "device/vr/public/mojom/openxr_interaction_profile_type.mojom",
+        "device/vr/public/mojom/vr_service.mojom",
         "device/vr/public/mojom/xr_hand_tracking_data.mojom",
+        "skia/public/mojom/skcolor.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/mojom/transform.mojom"
       ]
@@ -62804,14 +62782,6 @@
       "imports": []
     },
     {
-      "filename": "third_party_blink_public_mojom_aggregation_service_aggregatable_report.mojom.js",
-      "source": "third_party/blink/public/mojom/aggregation_service/aggregatable_report.mojom",
-      "module": "blink.mojom",
-      "imports": [
-        "mojo/public/mojom/base/int128.mojom"
-      ]
-    },
-    {
       "filename": "third_party_blink_public_mojom_ai_ai_common.mojom.js",
       "source": "third_party/blink/public/mojom/ai/ai_common.mojom",
       "module": "blink.mojom",
@@ -65219,14 +65189,6 @@
       "imports": [
         "third_party/blink/public/mojom/blob/blob.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
-      ]
-    },
-    {
-      "filename": "third_party_blink_public_mojom_private_aggregation_private_aggregation_host.mojom.js",
-      "source": "third_party/blink/public/mojom/private_aggregation/private_aggregation_host.mojom",
-      "module": "blink.mojom",
-      "imports": [
-        "third_party/blink/public/mojom/aggregation_service/aggregatable_report.mojom"
       ]
     },
     {
