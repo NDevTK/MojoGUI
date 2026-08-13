@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-12T10:53:37.025609Z",
-  "version": "153.0.8003.0",
+  "generated_at": "2026-08-13T10:56:52.048294Z",
+  "version": "153.0.8005.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -5042,7 +5042,8 @@
         "GetCursorPosition",
         "CaptureRawViewportRegion",
         "SetRememberedNote",
-        "GetRememberedNotes"
+        "GetRememberedNotes",
+        "SaveDebugFile"
       ],
       "metadata": {
         "usage": {
@@ -8787,6 +8788,42 @@
       }
     },
     {
+      "name": "WelcomePageHandlerFactory",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_welcome.mojom.js",
+      "methods": [
+        "CreateWelcomePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "WelcomePageHandler",
+      "module": "intro.mojom",
+      "file": "chrome_browser_ui_webui_intro_welcome.mojom.js",
+      "methods": [
+        "Continue"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: intro.mojom.WelcomePageHandlerFactory.CreateWelcomePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PageHandler",
       "module": "iwa_dev.mojom",
       "file": "chrome_browser_ui_webui_iwa_dev_iwa_dev.mojom.js",
@@ -8796,7 +8833,10 @@
         "InstallAppFromUpdateManifest",
         "ParseUpdateManifestFromUrl",
         "SelectAndInstallAppFromLocalWebBundle",
-        "UninstallApp"
+        "SelectAndUpdateAppFromLocalWebBundle",
+        "UninstallApp",
+        "UpdateDevProxyInstalledApp",
+        "UpdateManifestInstalledApp"
       ],
       "metadata": {
         "usage": {
@@ -10239,8 +10279,6 @@
         "ChangePasswordManagerPin",
         "ShowAddShortcutDialog",
         "IsAccountStorageActive",
-        "SetAccountStorageEnabled",
-        "ShouldShowAccountStorageSettingToggle",
         "IsPasswordManagerPinAvailable",
         "SwitchBiometricAuthBeforeFillingState",
         "StartPasswordChange",
@@ -30434,9 +30472,7 @@
       "methods": [
         "OnFrameSubmitted",
         "WaitGetDeviceConfig",
-        "WaitGetPresentingPose",
-        "WaitGetMagicWindowPose",
-        "WaitGetAllControllerData",
+        "WaitGetFrameData",
         "WaitGetEventData",
         "WaitGetCanCreateSession",
         "WaitGetVisibilityMask"
@@ -31051,6 +31087,24 @@
         "OpenChannelToExtension",
         "OpenChannelToNativeApp",
         "OpenChannelToTab"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "WebRequestHost",
+      "module": "extensions.mojom",
+      "file": "extensions_common_mojom_web_request_host.mojom.js",
+      "methods": [
+        "EventHandlingDone"
       ],
       "metadata": {
         "usage": {
@@ -34259,6 +34313,7 @@
         "FuzzArgs",
         "FuzzArgsResp",
         "FuzzArgsSyncResp",
+        "FuzzNullableValueArrays",
         "FuzzAssociated"
       ],
       "metadata": {
@@ -34729,11 +34784,49 @@
       }
     },
     {
+      "name": "TransportEventHandler",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_peer_session.mojom.js",
+      "methods": [
+        "SendTransportInfo"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "IceConfigFetcher",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_peer_session.mojom.js",
+      "methods": [
+        "GetIceConfig"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PeerSession",
       "module": "remoting.mojom",
       "file": "remoting_host_mojom_peer_session.mojom.js",
       "methods": [
         "Start",
+        "StartTransport",
+        "ProcessTransportInfo",
         "DisconnectSession",
         "OnSessionServicesClientConnected"
       ],
@@ -35459,24 +35552,6 @@
       }
     },
     {
-      "name": "CborParser",
-      "module": "data_decoder.mojom",
-      "file": "services_data_decoder_public_mojom_cbor_parser.mojom.js",
-      "methods": [
-        "Parse"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: data_decoder.mojom.DataDecoderService.BindCborParser"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "DataDecoderService",
       "module": "data_decoder.mojom",
       "file": "services_data_decoder_public_mojom_data_decoder_service.mojom.js",
@@ -35486,7 +35561,6 @@
         "BindWebBundleParserFactory",
         "BindGzipper",
         "BindStructuredHeadersParser",
-        "BindCborParser",
         "BindPixCodeValidator"
       ],
       "metadata": {
@@ -52165,10 +52239,18 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_ui_webui_intro_welcome.mojom.js",
+      "source": "chrome/browser/ui/webui/intro/welcome.mojom",
+      "module": "intro.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_iwa_dev_iwa_dev.mojom.js",
       "source": "chrome/browser/ui/webui/iwa_dev/iwa_dev.mojom",
       "module": "iwa_dev.mojom",
       "imports": [
+        "mojo/public/mojom/base/empty.mojom",
+        "mojo/public/mojom/base/error.mojom",
         "mojo/public/mojom/base/file_path.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
@@ -57839,6 +57921,14 @@
       "imports": []
     },
     {
+      "filename": "extensions_common_mojom_web_request_host.mojom.js",
+      "source": "extensions/common/mojom/web_request_host.mojom",
+      "module": "extensions.mojom",
+      "imports": [
+        "extensions/common/mojom/extension_id.mojom"
+      ]
+    },
+    {
       "filename": "fuchsia_web_webengine_mojom_web_engine_media_resource_provider.mojom.js",
       "source": "fuchsia_web/webengine/mojom/web_engine_media_resource_provider.mojom",
       "module": "mojom",
@@ -59208,6 +59298,7 @@
       "source": "remoting/host/mojom/common.mojom",
       "module": "remoting.mojom",
       "imports": [
+        "mojo/public/mojom/base/time.mojom",
         "services/network/public/mojom/ip_endpoint.mojom"
       ]
     },
@@ -59246,9 +59337,11 @@
       "source": "remoting/host/mojom/peer_session.mojom",
       "module": "remoting.mojom",
       "imports": [
+        "mojo/public/mojom/base/time.mojom",
         "remoting/host/mojom/chromoting_host_services.mojom",
         "remoting/host/mojom/common.mojom",
-        "remoting/host/mojom/desktop_session.mojom"
+        "remoting/host/mojom/desktop_session.mojom",
+        "remoting/host/mojom/webrtc_types.mojom"
       ]
     },
     {
@@ -59515,15 +59608,6 @@
       ]
     },
     {
-      "filename": "services_data_decoder_public_mojom_cbor_parser.mojom.js",
-      "source": "services/data_decoder/public/mojom/cbor_parser.mojom",
-      "module": "data_decoder.mojom",
-      "imports": [
-        "mojo/public/mojom/base/values.mojom",
-        "mojo/public/mojom/base/big_buffer.mojom"
-      ]
-    },
-    {
       "filename": "services_data_decoder_public_mojom_data_decoder_service.mojom.js",
       "source": "services/data_decoder/public/mojom/data_decoder_service.mojom",
       "module": "data_decoder.mojom",
@@ -59531,7 +59615,6 @@
         "components/facilitated_payments/core/mojom/pix_code_validator.mojom",
         "components/web_package/mojom/web_bundle_parser.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
-        "services/data_decoder/public/mojom/cbor_parser.mojom",
         "services/data_decoder/public/mojom/gzipper.mojom",
         "services/data_decoder/public/mojom/image_decoder.mojom",
         "services/data_decoder/public/mojom/structured_headers_parser.mojom",
@@ -62466,8 +62549,7 @@
         "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/mojom/color_space.mojom",
         "ui/gfx/mojom/hdr_metadata.mojom",
-        "skia/public/mojom/image_info.mojom",
-        "skia/public/mojom/surface_origin.mojom"
+        "skia/public/mojom/image_info.mojom"
       ]
     },
     {
