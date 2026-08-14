@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-13T10:56:52.048294Z",
-  "version": "153.0.8005.0",
+  "generated_at": "2026-08-14T10:51:37.657298Z",
+  "version": "153.0.8007.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3594,8 +3594,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -3620,8 +3619,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -3643,8 +3641,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -3935,6 +3932,7 @@
         "ResumeActorTask",
         "InterruptActorTask",
         "UninterruptActorTask",
+        "UpdateActorTaskStepProgress",
         "CreateActorTab",
         "LogBeginAsyncEvent",
         "LogEndAsyncEvent",
@@ -4335,8 +4333,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -7419,6 +7416,60 @@
       }
     },
     {
+      "name": "PageHandler",
+      "module": "content_settings_internals.mojom",
+      "file": "chrome_browser_ui_webui_content_settings_content_settings_internals.mojom.js",
+      "methods": [
+        "ReadContentSettings",
+        "ContentSettingsPatternToString",
+        "StringToContentSettingsPattern"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: content_settings_internals.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "content_settings_internals.mojom",
+      "file": "chrome_browser_ui_webui_content_settings_content_settings_internals.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration",
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
       "name": "Page",
       "module": "browser.context_hub.mojom",
       "file": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
@@ -7492,6 +7543,7 @@
         "RetrieveAndGroupTabs",
         "GetExistingTabGroupsAndChats",
         "SwitchToTab",
+        "CloseTab",
         "ClearTabGroups",
         "ClearTabGroupChatHistory",
         "AskGeminiWithContext"
@@ -7532,7 +7584,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -7559,7 +7610,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -11402,7 +11452,6 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -11433,7 +11482,6 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -26053,8 +26101,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -26093,8 +26140,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -30434,7 +30480,7 @@
       "file": "device_vr_public_mojom_isolated_xr_service.mojom.js",
       "methods": [
         "BindRuntimeProvider",
-        "BindTestHook"
+        "BindHookForTesting"
       ],
       "metadata": {
         "usage": {
@@ -30493,14 +30539,13 @@
       "module": "device_test.mojom",
       "file": "device_vr_public_mojom_test_browser_test_interfaces.mojom.js",
       "methods": [
-        "SetTestHook",
-        "TerminateDeviceServiceProcessForTesting"
+        "SetTestHook"
       ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: device.mojom.XRDeviceService.BindTestHook"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -34428,8 +34473,7 @@
           "associated": [],
           "direct": [
             "Internal Interface: remoting.mojom.ChromotingHostServices.BindSessionServices",
-            "Internal Interface: remoting.mojom.DesktopSessionEvents.OnSessionServicesClientConnected",
-            "Internal Interface: remoting.mojom.PeerSession.OnSessionServicesClientConnected"
+            "Internal Interface: remoting.mojom.DesktopSessionEvents.OnSessionServicesClientConnected"
           ]
         },
         "scope": "context",
@@ -34820,6 +34864,24 @@
       }
     },
     {
+      "name": "PairingRequester",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_peer_session.mojom.js",
+      "methods": [
+        "RequestPairing"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PeerSession",
       "module": "remoting.mojom",
       "file": "remoting_host_mojom_peer_session.mojom.js",
@@ -34827,8 +34889,7 @@
         "Start",
         "StartTransport",
         "ProcessTransportInfo",
-        "DisconnectSession",
-        "OnSessionServicesClientConnected"
+        "DisconnectSession"
       ],
       "metadata": {
         "usage": {
@@ -43470,7 +43531,8 @@
         "RegisterScriptTool",
         "UnregisterScriptTool",
         "GetScriptTools",
-        "ExecuteRemoteScriptTool"
+        "ExecuteRemoteScriptTool",
+        "CancelRemoteScriptTool"
       ],
       "metadata": {
         "usage": {
@@ -43490,7 +43552,8 @@
       "file": "third_party_blink_public_mojom_content_extraction_script_tools.mojom.js",
       "methods": [
         "NotifyToolChange",
-        "ExecuteScriptTool"
+        "ExecuteScriptTool",
+        "CancelScriptTool"
       ],
       "metadata": {
         "usage": {
@@ -52059,6 +52122,15 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_ui_webui_content_settings_content_settings_internals.mojom.js",
+      "source": "chrome/browser/ui/webui/content_settings/content_settings_internals.mojom",
+      "module": "content_settings_internals.mojom",
+      "imports": [
+        "components/content_settings/core/common/content_settings_types.mojom",
+        "components/content_settings/core/common/content_settings.mojom"
+      ]
+    },
+    {
       "filename": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
       "source": "chrome/browser/ui/webui/context_hub/context_hub.mojom",
       "module": "browser.context_hub.mojom",
@@ -57565,7 +57637,6 @@
       "source": "device/vr/public/mojom/isolated_xr_service.mojom",
       "module": "device.mojom",
       "imports": [
-        "device/vr/public/mojom/test/browser_test_interfaces.mojom",
         "device/vr/public/mojom/vr_service.mojom",
         "device/vr/public/mojom/xr_device.mojom",
         "device/vr/public/mojom/xr_session.mojom",
