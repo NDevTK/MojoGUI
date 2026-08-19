@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-17T10:24:30.306606Z",
-  "version": "153.0.8009.0",
+  "generated_at": "2026-08-19T10:20:23.284656Z",
+  "version": "154.0.8011.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3712,6 +3712,22 @@
       }
     },
     {
+      "name": "GeicApi",
+      "module": "geic.mojom",
+      "file": "chrome_browser_geic_geic.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct"
+      }
+    },
+    {
       "name": "ExperimentalOptInPageHandler",
       "module": "glic.mojom",
       "file": "chrome_browser_glic_experimental_opt_in_glic_experimental_opt_in.mojom.js",
@@ -3726,14 +3742,11 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Source: WebUI Binder (Restricted)"
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kNtpFooter"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -4006,7 +4019,7 @@
         "NotifyContextualSkillPreviewsChanged",
         "NotifySkillPreviewChanged",
         "NotifySkillDeleted",
-        "NotifySkillToInvokeChanged"
+        "NotifySkillsEnabledChanged"
       ],
       "metadata": {
         "usage": {
@@ -4842,6 +4855,22 @@
           "feature:kGlicActorUiOverlay",
           "feature:kNtpTabGroupsModule"
         ]
+      }
+    },
+    {
+      "name": "PrivilegedBridge",
+      "module": "pwc.mojom",
+      "file": "chrome_browser_pwc_pwc.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct"
       }
     },
     {
@@ -7475,7 +7504,9 @@
       "module": "browser.context_hub.mojom",
       "file": "chrome_browser_ui_webui_context_hub_context_hub.mojom.js",
       "methods": [
-        "OnAutoTodosChanged"
+        "OnAutoTodosChanged",
+        "OnFirstPartyAutoTodosGenerationStateChanged",
+        "OnThirdPartyAutoTodosGenerationStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -10334,6 +10365,7 @@
         "SwitchBiometricAuthBeforeFillingState",
         "StartPasswordChange",
         "StopPasswordChange",
+        "OpenPasswordChangeTab",
         "GetPasswordManagerActionableError",
         "ShowLastExportedFileInShell",
         "DisconnectCloudAuthenticator",
@@ -11365,10 +11397,31 @@
       }
     },
     {
+      "name": "SkillsPageV2",
+      "module": "skills.mojom",
+      "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
+      "methods": [
+        "LoadProvidedSkills"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "SkillsPageHandler",
       "module": "skills.mojom",
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
+        "SetPage",
+        "GetProvidedSkill",
+        "GetProvidedSkills",
         "SyncCookies",
         "ShowSaveToast",
         "ShowSaveAndInvokeToast",
@@ -22995,6 +23048,7 @@
         "PreviewPasswordSuggestion",
         "PreviewPasswordGenerationSuggestion",
         "GetPotentialLastFourCombinationsForStandaloneCvc",
+        "GetNonceForEmailVerification",
         "SendEmailVerificationToken",
         "UpdateEmailVerificationState",
         "ObserveFieldVisibility"
@@ -25552,6 +25606,7 @@
         "OnDriveDisclaimerAccepted",
         "OnDriveUploadClicked",
         "OpenProfilePicker",
+        "StartScreenshare",
         "GetPageClassification",
         "SetSmartTabSharingActive",
         "GetSmartTabSharingActive"
@@ -27839,7 +27894,8 @@
         "AttachConnector",
         "SynchronizeVisualProperties",
         "OnEmbedElementFocused",
-        "OnEmbedElementThrottlingStatusChanged"
+        "OnEmbedElementThrottlingStatusChanged",
+        "SetParentAccessibilityInfo"
       ],
       "metadata": {
         "usage": {
@@ -47028,11 +47084,6 @@
       "file": "third_party_blink_public_mojom_payments_payment_app.mojom.js",
       "methods": [
         "Init",
-        "DeletePaymentInstrument",
-        "GetPaymentInstrument",
-        "KeysOfPaymentInstruments",
-        "HasPaymentInstrument",
-        "ClearPaymentInstruments",
         "SetUserHint",
         "EnableDelegations"
       ],
@@ -49328,7 +49379,7 @@
         "AllowIndexedDB",
         "AllowCacheStorage",
         "AllowWebLocks",
-        "RequestFileSystemAccessSync"
+        "AllowFileSystem"
       ],
       "metadata": {
         "usage": {
@@ -51532,6 +51583,14 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_geic_geic.mojom.js",
+      "source": "chrome/browser/geic/geic.mojom",
+      "module": "geic.mojom",
+      "imports": [
+        "chrome/browser/pwc/pwc_features.mojom"
+      ]
+    },
+    {
       "filename": "chrome_browser_glic_experimental_opt_in_glic_experimental_opt_in.mojom.js",
       "source": "chrome/browser/glic/experimental_opt_in/glic_experimental_opt_in.mojom",
       "module": "glic.mojom",
@@ -51751,6 +51810,14 @@
       "imports": [
         "components/tab_groups/public/mojom/tab_group_types.mojom",
         "url/mojom/url.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_browser_pwc_pwc.mojom.js",
+      "source": "chrome/browser/pwc/pwc.mojom",
+      "module": "pwc.mojom",
+      "imports": [
+        "chrome/browser/pwc/pwc_features.mojom"
       ]
     },
     {
@@ -52935,6 +53002,7 @@
       "imports": [
         "media/mojo/mojom/audio_data_pipe.mojom",
         "media/mojo/mojom/audio_output_stream.mojom",
+        "media/mojo/mojom/audio_parameters.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
@@ -65111,7 +65179,6 @@
       "source": "third_party/blink/public/mojom/payments/payment_app.mojom",
       "module": "payments.mojom",
       "imports": [
-        "third_party/blink/public/mojom/manifest/manifest.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -66073,6 +66140,7 @@
       "module": "blink.mojom",
       "imports": [
         "mojo/public/mojom/base/unguessable_token.mojom",
+        "services/network/public/mojom/ip_address_space.mojom",
         "services/network/public/mojom/site_for_cookies.mojom",
         "services/network/public/mojom/storage_access_api.mojom",
         "services/network/public/mojom/websocket.mojom",
