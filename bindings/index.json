@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-19T10:20:23.284656Z",
-  "version": "154.0.8011.0",
+  "generated_at": "2026-08-20T10:22:25.839017Z",
+  "version": "154.0.8013.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3728,6 +3728,38 @@
       }
     },
     {
+      "name": "GeicBrowserHost",
+      "module": "geic.mojom",
+      "file": "chrome_browser_geic_geic.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "GeicClient",
+      "module": "geic.mojom",
+      "file": "chrome_browser_geic_geic.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "ExperimentalOptInPageHandler",
       "module": "glic.mojom",
       "file": "chrome_browser_glic_experimental_opt_in_glic_experimental_opt_in.mojom.js",
@@ -4066,6 +4098,7 @@
         "UnpinTabs",
         "UnpinAllTabs",
         "SubscribeToPinCandidates",
+        "OpenPinnedTabPicker",
         "ActivateTab",
         "ResizeWidget",
         "CaptureScreenshot",
@@ -4324,8 +4357,7 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -4978,8 +5010,7 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -5004,8 +5035,7 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -5030,8 +5060,7 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -5273,8 +5302,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -7569,8 +7597,10 @@
         "DeleteTodoFeedback",
         "ClearTodoFeedbacks",
         "GetTodoFeedbacks",
+        "GetSaveToMemoryBankContext",
         "GetAllMemoryBankEntries",
         "DeleteMemoryBankEntries",
+        "SaveMemoryBankEntry",
         "GetTabs",
         "RetrieveAndGroupTabs",
         "GetExistingTabGroupsAndChats",
@@ -7578,7 +7608,12 @@
         "CloseTab",
         "ClearTabGroups",
         "ClearTabGroupChatHistory",
-        "AskGeminiWithContext"
+        "AskGeminiWithContext",
+        "ConfirmAllTabGroups",
+        "GetConfirmedTabGroups",
+        "RemoveConfirmedTabGroup",
+        "CloseConfirmedTabGroup",
+        "RemoveAllConfirmedTabGroups"
       ],
       "metadata": {
         "usage": {
@@ -8098,10 +8133,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kOptimizationGuideOnDeviceModel"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -8125,8 +8157,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8152,8 +8183,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8175,8 +8205,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8932,7 +8961,8 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -8960,7 +8990,8 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -8983,7 +9014,8 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -9026,8 +9058,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9052,8 +9083,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9075,8 +9105,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9836,8 +9865,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9857,8 +9885,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9883,8 +9910,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10046,7 +10072,8 @@
         "OnPaste",
         "OnCutOrCopy",
         "RequestInputState",
-        "OpenAimPopup"
+        "OpenAimPopup",
+        "SetEditHistoryState"
       ],
       "metadata": {
         "usage": {
@@ -10186,8 +10213,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10218,8 +10244,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10245,8 +10270,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11854,8 +11878,7 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -22855,87 +22878,6 @@
       }
     },
     {
-      "name": "PageHandlerFactory",
-      "module": "accessibility_annotator_internals.mojom",
-      "file": "components_accessibility_annotator_core_logging_accessibility_annotator_internals.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "accessibility_annotator_internals.mojom",
-      "file": "components_accessibility_annotator_core_logging_accessibility_annotator_internals.mojom.js",
-      "methods": [
-        "GetAnnotatedContent",
-        "ClearAnnotatedContent",
-        "DeleteAnnotatedContent"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: accessibility_annotator_internals.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
-        ]
-      }
-    },
-    {
-      "name": "Page",
-      "module": "accessibility_annotator_internals.mojom",
-      "file": "components_accessibility_annotator_core_logging_accessibility_annotator_internals.mojom.js",
-      "methods": [
-        "OnContentAnnotationsChanged",
-        "OnContentAnnotationsCleared"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
-        ]
-      }
-    },
-    {
       "name": "Page",
       "module": "actor_internals.mojom",
       "file": "components_actor_public_mojom_actor_internals.mojom.js",
@@ -23235,8 +23177,7 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -23260,8 +23201,7 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -23283,8 +23223,7 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -24363,7 +24302,8 @@
         "GetDeviceTrustState",
         "DeleteDeviceTrustKey",
         "GetClientCertificateState",
-        "GetSignalsReportingState"
+        "GetSignalsReportingState",
+        "GetProvisioningDomainState"
       ],
       "metadata": {
         "usage": {
@@ -24519,10 +24459,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kOptimizationGuideOnDeviceModel"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -26492,8 +26429,7 @@
         "gates": [
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kInstallElement"
         ]
       }
     },
@@ -32560,7 +32496,8 @@
       "file": "media_mojo_mojom_audio_processing.mojom.js",
       "methods": [
         "GetStats",
-        "SetPreferredNumCaptureChannels"
+        "SetPreferredNumCaptureChannels",
+        "SetVoiceIsolation"
       ],
       "metadata": {
         "usage": {
@@ -35147,31 +35084,11 @@
       }
     },
     {
-      "name": "AssistiveTechnologyController",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_accessibility_service.mojom.js",
-      "methods": [
-        "EnableAssistiveTechnology"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ax.mojom.AccessibilityService.BindAssistiveTechnologyController"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "AccessibilityService",
       "module": "ax.mojom",
       "file": "services_accessibility_public_mojom_accessibility_service.mojom.js",
       "methods": [
-        "BindAccessibilityServiceClient",
-        "BindAssistiveTechnologyController",
-        "ConnectDevToolsAgent"
+        "BindAccessibilityServiceClient"
       ],
       "metadata": {
         "usage": {
@@ -35190,56 +35107,13 @@
       "file": "services_accessibility_public_mojom_accessibility_service.mojom.js",
       "methods": [
         "BindAutomation",
-        "BindAutomationClient",
-        "BindAutoclickClient",
-        "BindSpeechRecognition",
-        "BindTts",
-        "BindUserInput",
-        "BindUserInterface",
-        "BindAccessibilityFileLoader"
+        "BindAutomationClient"
       ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
             "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "Autoclick",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_autoclick.mojom.js",
-      "methods": [
-        "RequestScrollableBoundsForPoint"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "AutoclickClient",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_autoclick.mojom.js",
-      "methods": [
-        "HandleScrollableBoundsForPointFound",
-        "BindAutoclick"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ax.mojom.AccessibilityServiceClient.BindAutoclickClient"
           ]
         },
         "scope": "context",
@@ -35283,149 +35157,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: ax.mojom.AccessibilityServiceClient.BindAutomationClient"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "AccessibilityFileLoader",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_file_loader.mojom.js",
-      "methods": [
-        "Load"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ax.mojom.AccessibilityServiceClient.BindAccessibilityFileLoader"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "SpeechRecognitionEventObserver",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_speech_recognition.mojom.js",
-      "methods": [
-        "OnStop",
-        "OnResult",
-        "OnError"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "SpeechRecognition",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_speech_recognition.mojom.js",
-      "methods": [
-        "Start",
-        "Stop"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ax.mojom.AccessibilityServiceClient.BindSpeechRecognition"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kComputePressure"
-        ]
-      }
-    },
-    {
-      "name": "TtsUtteranceClient",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_tts.mojom.js",
-      "methods": [
-        "OnEvent"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "Tts",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_tts.mojom.js",
-      "methods": [
-        "Speak",
-        "Stop",
-        "Pause",
-        "Resume",
-        "IsSpeaking",
-        "GetVoices"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ax.mojom.AccessibilityServiceClient.BindTts"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "UserInput",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_user_input.mojom.js",
-      "methods": [
-        "SendSyntheticKeyEventForShortcutOrNavigation",
-        "SendSyntheticMouseEvent"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ax.mojom.AccessibilityServiceClient.BindUserInput"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "UserInterface",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_user_interface.mojom.js",
-      "methods": [
-        "DarkenScreen",
-        "OpenSettingsSubpage",
-        "ShowConfirmationDialog",
-        "SetFocusRings",
-        "SetHighlights",
-        "SetVirtualKeyboardVisible"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ax.mojom.AccessibilityServiceClient.BindUserInterface"
           ]
         },
         "scope": "context",
@@ -36927,12 +36658,7 @@
           ]
         },
         "scope": "context",
-        "category": "direct",
-        "gates": [
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution",
-          "feature:kOptimizationGuideOnDeviceModel"
-        ]
+        "category": "direct"
       }
     },
     {
@@ -38271,8 +37997,7 @@
         "Prefetch",
         "GetDeviceBoundSessionManager",
         "AddQuicHints",
-        "SetVariationsHeaders",
-        "SetExpectedTargetNetworkForTesting"
+        "SetVariationsHeaders"
       ],
       "metadata": {
         "usage": {
@@ -38546,7 +38271,8 @@
         "AllowsGSSAPILibraryLoad",
         "DisableExclusiveCookieDatabaseLockingForTesting",
         "IsHappyEyeballsV3Enabled",
-        "HasRawHeadersAccess"
+        "HasRawHeadersAccess",
+        "SetEmulateNetworkBindingForTesting"
       ],
       "metadata": {
         "usage": {
@@ -39613,10 +39339,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kOptimizationGuideOnDeviceModel"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -40702,7 +40425,8 @@
         "SetPhotoOptions",
         "TakePhoto",
         "ProcessFeedback",
-        "RequestRefreshFrame"
+        "RequestRefreshFrame",
+        "InvalidateBuffers"
       ],
       "metadata": {
         "usage": {
@@ -40856,7 +40580,8 @@
         "SetPhotoOptions",
         "TakePhoto",
         "Close",
-        "ProcessFeedback"
+        "ProcessFeedback",
+        "InvalidateBuffers"
       ],
       "metadata": {
         "usage": {
@@ -41237,6 +40962,7 @@
         "Start",
         "Stop",
         "RequestRefreshFrame",
+        "InvalidateBuffers",
         "CreateOverlay"
       ],
       "metadata": {
@@ -43788,7 +43514,6 @@
         "usage": {
           "associated": [
             "Source: Associated Interface (RFH/Navigation)",
-            "ax.mojom.AccessibilityService.ConnectDevToolsAgent",
             "blink.mojom.LocalFrame.BindDevToolsAgent"
           ],
           "direct": []
@@ -49901,8 +49626,7 @@
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -49937,8 +49661,7 @@
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kOptimizationGuideOnDeviceModel"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -52163,6 +51886,7 @@
       "module": "browser.context_hub.mojom",
       "imports": [
         "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/uuid.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -55212,14 +54936,6 @@
       "imports": []
     },
     {
-      "filename": "components_accessibility_annotator_core_logging_accessibility_annotator_internals.mojom.js",
-      "source": "components/accessibility_annotator/core/logging/accessibility_annotator_internals.mojom",
-      "module": "accessibility_annotator_internals.mojom",
-      "imports": [
-        "mojo/public/mojom/base/values.mojom"
-      ]
-    },
-    {
       "filename": "components_account_id_mojom_account_id.mojom.js",
       "source": "components/account_id/mojom/account_id.mojom",
       "module": "signin.mojom",
@@ -55719,7 +55435,9 @@
       "filename": "components_enterprise_connectors_connectors_internals.mojom.js",
       "source": "components/enterprise/connectors/connectors_internals.mojom",
       "module": "connectors_internals.mojom",
-      "imports": []
+      "imports": [
+        "mojo/public/mojom/base/time.mojom"
+      ]
     },
     {
       "filename": "components_enterprise_watermarking_mojom_watermark.mojom.js",
@@ -55963,6 +55681,7 @@
       "source": "components/metrics/public/mojom/call_stack_profile_collector.mojom",
       "module": "metrics.mojom",
       "imports": [
+        "components/metrics/public/mojom/profile_params.mojom",
         "mojo/public/mojom/base/proto_wrapper.mojom",
         "mojo/public/mojom/base/time.mojom"
       ]
@@ -55983,6 +55702,12 @@
         "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/shared_memory.mojom"
       ]
+    },
+    {
+      "filename": "components_metrics_public_mojom_profile_params.mojom.js",
+      "source": "components/metrics/public/mojom/profile_params.mojom",
+      "module": "metrics.mojom",
+      "imports": []
     },
     {
       "filename": "components_metrics_public_mojom_single_sample_metrics.mojom.js",
@@ -59515,15 +59240,7 @@
       "imports": [
         "sandbox/policy/mojom/sandbox.mojom",
         "services/accessibility/public/mojom/automation.mojom",
-        "services/accessibility/public/mojom/automation_client.mojom",
-        "services/accessibility/public/mojom/speech_recognition.mojom",
-        "services/accessibility/public/mojom/tts.mojom",
-        "third_party/blink/public/mojom/devtools/devtools_agent.mojom",
-        "services/accessibility/public/mojom/user_input.mojom",
-        "services/accessibility/public/mojom/user_interface.mojom",
-        "services/accessibility/public/mojom/assistive_technology_type.mojom",
-        "services/accessibility/public/mojom/file_loader.mojom",
-        "services/accessibility/public/mojom/autoclick.mojom"
+        "services/accessibility/public/mojom/automation_client.mojom"
       ]
     },
     {
@@ -59531,14 +59248,6 @@
       "source": "services/accessibility/public/mojom/assistive_technology_type.mojom",
       "module": "ax.mojom",
       "imports": []
-    },
-    {
-      "filename": "services_accessibility_public_mojom_autoclick.mojom.js",
-      "source": "services/accessibility/public/mojom/autoclick.mojom",
-      "module": "ax.mojom",
-      "imports": [
-        "ui/gfx/geometry/mojom/geometry.mojom"
-      ]
     },
     {
       "filename": "services_accessibility_public_mojom_automation.mojom.js",
@@ -59560,49 +59269,6 @@
       "imports": [
         "ui/accessibility/mojom/ax_action_data.mojom",
         "ui/accessibility/mojom/ax_tree_id.mojom"
-      ]
-    },
-    {
-      "filename": "services_accessibility_public_mojom_file_loader.mojom.js",
-      "source": "services/accessibility/public/mojom/file_loader.mojom",
-      "module": "ax.mojom",
-      "imports": [
-        "mojo/public/mojom/base/file.mojom",
-        "mojo/public/mojom/base/file_path.mojom"
-      ]
-    },
-    {
-      "filename": "services_accessibility_public_mojom_speech_recognition.mojom.js",
-      "source": "services/accessibility/public/mojom/speech_recognition.mojom",
-      "module": "ax.mojom",
-      "imports": [
-        "services/accessibility/public/mojom/assistive_technology_type.mojom"
-      ]
-    },
-    {
-      "filename": "services_accessibility_public_mojom_tts.mojom.js",
-      "source": "services/accessibility/public/mojom/tts.mojom",
-      "module": "ax.mojom",
-      "imports": []
-    },
-    {
-      "filename": "services_accessibility_public_mojom_user_input.mojom.js",
-      "source": "services/accessibility/public/mojom/user_input.mojom",
-      "module": "ax.mojom",
-      "imports": [
-        "ui/events/mojom/event.mojom",
-        "ui/events/mojom/event_constants.mojom",
-        "ui/gfx/geometry/mojom/geometry.mojom"
-      ]
-    },
-    {
-      "filename": "services_accessibility_public_mojom_user_interface.mojom.js",
-      "source": "services/accessibility/public/mojom/user_interface.mojom",
-      "module": "ax.mojom",
-      "imports": [
-        "services/accessibility/public/mojom/assistive_technology_type.mojom",
-        "ui/gfx/geometry/mojom/geometry.mojom",
-        "skia/public/mojom/skcolor.mojom"
       ]
     },
     {
@@ -62297,7 +61963,6 @@
       "imports": [
         "services/viz/public/mojom/compositing/blit_request.mojom",
         "services/viz/public/mojom/compositing/copy_output_result.mojom",
-        "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
@@ -62855,6 +62520,7 @@
       "source": "services/webnn/public/mojom/webnn_tensor.mojom",
       "module": "webnn.mojom",
       "imports": [
+        "gpu/ipc/common/sync_token.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
         "services/webnn/public/mojom/webnn_graph.mojom",
         "services/webnn/public/mojom/webnn_error.mojom"
