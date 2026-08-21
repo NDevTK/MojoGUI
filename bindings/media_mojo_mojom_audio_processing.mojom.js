@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8013.0';
+        const versionStr = window.mojoVersion || '154.0.8015.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -353,6 +353,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_automatic_gain_control', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_multi_channel_capture_processing', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_use_loopback_aec_reference', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_voice_isolation', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

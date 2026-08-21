@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8013.0';
+        const versionStr = window.mojoVersion || '154.0.8015.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,6 +128,16 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.multistep_filter_internals.mojom.LogEntrySpec = mojo.internal.bindings.multistep_filter_internals.mojom.LogEntrySpec || { $: {} };
 if (mojo.internal.bindings.multistep_filter_internals.mojom.LogEntrySpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.LogEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.LogEntrySpec.$ = {};
+mojo.internal.bindings.multistep_filter_internals.mojom.AccountStatusSpec = mojo.internal.bindings.multistep_filter_internals.mojom.AccountStatusSpec || { $: {} };
+if (mojo.internal.bindings.multistep_filter_internals.mojom.AccountStatusSpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.AccountStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.AccountStatusSpec.$ = {};
+mojo.internal.bindings.multistep_filter_internals.mojom.ConsentStatusSpec = mojo.internal.bindings.multistep_filter_internals.mojom.ConsentStatusSpec || { $: {} };
+if (mojo.internal.bindings.multistep_filter_internals.mojom.ConsentStatusSpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.ConsentStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.ConsentStatusSpec.$ = {};
+mojo.internal.bindings.multistep_filter_internals.mojom.SettingsStatusSpec = mojo.internal.bindings.multistep_filter_internals.mojom.SettingsStatusSpec || { $: {} };
+if (mojo.internal.bindings.multistep_filter_internals.mojom.SettingsStatusSpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.SettingsStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.SettingsStatusSpec.$ = {};
+mojo.internal.bindings.multistep_filter_internals.mojom.FeatureFlagStatusSpec = mojo.internal.bindings.multistep_filter_internals.mojom.FeatureFlagStatusSpec || { $: {} };
+if (mojo.internal.bindings.multistep_filter_internals.mojom.FeatureFlagStatusSpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.FeatureFlagStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.FeatureFlagStatusSpec.$ = {};
+mojo.internal.bindings.multistep_filter_internals.mojom.DebugInfoSpec = mojo.internal.bindings.multistep_filter_internals.mojom.DebugInfoSpec || { $: {} };
+if (mojo.internal.bindings.multistep_filter_internals.mojom.DebugInfoSpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.DebugInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.DebugInfoSpec.$ = {};
 mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler = mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler || {};
 mojo.internal.bindings.multistep_filter_internals.mojom.PageHandlerSpec = mojo.internal.bindings.multistep_filter_internals.mojom.PageHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.multistep_filter_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.PageHandlerSpec.$ = {};
@@ -136,6 +146,10 @@ mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedL
 if (mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ParamsSpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ParamsSpec.$ = {};
 mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ResponseParamsSpec = mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ParamsSpec = mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ParamsSpec.$ = {};
+mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ResponseParamsSpec = mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.multistep_filter_internals.mojom.Page = mojo.internal.bindings.multistep_filter_internals.mojom.Page || {};
 mojo.internal.bindings.multistep_filter_internals.mojom.PageSpec = mojo.internal.bindings.multistep_filter_internals.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.multistep_filter_internals.mojom.PageSpec.$.structSpec && mojo.internal.bindings.multistep_filter_internals.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.multistep_filter_internals.mojom.PageSpec.$ = {};
@@ -187,12 +201,16 @@ mojo.internal.bindings.multistep_filter_internals.mojom.PageHandlerRemote = clas
   getBufferedLogs() {
     return this.$.getBufferedLogs();
   }
+  getDebugInfo() {
+    return this.$.getDebugInfo();
+  }
 };
 
 mojo.internal.bindings.multistep_filter_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('multistep_filter_internals.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -202,6 +220,15 @@ mojo.internal.bindings.multistep_filter_internals.mojom.PageHandlerRemoteCallHan
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ParamsSpec,
       mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  getDebugInfo() {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ParamsSpec,
+      mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ResponseParamsSpec,
       [],
       false);
   }
@@ -224,6 +251,7 @@ mojo.internal.bindings.multistep_filter_internals.mojom.PageHandlerReceiver = cl
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('multistep_filter_internals.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -283,6 +311,24 @@ mojo.internal.bindings.multistep_filter_internals.mojom.PageHandlerReceiver = cl
                 header.ordinal, header.requestId, mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] getBufferedLogs FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getDebugInfo');
+          const result = this.impl.getDebugInfo();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_info' in response) ? response['arg_info'] : response;
+              const resp_obj = { 'arg_info': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getDebugInfo FAILED:', e));
           }
           break;
         }
@@ -582,6 +628,49 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_details', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 48]]);
+
+// Struct: AccountStatus
+mojo.internal.Struct(
+    mojo.internal.bindings.multistep_filter_internals.mojom.AccountStatusSpec, 'multistep_filter_internals.mojom.AccountStatus', [
+      mojo.internal.StructField('arg_is_signed_in', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_use_model_execution_features', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: ConsentStatus
+mojo.internal.Struct(
+    mojo.internal.bindings.multistep_filter_internals.mojom.ConsentStatusSpec, 'multistep_filter_internals.mojom.ConsentStatus', [
+      mojo.internal.StructField('arg_is_msbb_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_history_sync_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: SettingsStatus
+mojo.internal.Struct(
+    mojo.internal.bindings.multistep_filter_internals.mojom.SettingsStatusSpec, 'multistep_filter_internals.mojom.SettingsStatus', [
+      mojo.internal.StructField('arg_contextual_cueing_opt_in_state', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_chrome_suggestions_policy_state', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: FeatureFlagStatus
+mojo.internal.Struct(
+    mojo.internal.bindings.multistep_filter_internals.mojom.FeatureFlagStatusSpec, 'multistep_filter_internals.mojom.FeatureFlagStatus', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DebugInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.multistep_filter_internals.mojom.DebugInfoSpec, 'multistep_filter_internals.mojom.DebugInfo', [
+      mojo.internal.StructField('arg_account_status', 0, 0, mojo.internal.bindings.multistep_filter_internals.mojom.AccountStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_consent_status', 8, 0, mojo.internal.bindings.multistep_filter_internals.mojom.ConsentStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings_status', 16, 0, mojo.internal.bindings.multistep_filter_internals.mojom.SettingsStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_eligible', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_flags', 32, 0, mojo.internal.Array(mojo.internal.bindings.multistep_filter_internals.mojom.FeatureFlagStatusSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 mojo.internal.Struct(
     mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ParamsSpec, 'multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_Params', [
     ],
@@ -590,6 +679,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ResponseParamsSpec, 'multistep_filter_internals.mojom.PageHandler_GetBufferedLogs_ResponseParams', [
       mojo.internal.StructField('arg_logs', 0, 0, mojo.internal.Array(mojo.internal.bindings.multistep_filter_internals.mojom.LogEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ParamsSpec, 'multistep_filter_internals.mojom.PageHandler_GetDebugInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ResponseParamsSpec, 'multistep_filter_internals.mojom.PageHandler_GetDebugInfo_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.multistep_filter_internals.mojom.DebugInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

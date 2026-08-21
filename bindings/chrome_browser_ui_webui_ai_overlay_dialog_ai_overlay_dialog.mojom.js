@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8013.0';
+        const versionStr = window.mojoVersion || '154.0.8015.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,6 +125,7 @@
 mojo.internal.bindings.ai_overlay_dialog.mojom = mojo.internal.bindings.ai_overlay_dialog.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
@@ -134,6 +135,8 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageContentNodeSpec = mojo.intern
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageContentNodeSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageContentNodeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageContentNodeSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.RawViewportRegionResultSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.RawViewportRegionResultSpec || { $: {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.RawViewportRegionResultSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.RawViewportRegionResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.RawViewportRegionResultSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.ImageBytesResultSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.ImageBytesResultSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.ImageBytesResultSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.ImageBytesResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.ImageBytesResultSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.RememberedNoteSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.RememberedNoteSpec || { $: {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.RememberedNoteSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.RememberedNoteSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.RememberedNoteSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerFactory = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerFactory || {};
@@ -172,6 +175,10 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetRememberedNotes_Re
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetRememberedNotes_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetRememberedNotes_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetRememberedNotes_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_SaveDebugFile_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_SaveDebugFile_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_SaveDebugFile_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_SaveDebugFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_SaveDebugFile_ParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ParamsSpec.$ = {};
+mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ResponseParamsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.Page = mojo.internal.bindings.ai_overlay_dialog.mojom.Page || {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$.structSpec && mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ai_overlay_dialog.mojom.PageSpec.$ = {};
@@ -193,9 +200,15 @@ mojo.internal.bindings.ai_overlay_dialog.mojom = mojo.internal.bindings.ai_overl
 mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsSpec = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsRemote = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsRemote || class {};
 mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsPendingReceiver = mojo.internal.bindings.ai_overlay_dialog.mojom.AiOverlayToolsPendingReceiver || class { constructor(handle) { this.handle = handle; } };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.DOMNodeIdSpec = mojo.internal.bindings.blink.mojom.DOMNodeIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -407,12 +420,16 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemote = class {
   saveDebugFile(arg_type, arg_content) {
     return this.$.saveDebugFile(arg_type, arg_content);
   }
+  getImageBytes(arg_dom_node_id) {
+    return this.$.getImageBytes(arg_dom_node_id);
+  }
 };
 
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ai_overlay_dialog.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -496,6 +513,15 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerRemoteCallHandler = cl
       false);
   }
 
+  getImageBytes(arg_dom_node_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
+      mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ParamsSpec,
+      mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ResponseParamsSpec,
+      [arg_dom_node_id],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler.getRemote = function() {
@@ -514,6 +540,7 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('ai_overlay_dialog.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -674,6 +701,24 @@ mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_SaveDebugFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.saveDebugFile');
           const result = this.impl.saveDebugFile(params.arg_type, params.arg_content);
+          break;
+        }
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getImageBytes');
+          const result = this.impl.getImageBytes(params.arg_dom_node_id);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getImageBytes FAILED:', e));
+          }
           break;
         }
       }
@@ -937,6 +982,14 @@ mojo.internal.Struct(
     ],
     [[0, 32]]);
 
+// Struct: ImageBytesResult
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.ImageBytesResultSpec, 'ai_overlay_dialog.mojom.ImageBytesResult', [
+      mojo.internal.StructField('arg_image_bytes', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
 // Struct: RememberedNote
 mojo.internal.Struct(
     mojo.internal.bindings.ai_overlay_dialog.mojom.RememberedNoteSpec, 'ai_overlay_dialog.mojom.RememberedNote', [
@@ -1029,6 +1082,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_content', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ParamsSpec, 'ai_overlay_dialog.mojom.PageHandler_GetImageBytes_Params', [
+      mojo.internal.StructField('arg_dom_node_id', 0, 0, mojo.internal.bindings.blink.mojom.DOMNodeIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ResponseParamsSpec, 'ai_overlay_dialog.mojom.PageHandler_GetImageBytes_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ai_overlay_dialog.mojom.ImageBytesResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.ai_overlay_dialog.mojom.Page_DidChangePage_ParamsSpec, 'ai_overlay_dialog.mojom.Page_DidChangePage_Params', [

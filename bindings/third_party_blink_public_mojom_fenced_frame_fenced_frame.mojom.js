@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8013.0';
+        const versionStr = window.mojoVersion || '154.0.8015.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -142,9 +142,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FramePolicySpec = mojo.internal.bindings.blink.mojom.FramePolicySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
@@ -180,8 +177,8 @@ mojo.internal.bindings.blink.mojom.FencedFrameOwnerHostRemote = class {
   close() {
     this.proxy.close();
   }
-  navigate(arg_url, arg_navigation_start_time, arg_embedder_shared_storage_context) {
-    return this.$.navigate(arg_url, arg_navigation_start_time, arg_embedder_shared_storage_context);
+  navigate(arg_url, arg_navigation_start_time) {
+    return this.$.navigate(arg_url, arg_navigation_start_time);
   }
   didChangeFramePolicy(arg_frame_policy) {
     return this.$.didChangeFramePolicy(arg_frame_policy);
@@ -197,12 +194,12 @@ mojo.internal.bindings.blink.mojom.FencedFrameOwnerHostRemoteCallHandler = class
     ]);
   }
 
-  navigate(arg_url, arg_navigation_start_time, arg_embedder_shared_storage_context) {
+  navigate(arg_url, arg_navigation_start_time) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec,
       null,
-      [arg_url, arg_navigation_start_time, arg_embedder_shared_storage_context],
+      [arg_url, arg_navigation_start_time],
       false);
   }
 
@@ -282,7 +279,7 @@ mojo.internal.bindings.blink.mojom.FencedFrameOwnerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.navigate');
-          const result = this.impl.navigate(params.arg_url, params.arg_navigation_start_time, params.arg_embedder_shared_storage_context);
+          const result = this.impl.navigate(params.arg_url, params.arg_navigation_start_time);
           break;
         }
         case 1: {
@@ -311,9 +308,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_Navigate_ParamsSpec, 'blink.mojom.FencedFrameOwnerHost_Navigate_Params', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_navigation_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_embedder_shared_storage_context', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_ParamsSpec, 'blink.mojom.FencedFrameOwnerHost_DidChangeFramePolicy_Params', [

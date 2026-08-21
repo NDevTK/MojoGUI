@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8013.0';
+        const versionStr = window.mojoVersion || '154.0.8015.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -420,7 +420,10 @@ mojo.internal.bindings.device.mojom.kHIDCollectionTypeVendorMax = 0xff;
 mojo.internal.bindings.device.mojom.HidBusType = {
   kHIDBusTypeUSB: 0,
   kHIDBusTypeBluetooth: 1,
-  MinVersion: 1,
+  kHIDBusTypeUnknown: 2,
+  kHIDBusTypeI2C: 3,
+  kHIDBusTypeSPI: 4,
+  kHIDBusTypeUHID: 5,
 };
 
 // Interface: HidManagerClient

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-20T10:22:25.839017Z",
-  "version": "154.0.8013.0",
+  "generated_at": "2026-08-21T10:21:08.632824Z",
+  "version": "154.0.8015.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3731,23 +3731,35 @@
       "name": "GeicBrowserHost",
       "module": "geic.mojom",
       "file": "chrome_browser_geic_geic.mojom.js",
-      "methods": [],
+      "methods": [
+        "RegisterClient",
+        "GetFocusedTab",
+        "GetContextFromFocusedTab",
+        "ClosePanel"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Source: BrowserInterfaceBroker (Global Broker)"
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "direct",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
+        ]
       }
     },
     {
       "name": "GeicClient",
       "module": "geic.mojom",
       "file": "chrome_browser_geic_geic.mojom.js",
-      "methods": [],
+      "methods": [
+        "OnFocusedTabChanged"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -5099,7 +5111,8 @@
         "CaptureRawViewportRegion",
         "SetRememberedNote",
         "GetRememberedNotes",
-        "SaveDebugFile"
+        "SaveDebugFile",
+        "GetImageBytes"
       ],
       "metadata": {
         "usage": {
@@ -7721,7 +7734,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -7754,7 +7766,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -7785,7 +7796,6 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -8945,6 +8955,7 @@
         "ParseUpdateManifestFromUrl",
         "SelectAndInstallAppFromLocalWebBundle",
         "SelectAndUpdateAppFromLocalWebBundle",
+        "SetUpdateChannel",
         "UninstallApp",
         "UpdateDevProxyInstalledApp",
         "UpdateManifestInstalledApp"
@@ -9045,7 +9056,8 @@
       "module": "multistep_filter_internals.mojom",
       "file": "chrome_browser_ui_webui_multistep_filter_internals_multistep_filter_internals.mojom.js",
       "methods": [
-        "GetBufferedLogs"
+        "GetBufferedLogs",
+        "GetDebugInfo"
       ],
       "metadata": {
         "usage": {
@@ -12896,8 +12908,7 @@
         "category": "direct",
         "gates": [
           "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement"
+          "feature:kWebAppInstallation"
         ]
       }
     },
@@ -23605,6 +23616,7 @@
         "OnPageInitialized",
         "OnContentSettingImagePointerDown",
         "ShowContentSettingsBubble",
+        "OnContentSettingImageAnimationEnded",
         "OnPageActionClick",
         "OnPageActionChipShowingChanged",
         "InvokePinnedToolbarAction",
@@ -37940,6 +37952,7 @@
         "ClearSharedDictionaryCacheForIsolationKey",
         "SetDocumentReportingEndpoints",
         "SendReportsAndRemoveSource",
+        "SendReportsForSource",
         "QueueReport",
         "QueueEnterpriseReport",
         "QueueSignedExchangeReport",
@@ -51310,7 +51323,9 @@
       "source": "chrome/browser/geic/geic.mojom",
       "module": "geic.mojom",
       "imports": [
-        "chrome/browser/pwc/pwc_features.mojom"
+        "chrome/browser/pwc/pwc_features.mojom",
+        "mojo/public/mojom/base/string16.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -51576,7 +51591,9 @@
       "source": "chrome/browser/ui/webui/ai_overlay_dialog/ai_overlay_dialog.mojom",
       "module": "ai_overlay_dialog.mojom",
       "imports": [
+        "mojo/public/mojom/base/big_buffer.mojom",
         "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom",
+        "third_party/blink/public/mojom/dom/dom_node_id.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom"
       ]

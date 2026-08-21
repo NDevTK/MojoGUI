@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8013.0';
+        const versionStr = window.mojoVersion || '154.0.8015.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -131,6 +131,8 @@ mojo.internal.bindings.iwa_dev.mojom.IwaDevModeSourceSpec = mojo.internal.bindin
 if (mojo.internal.bindings.iwa_dev.mojom.IwaDevModeSourceSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.IwaDevModeSourceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.IwaDevModeSourceSpec.$ = {};
 mojo.internal.bindings.iwa_dev.mojom.UpdateInfoSpec = mojo.internal.bindings.iwa_dev.mojom.UpdateInfoSpec || { $: {} };
 if (mojo.internal.bindings.iwa_dev.mojom.UpdateInfoSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.UpdateInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.UpdateInfoSpec.$ = {};
+mojo.internal.bindings.iwa_dev.mojom.UpdateManifestOptionsSpec = mojo.internal.bindings.iwa_dev.mojom.UpdateManifestOptionsSpec || { $: {} };
+if (mojo.internal.bindings.iwa_dev.mojom.UpdateManifestOptionsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.UpdateManifestOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.UpdateManifestOptionsSpec.$ = {};
 mojo.internal.bindings.iwa_dev.mojom.IwaDevModeAppInfoSpec = mojo.internal.bindings.iwa_dev.mojom.IwaDevModeAppInfoSpec || { $: {} };
 if (mojo.internal.bindings.iwa_dev.mojom.IwaDevModeAppInfoSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.IwaDevModeAppInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.IwaDevModeAppInfoSpec.$ = {};
 mojo.internal.bindings.iwa_dev.mojom.VersionEntrySpec = mojo.internal.bindings.iwa_dev.mojom.VersionEntrySpec || { $: {} };
@@ -157,6 +159,8 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWeb
 if (mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ParamsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndInstallAppFromLocalWebBundle_ParamsSpec.$ = {};
 mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndUpdateAppFromLocalWebBundle_ParamsSpec = mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndUpdateAppFromLocalWebBundle_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndUpdateAppFromLocalWebBundle_ParamsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndUpdateAppFromLocalWebBundle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.PageHandler_SelectAndUpdateAppFromLocalWebBundle_ParamsSpec.$ = {};
+mojo.internal.bindings.iwa_dev.mojom.PageHandler_SetUpdateChannel_ParamsSpec = mojo.internal.bindings.iwa_dev.mojom.PageHandler_SetUpdateChannel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.iwa_dev.mojom.PageHandler_SetUpdateChannel_ParamsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.PageHandler_SetUpdateChannel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.PageHandler_SetUpdateChannel_ParamsSpec.$ = {};
 mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec = mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec.$.structSpec && mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec.$ = {};
 mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ResponseParamsSpec = mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ResponseParamsSpec || { $: {} };
@@ -244,14 +248,17 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerRemote = class {
   selectAndUpdateAppFromLocalWebBundle(arg_app_id) {
     return this.$.selectAndUpdateAppFromLocalWebBundle(arg_app_id);
   }
+  setUpdateChannel(arg_app_id, arg_update_channel) {
+    return this.$.setUpdateChannel(arg_app_id, arg_update_channel);
+  }
   uninstallApp(arg_app_id) {
     return this.$.uninstallApp(arg_app_id);
   }
   updateDevProxyInstalledApp(arg_app_id) {
     return this.$.updateDevProxyInstalledApp(arg_app_id);
   }
-  updateManifestInstalledApp(arg_app_id) {
-    return this.$.updateManifestInstalledApp(arg_app_id);
+  updateManifestInstalledApp(arg_app_id, arg_options) {
+    return this.$.updateManifestInstalledApp(arg_app_id, arg_options);
   }
 };
 
@@ -259,6 +266,7 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('iwa_dev.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -325,9 +333,18 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
-  uninstallApp(arg_app_id) {
+  setUpdateChannel(arg_app_id, arg_update_channel) {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
+      mojo.internal.bindings.iwa_dev.mojom.PageHandler_SetUpdateChannel_ParamsSpec,
+      null,
+      [arg_app_id, arg_update_channel],
+      false);
+  }
+
+  uninstallApp(arg_app_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec,
       mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ResponseParamsSpec,
       [arg_app_id],
@@ -336,19 +353,19 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerRemoteCallHandler = class {
 
   updateDevProxyInstalledApp(arg_app_id) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.iwa_dev.mojom.PageHandler_UpdateDevProxyInstalledApp_ParamsSpec,
       null,
       [arg_app_id],
       false);
   }
 
-  updateManifestInstalledApp(arg_app_id) {
+  updateManifestInstalledApp(arg_app_id, arg_options) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.iwa_dev.mojom.PageHandler_UpdateManifestInstalledApp_ParamsSpec,
       null,
-      [arg_app_id],
+      [arg_app_id, arg_options],
       false);
   }
 
@@ -370,6 +387,7 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('iwa_dev.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -477,6 +495,13 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerReceiver = class {
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.iwa_dev.mojom.PageHandler_SetUpdateChannel_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setUpdateChannel');
+          const result = this.impl.setUpdateChannel(params.arg_app_id, params.arg_update_channel);
+          break;
+        }
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uninstallApp');
           const result = this.impl.uninstallApp(params.arg_app_id);
@@ -493,18 +518,18 @@ mojo.internal.bindings.iwa_dev.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.iwa_dev.mojom.PageHandler_UpdateDevProxyInstalledApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDevProxyInstalledApp');
           const result = this.impl.updateDevProxyInstalledApp(params.arg_app_id);
           break;
         }
-        case 8: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.iwa_dev.mojom.PageHandler_UpdateManifestInstalledApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateManifestInstalledApp');
-          const result = this.impl.updateManifestInstalledApp(params.arg_app_id);
+          const result = this.impl.updateManifestInstalledApp(params.arg_app_id, params.arg_options);
           break;
         }
       }
@@ -863,6 +888,14 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
+// Struct: UpdateManifestOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.iwa_dev.mojom.UpdateManifestOptionsSpec, 'iwa_dev.mojom.UpdateManifestOptions', [
+      mojo.internal.StructField('arg_allow_downgrades', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pinned_version', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: IwaDevModeAppInfo
 mojo.internal.Struct(
     mojo.internal.bindings.iwa_dev.mojom.IwaDevModeAppInfoSpec, 'iwa_dev.mojom.IwaDevModeAppInfo', [
@@ -940,6 +973,13 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.iwa_dev.mojom.PageHandler_SetUpdateChannel_ParamsSpec, 'iwa_dev.mojom.PageHandler_SetUpdateChannel_Params', [
+      mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update_channel', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.iwa_dev.mojom.PageHandler_UninstallApp_ParamsSpec, 'iwa_dev.mojom.PageHandler_UninstallApp_Params', [
       mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
@@ -960,8 +1000,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.iwa_dev.mojom.PageHandler_UpdateManifestInstalledApp_ParamsSpec, 'iwa_dev.mojom.PageHandler_UpdateManifestInstalledApp_Params', [
       mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.iwa_dev.mojom.UpdateManifestOptionsSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.iwa_dev.mojom.Page_OnAppInstalled_ParamsSpec, 'iwa_dev.mojom.Page_OnAppInstalled_Params', [

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8013.0';
+        const versionStr = window.mojoVersion || '154.0.8015.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,7 +126,21 @@ mojo.internal.bindings.geic.mojom = mojo.internal.bindings.geic.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.pwc = mojo.internal.bindings.pwc || {};
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
+mojo.internal.bindings.geic.mojom.GetTabContextErrorSpec = mojo.internal.bindings.geic.mojom.GetTabContextErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.geic.mojom.FocusedTabDataSpec = mojo.internal.bindings.geic.mojom.FocusedTabDataSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.FocusedTabDataSpec.$.structSpec && mojo.internal.bindings.geic.mojom.FocusedTabDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.FocusedTabDataSpec.$ = {};
+mojo.internal.bindings.geic.mojom.TabMetadataSpec = mojo.internal.bindings.geic.mojom.TabMetadataSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.TabMetadataSpec.$.structSpec && mojo.internal.bindings.geic.mojom.TabMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.TabMetadataSpec.$ = {};
+mojo.internal.bindings.geic.mojom.NoFocusedTabDataSpec = mojo.internal.bindings.geic.mojom.NoFocusedTabDataSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.NoFocusedTabDataSpec.$.structSpec && mojo.internal.bindings.geic.mojom.NoFocusedTabDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.NoFocusedTabDataSpec.$ = {};
+mojo.internal.bindings.geic.mojom.GeicInitialStateSpec = mojo.internal.bindings.geic.mojom.GeicInitialStateSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.GeicInitialStateSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicInitialStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicInitialStateSpec.$ = {};
+mojo.internal.bindings.geic.mojom.TabContextOptionsSpec = mojo.internal.bindings.geic.mojom.TabContextOptionsSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.TabContextOptionsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.TabContextOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.TabContextOptionsSpec.$ = {};
+mojo.internal.bindings.geic.mojom.TabContextDataSpec = mojo.internal.bindings.geic.mojom.TabContextDataSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.TabContextDataSpec.$.structSpec && mojo.internal.bindings.geic.mojom.TabContextDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.TabContextDataSpec.$ = {};
 mojo.internal.bindings.geic.mojom.GeicApi = mojo.internal.bindings.geic.mojom.GeicApi || {};
 mojo.internal.bindings.geic.mojom.GeicApiSpec = mojo.internal.bindings.geic.mojom.GeicApiSpec || { $ : {} };
 if (mojo.internal.bindings.geic.mojom.GeicApiSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicApiSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicApiSpec.$ = {};
@@ -135,10 +149,44 @@ mojo.internal.bindings.geic.mojom.GeicBrowserHost = mojo.internal.bindings.geic.
 mojo.internal.bindings.geic.mojom.GeicBrowserHostSpec = mojo.internal.bindings.geic.mojom.GeicBrowserHostSpec || { $ : {} };
 if (mojo.internal.bindings.geic.mojom.GeicBrowserHostSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHostSpec.$ = {};
 mojo.internal.bindings.geic.mojom.GeicBrowserHost.$interfaceName = 'geic.mojom.GeicBrowserHost';
+mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ParamsSpec = mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ParamsSpec.$ = {};
+mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ResponseParamsSpec = mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ParamsSpec = mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ParamsSpec.$ = {};
+mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ResponseParamsSpec = mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_ParamsSpec = mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_ParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_ParamsSpec.$ = {};
+mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec = mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec.$ = {};
 mojo.internal.bindings.geic.mojom.GeicClient = mojo.internal.bindings.geic.mojom.GeicClient || {};
 mojo.internal.bindings.geic.mojom.GeicClientSpec = mojo.internal.bindings.geic.mojom.GeicClientSpec || { $ : {} };
 if (mojo.internal.bindings.geic.mojom.GeicClientSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicClientSpec.$ = {};
 mojo.internal.bindings.geic.mojom.GeicClient.$interfaceName = 'geic.mojom.GeicClient';
+mojo.internal.bindings.geic.mojom.GeicClient_OnFocusedTabChanged_ParamsSpec = mojo.internal.bindings.geic.mojom.GeicClient_OnFocusedTabChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.GeicClient_OnFocusedTabChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicClient_OnFocusedTabChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicClient_OnFocusedTabChanged_ParamsSpec.$ = {};
+
+// External type stubs (from imports)
+mojo.internal.bindings.geic = mojo.internal.bindings.geic || {};
+mojo.internal.bindings.geic.mojom = mojo.internal.bindings.geic.mojom || {};
+mojo.internal.bindings.geic.mojom.FocusedTabDataSpec = mojo.internal.bindings.geic.mojom.FocusedTabDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
+mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: GetTabContextError
+mojo.internal.bindings.geic.mojom.GetTabContextError = {
+  kUnknown: 0,
+  kTabClosed: 1,
+  kNavigationInProgress: 2,
+  kPermissionDenied: 3,
+  kInternalError: 4,
+};
 
 // Interface: GeicApi
 mojo.internal.bindings.geic.mojom.GeicApiPendingReceiver = class {
@@ -284,13 +332,65 @@ mojo.internal.bindings.geic.mojom.GeicBrowserHostRemote = class {
   close() {
     this.proxy.close();
   }
+  registerClient(arg_client) {
+    return this.$.registerClient(arg_client);
+  }
+  getFocusedTab() {
+    return this.$.getFocusedTab();
+  }
+  getContextFromFocusedTab(arg_options) {
+    return this.$.getContextFromFocusedTab(arg_options);
+  }
+  closePanel() {
+    return this.$.closePanel();
+  }
 };
 
 mojo.internal.bindings.geic.mojom.GeicBrowserHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('geic.mojom.GeicBrowserHost', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
     ]);
+  }
+
+  registerClient(arg_client) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ParamsSpec,
+      mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ResponseParamsSpec,
+      [arg_client],
+      false);
+  }
+
+  getFocusedTab() {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ParamsSpec,
+      mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  getContextFromFocusedTab(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_ParamsSpec,
+      null,
+      [arg_options],
+      false);
+  }
+
+  closePanel() {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec,
+      null,
+      [],
+      false);
   }
 
 };
@@ -311,6 +411,10 @@ mojo.internal.bindings.geic.mojom.GeicBrowserHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('geic.mojom.GeicBrowserHost', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -354,6 +458,56 @@ mojo.internal.bindings.geic.mojom.GeicBrowserHostReceiver = class {
       this.mapOrdinal(header.ordinal, dispatchId);
       
       switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.registerClient');
+          const result = this.impl.registerClient(params.arg_client);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_initial_state' in response) ? response['arg_initial_state'] : response;
+              const resp_obj = { 'arg_initial_state': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] registerClient FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getFocusedTab');
+          const result = this.impl.getFocusedTab();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response['arg_data'] : response;
+              const resp_obj = { 'arg_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getFocusedTab FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getContextFromFocusedTab');
+          const result = this.impl.getContextFromFocusedTab(params.arg_options);
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.closePanel');
+          const result = this.impl.closePanel();
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -398,13 +552,26 @@ mojo.internal.bindings.geic.mojom.GeicClientRemote = class {
   close() {
     this.proxy.close();
   }
+  onFocusedTabChanged(arg_data) {
+    return this.$.onFocusedTabChanged(arg_data);
+  }
 };
 
 mojo.internal.bindings.geic.mojom.GeicClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('geic.mojom.GeicClient', [
+      { explicit: null },
     ]);
+  }
+
+  onFocusedTabChanged(arg_data) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.geic.mojom.GeicClient_OnFocusedTabChanged_ParamsSpec,
+      null,
+      [arg_data],
+      false);
   }
 
 };
@@ -425,6 +592,7 @@ mojo.internal.bindings.geic.mojom.GeicClientReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('geic.mojom.GeicClient', [
+      { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -468,6 +636,13 @@ mojo.internal.bindings.geic.mojom.GeicClientReceiver = class {
       this.mapOrdinal(header.ordinal, dispatchId);
       
       switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.geic.mojom.GeicClient_OnFocusedTabChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onFocusedTabChanged');
+          const result = this.impl.onFocusedTabChanged(params.arg_data);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -483,3 +658,105 @@ mojo.internal.bindings.geic.mojom.GeicClientRequest = mojo.internal.bindings.gei
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: FocusedTabData
+mojo.internal.Union(
+    mojo.internal.bindings.geic.mojom.FocusedTabDataSpec, 'geic.mojom.FocusedTabData', {
+      'arg_focused_tab': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.geic.mojom.TabMetadataSpec,
+        'nullable': false,
+      },
+      'arg_no_focused_tab_data': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.geic.mojom.NoFocusedTabDataSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: TabMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.TabMetadataSpec, 'geic.mojom.TabMetadata', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_window_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_favicon', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_active_in_window', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: NoFocusedTabData
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.NoFocusedTabDataSpec, 'geic.mojom.NoFocusedTabData', [
+      mojo.internal.StructField('arg_no_focus_reason', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: GeicInitialState
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.GeicInitialStateSpec, 'geic.mojom.GeicInitialState', [
+      mojo.internal.StructField('arg_focused_tab_data', 0, 0, mojo.internal.bindings.geic.mojom.FocusedTabDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: TabContextOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.TabContextOptionsSpec, 'geic.mojom.TabContextOptions', [
+      mojo.internal.StructField('arg_include_inner_text', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_screenshot', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_inner_text_bytes_limit', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_screenshot_max_width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_screenshot_max_height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: TabContextData
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.TabContextDataSpec, 'geic.mojom.TabContextData', [
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.geic.mojom.TabMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_inner_text', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_screenshot_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_screenshot_mime_type', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ParamsSpec, 'geic.mojom.GeicBrowserHost_RegisterClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.geic.mojom.GeicClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.GeicBrowserHost_RegisterClient_ResponseParamsSpec, 'geic.mojom.GeicBrowserHost_RegisterClient_ResponseParams', [
+      mojo.internal.StructField('arg_initial_state', 0, 0, mojo.internal.bindings.geic.mojom.GeicInitialStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ParamsSpec, 'geic.mojom.GeicBrowserHost_GetFocusedTab_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetFocusedTab_ResponseParamsSpec, 'geic.mojom.GeicBrowserHost_GetFocusedTab_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.geic.mojom.FocusedTabDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_ParamsSpec, 'geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.geic.mojom.TabContextOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec, 'geic.mojom.GeicBrowserHost_ClosePanel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.GeicClient_OnFocusedTabChanged_ParamsSpec, 'geic.mojom.GeicClient_OnFocusedTabChanged_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.geic.mojom.FocusedTabDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
