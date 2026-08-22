@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-21T10:21:08.632824Z",
-  "version": "154.0.8015.0",
+  "generated_at": "2026-08-22T10:15:03.605829Z",
+  "version": "154.0.8017.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4094,6 +4094,7 @@
         "OpenLinkInPopup",
         "OpenGlicSettingsPage",
         "OpenPasswordManagerSettingsPage",
+        "EnableDragResize",
         "ClosePanel",
         "ClosePanelAndShutdown",
         "AttachPanel",
@@ -4298,6 +4299,7 @@
         "NotifyManualResizeChanged",
         "NotifyOsHotkeyStateChanged",
         "NotifyBrowserIsOpenChanged",
+        "NotifyZoomLevelChanged",
         "NotifyInstanceActivationChanged",
         "NotifyClosedCaptioningSettingChanged",
         "NotifyPinnedTabsChanged",
@@ -9991,8 +9993,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10007,7 +10008,9 @@
         "GetHotkeyEnabled",
         "SetEphemeralModelEnabled",
         "GetEphemeralModelEnabled",
-        "InvokeOmniboxEverywhere"
+        "InvokeOmniboxEverywhere",
+        "CreateStartMenuShortcut",
+        "PinToTaskbar"
       ],
       "metadata": {
         "usage": {
@@ -10020,8 +10023,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10043,8 +10045,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11851,6 +11852,51 @@
       }
     },
     {
+      "name": "UserEducationMixedTrustHandlerFactory",
+      "module": "user_education.mojom",
+      "file": "chrome_browser_ui_webui_user_education_user_education.mojom.js",
+      "methods": [
+        "CreateUserEducationMixedTrustHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule"
+        ]
+      }
+    },
+    {
+      "name": "UserEducationMixedTrustHandler",
+      "module": "user_education.mojom",
+      "file": "chrome_browser_ui_webui_user_education_user_education.mojom.js",
+      "methods": [
+        "NotifyFeaturePromoFeatureUsed",
+        "NotifyAdditionalConditionEvent",
+        "NotifyNewBadgeFeatureUsed",
+        "MaybeShowNewBadgeFor"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: user_education.mojom.UserEducationMixedTrustHandlerFactory.CreateUserEducationMixedTrustHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule"
+        ]
+      }
+    },
+    {
       "name": "UserEducationInternalsPageHandler",
       "module": "mojom.user_education_internals",
       "file": "chrome_browser_ui_webui_user_education_internals_user_education_internals.mojom.js",
@@ -13031,7 +13077,6 @@
       "file": "chrome_common_read_anything_read_anything.mojom.js",
       "methods": [
         "GetDependencyParserModel",
-        "ShouldShowLineFocusNewBadge",
         "GetPresentationState",
         "GetVoicePackInfo",
         "InstallVoicePack",
@@ -13051,7 +13096,6 @@
         "LogExtensionState",
         "OnHighlightGranularityChanged",
         "OnLineFocusChanged",
-        "OnLineFocusFeatureUsed",
         "OnReadAloudAudioStateChange",
         "OnLinkClicked",
         "OnImageDataRequested",
@@ -20720,7 +20764,6 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kWebUIToolbarProcessOverheadExperiment",
           "feature:kAiOverlayDialog"
         ]
       }
@@ -28890,6 +28933,8 @@
       "file": "content_common_memory_coordinator_mojom_memory_coordinator.mojom.js",
       "methods": [
         "UpdateConsumers",
+        "SetOverrideLimit",
+        "ClearOverrideLimit",
         "EnableDiagnosticsReporting"
       ],
       "metadata": {
@@ -40316,7 +40361,8 @@
       "file": "services_tracing_public_mojom_perfetto_service.mojom.js",
       "methods": [
         "EnableTracing",
-        "CloneSession"
+        "CloneSession",
+        "QueryServiceState"
       ],
       "metadata": {
         "usage": {
@@ -45078,6 +45124,25 @@
       }
     },
     {
+      "name": "HapticsService",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_haptics_haptics.mojom.js",
+      "methods": [
+        "PlayHaptics"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct",
+        "scrambled": false
+      }
+    },
+    {
       "name": "HidService",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_hid_hid.mojom.js",
@@ -48383,7 +48448,9 @@
       "file": "third_party_blink_public_mojom_unbounded_element_unbounded_element.mojom.js",
       "methods": [
         "GetCompositorFrameSink",
-        "UpdateBounds"
+        "UpdateBounds",
+        "DidPresentFrameAfterDismissal",
+        "DidCancelDismissal"
       ],
       "metadata": {
         "usage": {
@@ -49956,7 +50023,8 @@
         "TurnOnHistorySync",
         "ShouldShowHistoryPageHistorySyncPromo",
         "RecordHistoryPageHistorySyncPromoDismissed",
-        "IncrementHistoryPageHistorySyncPromoShownCount"
+        "IncrementHistoryPageHistorySyncPromoShownCount",
+        "MaybeShowCriticalActionFeaturePromo"
       ],
       "metadata": {
         "usage": {
@@ -52460,6 +52528,12 @@
         "services/device/public/mojom/usb_manager.mojom",
         "services/device/public/mojom/usb_manager_test.mojom"
       ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_user_education_user_education.mojom.js",
+      "source": "chrome/browser/ui/webui/user_education/user_education.mojom",
+      "module": "user_education.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_user_education_internals_user_education_internals.mojom.js",
@@ -55196,6 +55270,7 @@
         "components/content_settings/core/common/content_settings_types.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "skia/public/mojom/skcolor.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/range/mojom/range.mojom"
       ]
@@ -63947,6 +64022,12 @@
         "mojo/public/mojom/base/time.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
+    },
+    {
+      "filename": "third_party_blink_public_mojom_haptics_haptics.mojom.js",
+      "source": "third_party/blink/public/mojom/haptics/haptics.mojom",
+      "module": "blink.mojom",
+      "imports": []
     },
     {
       "filename": "third_party_blink_public_mojom_hid_hid.mojom.js",
