@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-22T10:15:03.605829Z",
-  "version": "154.0.8017.0",
+  "generated_at": "2026-08-23T10:14:54.313868Z",
+  "version": "154.0.8019.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -11877,6 +11877,7 @@
       "module": "user_education.mojom",
       "file": "chrome_browser_ui_webui_user_education_user_education.mojom.js",
       "methods": [
+        "MaybeShowFeaturePromo",
         "NotifyFeaturePromoFeatureUsed",
         "NotifyAdditionalConditionEvent",
         "NotifyNewBadgeFeatureUsed",

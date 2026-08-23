@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8017.0';
+        const versionStr = window.mojoVersion || '154.0.8019.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -938,17 +938,18 @@ mojo.internal.bindings.omnibox_popup.mojom.PageRequest = mojo.internal.bindings.
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.OmniboxInputStateSpec, 'omnibox_popup.mojom.OmniboxInputState', [
       mojo.internal.StructField('arg_sequence_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_user_input_in_progress', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_focused', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_show_full_url', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_query_zps', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_selection', 16, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_full_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permanent_display_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_keyword_model', 40, 0, mojo.internal.bindings.searchbox.mojom.InputKeywordModelSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_user_input_in_progress', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_focused', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_full_url', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_query_zps', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_full_url', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permanent_display_text', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keyword_model', 48, 0, mojo.internal.bindings.searchbox.mojom.InputKeywordModelSpec, null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'omnibox_popup.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.omnibox_popup.mojom.PageRemote), null, false, 0, undefined),

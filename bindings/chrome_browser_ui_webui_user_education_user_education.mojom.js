@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8017.0';
+        const versionStr = window.mojoVersion || '154.0.8019.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
 mojo.internal.bindings.user_education.mojom.FeaturePromoFeatureUsedActionSpec = mojo.internal.bindings.user_education.mojom.FeaturePromoFeatureUsedActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.user_education.mojom.FeaturePromoParamsSpec = mojo.internal.bindings.user_education.mojom.FeaturePromoParamsSpec || { $: {} };
+if (mojo.internal.bindings.user_education.mojom.FeaturePromoParamsSpec.$.structSpec && mojo.internal.bindings.user_education.mojom.FeaturePromoParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_education.mojom.FeaturePromoParamsSpec.$ = {};
 mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerFactory = mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerFactory || {};
 mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerFactorySpec = mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerFactorySpec.$.structSpec && mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerFactorySpec.$ = {};
@@ -137,6 +139,8 @@ mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler = moj
 mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerSpec = mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerSpec.$.structSpec && mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerSpec.$ = {};
 mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler.$interfaceName = 'user_education.mojom.UserEducationMixedTrustHandler';
+mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_MaybeShowFeaturePromo_ParamsSpec = mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_MaybeShowFeaturePromo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_MaybeShowFeaturePromo_ParamsSpec.$.structSpec && mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_MaybeShowFeaturePromo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_MaybeShowFeaturePromo_ParamsSpec.$ = {};
 mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyFeaturePromoFeatureUsed_ParamsSpec = mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyFeaturePromoFeatureUsed_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyFeaturePromoFeatureUsed_ParamsSpec.$.structSpec && mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyFeaturePromoFeatureUsed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyFeaturePromoFeatureUsed_ParamsSpec.$ = {};
 mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyAdditionalConditionEvent_ParamsSpec = mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyAdditionalConditionEvent_ParamsSpec || { $: {} };
@@ -319,6 +323,9 @@ mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerRemote
   close() {
     this.proxy.close();
   }
+  maybeShowFeaturePromo(arg_params) {
+    return this.$.maybeShowFeaturePromo(arg_params);
+  }
   notifyFeaturePromoFeatureUsed(arg_feature_name, arg_action) {
     return this.$.notifyFeaturePromoFeatureUsed(arg_feature_name, arg_action);
   }
@@ -341,12 +348,22 @@ mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerRemote
       { explicit: null },
       { explicit: null },
       { explicit: null },
+      { explicit: null },
     ]);
+  }
+
+  maybeShowFeaturePromo(arg_params) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_MaybeShowFeaturePromo_ParamsSpec,
+      null,
+      [arg_params],
+      false);
   }
 
   notifyFeaturePromoFeatureUsed(arg_feature_name, arg_action) {
     return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyFeaturePromoFeatureUsed_ParamsSpec,
       null,
       [arg_feature_name, arg_action],
@@ -355,7 +372,7 @@ mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerRemote
 
   notifyAdditionalConditionEvent(arg_event_name) {
     return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyAdditionalConditionEvent_ParamsSpec,
       null,
       [arg_event_name],
@@ -364,7 +381,7 @@ mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerRemote
 
   notifyNewBadgeFeatureUsed(arg_feature_name) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyNewBadgeFeatureUsed_ParamsSpec,
       null,
       [arg_feature_name],
@@ -373,7 +390,7 @@ mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerRemote
 
   maybeShowNewBadgeFor(arg_feature_name) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_MaybeShowNewBadgeFor_ParamsSpec,
       mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_MaybeShowNewBadgeFor_ResponseParamsSpec,
       [arg_feature_name],
@@ -398,6 +415,7 @@ mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerReceiv
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('user_education.mojom.UserEducationMixedTrustHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -447,26 +465,33 @@ mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerReceiv
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_MaybeShowFeaturePromo_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.maybeShowFeaturePromo');
+          const result = this.impl.maybeShowFeaturePromo(params.arg_params);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyFeaturePromoFeatureUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyFeaturePromoFeatureUsed');
           const result = this.impl.notifyFeaturePromoFeatureUsed(params.arg_feature_name, params.arg_action);
           break;
         }
-        case 1: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyAdditionalConditionEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyAdditionalConditionEvent');
           const result = this.impl.notifyAdditionalConditionEvent(params.arg_event_name);
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_NotifyNewBadgeFeatureUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyNewBadgeFeatureUsed');
           const result = this.impl.notifyNewBadgeFeatureUsed(params.arg_feature_name);
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_MaybeShowNewBadgeFor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.maybeShowNewBadgeFor');
@@ -499,9 +524,23 @@ mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerReques
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FeaturePromoParams
+mojo.internal.Struct(
+    mojo.internal.bindings.user_education.mojom.FeaturePromoParamsSpec, 'user_education.mojom.FeaturePromoParams', [
+      mojo.internal.StructField('arg_feature_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerFactory_CreateUserEducationMixedTrustHandler_ParamsSpec, 'user_education.mojom.UserEducationMixedTrustHandlerFactory_CreateUserEducationMixedTrustHandler_Params', [
       mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandlerPendingReceiver), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.user_education.mojom.UserEducationMixedTrustHandler_MaybeShowFeaturePromo_ParamsSpec, 'user_education.mojom.UserEducationMixedTrustHandler_MaybeShowFeaturePromo_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.user_education.mojom.FeaturePromoParamsSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

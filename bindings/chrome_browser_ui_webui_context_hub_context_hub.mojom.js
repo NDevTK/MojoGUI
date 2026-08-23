@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8017.0';
+        const versionStr = window.mojoVersion || '154.0.8019.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1609,8 +1609,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_tab_title', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_text', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_tags', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_note', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_collection', 64, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 80]]);
 
 // Struct: TabInfo
 mojo.internal.Struct(
