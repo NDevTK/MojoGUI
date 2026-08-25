@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8021.0';
+        const versionStr = window.mojoVersion || '154.0.8023.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -173,6 +173,8 @@ mojo.internal.bindings.page_load_metrics.mojom.EventTimingSpec = mojo.internal.b
 if (mojo.internal.bindings.page_load_metrics.mojom.EventTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.EventTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.EventTimingSpec.$ = {};
 mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec = mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec || { $: {} };
 if (mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.BackForwardCacheTimingSpec.$ = {};
+mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationCommitSpec = mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationCommitSpec || { $: {} };
+if (mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationCommitSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationCommitSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationCommitSpec.$ = {};
 mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec = mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec || { $: {} };
 if (mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec.$.structSpec && mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec.$ = {};
 mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics || {};
@@ -659,16 +661,24 @@ mojo.internal.Struct(
     ],
     [[0, 32]]);
 
+// Struct: SoftNavigationCommit
+mojo.internal.Struct(
+    mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationCommitSpec, 'page_load_metrics.mojom.SoftNavigationCommit', [
+      mojo.internal.StructField('arg_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_soft_navigation_slicing_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_type', 16, 0, mojo.internal.bindings.blink.mojom.NavigationTypeForNavigationApiSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_same_document_metrics_token', 24, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
 // Struct: SoftNavigationMetrics
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationMetricsSpec, 'page_load_metrics.mojom.SoftNavigationMetrics', [
       mojo.internal.StructField('arg_performance_timeline_navigation_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_soft_navigation_slicing_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_type', 24, 0, mojo.internal.bindings.blink.mojom.NavigationTypeForNavigationApiSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_same_document_metrics_token', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_commit', 8, 0, mojo.internal.bindings.page_load_metrics.mojom.SoftNavigationCommitSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_first_contentful_paint', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 32]]);
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec, 'page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_Params', [
       mojo.internal.StructField('arg_page_load_timing', 0, 0, mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec, null, false, 0, undefined),

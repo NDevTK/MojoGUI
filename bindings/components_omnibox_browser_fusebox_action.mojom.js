@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8021.0';
+        const versionStr = window.mojoVersion || '154.0.8023.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,9 +125,9 @@
 mojo.internal.bindings.fusebox_action.mojom = mojo.internal.bindings.fusebox_action.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
 mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
 
+mojo.internal.bindings.fusebox_action.mojom.SuggestInventorySpec = mojo.internal.bindings.fusebox_action.mojom.SuggestInventorySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.fusebox_action.mojom.QueryActionOverrideSpec = mojo.internal.bindings.fusebox_action.mojom.QueryActionOverrideSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.fusebox_action.mojom.InputSourceSpec = mojo.internal.bindings.fusebox_action.mojom.InputSourceSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.fusebox_action.mojom.SearchboxOverrideSpec = mojo.internal.bindings.fusebox_action.mojom.SearchboxOverrideSpec || { $: mojo.internal.Enum().$ };
@@ -141,9 +141,18 @@ mojo.internal.bindings.composebox_query.mojom.ModelModeSpec = mojo.internal.bind
 mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
 mojo.internal.bindings.composebox_query.mojom = mojo.internal.bindings.composebox_query.mojom || {};
 mojo.internal.bindings.composebox_query.mojom.ToolModeSpec = mojo.internal.bindings.composebox_query.mojom.ToolModeSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.searchbox = mojo.internal.bindings.searchbox || {};
-mojo.internal.bindings.searchbox.mojom = mojo.internal.bindings.searchbox.mojom || {};
-mojo.internal.bindings.searchbox.mojom.SuggestInventorySpec = mojo.internal.bindings.searchbox.mojom.SuggestInventorySpec || { $: mojo.internal.Enum().$ };
+
+// Enum: SuggestInventory
+mojo.internal.bindings.fusebox_action.mojom.SuggestInventory = {
+  kDefault: 0,
+  kTravel: 1,
+  kAimTakeover: 2,
+  kImageGenTakeover: 3,
+  kConversationStarters: 4,
+  kBrainstorm: 5,
+  kHelpMeLearn: 6,
+  kWriteOrEdit: 7,
+};
 
 // Enum: QueryActionOverride
 mojo.internal.bindings.fusebox_action.mojom.QueryActionOverride = {
@@ -176,7 +185,7 @@ mojo.internal.bindings.fusebox_action.mojom.SearchboxOverride = {
 mojo.internal.Struct(
     mojo.internal.bindings.fusebox_action.mojom.FuseboxActionSpec, 'fusebox_action.mojom.FuseboxAction', [
       mojo.internal.StructField('arg_preselected_tool', 0, 0, mojo.internal.bindings.composebox_query.mojom.ToolModeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_preferred_inventory', 4, 0, mojo.internal.bindings.searchbox.mojom.SuggestInventorySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_preferred_inventory', 4, 0, mojo.internal.bindings.fusebox_action.mojom.SuggestInventorySpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_preselected_model', 8, 0, mojo.internal.bindings.composebox_query.mojom.ModelModeSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_query_action_override', 12, 0, mojo.internal.bindings.fusebox_action.mojom.QueryActionOverrideSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_preselected_input_source', 16, 0, mojo.internal.bindings.fusebox_action.mojom.InputSourceSpec, null, true, 0, undefined),

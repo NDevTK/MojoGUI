@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8021.0';
+        const versionStr = window.mojoVersion || '154.0.8023.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,6 +125,7 @@
 mojo.internal.bindings.searchbox.mojom = mojo.internal.bindings.searchbox.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.fusebox_action = mojo.internal.bindings.fusebox_action || {};
 mojo.internal.bindings.omnibox = mojo.internal.bindings.omnibox || {};
 mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
@@ -140,7 +141,6 @@ mojo.internal.bindings.searchbox.mojom.SelectionDirectionSpec = mojo.internal.bi
 mojo.internal.bindings.searchbox.mojom.SelectionStepSpec = mojo.internal.bindings.searchbox.mojom.SelectionStepSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.searchbox.mojom.DriveUploadErrorSpec = mojo.internal.bindings.searchbox.mojom.DriveUploadErrorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.searchbox.mojom.DriveDisclaimerStatusSpec = mojo.internal.bindings.searchbox.mojom.DriveDisclaimerStatusSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.searchbox.mojom.SuggestInventorySpec = mojo.internal.bindings.searchbox.mojom.SuggestInventorySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.searchbox.mojom.InputMethodSpec = mojo.internal.bindings.searchbox.mojom.InputMethodSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec = mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec.$ = {};
@@ -353,6 +353,12 @@ mojo.internal.bindings.composebox_query.mojom.ModelModeSpec = mojo.internal.bind
 mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
 mojo.internal.bindings.composebox_query.mojom = mojo.internal.bindings.composebox_query.mojom || {};
 mojo.internal.bindings.composebox_query.mojom.ToolModeSpec = mojo.internal.bindings.composebox_query.mojom.ToolModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.fusebox_action = mojo.internal.bindings.fusebox_action || {};
+mojo.internal.bindings.fusebox_action.mojom = mojo.internal.bindings.fusebox_action.mojom || {};
+mojo.internal.bindings.fusebox_action.mojom.FuseboxActionSpec = mojo.internal.bindings.fusebox_action.mojom.FuseboxActionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.fusebox_action = mojo.internal.bindings.fusebox_action || {};
+mojo.internal.bindings.fusebox_action.mojom = mojo.internal.bindings.fusebox_action.mojom || {};
+mojo.internal.bindings.fusebox_action.mojom.SuggestInventorySpec = mojo.internal.bindings.fusebox_action.mojom.SuggestInventorySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -452,18 +458,6 @@ mojo.internal.bindings.searchbox.mojom.DriveDisclaimerStatus = {
   kNotAccepted: 0,
   kAccepted: 1,
   kRestricted: 2,
-};
-
-// Enum: SuggestInventory
-mojo.internal.bindings.searchbox.mojom.SuggestInventory = {
-  kDefault: 0,
-  kTravel: 1,
-  kAimTakeover: 2,
-  kImageGenTakeover: 3,
-  kConversationStarters: 4,
-  kBrainstorm: 5,
-  kHelpMeLearn: 6,
-  kWriteOrEdit: 7,
 };
 
 // Enum: InputMethod
@@ -2306,8 +2300,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_remove_button_a11y_label', 128, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tail_suggest_common_prefix', 136, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
       mojo.internal.StructField('arg_keyword_model', 144, 0, mojo.internal.bindings.searchbox.mojom.MatchKeywordModelSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_fusebox_action', 152, 0, mojo.internal.bindings.fusebox_action.mojom.FuseboxActionSpec, null, true, 0, undefined),
     ],
-    [[0, 160]]);
+    [[0, 168]]);
 
 // Struct: TabInfo
 mojo.internal.Struct(
@@ -2465,7 +2460,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_tab_id_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_tab_id_$flag', originalFieldName: 'arg_tab_id' }),
       mojo.internal.StructField('arg_cursor_position', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_input', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggest_inventory', 24, 0, mojo.internal.bindings.searchbox.mojom.SuggestInventorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggest_inventory', 24, 0, mojo.internal.bindings.fusebox_action.mojom.SuggestInventorySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_input_method', 28, 0, mojo.internal.bindings.searchbox.mojom.InputMethodSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_keyword', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],

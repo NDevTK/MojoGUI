@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8021.0';
+        const versionStr = window.mojoVersion || '154.0.8023.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -498,8 +498,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemote = class {
   moveExtensionActionBy(arg_extension_id, arg_delta) {
     return this.$.moveExtensionActionBy(arg_extension_id, arg_delta);
   }
-  onLhsChipMousePressed(arg_identifier) {
-    return this.$.onLhsChipMousePressed(arg_identifier);
+  onLhsChipMousePressed(arg_identifier, arg_is_middle_click) {
+    return this.$.onLhsChipMousePressed(arg_identifier, arg_is_middle_click);
   }
   onLhsChipClicked(arg_identifier, arg_is_mouse_interaction) {
     return this.$.onLhsChipClicked(arg_identifier, arg_is_mouse_interaction);
@@ -737,12 +737,12 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
       false);
   }
 
-  onLhsChipMousePressed(arg_identifier) {
+  onLhsChipMousePressed(arg_identifier, arg_is_middle_click) {
     return this.proxy.sendMessage(
       this.ordinals[15],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipMousePressed_ParamsSpec,
       null,
-      [arg_identifier],
+      [arg_identifier, arg_is_middle_click],
       false);
   }
 
@@ -1122,7 +1122,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipMousePressed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLhsChipMousePressed');
-          const result = this.impl.onLhsChipMousePressed(params.arg_identifier);
+          const result = this.impl.onLhsChipMousePressed(params.arg_identifier, params.arg_is_middle_click);
           break;
         }
         case 16: {
@@ -1403,6 +1403,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipMousePressed_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_OnLhsChipMousePressed_Params', [
       mojo.internal.StructField('arg_identifier', 0, 0, mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipIdentifierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_middle_click', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

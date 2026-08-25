@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8021.0';
+        const versionStr = window.mojoVersion || '154.0.8023.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -184,8 +184,6 @@ mojo.internal.bindings.history.mojom.PageHandler_RecordHistoryPageHistorySyncPro
 if (mojo.internal.bindings.history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec.$.structSpec && mojo.internal.bindings.history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec.$ = {};
 mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec = mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec.$.structSpec && mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec.$ = {};
-mojo.internal.bindings.history.mojom.PageHandler_MaybeShowCriticalActionFeaturePromo_ParamsSpec = mojo.internal.bindings.history.mojom.PageHandler_MaybeShowCriticalActionFeaturePromo_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.history.mojom.PageHandler_MaybeShowCriticalActionFeaturePromo_ParamsSpec.$.structSpec && mojo.internal.bindings.history.mojom.PageHandler_MaybeShowCriticalActionFeaturePromo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.PageHandler_MaybeShowCriticalActionFeaturePromo_ParamsSpec.$ = {};
 mojo.internal.bindings.history.mojom.Page = mojo.internal.bindings.history.mojom.Page || {};
 mojo.internal.bindings.history.mojom.PageSpec = mojo.internal.bindings.history.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.history.mojom.PageSpec.$.structSpec && mojo.internal.bindings.history.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.PageSpec.$ = {};
@@ -279,16 +277,12 @@ mojo.internal.bindings.history.mojom.PageHandlerRemote = class {
   incrementHistoryPageHistorySyncPromoShownCount() {
     return this.$.incrementHistoryPageHistorySyncPromoShownCount();
   }
-  maybeShowCriticalActionFeaturePromo() {
-    return this.$.maybeShowCriticalActionFeaturePromo();
-  }
 };
 
 mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('history.mojom.PageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -422,15 +416,6 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
-  maybeShowCriticalActionFeaturePromo() {
-    return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
-      mojo.internal.bindings.history.mojom.PageHandler_MaybeShowCriticalActionFeaturePromo_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.history.mojom.PageHandler.getRemote = function() {
@@ -449,7 +434,6 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('history.mojom.PageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -649,13 +633,6 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.incrementHistoryPageHistorySyncPromoShownCount');
           const result = this.impl.incrementHistoryPageHistorySyncPromoShownCount();
-          break;
-        }
-        case 13: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_MaybeShowCriticalActionFeaturePromo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.maybeShowCriticalActionFeaturePromo');
-          const result = this.impl.maybeShowCriticalActionFeaturePromo();
           break;
         }
       }
@@ -1043,11 +1020,6 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec, 'history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_MaybeShowCriticalActionFeaturePromo_ParamsSpec, 'history.mojom.PageHandler_MaybeShowCriticalActionFeaturePromo_Params', [
     ],
     [[0, 8]]);
 

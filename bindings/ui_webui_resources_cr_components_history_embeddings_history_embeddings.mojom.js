@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8021.0';
+        const versionStr = window.mojoVersion || '154.0.8023.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -155,8 +155,6 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsM
 if (mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandler_RecordSearchResultsMetrics_ParamsSpec.$ = {};
 mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec = mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandler_SetUserFeedback_ParamsSpec.$ = {};
-mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec = mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$ = {};
 mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec = mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$.structSpec && mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$ = {};
 mojo.internal.bindings.history_embeddings.mojom.Page = mojo.internal.bindings.history_embeddings.mojom.Page || {};
@@ -370,9 +368,6 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerRemote = class {
   setUserFeedback(arg_feedback) {
     return this.$.setUserFeedback(arg_feedback);
   }
-  maybeShowFeaturePromo() {
-    return this.$.maybeShowFeaturePromo();
-  }
   openSettingsPage() {
     return this.$.openSettingsPage();
   }
@@ -382,7 +377,6 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerRemoteCallHandler = c
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('history_embeddings.mojom.PageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -427,18 +421,9 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerRemoteCallHandler = c
       false);
   }
 
-  maybeShowFeaturePromo() {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
   openSettingsPage() {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec,
       null,
       [],
@@ -463,7 +448,6 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('history_embeddings.mojom.PageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -541,13 +525,6 @@ mojo.internal.bindings.history_embeddings.mojom.PageHandlerReceiver = class {
           break;
         }
         case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.maybeShowFeaturePromo');
-          const result = this.impl.maybeShowFeaturePromo();
-          break;
-        }
-        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openSettingsPage');
@@ -780,11 +757,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_feedback', 0, 0, mojo.internal.bindings.history_embeddings.mojom.UserFeedbackSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_ParamsSpec, 'history_embeddings.mojom.PageHandler_MaybeShowFeaturePromo_Params', [
-    ],
-    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history_embeddings.mojom.PageHandler_OpenSettingsPage_ParamsSpec, 'history_embeddings.mojom.PageHandler_OpenSettingsPage_Params', [

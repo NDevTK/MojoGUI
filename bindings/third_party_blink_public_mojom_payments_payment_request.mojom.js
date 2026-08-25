@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8021.0';
+        const versionStr = window.mojoVersion || '154.0.8023.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1042,8 +1042,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_browser_bound_pub_key_cred_params', 64, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PublicKeyCredentialParametersSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_show_opt_out', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_payment_entities_logos', 80, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentEntityLogoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_locales', 88, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 104]]);
 
 // Struct: NetworkOrIssuerInformation
 mojo.internal.Struct(

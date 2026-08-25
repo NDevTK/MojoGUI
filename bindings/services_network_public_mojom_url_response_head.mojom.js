@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8021.0';
+        const versionStr = window.mojoVersion || '154.0.8023.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -254,6 +254,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_load_with_storage_access', 75, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_from_synthetic_response', 75, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_did_use_server_http_auth', 75, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_pvt_token_removed_due_to_cookies', 75, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_connection_info', 76, 0, mojo.internal.bindings.network.mojom.ConnectionInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_load_timing', 80, 0, mojo.internal.bindings.network.mojom.LoadTimingInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_load_timing_internal_info', 88, 0, mojo.internal.bindings.network.mojom.LoadTimingInternalInfoSpec, null, true, 0, undefined),

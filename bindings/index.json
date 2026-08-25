@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-24T10:29:05.982200Z",
-  "version": "154.0.8021.0",
+  "generated_at": "2026-08-25T10:23:23.914301Z",
+  "version": "154.0.8023.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -189,7 +189,8 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -211,7 +212,8 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -845,7 +847,8 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -868,7 +871,8 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -4412,10 +4416,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kAiOverlayDialog"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -4438,10 +4439,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kAiOverlayDialog"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -4460,10 +4458,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kAiOverlayDialog"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -4593,8 +4588,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kWebUIToolbarProcessOverheadExperiment",
-          "feature:kAiOverlayDialog"
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -4615,8 +4609,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kWebUIToolbarProcessOverheadExperiment",
-          "feature:kAiOverlayDialog"
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -7735,8 +7728,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kAiOverlayDialog"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7767,8 +7759,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kAiOverlayDialog"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7797,8 +7788,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kAiOverlayDialog"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9740,10 +9730,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kAiOverlayDialog"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -9762,10 +9749,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kAiOverlayDialog"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -10472,7 +10456,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kAiOverlayDialog"
+        ]
       }
     },
     {
@@ -11683,7 +11670,8 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -11705,7 +11693,8 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -11730,7 +11719,8 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -11959,7 +11949,8 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -11982,7 +11973,8 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -12428,7 +12420,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kAiOverlayDialog"
+        ]
       }
     },
     {
@@ -12462,7 +12457,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kAiOverlayDialog"
+        ]
       }
     },
     {
@@ -13068,7 +13066,8 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -13124,7 +13123,8 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -13165,7 +13165,8 @@
         "category": "internal",
         "gates": [
           "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -20764,8 +20765,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kAiOverlayDialog"
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -24536,7 +24536,8 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -24564,7 +24565,8 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -24589,7 +24591,8 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -26313,7 +26316,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kAiOverlayDialog"
+        ]
       }
     },
     {
@@ -26334,7 +26340,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kAiOverlayDialog"
+        ]
       }
     },
     {
@@ -39371,7 +39380,8 @@
           "permission:MIDI",
           "permission:MIDI_SYSEX",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kGlicActorUiOverlay",
+          "feature:kAiOverlayDialog"
         ]
       }
     },
@@ -42755,7 +42765,8 @@
         "category": "internal",
         "gates": [
           "feature:kLazyBrowserInterfaceBroker",
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kAiOverlayDialog"
         ],
         "scrambled": false
       }
@@ -50024,8 +50035,7 @@
         "TurnOnHistorySync",
         "ShouldShowHistoryPageHistorySyncPromo",
         "RecordHistoryPageHistorySyncPromoDismissed",
-        "IncrementHistoryPageHistorySyncPromoShownCount",
-        "MaybeShowCriticalActionFeaturePromo"
+        "IncrementHistoryPageHistorySyncPromoShownCount"
       ],
       "metadata": {
         "usage": {
@@ -50213,7 +50223,6 @@
         "SendQualityLog",
         "RecordSearchResultsMetrics",
         "SetUserFeedback",
-        "MaybeShowFeaturePromo",
         "OpenSettingsPage"
       ],
       "metadata": {
@@ -55913,7 +55922,6 @@
       "source": "components/omnibox/browser/fusebox_action.mojom",
       "module": "fusebox_action.mojom",
       "imports": [
-        "components/omnibox/browser/searchbox.mojom",
         "components/omnibox/composebox/composebox_query.mojom"
       ]
     },
@@ -55928,6 +55936,7 @@
       "source": "components/omnibox/browser/searchbox.mojom",
       "module": "searchbox.mojom",
       "imports": [
+        "components/omnibox/browser/fusebox_action.mojom",
         "components/omnibox/browser/omnibox.mojom",
         "components/omnibox/composebox/composebox_query.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
