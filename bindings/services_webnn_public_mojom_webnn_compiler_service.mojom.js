@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8023.0';
+        const versionStr = window.mojoVersion || '154.0.8024.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -133,6 +133,8 @@ if (mojo.internal.bindings.webnn.mojom.WebNNCompilerServiceSpec.$.structSpec && 
 mojo.internal.bindings.webnn.mojom.WebNNCompilerService.$interfaceName = 'webnn.mojom.WebNNCompilerService';
 mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec.$ = {};
+mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ResponseParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
@@ -201,7 +203,7 @@ mojo.internal.bindings.webnn.mojom.WebNNCompilerServiceRemoteCallHandler = class
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec,
-      null,
+      mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ResponseParamsSpec,
       [arg_context_options, arg_context_properties, arg_model_loader, arg_receiver],
       false);
   }
@@ -273,6 +275,17 @@ mojo.internal.bindings.webnn.mojom.WebNNCompilerServiceReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCompilerContext');
           const result = this.impl.createCompilerContext(params.arg_context_options, params.arg_context_properties, params.arg_model_loader, params.arg_receiver);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] createCompilerContext FAILED:', e));
+          }
           break;
         }
       }
@@ -298,4 +311,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webnn.mojom.WebNNCompilerContextPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNCompilerService_CreateCompilerContext_ResponseParamsSpec, 'webnn.mojom.WebNNCompilerService_CreateCompilerContext_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

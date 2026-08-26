@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8023.0';
+        const versionStr = window.mojoVersion || '154.0.8024.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1711,8 +1711,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetAutoTodos_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_GetAutoTodos_ResponseParams', [
       mojo.internal.StructField('arg_first_party_todos', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.AutoTodoItemSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_third_party_todos', 8, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.AutoTodoItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_first_party_generation_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_third_party_generation_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.PageHandler_UpdateAutoTodo_ParamsSpec, 'browser.context_hub.mojom.PageHandler_UpdateAutoTodo_Params', [

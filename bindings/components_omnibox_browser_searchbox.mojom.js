@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8023.0';
+        const versionStr = window.mojoVersion || '154.0.8024.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -276,10 +276,16 @@ mojo.internal.bindings.searchbox.mojom.PageHandler_OnDriveUploadClicked_Response
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_OnDriveUploadClicked_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_OnDriveUploadClicked_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_OnDriveUploadClicked_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.PageHandler_OpenProfilePicker_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_OpenProfilePicker_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_OpenProfilePicker_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_OpenProfilePicker_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_OpenProfilePicker_ParamsSpec.$ = {};
+mojo.internal.bindings.searchbox.mojom.PageHandler_ShowScreenshotMenu_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_ShowScreenshotMenu_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.searchbox.mojom.PageHandler_ShowScreenshotMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_ShowScreenshotMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_ShowScreenshotMenu_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ResponseParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ParamsSpec.$ = {};
+mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ResponseParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ResponseParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ResponseParamsSpec || { $: {} };
@@ -336,6 +342,8 @@ mojo.internal.bindings.searchbox.mojom.Page_SetRestoredTabIds_ParamsSpec = mojo.
 if (mojo.internal.bindings.searchbox.mojom.Page_SetRestoredTabIds_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.Page_SetRestoredTabIds_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.Page_SetRestoredTabIds_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec = mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec.$ = {};
+mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec = mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
@@ -359,6 +367,9 @@ mojo.internal.bindings.fusebox_action.mojom.FuseboxActionSpec = mojo.internal.bi
 mojo.internal.bindings.fusebox_action = mojo.internal.bindings.fusebox_action || {};
 mojo.internal.bindings.fusebox_action.mojom = mojo.internal.bindings.fusebox_action.mojom || {};
 mojo.internal.bindings.fusebox_action.mojom.SuggestInventorySpec = mojo.internal.bindings.fusebox_action.mojom.SuggestInventorySpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -740,8 +751,14 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemote = class {
   openProfilePicker() {
     return this.$.openProfilePicker();
   }
+  showScreenshotMenu(arg_anchor_rect) {
+    return this.$.showScreenshotMenu(arg_anchor_rect);
+  }
   startScreenshare(arg_prefer_entire_screen) {
     return this.$.startScreenshare(arg_prefer_entire_screen);
+  }
+  captureRegionScreenshot() {
+    return this.$.captureRegionScreenshot();
   }
   getPageClassification() {
     return this.$.getPageClassification();
@@ -758,6 +775,8 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1115,18 +1134,36 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
-  startScreenshare(arg_prefer_entire_screen) {
+  showScreenshotMenu(arg_anchor_rect) {
     return this.proxy.sendMessage(
       this.ordinals[35],  // ordinal
+      mojo.internal.bindings.searchbox.mojom.PageHandler_ShowScreenshotMenu_ParamsSpec,
+      null,
+      [arg_anchor_rect],
+      false);
+  }
+
+  startScreenshare(arg_prefer_entire_screen) {
+    return this.proxy.sendMessage(
+      this.ordinals[36],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ParamsSpec,
       mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ResponseParamsSpec,
       [arg_prefer_entire_screen],
       false);
   }
 
+  captureRegionScreenshot() {
+    return this.proxy.sendMessage(
+      this.ordinals[37],  // ordinal
+      mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ParamsSpec,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ResponseParamsSpec,
+      [],
+      false);
+  }
+
   getPageClassification() {
     return this.proxy.sendMessage(
-      this.ordinals[36],  // ordinal
+      this.ordinals[38],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ParamsSpec,
       mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ResponseParamsSpec,
       [],
@@ -1135,7 +1172,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
 
   setSmartTabSharingActive(arg_active) {
     return this.proxy.sendMessage(
-      this.ordinals[37],  // ordinal
+      this.ordinals[39],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_SetSmartTabSharingActive_ParamsSpec,
       null,
       [arg_active],
@@ -1144,7 +1181,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
 
   getSmartTabSharingActive() {
     return this.proxy.sendMessage(
-      this.ordinals[38],  // ordinal
+      this.ordinals[40],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ParamsSpec,
       mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ResponseParamsSpec,
       [],
@@ -1169,6 +1206,8 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1575,6 +1614,13 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
         }
         case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ShowScreenshotMenu_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.showScreenshotMenu');
+          const result = this.impl.showScreenshotMenu(params.arg_anchor_rect);
+          break;
+        }
+        case 36: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startScreenshare');
           const result = this.impl.startScreenshare(params.arg_prefer_entire_screen);
@@ -1591,7 +1637,25 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 36: {
+        case 37: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.captureRegionScreenshot');
+          const result = this.impl.captureRegionScreenshot();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response['arg_token'] : response;
+              const resp_obj = { 'arg_token': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] captureRegionScreenshot FAILED:', e));
+          }
+          break;
+        }
+        case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetPageClassification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPageClassification');
@@ -1609,14 +1673,14 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 37: {
+        case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SetSmartTabSharingActive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSmartTabSharingActive');
           const result = this.impl.setSmartTabSharingActive(params.arg_active);
           break;
         }
-        case 38: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetSmartTabSharingActive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSmartTabSharingActive');
@@ -1741,12 +1805,16 @@ mojo.internal.bindings.searchbox.mojom.PageRemote = class {
   setAimThreadRestoredTabs(arg_tabs) {
     return this.$.setAimThreadRestoredTabs(arg_tabs);
   }
+  onScreenshotMenuClosed() {
+    return this.$.onScreenshotMenuClosed();
+  }
 };
 
 mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1960,6 +2028,15 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       false);
   }
 
+  onScreenshotMenuClosed() {
+    return this.proxy.sendMessage(
+      this.ordinals[21],  // ordinal
+      mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.searchbox.mojom.Page.getRemote = function() {
@@ -1978,6 +2055,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2187,6 +2265,13 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAimThreadRestoredTabs');
           const result = this.impl.setAimThreadRestoredTabs(params.arg_tabs);
+          break;
+        }
+        case 21: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onScreenshotMenuClosed');
+          const result = this.impl.onScreenshotMenuClosed();
           break;
         }
       }
@@ -2729,6 +2814,12 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_ShowScreenshotMenu_ParamsSpec, 'searchbox.mojom.PageHandler_ShowScreenshotMenu_Params', [
+      mojo.internal.StructField('arg_anchor_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ParamsSpec, 'searchbox.mojom.PageHandler_StartScreenshare_Params', [
       mojo.internal.StructField('arg_prefer_entire_screen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
@@ -2736,6 +2827,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.PageHandler_StartScreenshare_ResponseParamsSpec, 'searchbox.mojom.PageHandler_StartScreenshare_ResponseParams', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ParamsSpec, 'searchbox.mojom.PageHandler_CaptureRegionScreenshot_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_CaptureRegionScreenshot_ResponseParamsSpec, 'searchbox.mojom.PageHandler_CaptureRegionScreenshot_ResponseParams', [
       mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
@@ -2902,4 +3004,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.TabInfoSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec, 'searchbox.mojom.Page_OnScreenshotMenuClosed_Params', [
+    ],
+    [[0, 8]]);
 

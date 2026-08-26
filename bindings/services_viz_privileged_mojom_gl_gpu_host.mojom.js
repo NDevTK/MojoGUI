@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8023.0';
+        const versionStr = window.mojoVersion || '154.0.8024.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -173,6 +173,8 @@ mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_Resp
 if (mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ParamsSpec.$ = {};
+mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ResponseParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec.$.structSpec && mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec.$ = {};
 mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec = mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec || { $: {} };
@@ -494,7 +496,7 @@ mojo.internal.bindings.viz.mojom.GpuHostRemoteCallHandler = class {
     return this.proxy.sendMessage(
       this.ordinals[16],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ParamsSpec,
-      null,
+      mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ResponseParamsSpec,
       [arg_context_options, arg_context_properties, arg_target_device, arg_compiler_context_receiver, arg_model_loader_remote],
       false);
   }
@@ -726,6 +728,17 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestWebNNCompilerContext');
           const result = this.impl.requestWebNNCompilerContext(params.arg_context_options, params.arg_context_properties, params.arg_target_device, params.arg_compiler_context_receiver, params.arg_model_loader_remote);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] requestWebNNCompilerContext FAILED:', e));
+          }
           break;
         }
         case 17: {
@@ -880,6 +893,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_model_loader_remote', 28, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNModelLoaderRemote), null, false, 0, undefined),
     ],
     [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_RequestWebNNCompilerContext_ResponseParamsSpec, 'viz.mojom.GpuHost_RequestWebNNCompilerContext_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec, 'viz.mojom.GpuHost_CreateWebNNWeightsFile_Params', [

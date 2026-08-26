@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-25T10:23:23.914301Z",
-  "version": "154.0.8023.0",
+  "generated_at": "2026-08-26T10:26:44.064685Z",
+  "version": "154.0.8024.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -25602,7 +25602,9 @@
         "OnDriveDisclaimerAccepted",
         "OnDriveUploadClicked",
         "OpenProfilePicker",
+        "ShowScreenshotMenu",
         "StartScreenshare",
+        "CaptureRegionScreenshot",
         "GetPageClassification",
         "SetSmartTabSharingActive",
         "GetSmartTabSharingActive"
@@ -25651,7 +25653,8 @@
         "UpdateSmartTabSharingActive",
         "OnPermissionPromptChanged",
         "SetRestoredTabIds",
-        "SetAimThreadRestoredTabs"
+        "SetAimThreadRestoredTabs",
+        "OnScreenshotMenuClosed"
       ],
       "metadata": {
         "usage": {
