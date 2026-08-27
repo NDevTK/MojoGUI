@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-26T10:26:44.064685Z",
-  "version": "154.0.8024.0",
+  "generated_at": "2026-08-27T20:09:29.135891Z",
+  "version": "154.0.8028.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3728,7 +3728,8 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "scrambled": false
       }
     },
     {
@@ -3754,7 +3755,8 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -3772,7 +3774,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -3795,144 +3798,6 @@
         },
         "scope": "context",
         "category": "internal"
-      }
-    },
-    {
-      "name": "PreloadPage",
-      "module": "glic.mojom",
-      "file": "chrome_browser_glic_host_glic.mojom.js",
-      "methods": [
-        "SetProfileReadyState"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "Page",
-      "module": "glic.mojom",
-      "file": "chrome_browser_glic_host_glic.mojom.js",
-      "methods": [
-        "IntentToShow",
-        "SetProfileReadyState",
-        "UpdatePageState",
-        "Zoom",
-        "WebClientStateChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "GlicPreloadHandler",
-      "module": "glic.mojom",
-      "file": "chrome_browser_glic_host_glic.mojom.js",
-      "methods": [
-        "PrepareForClient"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: glic.mojom.GlicPreloadHandlerFactory.CreatePreloadHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "GlicPreloadHandlerFactory",
-      "module": "glic.mojom",
-      "file": "chrome_browser_glic_host_glic.mojom.js",
-      "methods": [
-        "CreatePreloadHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
-      "module": "glic.mojom",
-      "file": "chrome_browser_glic_host_glic.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "glic.mojom",
-      "file": "chrome_browser_glic_host_glic.mojom.js",
-      "methods": [
-        "CreateWebClient",
-        "PrepareForClient",
-        "WebviewCommitted",
-        "OnZoomLevelChange",
-        "ClosePanel",
-        "OpenHelpCenterTopicAndClosePanel",
-        "OpenProfilePickerAndClosePanel",
-        "OpenDisabledByAdminLinkAndClosePanel",
-        "SignInAndClosePanel",
-        "ResizeWidget",
-        "EnableDragResize",
-        "OnWebUiStateChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: glic.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
       }
     },
     {
@@ -4398,6 +4263,148 @@
         "gates": [
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures"
+        ]
+      }
+    },
+    {
+      "name": "PreloadPage",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic_webui.mojom.js",
+      "methods": [
+        "SetProfileReadyState",
+        "OnGuestNavigationStarted",
+        "OnGuestNavigated",
+        "OnGuestProcessGone",
+        "WebClientStateChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "Page",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic_webui.mojom.js",
+      "methods": [
+        "IntentToShow",
+        "SetProfileReadyState",
+        "UpdatePageState",
+        "ClientReadyStateChanged",
+        "Zoom"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "GlicPreloadHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic_webui.mojom.js",
+      "methods": [
+        "PrepareForClient"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: glic.mojom.GlicPreloadHandlerFactory.CreatePreloadHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "GlicPreloadHandlerFactory",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic_webui.mojom.js",
+      "methods": [
+        "CreatePreloadHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic_webui.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic_webui.mojom.js",
+      "methods": [
+        "CreateWebClient",
+        "PrepareForClient",
+        "WebviewCommitted",
+        "OnZoomLevelChange",
+        "ClosePanel",
+        "OpenHelpCenterTopicAndClosePanel",
+        "OpenProfilePickerAndClosePanel",
+        "OpenDisabledByAdminLinkAndClosePanel",
+        "SignInAndClosePanel",
+        "ResizeWidget",
+        "EnableDragResize",
+        "OnWebUiStateChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: glic.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7609,6 +7616,8 @@
         "GetAllMemoryBankEntries",
         "DeleteMemoryBankEntries",
         "SaveMemoryBankEntry",
+        "GetAllMemoryBankTags",
+        "GetAllMemoryBankCollections",
         "GetTabs",
         "RetrieveAndGroupTabs",
         "GetExistingTabGroupsAndChats",
@@ -9961,7 +9970,8 @@
       "methods": [
         "OnBackgroundModeChanged",
         "OnHotkeyChanged",
-        "OnEphemeralModelChanged"
+        "OnEphemeralModelChanged",
+        "OnLaunchOnStartupChanged"
       ],
       "metadata": {
         "usage": {
@@ -9988,6 +9998,8 @@
       "methods": [
         "SetBackgroundModeEnabled",
         "GetBackgroundModeEnabled",
+        "SetLaunchOnStartupEnabled",
+        "GetLaunchOnStartupEnabled",
         "SetHotkeyEnabled",
         "GetHotkeyEnabled",
         "SetEphemeralModelEnabled",
@@ -10070,7 +10082,8 @@
         "OnCutOrCopy",
         "RequestInputState",
         "OpenAimPopup",
-        "SetEditHistoryState"
+        "SetEditHistoryState",
+        "OpenDevTools"
       ],
       "metadata": {
         "usage": {
@@ -10621,7 +10634,7 @@
         "ExecuteMoveCommand",
         "ExecuteOpenInNewTabCommand",
         "ExecuteOpenInNewWindowCommand",
-        "ExecuteOpenInIncognitoWindowCommand",
+        "ExecuteOpenInOffTheRecordWindowCommand",
         "ExecuteOpenInNewTabGroupCommand",
         "ExecuteOpenInSplitViewCommand",
         "ExecuteAddToBookmarksBarCommand",
@@ -11838,52 +11851,6 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration"
-        ]
-      }
-    },
-    {
-      "name": "UserEducationMixedTrustHandlerFactory",
-      "module": "user_education.mojom",
-      "file": "chrome_browser_ui_webui_user_education_user_education.mojom.js",
-      "methods": [
-        "CreateUserEducationMixedTrustHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kNtpTabGroupsModule"
-        ]
-      }
-    },
-    {
-      "name": "UserEducationMixedTrustHandler",
-      "module": "user_education.mojom",
-      "file": "chrome_browser_ui_webui_user_education_user_education.mojom.js",
-      "methods": [
-        "MaybeShowFeaturePromo",
-        "NotifyFeaturePromoFeatureUsed",
-        "NotifyAdditionalConditionEvent",
-        "NotifyNewBadgeFeatureUsed",
-        "MaybeShowNewBadgeFor"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: user_education.mojom.UserEducationMixedTrustHandlerFactory.CreateUserEducationMixedTrustHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -23656,6 +23623,7 @@
       "methods": [
         "Bind",
         "ShowContextMenu",
+        "ShowOverflowMenu",
         "OnOmniboxAction",
         "OnPageInitialized",
         "OnContentSettingImagePointerDown",
@@ -25637,7 +25605,6 @@
         "UpdateSelection",
         "StepSelection",
         "OpenCurrentSelection",
-        "ResetPopupToInitialState",
         "SetAimButtonVisible",
         "SetAimButtonConfig",
         "SetInputText",
@@ -28072,6 +28039,52 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "UserEducationMixedTrustHandlerFactory",
+      "module": "user_education.mojom",
+      "file": "components_user_education_webui_user_education.mojom.js",
+      "methods": [
+        "CreateUserEducationMixedTrustHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule"
+        ]
+      }
+    },
+    {
+      "name": "UserEducationMixedTrustHandler",
+      "module": "user_education.mojom",
+      "file": "components_user_education_webui_user_education.mojom.js",
+      "methods": [
+        "MaybeShowFeaturePromo",
+        "NotifyFeaturePromoFeatureUsed",
+        "NotifyAdditionalConditionEvent",
+        "NotifyNewBadgeFeatureUsed",
+        "MaybeShowNewBadgeFor"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: user_education.mojom.UserEducationMixedTrustHandlerFactory.CreateUserEducationMixedTrustHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpTabGroupsModule"
+        ]
       }
     },
     {
@@ -31223,7 +31236,8 @@
         "WaitForTokenInRange",
         "WaitForGetOffsetInRange",
         "CopyToGpuMemoryBufferAsync",
-        "CopyNativeGmbToSharedMemoryAsync"
+        "CopyNativeGmbToSharedMemoryAsync",
+        "SignalSyncToken"
       ],
       "metadata": {
         "usage": {
@@ -34536,7 +34550,8 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: remoting.mojom.DesktopSessionManager.GetDesktopSession"
+            "Internal Interface: remoting.mojom.DesktopSessionManager.GetDesktopSession",
+            "Internal Interface: remoting.mojom.DesktopSessionRequester.RequestDesktopSession"
           ]
         },
         "scope": "context",
@@ -34556,7 +34571,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: remoting.mojom.PeerSession.Start"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -34634,6 +34649,28 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "FileChooser",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_desktop_session.mojom.js",
+      "methods": [
+        "OpenFile"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kEnforceGamepadPermissionsPolicy",
+          "feature:kWebMachineLearningNeuralNetwork"
+        ]
       }
     },
     {
@@ -34893,6 +34930,24 @@
       "file": "remoting_host_mojom_peer_session.mojom.js",
       "methods": [
         "RequestPairing"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "DesktopSessionRequester",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_peer_session.mojom.js",
+      "methods": [
+        "RequestDesktopSession"
       ],
       "metadata": {
         "usage": {
@@ -51454,6 +51509,17 @@
       ]
     },
     {
+      "filename": "chrome_browser_glic_host_glic_webui.mojom.js",
+      "source": "chrome/browser/glic/host/glic_webui.mojom",
+      "module": "glic.mojom",
+      "imports": [
+        "chrome/browser/glic/host/glic.mojom",
+        "mojo/public/mojom/base/time.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom",
+        "url/mojom/url.mojom"
+      ]
+    },
+    {
       "filename": "chrome_browser_glic_selection_selection_overlay.mojom.js",
       "source": "chrome/browser/glic/selection/selection_overlay.mojom",
       "module": "glic.selection",
@@ -52541,12 +52607,6 @@
         "services/device/public/mojom/usb_manager.mojom",
         "services/device/public/mojom/usb_manager_test.mojom"
       ]
-    },
-    {
-      "filename": "chrome_browser_ui_webui_user_education_user_education.mojom.js",
-      "source": "chrome/browser/ui/webui/user_education/user_education.mojom",
-      "module": "user_education.mojom",
-      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_user_education_internals_user_education_internals.mojom.js",
@@ -55266,6 +55326,7 @@
         "ui/base/dragdrop/mojom/drag_drop_types.mojom",
         "ui/base/mojom/menu_source_type.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
+        "ui/webui/resources/js/tracked_element/tracked_element.mojom",
         "mojo/public/mojom/base/empty.mojom",
         "mojo/public/mojom/base/error.mojom",
         "mojo/public/mojom/base/string16.mojom",
@@ -56817,6 +56878,12 @@
         "sandbox/policy/mojom/sandbox.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "components_user_education_webui_user_education.mojom.js",
+      "source": "components/user_education/webui/user_education.mojom",
+      "module": "user_education.mojom",
+      "imports": []
     },
     {
       "filename": "components_variations_variations.mojom.js",
