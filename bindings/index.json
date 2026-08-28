@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-27T20:09:29.135891Z",
-  "version": "154.0.8028.0",
+  "generated_at": "2026-08-28T21:04:23.371831Z",
+  "version": "154.0.8030.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -10355,6 +10355,48 @@
       }
     },
     {
+      "name": "PageHandler",
+      "module": "page_action_internals.mojom",
+      "file": "chrome_browser_ui_webui_page_action_internals_page_action_internals.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: page_action_internals.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "page_action_internals.mojom",
+      "file": "chrome_browser_ui_webui_page_action_internals_page_action_internals.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
       "name": "PageHandlerFactory",
       "module": "password_manager.mojom",
       "file": "chrome_browser_ui_webui_password_manager_password_manager.mojom.js",
@@ -11579,6 +11621,29 @@
       }
     },
     {
+      "name": "SearchHandler",
+      "module": "tab_search.mojom",
+      "file": "chrome_browser_ui_webui_tab_search_tab_search.mojom.js",
+      "methods": [
+        "GetRangesIgnoringCaseAndAccents"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution",
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
       "name": "PageHandlerFactory",
       "module": "tab_search.mojom",
       "file": "chrome_browser_ui_webui_tab_search_tab_search.mojom.js",
@@ -11616,8 +11681,7 @@
         "ReplaceActiveSplitTab",
         "SaveRecentlyClosedExpandedPref",
         "StartTabGroupTutorial",
-        "MaybeShowUI",
-        "GetRangesIgnoringCaseAndAccents"
+        "MaybeShowUI"
       ],
       "metadata": {
         "usage": {
@@ -13267,11 +13331,11 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Source: RenderProcessHost (Process)"
           ]
         },
-        "scope": "context",
-        "category": "internal"
+        "scope": "process",
+        "category": "direct"
       }
     },
     {
@@ -23629,6 +23693,7 @@
         "OnContentSettingImagePointerDown",
         "ShowContentSettingsBubble",
         "OnContentSettingImageAnimationEnded",
+        "OnPageActionPointerDown",
         "OnPageActionClick",
         "OnPageActionChipShowingChanged",
         "InvokePinnedToolbarAction",
@@ -25575,7 +25640,9 @@
         "CaptureRegionScreenshot",
         "GetPageClassification",
         "SetSmartTabSharingActive",
-        "GetSmartTabSharingActive"
+        "GetSmartTabSharingActive",
+        "DismissFre",
+        "OpenHotkeySettings"
       ],
       "metadata": {
         "usage": {
@@ -25601,6 +25668,7 @@
       "module": "searchbox.mojom",
       "file": "components_omnibox_browser_searchbox.mojom.js",
       "methods": [
+        "SetShowFre",
         "AutocompleteResultChanged",
         "UpdateSelection",
         "StepSelection",
@@ -48627,8 +48695,6 @@
       "file": "third_party_blink_public_mojom_web_install_web_install.mojom.js",
       "methods": [
         "IsInstalled",
-        "Install",
-        "InstallFromElement",
         "InstallFromManifest",
         "ElementInstallFromManifest"
       ],
@@ -52421,6 +52487,12 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_ui_webui_page_action_internals_page_action_internals.mojom.js",
+      "source": "chrome/browser/ui/webui/page_action_internals/page_action_internals.mojom",
+      "module": "page_action_internals.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_password_manager_password_manager.mojom.js",
       "source": "chrome/browser/ui/webui/password_manager/password_manager.mojom",
       "module": "password_manager.mojom",
@@ -55346,7 +55418,8 @@
         "mojo/public/mojom/base/time.mojom",
         "skia/public/mojom/skcolor.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
-        "ui/gfx/range/mojom/range.mojom"
+        "ui/gfx/range/mojom/range.mojom",
+        "ui/webui/resources/js/tracked_element/tracked_element.mojom"
       ]
     },
     {
@@ -56227,7 +56300,9 @@
       "filename": "components_policy_resources_webui_mojom_policy.mojom.js",
       "source": "components/policy/resources/webui/mojom/policy.mojom",
       "module": "policy.mojom",
-      "imports": []
+      "imports": [
+        "mojo/public/mojom/base/values.mojom"
+      ]
     },
     {
       "filename": "components_printing_common_print.mojom.js",
@@ -57177,6 +57252,7 @@
       "source": "content/common/memory_coordinator/mojom/memory_coordinator.mojom",
       "module": "content.mojom",
       "imports": [
+        "mojo/public/mojom/base/memory_limit.mojom",
         "content/common/memory_coordinator/mojom/memory_coordinator_diagnostics.mojom"
       ]
     },
@@ -57184,7 +57260,9 @@
       "filename": "content_common_memory_coordinator_mojom_memory_coordinator_diagnostics.mojom.js",
       "source": "content/common/memory_coordinator/mojom/memory_coordinator_diagnostics.mojom",
       "module": "content.mojom",
-      "imports": []
+      "imports": [
+        "mojo/public/mojom/base/memory_limit.mojom"
+      ]
     },
     {
       "filename": "content_common_navigation_client.mojom.js",
@@ -59096,6 +59174,12 @@
     {
       "filename": "mojo_public_mojom_base_memory_allocator_dump_cross_process_uid.mojom.js",
       "source": "mojo/public/mojom/base/memory_allocator_dump_cross_process_uid.mojom",
+      "module": "mojo_base.mojom",
+      "imports": []
+    },
+    {
+      "filename": "mojo_public_mojom_base_memory_limit.mojom.js",
+      "source": "mojo/public/mojom/base/memory_limit.mojom",
       "module": "mojo_base.mojom",
       "imports": []
     },
@@ -63258,7 +63342,8 @@
         "ui/base/mojom/menu_source_type.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom",
-        "third_party/blink/public/mojom/dom/dom_node_id.mojom"
+        "third_party/blink/public/mojom/dom/dom_node_id.mojom",
+        "third_party/blink/public/mojom/tokens/tokens.mojom"
       ]
     },
     {
