@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8030.0';
+        const versionStr = window.mojoVersion || '154.0.8031.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -202,8 +202,6 @@ if (mojo.internal.bindings.remoting.mojom.DesktopSessionSpec.$.structSpec && moj
 mojo.internal.bindings.remoting.mojom.DesktopSession.$interfaceName = 'remoting.mojom.DesktopSession';
 mojo.internal.bindings.remoting.mojom.DesktopSession_SetScreenResolution_ParamsSpec = mojo.internal.bindings.remoting.mojom.DesktopSession_SetScreenResolution_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.remoting.mojom.DesktopSession_SetScreenResolution_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopSession_SetScreenResolution_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopSession_SetScreenResolution_ParamsSpec.$ = {};
-mojo.internal.bindings.remoting.mojom.DesktopSession_CloseDesktopSession_ParamsSpec = mojo.internal.bindings.remoting.mojom.DesktopSession_CloseDesktopSession_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.remoting.mojom.DesktopSession_CloseDesktopSession_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopSession_CloseDesktopSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopSession_CloseDesktopSession_ParamsSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.DesktopSessionEvents = mojo.internal.bindings.remoting.mojom.DesktopSessionEvents || {};
 mojo.internal.bindings.remoting.mojom.DesktopSessionEventsSpec = mojo.internal.bindings.remoting.mojom.DesktopSessionEventsSpec || { $ : {} };
 if (mojo.internal.bindings.remoting.mojom.DesktopSessionEventsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.DesktopSessionEventsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.DesktopSessionEventsSpec.$ = {};
@@ -738,16 +736,12 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionRemote = class {
   setScreenResolution(arg_screen_resolution) {
     return this.$.setScreenResolution(arg_screen_resolution);
   }
-  closeDesktopSession() {
-    return this.$.closeDesktopSession();
-  }
 };
 
 mojo.internal.bindings.remoting.mojom.DesktopSessionRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSession', [
-      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -758,15 +752,6 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionRemoteCallHandler = class {
       mojo.internal.bindings.remoting.mojom.DesktopSession_SetScreenResolution_ParamsSpec,
       null,
       [arg_screen_resolution],
-      false);
-  }
-
-  closeDesktopSession() {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.remoting.mojom.DesktopSession_CloseDesktopSession_ParamsSpec,
-      null,
-      [],
       false);
   }
 
@@ -788,7 +773,6 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.DesktopSession', [
-      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -838,13 +822,6 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSession_SetScreenResolution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScreenResolution');
           const result = this.impl.setScreenResolution(params.arg_screen_resolution);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSession_CloseDesktopSession_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.closeDesktopSession');
-          const result = this.impl.closeDesktopSession();
           break;
         }
       }
@@ -3774,11 +3751,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_screen_resolution', 0, 0, mojo.internal.bindings.remoting.mojom.ScreenResolutionSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.DesktopSession_CloseDesktopSession_ParamsSpec, 'remoting.mojom.DesktopSession_CloseDesktopSession_Params', [
-    ],
-    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionEvents_OnTerminalDisconnected_ParamsSpec, 'remoting.mojom.DesktopSessionEvents_OnTerminalDisconnected_Params', [

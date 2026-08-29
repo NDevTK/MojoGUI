@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8030.0';
+        const versionStr = window.mojoVersion || '154.0.8031.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,16 +129,6 @@ mojo.internal.bindings.optimization_guide = mojo.internal.bindings.optimization_
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
-mojo.internal.bindings.on_device_internals.mojom.PageDataSpec = mojo.internal.bindings.on_device_internals.mojom.PageDataSpec || { $: {} };
-if (mojo.internal.bindings.on_device_internals.mojom.PageDataSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageDataSpec.$ = {};
-mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec = mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec || { $: {} };
-if (mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec.$ = {};
-mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec = mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec || { $: {} };
-if (mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec.$ = {};
-mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec = mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec || { $: {} };
-if (mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec.$ = {};
-mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec = mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec || { $: {} };
-if (mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec.$ = {};
 mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory = mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory || {};
 mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactorySpec = mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactorySpec.$ = {};
@@ -165,20 +155,10 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath
 if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ParamsSpec.$ = {};
 mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetDefaultModelPath_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$ = {};
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$ = {};
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$ = {};
 mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$ = {};
 mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$ = {};
 mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec.$ = {};
 mojo.internal.bindings.on_device_internals.mojom.Page = mojo.internal.bindings.on_device_internals.mojom.Page || {};
@@ -187,8 +167,6 @@ if (mojo.internal.bindings.on_device_internals.mojom.PageSpec.$.structSpec && mo
 mojo.internal.bindings.on_device_internals.mojom.Page.$interfaceName = 'on_device_internals.mojom.Page';
 mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$ = {};
-mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec = mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$.structSpec && mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
@@ -406,20 +384,8 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemote = class {
   getDefaultModelPath() {
     return this.$.getDefaultModelPath();
   }
-  uninstallDefaultModel() {
-    return this.$.uninstallDefaultModel();
-  }
-  getPageData() {
-    return this.$.getPageData();
-  }
-  setFeatureRecentlyUsedState(arg_feature_key, arg_is_recently_used) {
-    return this.$.setFeatureRecentlyUsedState(arg_feature_key, arg_is_recently_used);
-  }
   decodeBitmap(arg_image_buffer) {
     return this.$.decodeBitmap(arg_image_buffer);
-  }
-  resetModelCrashCount() {
-    return this.$.resetModelCrashCount();
   }
   bindModelBrokerDebug(arg_receiver) {
     return this.$.bindModelBrokerDebug(arg_receiver);
@@ -430,10 +396,6 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('on_device_internals.mojom.PageHandler', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -479,54 +441,18 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerRemoteCallHandler = 
       false);
   }
 
-  uninstallDefaultModel() {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-  getPageData() {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec,
-      mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  setFeatureRecentlyUsedState(arg_feature_key, arg_is_recently_used) {
-    return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
-      mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec,
-      null,
-      [arg_feature_key, arg_is_recently_used],
-      false);
-  }
-
   decodeBitmap(arg_image_buffer) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec,
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ResponseParamsSpec,
       [arg_image_buffer],
       false);
   }
 
-  resetModelCrashCount() {
-    return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
-      mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
   bindModelBrokerDebug(arg_receiver) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec,
       null,
       [arg_receiver],
@@ -551,10 +477,6 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('on_device_internals.mojom.PageHandler', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -676,38 +598,6 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.uninstallDefaultModel');
-          const result = this.impl.uninstallDefaultModel();
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getPageData');
-          const result = this.impl.getPageData();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_page_data' in response) ? response['arg_page_data'] : response;
-              const resp_obj = { 'arg_page_data': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] getPageData FAILED:', e));
-          }
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setFeatureRecentlyUsedState');
-          const result = this.impl.setFeatureRecentlyUsedState(params.arg_feature_key, params.arg_is_recently_used);
-          break;
-        }
-        case 7: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeBitmap');
           const result = this.impl.decodeBitmap(params.arg_image_buffer);
@@ -724,14 +614,7 @@ mojo.internal.bindings.on_device_internals.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 8: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.resetModelCrashCount');
-          const result = this.impl.resetModelCrashCount();
-          break;
-        }
-        case 9: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindModelBrokerDebug');
@@ -785,16 +668,12 @@ mojo.internal.bindings.on_device_internals.mojom.PageRemote = class {
   onLogMessageAdded(arg_event_time, arg_source_file, arg_source_line, arg_message) {
     return this.$.onLogMessageAdded(arg_event_time, arg_source_file, arg_source_line, arg_message);
   }
-  onDownloadProgressUpdate(arg_downloaded_bytes, arg_total_bytes) {
-    return this.$.onDownloadProgressUpdate(arg_downloaded_bytes, arg_total_bytes);
-  }
 };
 
 mojo.internal.bindings.on_device_internals.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('on_device_internals.mojom.Page', [
-      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -805,15 +684,6 @@ mojo.internal.bindings.on_device_internals.mojom.PageRemoteCallHandler = class {
       mojo.internal.bindings.on_device_internals.mojom.Page_OnLogMessageAdded_ParamsSpec,
       null,
       [arg_event_time, arg_source_file, arg_source_line, arg_message],
-      false);
-  }
-
-  onDownloadProgressUpdate(arg_downloaded_bytes, arg_total_bytes) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec,
-      null,
-      [arg_downloaded_bytes, arg_total_bytes],
       false);
   }
 
@@ -835,7 +705,6 @@ mojo.internal.bindings.on_device_internals.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('on_device_internals.mojom.Page', [
-      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -887,13 +756,6 @@ mojo.internal.bindings.on_device_internals.mojom.PageReceiver = class {
           const result = this.impl.onLogMessageAdded(params.arg_event_time, params.arg_source_file, params.arg_source_line, params.arg_message);
           break;
         }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onDownloadProgressUpdate');
-          const result = this.impl.onDownloadProgressUpdate(params.arg_downloaded_bytes, params.arg_total_bytes);
-          break;
-        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -909,58 +771,6 @@ mojo.internal.bindings.on_device_internals.mojom.PageRequest = mojo.internal.bin
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
-
-// Struct: PageData
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_internals.mojom.PageDataSpec, 'on_device_internals.mojom.PageData', [
-      mojo.internal.StructField('arg_base_model', 0, 0, mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supp_models', 8, 0, mojo.internal.Array(mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_model_crash_count', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_model_crash_count', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_adaptations', 24, 0, mojo.internal.Array(mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_performance_info', 32, 0, mojo.internal.bindings.on_device_model.mojom.DevicePerformanceInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min_vram_mb', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: BaseModelState
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_internals.mojom.BaseModelStateSpec, 'on_device_internals.mojom.BaseModelState', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_registration_criteria', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_info', 16, 0, mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: BaseModelInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_internals.mojom.BaseModelInfoSpec, 'on_device_internals.mojom.BaseModelInfo', [
-      mojo.internal.StructField('arg_component_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_backend_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: SupplementaryModelInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_internals.mojom.SupplementaryModelInfoSpec, 'on_device_internals.mojom.SupplementaryModelInfo', [
-      mojo.internal.StructField('arg_supp_model_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_ready', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: FeatureAdaptationInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_internals.mojom.FeatureAdaptationInfoSpec, 'on_device_internals.mojom.FeatureAdaptationInfo', [
-      mojo.internal.StructField('arg_feature_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_key', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_recently_used', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'on_device_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_internals.mojom.PageRemote), null, false, 0, undefined),
@@ -1020,29 +830,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.on_device_internals.mojom.PageHandler_UninstallDefaultModel_ParamsSpec, 'on_device_internals.mojom.PageHandler_UninstallDefaultModel_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ParamsSpec, 'on_device_internals.mojom.PageHandler_GetPageData_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_internals.mojom.PageHandler_GetPageData_ResponseParamsSpec, 'on_device_internals.mojom.PageHandler_GetPageData_ResponseParams', [
-      mojo.internal.StructField('arg_page_data', 0, 0, mojo.internal.bindings.on_device_internals.mojom.PageDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_ParamsSpec, 'on_device_internals.mojom.PageHandler_SetFeatureRecentlyUsedState_Params', [
-      mojo.internal.StructField('arg_feature_key', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_recently_used', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.on_device_internals.mojom.PageHandler_DecodeBitmap_ParamsSpec, 'on_device_internals.mojom.PageHandler_DecodeBitmap_Params', [
       mojo.internal.StructField('arg_image_buffer', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
     ],
@@ -1053,11 +840,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapMappedFromTrustedProcessSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_internals.mojom.PageHandler_ResetModelCrashCount_ParamsSpec, 'on_device_internals.mojom.PageHandler_ResetModelCrashCount_Params', [
-    ],
-    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_internals.mojom.PageHandler_BindModelBrokerDebug_ParamsSpec, 'on_device_internals.mojom.PageHandler_BindModelBrokerDebug_Params', [
@@ -1073,11 +855,4 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_internals.mojom.Page_OnDownloadProgressUpdate_ParamsSpec, 'on_device_internals.mojom.Page_OnDownloadProgressUpdate_Params', [
-      mojo.internal.StructField('arg_downloaded_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_total_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
 

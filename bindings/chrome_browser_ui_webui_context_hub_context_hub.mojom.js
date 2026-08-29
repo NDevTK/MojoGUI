@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8030.0';
+        const versionStr = window.mojoVersion || '154.0.8031.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -196,6 +196,14 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTabBasedTod
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTabBasedTodos_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTabBasedTodos_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTabBasedTodos_ParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTabBasedTodos_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTabBasedTodos_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTabBasedTodos_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTabBasedTodos_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTabBasedTodos_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTodoFeedback_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTodoFeedback_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTodoFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTodoFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTodoFeedback_ParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTodoFeedback_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTodoFeedback_ResponseParamsSpec || { $: {} };
@@ -694,6 +702,12 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemote = class {
   generateTabBasedTodos() {
     return this.$.generateTabBasedTodos();
   }
+  clearFirstPartyAutoTodos() {
+    return this.$.clearFirstPartyAutoTodos();
+  }
+  clearThirdPartyAutoTodos() {
+    return this.$.clearThirdPartyAutoTodos();
+  }
   setTodoFeedback(arg_feedback) {
     return this.$.setTodoFeedback(arg_feedback);
   }
@@ -796,6 +810,8 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
       { explicit: null },
       { explicit: null },
       { explicit: null },
+      { explicit: null },
+      { explicit: null },
     ]);
   }
 
@@ -835,9 +851,27 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
       false);
   }
 
-  setTodoFeedback(arg_feedback) {
+  clearFirstPartyAutoTodos() {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  clearThirdPartyAutoTodos() {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  setTodoFeedback(arg_feedback) {
+    return this.proxy.sendMessage(
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTodoFeedback_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTodoFeedback_ResponseParamsSpec,
       [arg_feedback],
@@ -846,7 +880,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   deleteTodoFeedback(arg_id) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_DeleteTodoFeedback_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_DeleteTodoFeedback_ResponseParamsSpec,
       [arg_id],
@@ -855,7 +889,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   clearTodoFeedbacks() {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTodoFeedbacks_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTodoFeedbacks_ResponseParamsSpec,
       [],
@@ -864,7 +898,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   getTodoFeedbacks() {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTodoFeedbacks_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTodoFeedbacks_ResponseParamsSpec,
       [],
@@ -873,7 +907,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   getSaveToMemoryBankContext() {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetSaveToMemoryBankContext_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetSaveToMemoryBankContext_ResponseParamsSpec,
       [],
@@ -882,7 +916,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   getAllMemoryBankEntries() {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetAllMemoryBankEntries_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetAllMemoryBankEntries_ResponseParamsSpec,
       [],
@@ -891,7 +925,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   deleteMemoryBankEntries(arg_ids) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_DeleteMemoryBankEntries_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_DeleteMemoryBankEntries_ResponseParamsSpec,
       [arg_ids],
@@ -900,7 +934,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   saveMemoryBankEntry(arg_annotations) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SaveMemoryBankEntry_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SaveMemoryBankEntry_ResponseParamsSpec,
       [arg_annotations],
@@ -909,7 +943,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   getAllMemoryBankTags() {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetAllMemoryBankTags_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetAllMemoryBankTags_ResponseParamsSpec,
       [],
@@ -918,7 +952,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   getAllMemoryBankCollections() {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetAllMemoryBankCollections_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetAllMemoryBankCollections_ResponseParamsSpec,
       [],
@@ -927,7 +961,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   getTabs() {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTabs_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTabs_ResponseParamsSpec,
       [],
@@ -936,7 +970,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   retrieveAndGroupTabs(arg_user_command) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ResponseParamsSpec,
       [arg_user_command],
@@ -945,7 +979,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   getExistingTabGroupsAndChats() {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ResponseParamsSpec,
       [],
@@ -954,7 +988,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   switchToTab(arg_tab_id) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SwitchToTab_ParamsSpec,
       null,
       [arg_tab_id],
@@ -963,7 +997,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   closeTab(arg_tab_id) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CloseTab_ParamsSpec,
       null,
       [arg_tab_id],
@@ -972,7 +1006,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   clearTabGroups() {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ResponseParamsSpec,
       [],
@@ -981,7 +1015,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   clearTabGroupChatHistory() {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ResponseParamsSpec,
       [],
@@ -990,7 +1024,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   askGeminiWithContext(arg_user_command, arg_memory_bank_entry_ids) {
     return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
+      this.ordinals[23],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_AskGeminiWithContext_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_AskGeminiWithContext_ResponseParamsSpec,
       [arg_user_command, arg_memory_bank_entry_ids],
@@ -999,7 +1033,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   confirmAllTabGroups() {
     return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
+      this.ordinals[24],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ConfirmAllTabGroups_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ConfirmAllTabGroups_ResponseParamsSpec,
       [],
@@ -1008,7 +1042,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   getConfirmedTabGroups() {
     return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
+      this.ordinals[25],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetConfirmedTabGroups_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetConfirmedTabGroups_ResponseParamsSpec,
       [],
@@ -1017,7 +1051,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   removeConfirmedTabGroup(arg_saved_guid) {
     return this.proxy.sendMessage(
-      this.ordinals[24],  // ordinal
+      this.ordinals[26],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RemoveConfirmedTabGroup_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RemoveConfirmedTabGroup_ResponseParamsSpec,
       [arg_saved_guid],
@@ -1026,7 +1060,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   closeConfirmedTabGroup(arg_saved_guid) {
     return this.proxy.sendMessage(
-      this.ordinals[25],  // ordinal
+      this.ordinals[27],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CloseConfirmedTabGroup_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CloseConfirmedTabGroup_ResponseParamsSpec,
       [arg_saved_guid],
@@ -1035,7 +1069,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   removeAllConfirmedTabGroups() {
     return this.proxy.sendMessage(
-      this.ordinals[26],  // ordinal
+      this.ordinals[28],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RemoveAllConfirmedTabGroups_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RemoveAllConfirmedTabGroups_ResponseParamsSpec,
       [],
@@ -1060,6 +1094,8 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1203,6 +1239,42 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.clearFirstPartyAutoTodos');
+          const result = this.impl.clearFirstPartyAutoTodos();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] clearFirstPartyAutoTodos FAILED:', e));
+          }
+          break;
+        }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.clearThirdPartyAutoTodos');
+          const result = this.impl.clearThirdPartyAutoTodos();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] clearThirdPartyAutoTodos FAILED:', e));
+          }
+          break;
+        }
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTodoFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTodoFeedback');
           const result = this.impl.setTodoFeedback(params.arg_feedback);
@@ -1218,7 +1290,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_DeleteTodoFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteTodoFeedback');
@@ -1235,7 +1307,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTodoFeedbacks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearTodoFeedbacks');
@@ -1252,7 +1324,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTodoFeedbacks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTodoFeedbacks');
@@ -1270,7 +1342,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetSaveToMemoryBankContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSaveToMemoryBankContext');
@@ -1288,7 +1360,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetAllMemoryBankEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllMemoryBankEntries');
@@ -1306,7 +1378,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_DeleteMemoryBankEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteMemoryBankEntries');
@@ -1323,7 +1395,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SaveMemoryBankEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.saveMemoryBankEntry');
@@ -1341,7 +1413,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetAllMemoryBankTags_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllMemoryBankTags');
@@ -1359,7 +1431,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetAllMemoryBankCollections_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllMemoryBankCollections');
@@ -1377,7 +1449,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabs');
@@ -1395,7 +1467,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RetrieveAndGroupTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.retrieveAndGroupTabs');
@@ -1412,7 +1484,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetExistingTabGroupsAndChats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getExistingTabGroupsAndChats');
@@ -1429,21 +1501,21 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 17: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SwitchToTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.switchToTab');
           const result = this.impl.switchToTab(params.arg_tab_id);
           break;
         }
-        case 18: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CloseTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeTab');
           const result = this.impl.closeTab(params.arg_tab_id);
           break;
         }
-        case 19: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearTabGroups');
@@ -1460,7 +1532,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 20: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTabGroupChatHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearTabGroupChatHistory');
@@ -1477,7 +1549,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 21: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_AskGeminiWithContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.askGeminiWithContext');
@@ -1495,7 +1567,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 22: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ConfirmAllTabGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.confirmAllTabGroups');
@@ -1513,7 +1585,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 23: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetConfirmedTabGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getConfirmedTabGroups');
@@ -1531,7 +1603,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 24: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RemoveConfirmedTabGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeConfirmedTabGroup');
@@ -1548,7 +1620,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 25: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CloseConfirmedTabGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeConfirmedTabGroup');
@@ -1565,7 +1637,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 26: {
+        case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RemoveAllConfirmedTabGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeAllConfirmedTabGroups');
@@ -1808,6 +1880,28 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTabBasedTodos_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_GenerateTabBasedTodos_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ParamsSpec, 'browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_ClearFirstPartyAutoTodos_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ParamsSpec, 'browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_ClearThirdPartyAutoTodos_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);

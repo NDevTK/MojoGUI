@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8030.0';
+        const versionStr = window.mojoVersion || '154.0.8031.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -702,13 +702,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_should_show_chip', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_should_animate_chip_in', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_should_animate_chip_out', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_active', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_accessible_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tooltip_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.toolbar_ui_api.mojom.IconHandleSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_text', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_background_color_override', 40, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_identifier', 48, 0, mojo.internal.bindings.tracked_element.mojom.TrackedElementIdentifierSpec, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Struct: OmniboxTextPortion
 mojo.internal.Struct(

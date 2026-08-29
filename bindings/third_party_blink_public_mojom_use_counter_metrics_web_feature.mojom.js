@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8030.0';
+        const versionStr = window.mojoVersion || '154.0.8031.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -5304,6 +5304,7 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kConnectionAllowlistEmbeddedEnforcementAllowedByOptIn: 5995,
   kConnectionAllowlistEmbeddedEnforcementAllowedByDeliveredAllowlist: 5996,
   kConnectionAllowlistEmbeddedEnforcementBlocked: 5997,
+  kWebTransportDatagramDuplexStreamCreateWritable: 5998,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

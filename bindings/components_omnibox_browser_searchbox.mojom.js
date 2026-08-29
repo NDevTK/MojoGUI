@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8030.0';
+        const versionStr = window.mojoVersion || '154.0.8031.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -346,6 +346,8 @@ mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec 
 if (mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.Page_SetAimThreadRestoredTabs_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec = mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec.$ = {};
+mojo.internal.bindings.searchbox.mojom.Page_UpdateProfileInfo_ParamsSpec = mojo.internal.bindings.searchbox.mojom.Page_UpdateProfileInfo_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.searchbox.mojom.Page_UpdateProfileInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.Page_UpdateProfileInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.Page_UpdateProfileInfo_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
@@ -1852,12 +1854,16 @@ mojo.internal.bindings.searchbox.mojom.PageRemote = class {
   onScreenshotMenuClosed() {
     return this.$.onScreenshotMenuClosed();
   }
+  updateProfileInfo(arg_avatar_url, arg_name, arg_email) {
+    return this.$.updateProfileInfo(arg_avatar_url, arg_name, arg_email);
+  }
 };
 
 mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2081,6 +2087,15 @@ mojo.internal.bindings.searchbox.mojom.PageRemoteCallHandler = class {
       false);
   }
 
+  updateProfileInfo(arg_avatar_url, arg_name, arg_email) {
+    return this.proxy.sendMessage(
+      this.ordinals[22],  // ordinal
+      mojo.internal.bindings.searchbox.mojom.Page_UpdateProfileInfo_ParamsSpec,
+      null,
+      [arg_avatar_url, arg_name, arg_email],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.searchbox.mojom.Page.getRemote = function() {
@@ -2099,6 +2114,7 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2316,6 +2332,13 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreenshotMenuClosed');
           const result = this.impl.onScreenshotMenuClosed();
+          break;
+        }
+        case 22: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateProfileInfo_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateProfileInfo');
+          const result = this.impl.updateProfileInfo(params.arg_avatar_url, params.arg_name, params.arg_email);
           break;
         }
       }
@@ -3053,4 +3076,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.Page_OnScreenshotMenuClosed_ParamsSpec, 'searchbox.mojom.Page_OnScreenshotMenuClosed_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateProfileInfo_ParamsSpec, 'searchbox.mojom.Page_UpdateProfileInfo_Params', [
+      mojo.internal.StructField('arg_avatar_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_email', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

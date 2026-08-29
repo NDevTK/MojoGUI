@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8030.0';
+        const versionStr = window.mojoVersion || '154.0.8031.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -163,17 +163,18 @@ mojo.internal.bindings.infobar_internals.mojom.InfoBarType = {
   kExtensionDevTools: 6,
   kGoogleApiKeys: 7,
   kIncognitoConnectability: 8,
-  kInstallerDownloader: 9,
-  kKeystone: 10,
-  kKnownInterception: 11,
-  kLocalTestPoliciesApplied: 12,
-  kObsoleteSystem: 13,
-  kPageInfo: 14,
-  kPdf: 15,
-  kReloadPlugin: 16,
-  kSessionRestore: 17,
-  kStartupLaunch: 18,
-  kThemeInstalled: 19,
+  kInstallationError: 9,
+  kInstallerDownloader: 10,
+  kKeystone: 11,
+  kKnownInterception: 12,
+  kLocalTestPoliciesApplied: 13,
+  kObsoleteSystem: 14,
+  kPageInfo: 15,
+  kPdf: 16,
+  kReloadPlugin: 17,
+  kSessionRestore: 18,
+  kStartupLaunch: 19,
+  kThemeInstalled: 20,
 };
 
 // Interface: Page

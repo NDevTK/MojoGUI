@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8030.0';
+        const versionStr = window.mojoVersion || '154.0.8031.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -132,9 +132,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.glic.mojom.GlicExperimentalTriggeringStateSpec = mojo.internal.bindings.glic.mojom.GlicExperimentalTriggeringStateSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.FileUploadPolicyStateSpec = mojo.internal.bindings.glic.mojom.FileUploadPolicyStateSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.glic.mojom.ActuationEligibilitySpec = mojo.internal.bindings.glic.mojom.ActuationEligibilitySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.MetricUserInputReactionTypeSpec = mojo.internal.bindings.glic.mojom.MetricUserInputReactionTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.PerformActionsErrorReasonSpec = mojo.internal.bindings.glic.mojom.PerformActionsErrorReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.CreateTaskErrorReasonSpec = mojo.internal.bindings.glic.mojom.CreateTaskErrorReasonSpec || { $: mojo.internal.Enum().$ };
@@ -144,8 +142,6 @@ mojo.internal.bindings.glic.mojom.ActorTaskStopReasonSpec = mojo.internal.bindin
 mojo.internal.bindings.glic.mojom.ActorTaskInterruptReasonSpec = mojo.internal.bindings.glic.mojom.ActorTaskInterruptReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.CaptureScreenshotErrorReasonSpec = mojo.internal.bindings.glic.mojom.CaptureScreenshotErrorReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.SbThreatTypeSpec = mojo.internal.bindings.glic.mojom.SbThreatTypeSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.glic.mojom.PlatformSpec = mojo.internal.bindings.glic.mojom.PlatformSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.glic.mojom.FormFactorSpec = mojo.internal.bindings.glic.mojom.FormFactorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.ScreenshotImageFormatSpec = mojo.internal.bindings.glic.mojom.ScreenshotImageFormatSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.ScreenshotCompressionQualitySpec = mojo.internal.bindings.glic.mojom.ScreenshotCompressionQualitySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.ScrollToErrorReasonSpec = mojo.internal.bindings.glic.mojom.ScrollToErrorReasonSpec || { $: mojo.internal.Enum().$ };
@@ -156,10 +152,6 @@ mojo.internal.bindings.glic.mojom.UnpinTriggerSpec = mojo.internal.bindings.glic
 mojo.internal.bindings.glic.mojom.CancelActionsResultSpec = mojo.internal.bindings.glic.mojom.CancelActionsResultSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.SwitchConversationErrorReasonSpec = mojo.internal.bindings.glic.mojom.SwitchConversationErrorReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.RegisterConversationErrorReasonSpec = mojo.internal.bindings.glic.mojom.RegisterConversationErrorReasonSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.glic.mojom.PanelStateKindSpec = mojo.internal.bindings.glic.mojom.PanelStateKindSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.glic.mojom.FreOverrideSpec = mojo.internal.bindings.glic.mojom.FreOverrideSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.glic.mojom.InvocationSourceSpec = mojo.internal.bindings.glic.mojom.InvocationSourceSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.glic.mojom.ActuationTargetSpec = mojo.internal.bindings.glic.mojom.ActuationTargetSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.WebClientModeSpec = mojo.internal.bindings.glic.mojom.WebClientModeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.PromptTypeSpec = mojo.internal.bindings.glic.mojom.PromptTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.MicrophoneStatusSpec = mojo.internal.bindings.glic.mojom.MicrophoneStatusSpec || { $: mojo.internal.Enum().$ };
@@ -176,10 +168,6 @@ mojo.internal.bindings.glic.mojom.ScreenshotEncryptionSchemeSpec = mojo.internal
 mojo.internal.bindings.glic.mojom.SettingsPageFieldSpec = mojo.internal.bindings.glic.mojom.SettingsPageFieldSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.HostCapabilitySpec = mojo.internal.bindings.glic.mojom.HostCapabilitySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.ClientCapabilitiesSpec = mojo.internal.bindings.glic.mojom.ClientCapabilitiesSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.glic.mojom.InvokeConversationSelectionSpec = mojo.internal.bindings.glic.mojom.InvokeConversationSelectionSpec || { $: {} };
-if (mojo.internal.bindings.glic.mojom.InvokeConversationSelectionSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InvokeConversationSelectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InvokeConversationSelectionSpec.$ = {};
-mojo.internal.bindings.glic.mojom.InvokeTargetSurfaceSpec = mojo.internal.bindings.glic.mojom.InvokeTargetSurfaceSpec || { $: {} };
-if (mojo.internal.bindings.glic.mojom.InvokeTargetSurfaceSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InvokeTargetSurfaceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InvokeTargetSurfaceSpec.$ = {};
 mojo.internal.bindings.glic.mojom.GetContextResultSpec = mojo.internal.bindings.glic.mojom.GetContextResultSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.GetContextResultSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GetContextResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GetContextResultSpec.$ = {};
 mojo.internal.bindings.glic.mojom.CaptureScreenshotResultSpec = mojo.internal.bindings.glic.mojom.CaptureScreenshotResultSpec || { $: {} };
@@ -198,18 +186,6 @@ mojo.internal.bindings.glic.mojom.GetImageBytesResultSpec = mojo.internal.bindin
 if (mojo.internal.bindings.glic.mojom.GetImageBytesResultSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GetImageBytesResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GetImageBytesResultSpec.$ = {};
 mojo.internal.bindings.glic.mojom.GeminiEnterpriseSettingsSpec = mojo.internal.bindings.glic.mojom.GeminiEnterpriseSettingsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.GeminiEnterpriseSettingsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GeminiEnterpriseSettingsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GeminiEnterpriseSettingsSpec.$ = {};
-mojo.internal.bindings.glic.mojom.ProfileEnablementSpec = mojo.internal.bindings.glic.mojom.ProfileEnablementSpec || { $: {} };
-if (mojo.internal.bindings.glic.mojom.ProfileEnablementSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ProfileEnablementSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ProfileEnablementSpec.$ = {};
-mojo.internal.bindings.glic.mojom.ConfigInfoSpec = mojo.internal.bindings.glic.mojom.ConfigInfoSpec || { $: {} };
-if (mojo.internal.bindings.glic.mojom.ConfigInfoSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ConfigInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ConfigInfoSpec.$ = {};
-mojo.internal.bindings.glic.mojom.DefaultConversationSpec = mojo.internal.bindings.glic.mojom.DefaultConversationSpec || { $: {} };
-if (mojo.internal.bindings.glic.mojom.DefaultConversationSpec.$.structSpec && mojo.internal.bindings.glic.mojom.DefaultConversationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.DefaultConversationSpec.$ = {};
-mojo.internal.bindings.glic.mojom.NewConversationSpec = mojo.internal.bindings.glic.mojom.NewConversationSpec || { $: {} };
-if (mojo.internal.bindings.glic.mojom.NewConversationSpec.$.structSpec && mojo.internal.bindings.glic.mojom.NewConversationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.NewConversationSpec.$ = {};
-mojo.internal.bindings.glic.mojom.DefaultSurfaceMojoSpec = mojo.internal.bindings.glic.mojom.DefaultSurfaceMojoSpec || { $: {} };
-if (mojo.internal.bindings.glic.mojom.DefaultSurfaceMojoSpec.$.structSpec && mojo.internal.bindings.glic.mojom.DefaultSurfaceMojoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.DefaultSurfaceMojoSpec.$ = {};
-mojo.internal.bindings.glic.mojom.NewTabMojoSpec = mojo.internal.bindings.glic.mojom.NewTabMojoSpec || { $: {} };
-if (mojo.internal.bindings.glic.mojom.NewTabMojoSpec.$.structSpec && mojo.internal.bindings.glic.mojom.NewTabMojoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.NewTabMojoSpec.$ = {};
 mojo.internal.bindings.glic.mojom.ZssConfigSpec = mojo.internal.bindings.glic.mojom.ZssConfigSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.ZssConfigSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ZssConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ZssConfigSpec.$ = {};
 mojo.internal.bindings.glic.mojom.GetContextResultWithActionResultCodeSpec = mojo.internal.bindings.glic.mojom.GetContextResultWithActionResultCodeSpec || { $: {} };
@@ -881,6 +857,9 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
 mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
+mojo.internal.bindings.glic.mojom.ActuationTargetSpec = mojo.internal.bindings.glic.mojom.ActuationTargetSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
+mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
 mojo.internal.bindings.glic.mojom.AdditionalContextPartSpec = mojo.internal.bindings.glic.mojom.AdditionalContextPartSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
 mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
@@ -896,6 +875,12 @@ mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
 mojo.internal.bindings.glic.mojom.FocusedTabDataSpec = mojo.internal.bindings.glic.mojom.FocusedTabDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
 mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
+mojo.internal.bindings.glic.mojom.FormFactorSpec = mojo.internal.bindings.glic.mojom.FormFactorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
+mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
+mojo.internal.bindings.glic.mojom.FreOverrideSpec = mojo.internal.bindings.glic.mojom.FreOverrideSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
+mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
 mojo.internal.bindings.glic.mojom.GetContextResultSpec = mojo.internal.bindings.glic.mojom.GetContextResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
 mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
@@ -903,6 +888,15 @@ mojo.internal.bindings.glic.mojom.GetImageBytesResultSpec = mojo.internal.bindin
 mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
 mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
 mojo.internal.bindings.glic.mojom.InvocationPayloadSpec = mojo.internal.bindings.glic.mojom.InvocationPayloadSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
+mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
+mojo.internal.bindings.glic.mojom.InvocationSourceSpec = mojo.internal.bindings.glic.mojom.InvocationSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
+mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
+mojo.internal.bindings.glic.mojom.PanelStateKindSpec = mojo.internal.bindings.glic.mojom.PanelStateKindSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
+mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
+mojo.internal.bindings.glic.mojom.PlatformSpec = mojo.internal.bindings.glic.mojom.PlatformSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
 mojo.internal.bindings.glic.mojom = mojo.internal.bindings.glic.mojom || {};
 mojo.internal.bindings.glic.mojom.ScrollToSelectorSpec = mojo.internal.bindings.glic.mojom.ScrollToSelectorSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -940,27 +934,10 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Enum: GlicExperimentalTriggeringState
-mojo.internal.bindings.glic.mojom.GlicExperimentalTriggeringState = {
-  kUnavailable: 0,
-  kNeedsOptIn: 1,
-  kReady: 2,
-};
-
 // Enum: FileUploadPolicyState
 mojo.internal.bindings.glic.mojom.FileUploadPolicyState = {
   kEnabled: 0,
   kDisabled: 1,
-};
-
-// Enum: ActuationEligibility
-mojo.internal.bindings.glic.mojom.ActuationEligibility = {
-  kEligible: 0,
-  kMissingAccountCapability: 1,
-  kMissingChromeBenefits: 2,
-  kDisabledByPolicy: 3,
-  kEnterpriseWithoutManagement: 4,
-  kPlatformUnsupported: 5,
 };
 
 // Enum: MetricUserInputReactionType
@@ -1036,24 +1013,6 @@ mojo.internal.bindings.glic.mojom.SbThreatType = {
   kSocialEngineering: 1,
   kMalware: 2,
   kUnwantedSoftware: 3,
-};
-
-// Enum: Platform
-mojo.internal.bindings.glic.mojom.Platform = {
-  kUnknown: 0,
-  kMacOS: 1,
-  kWindows: 2,
-  kLinux: 3,
-  kChromeOS: 4,
-  kAndroid: 5,
-};
-
-// Enum: FormFactor
-mojo.internal.bindings.glic.mojom.FormFactor = {
-  kUnknown: 0,
-  kDesktop: 1,
-  kPhone: 2,
-  kTablet: 3,
 };
 
 // Enum: ScreenshotImageFormat
@@ -1152,77 +1111,6 @@ mojo.internal.bindings.glic.mojom.SwitchConversationErrorReason = {
 mojo.internal.bindings.glic.mojom.RegisterConversationErrorReason = {
   kUnknown: 0,
   kInstanceAlreadyHasConversationId: 1,
-};
-
-// Enum: PanelStateKind
-mojo.internal.bindings.glic.mojom.PanelStateKind = {
-  kHidden: 0,
-  kDetached: 1,
-  kAttached: 2,
-};
-
-// Enum: FreOverride
-mojo.internal.bindings.glic.mojom.FreOverride = {
-  kUnspecified: 0,
-  kTrustFirstText: 1,
-  kTrustFirstClick: 2,
-  kTrustFirstInline: 3,
-};
-
-// Enum: InvocationSource
-mojo.internal.bindings.glic.mojom.InvocationSource = {
-  kOsButton: 0,
-  kOsButtonMenu: 1,
-  kOsHotkey: 2,
-  kTopChromeButton: 3,
-  kFre: 4,
-  kProfilePicker: 5,
-  kNudge: 6,
-  kThreeDotsMenu: 7,
-  kUnsupported: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-  MinVersion: 8,
-};
-
-// Enum: ActuationTarget
-mojo.internal.bindings.glic.mojom.ActuationTarget = {
-  kUnknown: 0,
-  kAgentDecides: 1,
-  kCurrentTab: 2,
-  kNewTab: 3,
-  MinVersion: 3,
 };
 
 // Enum: WebClientMode
@@ -6912,41 +6800,6 @@ mojo.internal.bindings.glic.mojom.CaptureRegionObserverRequest = mojo.internal.b
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
-// Union: InvokeConversationSelection
-mojo.internal.Union(
-    mojo.internal.bindings.glic.mojom.InvokeConversationSelectionSpec, 'glic.mojom.InvokeConversationSelection', {
-      'arg_default_conversation': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.glic.mojom.DefaultConversationSpec,
-        'nullable': false,
-      },
-      'arg_new_conversation': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.glic.mojom.NewConversationSpec,
-        'nullable': false,
-      },
-      'arg_conversation_id': {
-        'ordinal': 2,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-    });
-
-// Union: InvokeTargetSurface
-mojo.internal.Union(
-    mojo.internal.bindings.glic.mojom.InvokeTargetSurfaceSpec, 'glic.mojom.InvokeTargetSurface', {
-      'arg_default_surface': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.glic.mojom.DefaultSurfaceMojoSpec,
-        'nullable': false,
-      },
-      'arg_new_tab': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.glic.mojom.NewTabMojoSpec,
-        'nullable': false,
-      },
-    });
-
 // Union: GetContextResult
 mojo.internal.Union(
     mojo.internal.bindings.glic.mojom.GetContextResultSpec, 'glic.mojom.GetContextResult', {
@@ -7115,67 +6968,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_location', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);
-
-// Struct: ProfileEnablement
-mojo.internal.Struct(
-    mojo.internal.bindings.glic.mojom.ProfileEnablementSpec, 'glic.mojom.ProfileEnablement', [
-      mojo.internal.StructField('arg_feature_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_regular_profile', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_rolled_out', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_account_is_capable', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_account_is_fully_signed_in', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_by_chrome_policy', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_by_remote_admin', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_by_remote_other', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_fre_is_consented', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_by_country_filter', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_by_locale_filter', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_actuation_is_consented', 1, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_live_allowed', 1, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_share_image_allowed', 1, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_actuation_eligibility', 4, 0, mojo.internal.bindings.glic.mojom.ActuationEligibilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gemini_enterprise_settings', 8, 0, mojo.internal.bindings.glic.mojom.GeminiEnterpriseSettingsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_glic_api_actuation_eligibility', 16, 0, mojo.internal.bindings.glic.mojom.ActuationEligibilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_glic_experimental_triggering_state', 20, 0, mojo.internal.bindings.glic.mojom.GlicExperimentalTriggeringStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: ConfigInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.glic.mojom.ConfigInfoSpec, 'glic.mojom.ConfigInfo', [
-      mojo.internal.StructField('arg_guest_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_autopush_guest_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_staging_guest_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_preprod_guest_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_prod_guest_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_web_continuity_originating_host_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: DefaultConversation
-mojo.internal.Struct(
-    mojo.internal.bindings.glic.mojom.DefaultConversationSpec, 'glic.mojom.DefaultConversation', [
-    ],
-    [[0, 8]]);
-
-// Struct: NewConversation
-mojo.internal.Struct(
-    mojo.internal.bindings.glic.mojom.NewConversationSpec, 'glic.mojom.NewConversation', [
-    ],
-    [[0, 8]]);
-
-// Struct: DefaultSurfaceMojo
-mojo.internal.Struct(
-    mojo.internal.bindings.glic.mojom.DefaultSurfaceMojoSpec, 'glic.mojom.DefaultSurfaceMojo', [
-    ],
-    [[0, 8]]);
-
-// Struct: NewTabMojo
-mojo.internal.Struct(
-    mojo.internal.bindings.glic.mojom.NewTabMojoSpec, 'glic.mojom.NewTabMojo', [
-      mojo.internal.StructField('arg_open_in_foreground', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 // Struct: ZssConfig
 mojo.internal.Struct(

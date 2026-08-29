@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8030.0';
+        const versionStr = window.mojoVersion || '154.0.8031.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,12 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
 mojo.internal.bindings.glic.mojom.FeatureModeSpec = mojo.internal.bindings.glic.mojom.FeatureModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.PanelStateKindSpec = mojo.internal.bindings.glic.mojom.PanelStateKindSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.PlatformSpec = mojo.internal.bindings.glic.mojom.PlatformSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.FormFactorSpec = mojo.internal.bindings.glic.mojom.FormFactorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.FreOverrideSpec = mojo.internal.bindings.glic.mojom.FreOverrideSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.InvocationSourceSpec = mojo.internal.bindings.glic.mojom.InvocationSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.ActuationTargetSpec = mojo.internal.bindings.glic.mojom.ActuationTargetSpec || { $: mojo.internal.Enum().$ };
 
 // Enum: FeatureMode
 mojo.internal.bindings.glic.mojom.FeatureMode = {
@@ -138,6 +144,95 @@ mojo.internal.bindings.glic.mojom.FeatureMode = {
   MinVersion: 2,
   MinVersion: 2,
   MinVersion: 2,
+};
+
+// Enum: PanelStateKind
+mojo.internal.bindings.glic.mojom.PanelStateKind = {
+  kHidden: 0,
+  kDetached: 1,
+  kAttached: 2,
+};
+
+// Enum: Platform
+mojo.internal.bindings.glic.mojom.Platform = {
+  kUnknown: 0,
+  kMacOS: 1,
+  kWindows: 2,
+  kLinux: 3,
+  kChromeOS: 4,
+  kAndroid: 5,
+};
+
+// Enum: FormFactor
+mojo.internal.bindings.glic.mojom.FormFactor = {
+  kUnknown: 0,
+  kDesktop: 1,
+  kPhone: 2,
+  kTablet: 3,
+};
+
+// Enum: FreOverride
+mojo.internal.bindings.glic.mojom.FreOverride = {
+  kUnspecified: 0,
+  kTrustFirstText: 1,
+  kTrustFirstClick: 2,
+  kTrustFirstInline: 3,
+};
+
+// Enum: InvocationSource
+mojo.internal.bindings.glic.mojom.InvocationSource = {
+  kOsButton: 0,
+  kOsButtonMenu: 1,
+  kOsHotkey: 2,
+  kTopChromeButton: 3,
+  kFre: 4,
+  kProfilePicker: 5,
+  kNudge: 6,
+  kThreeDotsMenu: 7,
+  kUnsupported: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+  MinVersion: 8,
+};
+
+// Enum: ActuationTarget
+mojo.internal.bindings.glic.mojom.ActuationTarget = {
+  kUnknown: 0,
+  kAgentDecides: 1,
+  kCurrentTab: 2,
+  kNewTab: 3,
+  MinVersion: 3,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

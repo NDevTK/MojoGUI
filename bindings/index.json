@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-28T21:04:23.371831Z",
-  "version": "154.0.8030.0",
+  "generated_at": "2026-08-29T14:50:26.120105Z",
+  "version": "154.0.8031.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4792,9 +4792,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kNtpTabGroupsModule"
         ]
       }
     },
@@ -7608,6 +7606,8 @@
         "GetAutoTodos",
         "UpdateAutoTodo",
         "GenerateTabBasedTodos",
+        "ClearFirstPartyAutoTodos",
+        "ClearThirdPartyAutoTodos",
         "SetTodoFeedback",
         "DeleteTodoFeedback",
         "ClearTodoFeedbacks",
@@ -10236,11 +10236,7 @@
         "LoadPlatformModel",
         "GetDeviceAndPerformanceInfo",
         "GetDefaultModelPath",
-        "UninstallDefaultModel",
-        "GetPageData",
-        "SetFeatureRecentlyUsedState",
         "DecodeBitmap",
-        "ResetModelCrashCount",
         "BindModelBrokerDebug"
       ],
       "metadata": {
@@ -10263,8 +10259,7 @@
       "module": "on_device_internals.mojom",
       "file": "chrome_browser_ui_webui_on_device_internals_on_device_internals_page.mojom.js",
       "methods": [
-        "OnLogMessageAdded",
-        "OnDownloadProgressUpdate"
+        "OnLogMessageAdded"
       ],
       "metadata": {
         "usage": {
@@ -23390,14 +23385,15 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Source: WebUI Binder (Restricted)"
           ]
         },
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpTabGroupsModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -24076,7 +24072,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -24109,7 +24104,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -25689,7 +25683,8 @@
         "OnPermissionPromptChanged",
         "SetRestoredTabIds",
         "SetAimThreadRestoredTabs",
-        "OnScreenshotMenuClosed"
+        "OnScreenshotMenuClosed",
+        "UpdateProfileInfo"
       ],
       "metadata": {
         "usage": {
@@ -34611,8 +34606,7 @@
       "module": "remoting.mojom",
       "file": "remoting_host_mojom_desktop_session.mojom.js",
       "methods": [
-        "SetScreenResolution",
-        "CloseDesktopSession"
+        "SetScreenResolution"
       ],
       "metadata": {
         "usage": {
@@ -51568,7 +51562,6 @@
       "source": "chrome/browser/glic/host/glic_internals.mojom",
       "module": "glic.mojom",
       "imports": [
-        "chrome/browser/glic/host/glic.mojom",
         "chrome/common/glic_enums.mojom",
         "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
@@ -51580,6 +51573,7 @@
       "module": "glic.mojom",
       "imports": [
         "chrome/browser/glic/host/glic.mojom",
+        "chrome/common/glic_enums.mojom",
         "mojo/public/mojom/base/time.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom"
@@ -61167,7 +61161,9 @@
       "filename": "services_network_public_mojom_ssl_config.mojom.js",
       "source": "services/network/public/mojom/ssl_config.mojom",
       "module": "network.mojom",
-      "imports": []
+      "imports": [
+        "mojo/public/mojom/base/time.mojom"
+      ]
     },
     {
       "filename": "services_network_public_mojom_ssl_info.mojom.js",

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8030.0';
+        const versionStr = window.mojoVersion || '154.0.8031.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,6 +128,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.network.mojom.SSLVersionSpec = mojo.internal.bindings.network.mojom.SSLVersionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec = mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.TimeBoundTrustAnchorIDsSpec = mojo.internal.bindings.network.mojom.TimeBoundTrustAnchorIDsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.TimeBoundTrustAnchorIDsSpec.$.structSpec && mojo.internal.bindings.network.mojom.TimeBoundTrustAnchorIDsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.TimeBoundTrustAnchorIDsSpec.$ = {};
 mojo.internal.bindings.network.mojom.SSLConfigSpec = mojo.internal.bindings.network.mojom.SSLConfigSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.SSLConfigSpec.$.structSpec && mojo.internal.bindings.network.mojom.SSLConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SSLConfigSpec.$ = {};
 mojo.internal.bindings.network.mojom.SSLConfigClient = mojo.internal.bindings.network.mojom.SSLConfigClient || {};
@@ -136,6 +138,11 @@ if (mojo.internal.bindings.network.mojom.SSLConfigClientSpec.$.structSpec && moj
 mojo.internal.bindings.network.mojom.SSLConfigClient.$interfaceName = 'network.mojom.SSLConfigClient';
 mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec = mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec.$ = {};
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Enum: SSLVersion
 mojo.internal.bindings.network.mojom.SSLVersion = {
@@ -286,6 +293,14 @@ mojo.internal.bindings.network.mojom.SSLConfigClientRequest = mojo.internal.bind
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
+// Struct: TimeBoundTrustAnchorIDs
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.TimeBoundTrustAnchorIDsSpec, 'network.mojom.TimeBoundTrustAnchorIDs', [
+      mojo.internal.StructField('arg_max_usable_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_anchor_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: SSLConfig
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SSLConfigSpec, 'network.mojom.SSLConfig', [
@@ -298,11 +313,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_named_groups_preset', 12, 0, mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_disabled_cipher_suites', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_cert_pooling_policy', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_anchor_ids', 32, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mtc_trust_anchor_ids', 40, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mtc_update_time_seconds', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_time_bound_trust_anchor_ids', 32, 0, mojo.internal.bindings.network.mojom.TimeBoundTrustAnchorIDsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_trust_anchor_ids', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec, 'network.mojom.SSLConfigClient_OnSSLConfigUpdated_Params', [
       mojo.internal.StructField('arg_ssl_config', 0, 0, mojo.internal.bindings.network.mojom.SSLConfigSpec, null, false, 0, undefined),

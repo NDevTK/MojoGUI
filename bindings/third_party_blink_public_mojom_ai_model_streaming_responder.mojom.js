@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8030.0';
+        const versionStr = window.mojoVersion || '154.0.8031.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -404,8 +404,9 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRequest = mojo.interna
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec, 'blink.mojom.ModelExecutionContextInfo', [
       mojo.internal.StructField('arg_current_tokens', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_response_tokens', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 // Struct: ToolCall
 mojo.internal.Struct(
