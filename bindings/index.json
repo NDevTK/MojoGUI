@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-29T14:50:26.120105Z",
-  "version": "154.0.8031.0",
+  "generated_at": "2026-08-30T14:36:52.551605Z",
+  "version": "154.0.8033.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3950,6 +3950,9 @@
       "module": "glic.mojom",
       "file": "chrome_browser_glic_host_glic.mojom.js",
       "methods": [
+        "ReportApiRequestCount",
+        "ReportApiRequestLatency",
+        "RecordSparseValue",
         "WebClientCreated",
         "WebClientInitialized",
         "WebClientInitializeFailed",
@@ -4030,8 +4033,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: BrowserInterfaceBroker (Global Broker)",
-            "glic.mojom.PageHandler.CreateWebClient"
+            "Source: BrowserInterfaceBroker (Global Broker)"
           ]
         },
         "scope": "context",
@@ -4380,10 +4382,12 @@
       "module": "glic.mojom",
       "file": "chrome_browser_glic_host_glic_webui.mojom.js",
       "methods": [
-        "CreateWebClient",
         "PrepareForClient",
         "WebviewCommitted",
+        "OpenLinkInPopup",
+        "OpenLinkInNewTab",
         "OnZoomLevelChange",
+        "ShouldAllowGeolocationPermissionRequest",
         "ClosePanel",
         "OpenHelpCenterTopicAndClosePanel",
         "OpenProfilePickerAndClosePanel",
@@ -27002,49 +27006,6 @@
       }
     },
     {
-      "name": "ProfilingClient",
-      "module": "heap_profiling.mojom",
-      "file": "components_services_heap_profiling_public_mojom_heap_profiling_client.mojom.js",
-      "methods": [
-        "StartProfiling",
-        "StopProfiling",
-        "RetrieveHeapProfile"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebViewMemoryProfilingClient"
-        ]
-      }
-    },
-    {
-      "name": "ProfilingService",
-      "module": "heap_profiling.mojom",
-      "file": "components_services_heap_profiling_public_mojom_heap_profiling_service.mojom.js",
-      "methods": [
-        "AddProfilingClient",
-        "GetProfiledPids",
-        "StopProfilingAllClients"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "PaintPreviewCompositor",
       "module": "paint_preview.mojom",
       "file": "components_services_paint_preview_compositor_public_mojom_paint_preview_compositor.mojom.js",
@@ -39862,42 +39823,6 @@
       "methods": [
         "RequestChromeMemoryDump",
         "RequestOSMemoryDump"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "HeapProfiler",
-      "module": "memory_instrumentation.mojom",
-      "file": "services_resource_coordinator_public_mojom_memory_instrumentation_memory_instrumentation.mojom.js",
-      "methods": [
-        "DumpProcessesForTracing"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "HeapProfilerHelper",
-      "module": "memory_instrumentation.mojom",
-      "file": "services_resource_coordinator_public_mojom_memory_instrumentation_memory_instrumentation.mojom.js",
-      "methods": [
-        "GetVmRegionsForHeapProfiler"
       ],
       "metadata": {
         "usage": {
@@ -56507,21 +56432,6 @@
       ]
     },
     {
-      "filename": "components_services_heap_profiling_public_mojom_heap_profiling_client.mojom.js",
-      "source": "components/services/heap_profiling/public/mojom/heap_profiling_client.mojom",
-      "module": "heap_profiling.mojom",
-      "imports": []
-    },
-    {
-      "filename": "components_services_heap_profiling_public_mojom_heap_profiling_service.mojom.js",
-      "source": "components/services/heap_profiling/public/mojom/heap_profiling_service.mojom",
-      "module": "heap_profiling.mojom",
-      "imports": [
-        "components/services/heap_profiling/public/mojom/heap_profiling_client.mojom",
-        "mojo/public/mojom/base/process_id.mojom"
-      ]
-    },
-    {
       "filename": "components_services_paint_preview_compositor_public_mojom_paint_preview_compositor.mojom.js",
       "source": "components/services/paint_preview_compositor/public/mojom/paint_preview_compositor.mojom",
       "module": "paint_preview.mojom",
@@ -61558,7 +61468,6 @@
       "source": "services/resource_coordinator/public/mojom/memory_instrumentation/memory_instrumentation.mojom",
       "module": "memory_instrumentation.mojom",
       "imports": [
-        "mojo/public/mojom/base/big_string.mojom",
         "mojo/public/mojom/base/process_id.mojom",
         "mojo/public/mojom/base/time.mojom"
       ]
