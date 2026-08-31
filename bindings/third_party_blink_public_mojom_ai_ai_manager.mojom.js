@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8033.0';
+        const versionStr = window.mojoVersion || '154.0.8035.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -332,8 +332,8 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientRemote = class {
   close() {
     this.proxy.close();
   }
-  onResult(arg_writer) {
-    return this.$.onResult(arg_writer);
+  onResult(arg_writer, arg_context_window) {
+    return this.$.onResult(arg_writer, arg_context_window);
   }
   onError(arg_error, arg_quota_error_info) {
     return this.$.onError(arg_error, arg_quota_error_info);
@@ -349,12 +349,12 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientRemoteCallHandler 
     ]);
   }
 
-  onResult(arg_writer) {
+  onResult(arg_writer, arg_context_window) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec,
       null,
-      [arg_writer],
+      [arg_writer, arg_context_window],
       false);
   }
 
@@ -434,7 +434,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
-          const result = this.impl.onResult(params.arg_writer);
+          const result = this.impl.onResult(params.arg_writer, params.arg_context_window);
           break;
         }
         case 1: {
@@ -488,8 +488,8 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientRemote = class {
   close() {
     this.proxy.close();
   }
-  onResult(arg_rewriter) {
-    return this.$.onResult(arg_rewriter);
+  onResult(arg_rewriter, arg_context_window) {
+    return this.$.onResult(arg_rewriter, arg_context_window);
   }
   onError(arg_error, arg_quota_error_info) {
     return this.$.onError(arg_error, arg_quota_error_info);
@@ -505,12 +505,12 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientRemoteCallHandle
     ]);
   }
 
-  onResult(arg_rewriter) {
+  onResult(arg_rewriter, arg_context_window) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec,
       null,
-      [arg_rewriter],
+      [arg_rewriter, arg_context_window],
       false);
   }
 
@@ -590,7 +590,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClientReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
-          const result = this.impl.onResult(params.arg_rewriter);
+          const result = this.impl.onResult(params.arg_rewriter, params.arg_context_window);
           break;
         }
         case 1: {
@@ -644,8 +644,8 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientRemote = class
   close() {
     this.proxy.close();
   }
-  onResult(arg_summarizer) {
-    return this.$.onResult(arg_summarizer);
+  onResult(arg_summarizer, arg_context_window) {
+    return this.$.onResult(arg_summarizer, arg_context_window);
   }
   onError(arg_error, arg_quota_error_info) {
     return this.$.onError(arg_error, arg_quota_error_info);
@@ -661,12 +661,12 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientRemoteCallHand
     ]);
   }
 
-  onResult(arg_summarizer) {
+  onResult(arg_summarizer, arg_context_window) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec,
       null,
-      [arg_summarizer],
+      [arg_summarizer, arg_context_window],
       false);
   }
 
@@ -746,7 +746,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClientReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
-          const result = this.impl.onResult(params.arg_summarizer);
+          const result = this.impl.onResult(params.arg_summarizer, params.arg_context_window);
           break;
         }
         case 1: {
@@ -800,8 +800,8 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientRemote = clas
   close() {
     this.proxy.close();
   }
-  onResult(arg_proofreader) {
-    return this.$.onResult(arg_proofreader);
+  onResult(arg_proofreader, arg_context_window) {
+    return this.$.onResult(arg_proofreader, arg_context_window);
   }
   onError(arg_error, arg_quota_error_info) {
     return this.$.onError(arg_error, arg_quota_error_info);
@@ -817,12 +817,12 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientRemoteCallHan
     ]);
   }
 
-  onResult(arg_proofreader) {
+  onResult(arg_proofreader, arg_context_window) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec,
       null,
-      [arg_proofreader],
+      [arg_proofreader, arg_context_window],
       false);
   }
 
@@ -902,7 +902,7 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClientReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResult');
-          const result = this.impl.onResult(params.arg_proofreader);
+          const result = this.impl.onResult(params.arg_proofreader, params.arg_context_window);
           break;
         }
         case 1: {
@@ -1550,8 +1550,9 @@ mojo.internal.bindings.blink.mojom.AIManagerRequest = mojo.internal.bindings.bli
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnResult_ParamsSpec, 'blink.mojom.AIManagerCreateWriterClient_OnResult_Params', [
       mojo.internal.StructField('arg_writer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIWriterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_context_window', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateWriterClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateWriterClient_OnError_Params', [
@@ -1563,8 +1564,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnResult_ParamsSpec, 'blink.mojom.AIManagerCreateRewriterClient_OnResult_Params', [
       mojo.internal.StructField('arg_rewriter', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIRewriterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_context_window', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateRewriterClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateRewriterClient_OnError_Params', [
@@ -1576,8 +1578,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnResult_ParamsSpec, 'blink.mojom.AIManagerCreateSummarizerClient_OnResult_Params', [
       mojo.internal.StructField('arg_summarizer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AISummarizerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_context_window', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateSummarizerClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateSummarizerClient_OnError_Params', [
@@ -1589,8 +1592,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnResult_ParamsSpec, 'blink.mojom.AIManagerCreateProofreaderClient_OnResult_Params', [
       mojo.internal.StructField('arg_proofreader', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIProofreaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_context_window', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManagerCreateProofreaderClient_OnError_ParamsSpec, 'blink.mojom.AIManagerCreateProofreaderClient_OnError_Params', [
