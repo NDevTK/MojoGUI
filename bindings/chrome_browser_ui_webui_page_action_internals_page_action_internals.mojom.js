@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8035.0';
+        const versionStr = window.mojoVersion || '154.0.8037.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,16 +126,55 @@ mojo.internal.bindings.page_action_internals.mojom = mojo.internal.bindings.page
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
+mojo.internal.bindings.page_action_internals.mojom.IconTypeSpec = mojo.internal.bindings.page_action_internals.mojom.IconTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.page_action_internals.mojom.ActionButtonTypeSpec = mojo.internal.bindings.page_action_internals.mojom.ActionButtonTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.page_action_internals.mojom.ExpandableItemSpec = mojo.internal.bindings.page_action_internals.mojom.ExpandableItemSpec || { $: {} };
+if (mojo.internal.bindings.page_action_internals.mojom.ExpandableItemSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.ExpandableItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.ExpandableItemSpec.$ = {};
+mojo.internal.bindings.page_action_internals.mojom.ExpandableContentSpec = mojo.internal.bindings.page_action_internals.mojom.ExpandableContentSpec || { $: {} };
+if (mojo.internal.bindings.page_action_internals.mojom.ExpandableContentSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.ExpandableContentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.ExpandableContentSpec.$ = {};
+mojo.internal.bindings.page_action_internals.mojom.PageActionParamsSpec = mojo.internal.bindings.page_action_internals.mojom.PageActionParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_action_internals.mojom.PageActionParamsSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.PageActionParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.PageActionParamsSpec.$ = {};
+mojo.internal.bindings.page_action_internals.mojom.AnchoredMessageParamsSpec = mojo.internal.bindings.page_action_internals.mojom.AnchoredMessageParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_action_internals.mojom.AnchoredMessageParamsSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.AnchoredMessageParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.AnchoredMessageParamsSpec.$ = {};
 mojo.internal.bindings.page_action_internals.mojom.PageHandler = mojo.internal.bindings.page_action_internals.mojom.PageHandler || {};
 mojo.internal.bindings.page_action_internals.mojom.PageHandlerSpec = mojo.internal.bindings.page_action_internals.mojom.PageHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.page_action_internals.mojom.PageHandlerSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.PageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.PageHandlerSpec.$ = {};
 mojo.internal.bindings.page_action_internals.mojom.PageHandler.$interfaceName = 'page_action_internals.mojom.PageHandler';
+mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ParamsSpec = mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ParamsSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ParamsSpec.$ = {};
+mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ResponseParamsSpec = mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ParamsSpec = mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ParamsSpec.$ = {};
+mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ResponseParamsSpec = mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ParamsSpec = mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ParamsSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ParamsSpec.$ = {};
+mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ResponseParamsSpec = mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactory = mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactory || {};
 mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactorySpec = mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactorySpec.$ = {};
 mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactory.$interfaceName = 'page_action_internals.mojom.PageHandlerFactory';
 mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec = mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$ = {};
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: IconType
+mojo.internal.bindings.page_action_internals.mojom.IconType = {
+  kInfo: 0,
+  kOrangeAFavicon: 1,
+};
+
+// Enum: ActionButtonType
+mojo.internal.bindings.page_action_internals.mojom.ActionButtonType = {
+  kClose: 0,
+  kMenu: 1,
+};
 
 // Interface: PageHandler
 mojo.internal.bindings.page_action_internals.mojom.PageHandlerPendingReceiver = class {
@@ -167,13 +206,52 @@ mojo.internal.bindings.page_action_internals.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
+  showPageAction(arg_params) {
+    return this.$.showPageAction(arg_params);
+  }
+  showAnchoredMessage(arg_params) {
+    return this.$.showAnchoredMessage(arg_params);
+  }
+  hidePageAction() {
+    return this.$.hidePageAction();
+  }
 };
 
 mojo.internal.bindings.page_action_internals.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('page_action_internals.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
     ]);
+  }
+
+  showPageAction(arg_params) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ParamsSpec,
+      mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ResponseParamsSpec,
+      [arg_params],
+      false);
+  }
+
+  showAnchoredMessage(arg_params) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ParamsSpec,
+      mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ResponseParamsSpec,
+      [arg_params],
+      false);
+  }
+
+  hidePageAction() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ParamsSpec,
+      mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ResponseParamsSpec,
+      [],
+      false);
   }
 
 };
@@ -194,6 +272,9 @@ mojo.internal.bindings.page_action_internals.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('page_action_internals.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -237,6 +318,60 @@ mojo.internal.bindings.page_action_internals.mojom.PageHandlerReceiver = class {
       this.mapOrdinal(header.ordinal, dispatchId);
       
       switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.showPageAction');
+          const result = this.impl.showPageAction(params.arg_params);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] showPageAction FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.showAnchoredMessage');
+          const result = this.impl.showAnchoredMessage(params.arg_params);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] showAnchoredMessage FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.hidePageAction');
+          const result = this.impl.hidePageAction();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] hidePageAction FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -387,6 +522,75 @@ mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactoryRequest = m
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ExpandableItem
+mojo.internal.Struct(
+    mojo.internal.bindings.page_action_internals.mojom.ExpandableItemSpec, 'page_action_internals.mojom.ExpandableItem', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_type', 8, 0, mojo.internal.bindings.page_action_internals.mojom.IconTypeSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ExpandableContent
+mojo.internal.Struct(
+    mojo.internal.bindings.page_action_internals.mojom.ExpandableContentSpec, 'page_action_internals.mojom.ExpandableContent', [
+      mojo.internal.StructField('arg_heading', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_items', 8, 0, mojo.internal.Array(mojo.internal.bindings.page_action_internals.mojom.ExpandableItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PageActionParams
+mojo.internal.Struct(
+    mojo.internal.bindings.page_action_internals.mojom.PageActionParamsSpec, 'page_action_internals.mojom.PageActionParams', [
+      mojo.internal.StructField('arg_icon_type', 0, 0, mojo.internal.bindings.page_action_internals.mojom.IconTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_chip_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AnchoredMessageParams
+mojo.internal.Struct(
+    mojo.internal.bindings.page_action_internals.mojom.AnchoredMessageParamsSpec, 'page_action_internals.mojom.AnchoredMessageParams', [
+      mojo.internal.StructField('arg_message_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bubble_icon', 8, 0, mojo.internal.bindings.page_action_internals.mojom.IconTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_action_icon', 12, 0, mojo.internal.bindings.page_action_internals.mojom.ActionButtonTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_expandable_content', 16, 0, mojo.internal.bindings.page_action_internals.mojom.ExpandableContentSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ParamsSpec, 'page_action_internals.mojom.PageHandler_ShowPageAction_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.page_action_internals.mojom.PageActionParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowPageAction_ResponseParamsSpec, 'page_action_internals.mojom.PageHandler_ShowPageAction_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ParamsSpec, 'page_action_internals.mojom.PageHandler_ShowAnchoredMessage_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.page_action_internals.mojom.AnchoredMessageParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ResponseParamsSpec, 'page_action_internals.mojom.PageHandler_ShowAnchoredMessage_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ParamsSpec, 'page_action_internals.mojom.PageHandler_HidePageAction_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.page_action_internals.mojom.PageHandler_HidePageAction_ResponseParamsSpec, 'page_action_internals.mojom.PageHandler_HidePageAction_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
 mojo.internal.Struct(
     mojo.internal.bindings.page_action_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'page_action_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.page_action_internals.mojom.PageHandlerPendingReceiver), null, false, 0, undefined),

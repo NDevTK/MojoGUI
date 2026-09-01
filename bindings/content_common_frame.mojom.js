@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8035.0';
+        const versionStr = window.mojoVersion || '154.0.8037.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1459,8 +1459,8 @@ mojo.internal.bindings.content.mojom.FrameHostRemote = class {
   createNewWindow(arg_params) {
     return this.$.createNewWindow(arg_params);
   }
-  createChildFrame(arg_child_frame_token, arg_frame, arg_browser_interface_broker, arg_policy_container_bind_params, arg_associated_interface_provider, arg_scope, arg_frame_name, arg_frame_unique_name, arg_is_created_by_script, arg_frame_policy, arg_frame_owner_properties, arg_child_frame_owner_element_type, arg_document_ukm_source_id) {
-    return this.$.createChildFrame(arg_child_frame_token, arg_frame, arg_browser_interface_broker, arg_policy_container_bind_params, arg_associated_interface_provider, arg_scope, arg_frame_name, arg_frame_unique_name, arg_is_created_by_script, arg_frame_policy, arg_frame_owner_properties, arg_child_frame_owner_element_type, arg_document_ukm_source_id);
+  createChildFrame(arg_child_frame_token, arg_initiator_state_token, arg_frame, arg_browser_interface_broker, arg_policy_container_bind_params, arg_associated_interface_provider, arg_scope, arg_frame_name, arg_frame_unique_name, arg_is_created_by_script, arg_frame_policy, arg_frame_owner_properties, arg_child_frame_owner_element_type, arg_document_ukm_source_id) {
+    return this.$.createChildFrame(arg_child_frame_token, arg_initiator_state_token, arg_frame, arg_browser_interface_broker, arg_policy_container_bind_params, arg_associated_interface_provider, arg_scope, arg_frame_name, arg_frame_unique_name, arg_is_created_by_script, arg_frame_policy, arg_frame_owner_properties, arg_child_frame_owner_element_type, arg_document_ukm_source_id);
   }
   didCommitProvisionalLoad(arg_params, arg_interface_params) {
     return this.$.didCommitProvisionalLoad(arg_params, arg_interface_params);
@@ -1530,12 +1530,12 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       false);
   }
 
-  createChildFrame(arg_child_frame_token, arg_frame, arg_browser_interface_broker, arg_policy_container_bind_params, arg_associated_interface_provider, arg_scope, arg_frame_name, arg_frame_unique_name, arg_is_created_by_script, arg_frame_policy, arg_frame_owner_properties, arg_child_frame_owner_element_type, arg_document_ukm_source_id) {
+  createChildFrame(arg_child_frame_token, arg_initiator_state_token, arg_frame, arg_browser_interface_broker, arg_policy_container_bind_params, arg_associated_interface_provider, arg_scope, arg_frame_name, arg_frame_unique_name, arg_is_created_by_script, arg_frame_policy, arg_frame_owner_properties, arg_child_frame_owner_element_type, arg_document_ukm_source_id) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_CreateChildFrame_ParamsSpec,
       null,
-      [arg_child_frame_token, arg_frame, arg_browser_interface_broker, arg_policy_container_bind_params, arg_associated_interface_provider, arg_scope, arg_frame_name, arg_frame_unique_name, arg_is_created_by_script, arg_frame_policy, arg_frame_owner_properties, arg_child_frame_owner_element_type, arg_document_ukm_source_id],
+      [arg_child_frame_token, arg_initiator_state_token, arg_frame, arg_browser_interface_broker, arg_policy_container_bind_params, arg_associated_interface_provider, arg_scope, arg_frame_name, arg_frame_unique_name, arg_is_created_by_script, arg_frame_policy, arg_frame_owner_properties, arg_child_frame_owner_element_type, arg_document_ukm_source_id],
       false);
   }
 
@@ -1743,7 +1743,7 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_CreateChildFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createChildFrame');
-          const result = this.impl.createChildFrame(params.arg_child_frame_token, params.arg_frame, params.arg_browser_interface_broker, params.arg_policy_container_bind_params, params.arg_associated_interface_provider, params.arg_scope, params.arg_frame_name, params.arg_frame_unique_name, params.arg_is_created_by_script, params.arg_frame_policy, params.arg_frame_owner_properties, params.arg_child_frame_owner_element_type, params.arg_document_ukm_source_id);
+          const result = this.impl.createChildFrame(params.arg_child_frame_token, params.arg_initiator_state_token, params.arg_frame, params.arg_browser_interface_broker, params.arg_policy_container_bind_params, params.arg_associated_interface_provider, params.arg_scope, params.arg_frame_name, params.arg_frame_unique_name, params.arg_is_created_by_script, params.arg_frame_policy, params.arg_frame_owner_properties, params.arg_child_frame_owner_element_type, params.arg_document_ukm_source_id);
           break;
         }
         case 2: {
@@ -1904,11 +1904,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_on_initial_empty_document', 32, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('arg_document_token', 40, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_sandbox_origin_token', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_policy_container', 56, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_widget_params', 64, 0, mojo.internal.bindings.content.mojom.CreateFrameWidgetParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subresource_loader_factories', 72, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_initiator_state_token', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_container', 64, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_widget_params', 72, 0, mojo.internal.bindings.content.mojom.CreateFrameWidgetParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subresource_loader_factories', 80, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 96]]);
 
 // Struct: CreateProvisionalLocalMainFrameParams
 mojo.internal.Struct(
@@ -1959,11 +1960,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_for_nested_main_frame', 120, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_frame', 124, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.content.mojom.FramePendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_document_token', 128, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy_container', 136, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_associated_interface_provider_remote', 144, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_metrics_token', 152, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_initiator_state_token', 136, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_container', 144, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_associated_interface_provider_remote', 152, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_metrics_token', 160, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
     ],
-    [[0, 168]]);
+    [[0, 176]]);
 
 // Struct: SnapshotAccessibilityTreeParams
 mojo.internal.Struct(
@@ -2018,13 +2020,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_wait_for_debugger', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_document_token', 48, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_sandbox_origin_token', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_policy_container', 64, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_browsing_context_group_token', 72, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_provider_colors', 80, 0, mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_widget_screen_rect', 88, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_window_screen_rect', 96, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_initiator_state_token', 64, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_container', 72, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_browsing_context_group_token', 80, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_provider_colors', 88, 0, mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_widget_screen_rect', 96, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_window_screen_rect', 104, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
     ],
-    [[0, 112]]);
+    [[0, 120]]);
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FrameHTMLSerializerHandler_DidReceiveData_ParamsSpec, 'content.mojom.FrameHTMLSerializerHandler_DidReceiveData_Params', [
       mojo.internal.StructField('arg_data_buffer', 0, 0, mojo.internal.String, null, false, 0, undefined),
@@ -2155,20 +2158,21 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FrameHost_CreateChildFrame_ParamsSpec, 'content.mojom.FrameHost_CreateChildFrame_Params', [
       mojo.internal.StructField('arg_child_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.FrameRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_browser_interface_broker', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_associated_interface_provider', 20, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy_container_bind_params', 24, 0, mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 32, 0, mojo.internal.bindings.blink.mojom.TreeScopeTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_created_by_script', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_unique_name', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_policy', 56, 0, mojo.internal.bindings.blink.mojom.FramePolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_owner_properties', 64, 0, mojo.internal.bindings.blink.mojom.FrameOwnerPropertiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_frame_owner_element_type', 72, 0, mojo.internal.bindings.content.mojom.ChildFrameOwnerElementTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_ukm_source_id', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_initiator_state_token', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.FrameRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_interface_broker', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_associated_interface_provider', 28, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderPendingReceiver), null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_container_bind_params', 32, 0, mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 40, 0, mojo.internal.bindings.blink.mojom.TreeScopeTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_created_by_script', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_name', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_unique_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_policy', 64, 0, mojo.internal.bindings.blink.mojom.FramePolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_owner_properties', 72, 0, mojo.internal.bindings.blink.mojom.FrameOwnerPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_frame_owner_element_type', 80, 0, mojo.internal.bindings.content.mojom.ChildFrameOwnerElementTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_ukm_source_id', 88, 0, mojo.internal.Int64, 0, false, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 104]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec, 'content.mojom.FrameHost_DidCommitProvisionalLoad_Params', [

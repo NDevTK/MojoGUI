@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-31T17:20:03.152555Z",
-  "version": "154.0.8035.0",
+  "generated_at": "2026-09-01T14:26:48.127801Z",
+  "version": "154.0.8037.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3740,7 +3740,9 @@
         "RegisterClient",
         "GetFocusedTab",
         "GetContextFromFocusedTab",
-        "ClosePanel"
+        "ClosePanel",
+        "OpenSignInTab",
+        "CloseSignInTab"
       ],
       "metadata": {
         "usage": {
@@ -9477,9 +9479,6 @@
         "SetMostVisitedSettings",
         "GetMostVisitedSettings",
         "GetDoodle",
-        "UpdatePromoData",
-        "BlocklistPromo",
-        "UndoBlocklistPromo",
         "OnDismissModule",
         "OnRestoreModule",
         "SetModulesVisible",
@@ -9497,12 +9496,10 @@
         "IncrementComposeButtonShownCount",
         "MaybeTriggerAutomaticCustomizeChromePromo",
         "OnOneGoogleBarRendered",
-        "OnPromoRendered",
         "OnCustomizeDialogAction",
         "OnDoodleImageClicked",
         "OnDoodleImageRendered",
         "OnDoodleShared",
-        "OnPromoLinkClicked",
         "OnAppRendered",
         "CanShowRealboxContextMenuAnimation",
         "RecordRealboxContextMenuAnimationImpression",
@@ -9536,7 +9533,6 @@
         "SetDisabledModules",
         "SetModulesLoadable",
         "SetActionChipsVisibility",
-        "SetPromo",
         "ShowWebstoreToast",
         "SetWallpaperSearchButtonVisibility",
         "FooterVisibilityUpdated",
@@ -10357,7 +10353,11 @@
       "name": "PageHandler",
       "module": "page_action_internals.mojom",
       "file": "chrome_browser_ui_webui_page_action_internals_page_action_internals.mojom.js",
-      "methods": [],
+      "methods": [
+        "ShowPageAction",
+        "ShowAnchoredMessage",
+        "HidePageAction"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -40377,6 +40377,7 @@
       "file": "services_tracing_public_mojom_perfetto_service.mojom.js",
       "methods": [
         "OnTracingStart",
+        "SetupDataSource",
         "StartDataSource",
         "StopDataSource",
         "Flush",
@@ -52409,7 +52410,9 @@
       "filename": "chrome_browser_ui_webui_page_action_internals_page_action_internals.mojom.js",
       "source": "chrome/browser/ui/webui/page_action_internals/page_action_internals.mojom",
       "module": "page_action_internals.mojom",
-      "imports": []
+      "imports": [
+        "mojo/public/mojom/base/string16.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_ui_webui_password_manager_password_manager.mojom.js",

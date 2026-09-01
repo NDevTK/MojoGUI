@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8035.0';
+        const versionStr = window.mojoVersion || '154.0.8037.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -179,6 +179,8 @@ if (mojo.internal.bindings.tracing.mojom.ProducerClientSpec.$.structSpec && mojo
 mojo.internal.bindings.tracing.mojom.ProducerClient.$interfaceName = 'tracing.mojom.ProducerClient';
 mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec = mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec.$ = {};
+mojo.internal.bindings.tracing.mojom.ProducerClient_SetupDataSource_ParamsSpec = mojo.internal.bindings.tracing.mojom.ProducerClient_SetupDataSource_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracing.mojom.ProducerClient_SetupDataSource_ParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.ProducerClient_SetupDataSource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.ProducerClient_SetupDataSource_ParamsSpec.$ = {};
 mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec = mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$.structSpec && mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$ = {};
 mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec = mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec || { $: {} };
@@ -540,8 +542,11 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemote = class {
   onTracingStart() {
     return this.$.onTracingStart();
   }
-  startDataSource(arg_id, arg_data_source_config) {
-    return this.$.startDataSource(arg_id, arg_data_source_config);
+  setupDataSource(arg_id, arg_data_source_config) {
+    return this.$.setupDataSource(arg_id, arg_data_source_config);
+  }
+  startDataSource(arg_id) {
+    return this.$.startDataSource(arg_id);
   }
   stopDataSource(arg_id) {
     return this.$.stopDataSource(arg_id);
@@ -563,6 +568,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       { explicit: null },
       { explicit: null },
       { explicit: null },
+      { explicit: null },
     ]);
   }
 
@@ -575,18 +581,27 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
       false);
   }
 
-  startDataSource(arg_id, arg_data_source_config) {
+  setupDataSource(arg_id, arg_data_source_config) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
+      mojo.internal.bindings.tracing.mojom.ProducerClient_SetupDataSource_ParamsSpec,
+      null,
+      [arg_id, arg_data_source_config],
+      false);
+  }
+
+  startDataSource(arg_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec,
-      [arg_id, arg_data_source_config],
+      [arg_id],
       false);
   }
 
   stopDataSource(arg_id) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ParamsSpec,
       mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec,
       [arg_id],
@@ -595,7 +610,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
 
   flush(arg_flush_request_id, arg_data_source_ids) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_Flush_ParamsSpec,
       null,
       [arg_flush_request_id, arg_data_source_ids],
@@ -604,7 +619,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRemoteCallHandler = class {
 
   clearIncrementalState() {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec,
       null,
       [],
@@ -629,6 +644,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('tracing.mojom.ProducerClient', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -686,9 +702,16 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_SetupDataSource_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setupDataSource');
+          const result = this.impl.setupDataSource(params.arg_id, params.arg_data_source_config);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataSource');
-          const result = this.impl.startDataSource(params.arg_id, params.arg_data_source_config);
+          const result = this.impl.startDataSource(params.arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -701,7 +724,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDataSource');
@@ -718,14 +741,14 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
           const result = this.impl.flush(params.arg_flush_request_id, params.arg_data_source_ids);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearIncrementalState');
@@ -1668,11 +1691,17 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec, 'tracing.mojom.ProducerClient_StartDataSource_Params', [
+    mojo.internal.bindings.tracing.mojom.ProducerClient_SetupDataSource_ParamsSpec, 'tracing.mojom.ProducerClient_SetupDataSource_Params', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_data_source_config', 8, 0, mojo.internal.bindings.tracing.mojom.DataSourceConfigSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec, 'tracing.mojom.ProducerClient_StartDataSource_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec, 'tracing.mojom.ProducerClient_StartDataSource_ResponseParams', [

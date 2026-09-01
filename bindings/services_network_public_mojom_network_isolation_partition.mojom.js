@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8035.0';
+        const versionStr = window.mojoVersion || '154.0.8037.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -134,6 +134,7 @@ mojo.internal.bindings.network.mojom.NetworkIsolationPartition = {
   kProtectedAudienceSellerWorklet: 1,
   kFedCmUncredentialedRequests: 2,
   kDnsOverHttps: 3,
+  kSharedWorkerSameSiteCookiesNone: 4,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

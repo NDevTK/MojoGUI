@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8035.0';
+        const versionStr = window.mojoVersion || '154.0.8037.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -2417,7 +2417,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_allowed_to_be_default_match', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_contextual_suggestion', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_noncanned_aim_suggestion', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_rich_suggestion', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_two_row_suggestion', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_search_type', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_enterprise_search_aggregator_people_type', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_swap_contents_and_description', 0, 7, mojo.internal.Bool, false, false, 0, undefined),

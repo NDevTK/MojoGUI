@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8035.0';
+        const versionStr = window.mojoVersion || '154.0.8037.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -135,8 +135,6 @@ mojo.internal.bindings.new_tab_page.mojom.DoodleImageTypeSpec = mojo.internal.bi
 mojo.internal.bindings.new_tab_page.mojom.DoodleShareChannelSpec = mojo.internal.bindings.new_tab_page.mojom.DoodleShareChannelSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.new_tab_page.mojom.CustomizeDialogActionSpec = mojo.internal.bindings.new_tab_page.mojom.CustomizeDialogActionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.new_tab_page.mojom.OptInStatusSpec = mojo.internal.bindings.new_tab_page.mojom.OptInStatusSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec = mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec || { $: {} };
-if (mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.BackgroundImageSpec = mojo.internal.bindings.new_tab_page.mojom.BackgroundImageSpec || { $: {} };
 if (mojo.internal.bindings.new_tab_page.mojom.BackgroundImageSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.BackgroundImageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.BackgroundImageSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.ThemeSpec = mojo.internal.bindings.new_tab_page.mojom.ThemeSpec || { $: {} };
@@ -147,14 +145,6 @@ mojo.internal.bindings.new_tab_page.mojom.AllModeImageDoodleSpec = mojo.internal
 if (mojo.internal.bindings.new_tab_page.mojom.AllModeImageDoodleSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.AllModeImageDoodleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.AllModeImageDoodleSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.DoodleSpec = mojo.internal.bindings.new_tab_page.mojom.DoodleSpec || { $: {} };
 if (mojo.internal.bindings.new_tab_page.mojom.DoodleSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.DoodleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.DoodleSpec.$ = {};
-mojo.internal.bindings.new_tab_page.mojom.PromoImagePartSpec = mojo.internal.bindings.new_tab_page.mojom.PromoImagePartSpec || { $: {} };
-if (mojo.internal.bindings.new_tab_page.mojom.PromoImagePartSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PromoImagePartSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PromoImagePartSpec.$ = {};
-mojo.internal.bindings.new_tab_page.mojom.PromoLinkPartSpec = mojo.internal.bindings.new_tab_page.mojom.PromoLinkPartSpec || { $: {} };
-if (mojo.internal.bindings.new_tab_page.mojom.PromoLinkPartSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PromoLinkPartSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PromoLinkPartSpec.$ = {};
-mojo.internal.bindings.new_tab_page.mojom.PromoTextPartSpec = mojo.internal.bindings.new_tab_page.mojom.PromoTextPartSpec || { $: {} };
-if (mojo.internal.bindings.new_tab_page.mojom.PromoTextPartSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PromoTextPartSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PromoTextPartSpec.$ = {};
-mojo.internal.bindings.new_tab_page.mojom.PromoSpec = mojo.internal.bindings.new_tab_page.mojom.PromoSpec || { $: {} };
-if (mojo.internal.bindings.new_tab_page.mojom.PromoSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PromoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PromoSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.ModuleIdNameSpec = mojo.internal.bindings.new_tab_page.mojom.ModuleIdNameSpec || { $: {} };
 if (mojo.internal.bindings.new_tab_page.mojom.ModuleIdNameSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.ModuleIdNameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.ModuleIdNameSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.PageHandlerFactory = mojo.internal.bindings.new_tab_page.mojom.PageHandlerFactory || {};
@@ -177,12 +167,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec = moj
 if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec.$ = {};
-mojo.internal.bindings.new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec.$ = {};
-mojo.internal.bindings.new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec || { $: {} };
@@ -223,8 +207,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCusto
 if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCustomizeChromePromo_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCustomizeChromePromo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCustomizeChromePromo_ParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec.$ = {};
-mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec || { $: {} };
@@ -235,8 +217,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_Resp
 if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec.$ = {};
-mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.PageHandler_CanShowRealboxContextMenuAnimation_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.PageHandler_CanShowRealboxContextMenuAnimation_ParamsSpec || { $: {} };
@@ -259,8 +239,6 @@ mojo.internal.bindings.new_tab_page.mojom.Page_SetModulesLoadable_ParamsSpec = m
 if (mojo.internal.bindings.new_tab_page.mojom.Page_SetModulesLoadable_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.Page_SetModulesLoadable_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.Page_SetModulesLoadable_ParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec.$ = {};
-mojo.internal.bindings.new_tab_page.mojom.Page_SetPromo_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.Page_SetPromo_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.new_tab_page.mojom.Page_SetPromo_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.Page_SetPromo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.Page_SetPromo_ParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec.$.structSpec && mojo.internal.bindings.new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec.$ = {};
 mojo.internal.bindings.new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec = mojo.internal.bindings.new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec || { $: {} };
@@ -279,9 +257,6 @@ mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote || class {};
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver || class { constructor(handle) { this.handle = handle; } };
-mojo.internal.bindings.new_tab_page = mojo.internal.bindings.new_tab_page || {};
-mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.mojom || {};
-mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec = mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ntp_tiles = mojo.internal.bindings.ntp_tiles || {};
 mojo.internal.bindings.ntp_tiles.mojom = mojo.internal.bindings.ntp_tiles.mojom || {};
 mojo.internal.bindings.ntp_tiles.mojom.TileTypeSpec = mojo.internal.bindings.ntp_tiles.mojom.TileTypeSpec || { $: mojo.internal.Enum().$ };
@@ -514,15 +489,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemote = class {
   getDoodle() {
     return this.$.getDoodle();
   }
-  updatePromoData() {
-    return this.$.updatePromoData();
-  }
-  blocklistPromo(arg_promo_id) {
-    return this.$.blocklistPromo(arg_promo_id);
-  }
-  undoBlocklistPromo(arg_promo_id) {
-    return this.$.undoBlocklistPromo(arg_promo_id);
-  }
   onDismissModule(arg_module_id) {
     return this.$.onDismissModule(arg_module_id);
   }
@@ -574,9 +540,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemote = class {
   onOneGoogleBarRendered(arg_time) {
     return this.$.onOneGoogleBarRendered(arg_time);
   }
-  onPromoRendered(arg_time, arg_log_url) {
-    return this.$.onPromoRendered(arg_time, arg_log_url);
-  }
   onCustomizeDialogAction(arg_action) {
     return this.$.onCustomizeDialogAction(arg_action);
   }
@@ -588,9 +551,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemote = class {
   }
   onDoodleShared(arg_channel, arg_doodle_id, arg_share_id) {
     return this.$.onDoodleShared(arg_channel, arg_doodle_id, arg_share_id);
-  }
-  onPromoLinkClicked() {
-    return this.$.onPromoLinkClicked();
   }
   onAppRendered(arg_time) {
     return this.$.onAppRendered(arg_time);
@@ -610,11 +570,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('new_tab_page.mojom.PageHandler', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -673,36 +628,9 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
-  updatePromoData() {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-  blocklistPromo(arg_promo_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec,
-      null,
-      [arg_promo_id],
-      false);
-  }
-
-  undoBlocklistPromo(arg_promo_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec,
-      null,
-      [arg_promo_id],
-      false);
-  }
-
   onDismissModule(arg_module_id) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec,
       null,
       [arg_module_id],
@@ -711,7 +639,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   onRestoreModule(arg_module_id) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec,
       null,
       [arg_module_id],
@@ -720,7 +648,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   setModulesVisible(arg_visible) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesVisible_ParamsSpec,
       null,
       [arg_visible],
@@ -729,7 +657,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   updateDisabledModules() {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateDisabledModules_ParamsSpec,
       null,
       [],
@@ -738,7 +666,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   onModulesLoadedWithData(arg_module_ids) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnModulesLoadedWithData_ParamsSpec,
       null,
       [arg_module_ids],
@@ -747,7 +675,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   onModuleUsed(arg_module_id) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnModuleUsed_ParamsSpec,
       null,
       [arg_module_id],
@@ -756,7 +684,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   getModulesIdNames() {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesIdNames_ParamsSpec,
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesIdNames_ResponseParamsSpec,
       [],
@@ -765,7 +693,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   getModulesEligibleForRemoval() {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ParamsSpec,
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ResponseParamsSpec,
       [],
@@ -774,7 +702,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   setModulesOrder(arg_module_ids) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesOrder_ParamsSpec,
       null,
       [arg_module_ids],
@@ -783,7 +711,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   getModulesOrder() {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesOrder_ParamsSpec,
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesOrder_ResponseParamsSpec,
       [],
@@ -792,7 +720,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   updateModulesLoadable() {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateModulesLoadable_ParamsSpec,
       null,
       [],
@@ -801,7 +729,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   setModulesDisabled(arg_module_ids, arg_disabled, arg_is_user_action) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesDisabled_ParamsSpec,
       null,
       [arg_module_ids, arg_disabled, arg_is_user_action],
@@ -810,7 +738,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   updateActionChipsVisibility() {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateActionChipsVisibility_ParamsSpec,
       null,
       [],
@@ -819,7 +747,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   updateFooterVisibility() {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateFooterVisibility_ParamsSpec,
       null,
       [],
@@ -828,7 +756,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   incrementComposeButtonShownCount() {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_IncrementComposeButtonShownCount_ParamsSpec,
       null,
       [],
@@ -837,7 +765,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   maybeTriggerAutomaticCustomizeChromePromo() {
     return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCustomizeChromePromo_ParamsSpec,
       null,
       [],
@@ -846,25 +774,16 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   onOneGoogleBarRendered(arg_time) {
     return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec,
       null,
       [arg_time],
       false);
   }
 
-  onPromoRendered(arg_time, arg_log_url) {
-    return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
-      mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec,
-      null,
-      [arg_time, arg_log_url],
-      false);
-  }
-
   onCustomizeDialogAction(arg_action) {
     return this.proxy.sendMessage(
-      this.ordinals[24],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec,
       null,
       [arg_action],
@@ -873,7 +792,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   onDoodleImageClicked(arg_type, arg_log_url) {
     return this.proxy.sendMessage(
-      this.ordinals[25],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec,
       null,
       [arg_type, arg_log_url],
@@ -882,7 +801,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   onDoodleImageRendered(arg_type, arg_time, arg_log_url) {
     return this.proxy.sendMessage(
-      this.ordinals[26],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec,
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ResponseParamsSpec,
       [arg_type, arg_time, arg_log_url],
@@ -891,25 +810,16 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   onDoodleShared(arg_channel, arg_doodle_id, arg_share_id) {
     return this.proxy.sendMessage(
-      this.ordinals[27],  // ordinal
+      this.ordinals[23],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec,
       null,
       [arg_channel, arg_doodle_id, arg_share_id],
       false);
   }
 
-  onPromoLinkClicked() {
-    return this.proxy.sendMessage(
-      this.ordinals[28],  // ordinal
-      mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
   onAppRendered(arg_time) {
     return this.proxy.sendMessage(
-      this.ordinals[29],  // ordinal
+      this.ordinals[24],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec,
       null,
       [arg_time],
@@ -918,7 +828,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   canShowRealboxContextMenuAnimation() {
     return this.proxy.sendMessage(
-      this.ordinals[30],  // ordinal
+      this.ordinals[25],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_CanShowRealboxContextMenuAnimation_ParamsSpec,
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_CanShowRealboxContextMenuAnimation_ResponseParamsSpec,
       [],
@@ -927,7 +837,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   recordRealboxContextMenuAnimationImpression(arg_shown) {
     return this.proxy.sendMessage(
-      this.ordinals[31],  // ordinal
+      this.ordinals[26],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_RecordRealboxContextMenuAnimationImpression_ParamsSpec,
       null,
       [arg_shown],
@@ -936,7 +846,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerRemoteCallHandler = class {
 
   onContextualSearchIPHEngaged() {
     return this.proxy.sendMessage(
-      this.ordinals[32],  // ordinal
+      this.ordinals[27],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnContextualSearchIPHEngaged_ParamsSpec,
       null,
       [],
@@ -961,11 +871,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('new_tab_page.mojom.PageHandler', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1081,68 +986,47 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updatePromoData');
-          const result = this.impl.updatePromoData();
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.blocklistPromo');
-          const result = this.impl.blocklistPromo(params.arg_promo_id);
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.undoBlocklistPromo');
-          const result = this.impl.undoBlocklistPromo(params.arg_promo_id);
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDismissModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDismissModule');
           const result = this.impl.onDismissModule(params.arg_module_id);
           break;
         }
-        case 7: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnRestoreModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRestoreModule');
           const result = this.impl.onRestoreModule(params.arg_module_id);
           break;
         }
-        case 8: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setModulesVisible');
           const result = this.impl.setModulesVisible(params.arg_visible);
           break;
         }
-        case 9: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateDisabledModules_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDisabledModules');
           const result = this.impl.updateDisabledModules();
           break;
         }
-        case 10: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnModulesLoadedWithData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onModulesLoadedWithData');
           const result = this.impl.onModulesLoadedWithData(params.arg_module_ids);
           break;
         }
-        case 11: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnModuleUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onModuleUsed');
           const result = this.impl.onModuleUsed(params.arg_module_id);
           break;
         }
-        case 12: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesIdNames_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getModulesIdNames');
@@ -1160,7 +1044,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesEligibleForRemoval_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getModulesEligibleForRemoval');
@@ -1178,14 +1062,14 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesOrder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setModulesOrder');
           const result = this.impl.setModulesOrder(params.arg_module_ids);
           break;
         }
-        case 15: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetModulesOrder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getModulesOrder');
@@ -1203,77 +1087,70 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateModulesLoadable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateModulesLoadable');
           const result = this.impl.updateModulesLoadable();
           break;
         }
-        case 17: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_SetModulesDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setModulesDisabled');
           const result = this.impl.setModulesDisabled(params.arg_module_ids, params.arg_disabled, params.arg_is_user_action);
           break;
         }
-        case 18: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateActionChipsVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateActionChipsVisibility');
           const result = this.impl.updateActionChipsVisibility();
           break;
         }
-        case 19: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdateFooterVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateFooterVisibility');
           const result = this.impl.updateFooterVisibility();
           break;
         }
-        case 20: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_IncrementComposeButtonShownCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.incrementComposeButtonShownCount');
           const result = this.impl.incrementComposeButtonShownCount();
           break;
         }
-        case 21: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_MaybeTriggerAutomaticCustomizeChromePromo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.maybeTriggerAutomaticCustomizeChromePromo');
           const result = this.impl.maybeTriggerAutomaticCustomizeChromePromo();
           break;
         }
-        case 22: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnOneGoogleBarRendered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOneGoogleBarRendered');
           const result = this.impl.onOneGoogleBarRendered(params.arg_time);
           break;
         }
-        case 23: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onPromoRendered');
-          const result = this.impl.onPromoRendered(params.arg_time, params.arg_log_url);
-          break;
-        }
-        case 24: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCustomizeDialogAction');
           const result = this.impl.onCustomizeDialogAction(params.arg_action);
           break;
         }
-        case 25: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDoodleImageClicked');
           const result = this.impl.onDoodleImageClicked(params.arg_type, params.arg_log_url);
           break;
         }
-        case 26: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleImageRendered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDoodleImageRendered');
@@ -1290,28 +1167,21 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 27: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnDoodleShared_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDoodleShared');
           const result = this.impl.onDoodleShared(params.arg_channel, params.arg_doodle_id, params.arg_share_id);
           break;
         }
-        case 28: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onPromoLinkClicked');
-          const result = this.impl.onPromoLinkClicked();
-          break;
-        }
-        case 29: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAppRendered');
           const result = this.impl.onAppRendered(params.arg_time);
           break;
         }
-        case 30: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_CanShowRealboxContextMenuAnimation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canShowRealboxContextMenuAnimation');
@@ -1329,14 +1199,14 @@ mojo.internal.bindings.new_tab_page.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 31: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_RecordRealboxContextMenuAnimationImpression_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordRealboxContextMenuAnimationImpression');
           const result = this.impl.recordRealboxContextMenuAnimationImpression(params.arg_shown);
           break;
         }
-        case 32: {
+        case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnContextualSearchIPHEngaged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextualSearchIPHEngaged');
@@ -1399,9 +1269,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemote = class {
   setActionChipsVisibility(arg_visible) {
     return this.$.setActionChipsVisibility(arg_visible);
   }
-  setPromo(arg_promo) {
-    return this.$.setPromo(arg_promo);
-  }
   showWebstoreToast() {
     return this.$.showWebstoreToast();
   }
@@ -1420,7 +1287,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('new_tab_page.mojom.Page', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1468,18 +1334,9 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
       false);
   }
 
-  setPromo(arg_promo) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.new_tab_page.mojom.Page_SetPromo_ParamsSpec,
-      null,
-      [arg_promo],
-      false);
-  }
-
   showWebstoreToast() {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec,
       null,
       [],
@@ -1488,7 +1345,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
 
   setWallpaperSearchButtonVisibility(arg_visible) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec,
       null,
       [arg_visible],
@@ -1497,7 +1354,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
 
   footerVisibilityUpdated(arg_visible) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_FooterVisibilityUpdated_ParamsSpec,
       null,
       [arg_visible],
@@ -1506,7 +1363,7 @@ mojo.internal.bindings.new_tab_page.mojom.PageRemoteCallHandler = class {
 
   connectToParentDocument(arg_child_untrusted_document_remote) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.new_tab_page.mojom.Page_ConnectToParentDocument_ParamsSpec,
       null,
       [arg_child_untrusted_document_remote],
@@ -1531,7 +1388,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('new_tab_page.mojom.Page', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1613,33 +1469,26 @@ mojo.internal.bindings.new_tab_page.mojom.PageReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_SetPromo_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setPromo');
-          const result = this.impl.setPromo(params.arg_promo);
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_ShowWebstoreToast_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showWebstoreToast');
           const result = this.impl.showWebstoreToast();
           break;
         }
-        case 6: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_SetWallpaperSearchButtonVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWallpaperSearchButtonVisibility');
           const result = this.impl.setWallpaperSearchButtonVisibility(params.arg_visible);
           break;
         }
-        case 7: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_FooterVisibilityUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.footerVisibilityUpdated');
           const result = this.impl.footerVisibilityUpdated(params.arg_visible);
           break;
         }
-        case 8: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.Page_ConnectToParentDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToParentDocument');
@@ -1661,26 +1510,6 @@ mojo.internal.bindings.new_tab_page.mojom.PageRequest = mojo.internal.bindings.n
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
-
-// Union: PromoPart
-mojo.internal.Union(
-    mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec, 'new_tab_page.mojom.PromoPart', {
-      'arg_image': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.new_tab_page.mojom.PromoImagePartSpec,
-        'nullable': false,
-      },
-      'arg_link': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.new_tab_page.mojom.PromoLinkPartSpec,
-        'nullable': false,
-      },
-      'arg_text': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.new_tab_page.mojom.PromoTextPartSpec,
-        'nullable': false,
-      },
-    });
 
 // Struct: BackgroundImage
 mojo.internal.Struct(
@@ -1748,38 +1577,6 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
-// Struct: PromoImagePart
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.PromoImagePartSpec, 'new_tab_page.mojom.PromoImagePart', [
-      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PromoLinkPart
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.PromoLinkPartSpec, 'new_tab_page.mojom.PromoLinkPart', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PromoTextPart
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.PromoTextPartSpec, 'new_tab_page.mojom.PromoTextPart', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: Promo
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.PromoSpec, 'new_tab_page.mojom.Promo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_middle_slot_parts', 16, 0, mojo.internal.Array(mojo.internal.bindings.new_tab_page.mojom.PromoPartSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Struct: ModuleIdName
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.ModuleIdNameSpec, 'new_tab_page.mojom.ModuleIdName', [
@@ -1821,23 +1618,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_GetDoodle_ResponseParamsSpec, 'new_tab_page.mojom.PageHandler_GetDoodle_ResponseParams', [
       mojo.internal.StructField('arg_doodle', 0, 0, mojo.internal.bindings.new_tab_page.mojom.DoodleSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.PageHandler_UpdatePromoData_ParamsSpec, 'new_tab_page.mojom.PageHandler_UpdatePromoData_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.PageHandler_BlocklistPromo_ParamsSpec, 'new_tab_page.mojom.PageHandler_BlocklistPromo_Params', [
-      mojo.internal.StructField('arg_promo_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.PageHandler_UndoBlocklistPromo_ParamsSpec, 'new_tab_page.mojom.PageHandler_UndoBlocklistPromo_Params', [
-      mojo.internal.StructField('arg_promo_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1955,13 +1735,6 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoRendered_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnPromoRendered_Params', [
-      mojo.internal.StructField('arg_time', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_log_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnCustomizeDialogAction_Params', [
       mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.new_tab_page.mojom.CustomizeDialogActionSpec, null, false, 0, undefined),
     ],
@@ -1997,11 +1770,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_share_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnPromoLinkClicked_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnPromoLinkClicked_Params', [
-    ],
-    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.PageHandler_OnAppRendered_ParamsSpec, 'new_tab_page.mojom.PageHandler_OnAppRendered_Params', [
@@ -2052,12 +1820,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.new_tab_page.mojom.Page_SetActionChipsVisibility_ParamsSpec, 'new_tab_page.mojom.Page_SetActionChipsVisibility_Params', [
       mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.Page_SetPromo_ParamsSpec, 'new_tab_page.mojom.Page_SetPromo_Params', [
-      mojo.internal.StructField('arg_promo', 0, 0, mojo.internal.bindings.new_tab_page.mojom.PromoSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

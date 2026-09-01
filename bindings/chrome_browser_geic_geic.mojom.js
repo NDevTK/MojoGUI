@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8035.0';
+        const versionStr = window.mojoVersion || '154.0.8037.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,6 +129,7 @@ mojo.internal.bindings.pwc = mojo.internal.bindings.pwc || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.geic.mojom.GetTabContextErrorSpec = mojo.internal.bindings.geic.mojom.GetTabContextErrorSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.geic.mojom.CloseSignInTabResultSpec = mojo.internal.bindings.geic.mojom.CloseSignInTabResultSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.geic.mojom.FocusedTabDataSpec = mojo.internal.bindings.geic.mojom.FocusedTabDataSpec || { $: {} };
 if (mojo.internal.bindings.geic.mojom.FocusedTabDataSpec.$.structSpec && mojo.internal.bindings.geic.mojom.FocusedTabDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.FocusedTabDataSpec.$ = {};
 mojo.internal.bindings.geic.mojom.TabMetadataSpec = mojo.internal.bindings.geic.mojom.TabMetadataSpec || { $: {} };
@@ -161,6 +162,12 @@ mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_Param
 if (mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_ParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHost_GetContextFromFocusedTab_ParamsSpec.$ = {};
 mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec = mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec.$ = {};
+mojo.internal.bindings.geic.mojom.GeicBrowserHost_OpenSignInTab_ParamsSpec = mojo.internal.bindings.geic.mojom.GeicBrowserHost_OpenSignInTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.GeicBrowserHost_OpenSignInTab_ParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHost_OpenSignInTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHost_OpenSignInTab_ParamsSpec.$ = {};
+mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ParamsSpec = mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ParamsSpec.$ = {};
+mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ResponseParamsSpec = mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.geic.mojom.GeicClient = mojo.internal.bindings.geic.mojom.GeicClient || {};
 mojo.internal.bindings.geic.mojom.GeicClientSpec = mojo.internal.bindings.geic.mojom.GeicClientSpec || { $ : {} };
 if (mojo.internal.bindings.geic.mojom.GeicClientSpec.$.structSpec && mojo.internal.bindings.geic.mojom.GeicClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.geic.mojom.GeicClientSpec.$ = {};
@@ -186,6 +193,14 @@ mojo.internal.bindings.geic.mojom.GetTabContextError = {
   kNavigationInProgress: 2,
   kPermissionDenied: 3,
   kInternalError: 4,
+};
+
+// Enum: CloseSignInTabResult
+mojo.internal.bindings.geic.mojom.CloseSignInTabResult = {
+  kUnknown: 0,
+  kSuccess: 1,
+  kAlreadyClosed: 2,
+  kNoSignInTab: 3,
 };
 
 // Interface: GeicApi
@@ -344,12 +359,20 @@ mojo.internal.bindings.geic.mojom.GeicBrowserHostRemote = class {
   closePanel() {
     return this.$.closePanel();
   }
+  openSignInTab(arg_signin_url) {
+    return this.$.openSignInTab(arg_signin_url);
+  }
+  closeSignInTab() {
+    return this.$.closeSignInTab();
+  }
 };
 
 mojo.internal.bindings.geic.mojom.GeicBrowserHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('geic.mojom.GeicBrowserHost', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -393,6 +416,24 @@ mojo.internal.bindings.geic.mojom.GeicBrowserHostRemoteCallHandler = class {
       false);
   }
 
+  openSignInTab(arg_signin_url) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.geic.mojom.GeicBrowserHost_OpenSignInTab_ParamsSpec,
+      null,
+      [arg_signin_url],
+      false);
+  }
+
+  closeSignInTab() {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ParamsSpec,
+      mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.geic.mojom.GeicBrowserHost.getRemote = function() {
@@ -411,6 +452,8 @@ mojo.internal.bindings.geic.mojom.GeicBrowserHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('geic.mojom.GeicBrowserHost', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -506,6 +549,31 @@ mojo.internal.bindings.geic.mojom.GeicBrowserHostReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closePanel');
           const result = this.impl.closePanel();
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.geic.mojom.GeicBrowserHost_OpenSignInTab_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openSignInTab');
+          const result = this.impl.openSignInTab(params.arg_signin_url);
+          break;
+        }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.closeSignInTab');
+          const result = this.impl.closeSignInTab();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] closeSignInTab FAILED:', e));
+          }
           break;
         }
       }
@@ -753,6 +821,23 @@ mojo.internal.Struct(
     mojo.internal.bindings.geic.mojom.GeicBrowserHost_ClosePanel_ParamsSpec, 'geic.mojom.GeicBrowserHost_ClosePanel_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.GeicBrowserHost_OpenSignInTab_ParamsSpec, 'geic.mojom.GeicBrowserHost_OpenSignInTab_Params', [
+      mojo.internal.StructField('arg_signin_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ParamsSpec, 'geic.mojom.GeicBrowserHost_CloseSignInTab_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.geic.mojom.GeicBrowserHost_CloseSignInTab_ResponseParamsSpec, 'geic.mojom.GeicBrowserHost_CloseSignInTab_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.geic.mojom.CloseSignInTabResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.geic.mojom.GeicClient_OnFocusedTabChanged_ParamsSpec, 'geic.mojom.GeicClient_OnFocusedTabChanged_Params', [

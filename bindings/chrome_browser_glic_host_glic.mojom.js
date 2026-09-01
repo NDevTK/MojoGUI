@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '154.0.8035.0';
+        const versionStr = window.mojoVersion || '154.0.8037.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -3048,8 +3048,8 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemote = class {
   close() {
     this.proxy.close();
   }
-  reportApiRequestCount(arg_request_type, arg_event) {
-    return this.$.reportApiRequestCount(arg_request_type, arg_event);
+  reportApiRequestCount(arg_request_type_id, arg_event) {
+    return this.$.reportApiRequestCount(arg_request_type_id, arg_event);
   }
   reportApiRequestLatency(arg_request_type, arg_latency) {
     return this.$.reportApiRequestLatency(arg_request_type, arg_latency);
@@ -3369,12 +3369,12 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
     ]);
   }
 
-  reportApiRequestCount(arg_request_type, arg_event) {
+  reportApiRequestCount(arg_request_type_id, arg_event) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_ReportApiRequestCount_ParamsSpec,
       null,
-      [arg_request_type, arg_event],
+      [arg_request_type_id, arg_event],
       false);
   }
 
@@ -4214,7 +4214,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ReportApiRequestCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportApiRequestCount');
-          const result = this.impl.reportApiRequestCount(params.arg_request_type, params.arg_event);
+          const result = this.impl.reportApiRequestCount(params.arg_request_type_id, params.arg_event);
           break;
         }
         case 1: {
@@ -7980,10 +7980,10 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_ReportApiRequestCount_ParamsSpec, 'glic.mojom.WebClientHandler_ReportApiRequestCount_Params', [
-      mojo.internal.StructField('arg_request_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event', 8, 0, mojo.internal.bindings.glic.mojom.GlicRequestEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_type_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 4, 0, mojo.internal.bindings.glic.mojom.GlicRequestEventSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_ReportApiRequestLatency_ParamsSpec, 'glic.mojom.WebClientHandler_ReportApiRequestLatency_Params', [
