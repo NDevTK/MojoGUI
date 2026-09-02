@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-01T14:26:48.127801Z",
-  "version": "154.0.8037.0",
+  "generated_at": "2026-09-02T14:00:29.600075Z",
+  "version": "155.0.8038.2",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4268,6 +4268,67 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures"
         ]
+      }
+    },
+    {
+      "name": "GlicOverlayPage",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic_overlay.mojom.js",
+      "methods": [
+        "SetOverlayState"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "GlicOverlayPageHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic_overlay.mojom.js",
+      "methods": [
+        "OnRetryClicked",
+        "OnSignInClicked",
+        "OnProfilePickerClicked",
+        "OnIneligibleAccountHelpClicked",
+        "OnLocationMismatchHelpClicked",
+        "OnDisabledByAdminCloseClicked",
+        "OnDisabledByAdminLinkClicked",
+        "OnClosePanelClicked"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: glic.mojom.GlicOverlayPageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "GlicOverlayPageHandlerFactory",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_host_glic_overlay.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -14004,6 +14065,22 @@
           "feature:kSubApps",
           "feature:kPaymentLinkDetection"
         ]
+      }
+    },
+    {
+      "name": "RedirectionSessionHost",
+      "module": "redirection.mojom",
+      "file": "chrome_services_redirection_public_mojom_redirection_service.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -34486,6 +34563,7 @@
       "methods": [
         "SetListener",
         "OnDocumentLoadComplete",
+        "OnPdfFirstContentPainted",
         "UpdateContentRestrictions",
         "SavePdf",
         "SelectionChanged",
@@ -41189,10 +41267,7 @@
         "DisableGpuCompositing",
         "GetIsolationKey",
         "StoreBlobToDisk",
-        "ClearGrShaderDiskCache",
-        "EnsureWebNNExecutionProvidersReady",
-        "RequestWebNNCompilerContext",
-        "CreateWebNNWeightsFile"
+        "ClearGrShaderDiskCache"
       ],
       "metadata": {
         "usage": {
@@ -41585,6 +41660,26 @@
       }
     },
     {
+      "name": "WebNNBrowserHost",
+      "module": "webnn.mojom",
+      "file": "services_webnn_public_mojom_webnn_browser_host.mojom.js",
+      "methods": [
+        "EnsureExecutionProvidersReady",
+        "RequestCompilerContext",
+        "CreateWeightsFile"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "WebNNCompilerContext",
       "module": "webnn.mojom",
       "file": "services_webnn_public_mojom_webnn_compiler_context.mojom.js",
@@ -41595,7 +41690,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: viz.mojom.GpuHost.RequestWebNNCompilerContext",
+            "Internal Interface: webnn.mojom.WebNNBrowserHost.RequestCompilerContext",
             "Internal Interface: webnn.mojom.WebNNCompilerService.CreateCompilerContext",
             "Internal Interface: webnn.mojom.WebNNContext.RequestCompilerContext"
           ]
@@ -44930,7 +45025,7 @@
         "SetFrameOwnerProperties",
         "EnforceInsecureRequestPolicy",
         "SetReplicatedOrigin",
-        "SetReplicatedIsAdFrame",
+        "SetReplicatedAdFrameStatus",
         "SetReplicatedIsSecureContextRoot",
         "SetReplicatedName",
         "DispatchLoadEventForFrameOwner",
@@ -51492,6 +51587,12 @@
         "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "chrome_browser_glic_host_glic_overlay.mojom.js",
+      "source": "chrome/browser/glic/host/glic_overlay.mojom",
+      "module": "glic.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_browser_glic_host_glic_webui.mojom.js",
@@ -58536,10 +58637,10 @@
       "module": "media.mojom",
       "imports": [
         "media/mojo/mojom/cdm_storage.mojom",
-        "media/mojo/mojom/provision_fetcher.mojom",
         "mojo/public/mojom/base/generic_pending_receiver.mojom",
         "url/mojom/origin.mojom",
         "media/mojo/mojom/dcomp_surface_registry.mojom",
+        "media/mojo/mojom/provision_fetcher.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
@@ -59225,6 +59326,7 @@
       "imports": [
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/string16.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "services/network/public/mojom/referrer_policy.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom"
@@ -61911,17 +62013,10 @@
         "gpu/ipc/common/gpu_info.mojom",
         "gpu/ipc/common/surface_handle.mojom",
         "mojo/public/mojom/base/byte_string.mojom",
-        "mojo/public/mojom/base/file.mojom",
         "services/viz/privileged/mojom/gl/context_lost_reason.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom",
         "ui/gfx/mojom/gpu_extra_info.mojom",
         "url/mojom/url.mojom",
-        "services/webnn/public/mojom/ep_device_info.mojom",
-        "services/webnn/public/mojom/ep_package_info.mojom",
-        "services/webnn/public/mojom/webnn_model_loader.mojom",
-        "services/webnn/public/mojom/webnn_compiler_context.mojom",
-        "services/webnn/public/mojom/webnn_context_properties.mojom",
-        "services/webnn/public/mojom/webnn_context_provider.mojom",
         "ui/gfx/mojom/dxgi_info.mojom"
       ]
     },
@@ -62568,6 +62663,20 @@
       "imports": [
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/wstring.mojom"
+      ]
+    },
+    {
+      "filename": "services_webnn_public_mojom_webnn_browser_host.mojom.js",
+      "source": "services/webnn/public/mojom/webnn_browser_host.mojom",
+      "module": "webnn.mojom",
+      "imports": [
+        "mojo/public/mojom/base/file.mojom",
+        "services/webnn/public/mojom/ep_device_info.mojom",
+        "services/webnn/public/mojom/ep_package_info.mojom",
+        "services/webnn/public/mojom/webnn_compiler_context.mojom",
+        "services/webnn/public/mojom/webnn_context_properties.mojom",
+        "services/webnn/public/mojom/webnn_context_provider.mojom",
+        "services/webnn/public/mojom/webnn_model_loader.mojom"
       ]
     },
     {
@@ -63895,6 +64004,7 @@
       "imports": [
         "services/network/public/mojom/web_sandbox_flags.mojom",
         "services/network/public/mojom/permissions_policy/permissions_policy.mojom",
+        "third_party/blink/public/mojom/ad_tagging/ad_evidence.mojom",
         "third_party/blink/public/mojom/frame/frame_policy.mojom",
         "third_party/blink/public/mojom/frame/tree_scope_type.mojom",
         "third_party/blink/public/mojom/security_context/insecure_request_policy.mojom",
@@ -63968,6 +64078,7 @@
         "services/network/public/mojom/url_request.mojom",
         "services/network/public/mojom/web_sandbox_flags.mojom",
         "services/viz/public/mojom/compositing/frame_sink_id.mojom",
+        "third_party/blink/public/mojom/ad_tagging/ad_evidence.mojom",
         "third_party/blink/public/mojom/blob/blob_url_store.mojom",
         "third_party/blink/public/mojom/frame/frame_owner_properties.mojom",
         "third_party/blink/public/mojom/frame/frame_policy.mojom",
