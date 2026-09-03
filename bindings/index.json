@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-02T14:00:29.600075Z",
-  "version": "155.0.8038.2",
+  "generated_at": "2026-09-03T14:01:10.090466Z",
+  "version": "155.0.8040.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7685,6 +7685,7 @@
         "SaveMemoryBankEntry",
         "GetAllMemoryBankTags",
         "GetAllMemoryBankCollections",
+        "UpdateMemoryBankEntryAnnotations",
         "GetTabs",
         "RetrieveAndGroupTabs",
         "GetExistingTabGroupsAndChats",
@@ -8025,7 +8026,8 @@
         "LoadById",
         "Discard",
         "ToggleBatterySaverMode",
-        "RefreshPerformanceTabCpuMeasurements"
+        "RefreshPerformanceTabCpuMeasurements",
+        "GetProcessMemoryDumps"
       ],
       "metadata": {
         "usage": {
@@ -11540,7 +11542,8 @@
       "module": "skills.mojom",
       "file": "chrome_browser_ui_webui_skills_skills.mojom.js",
       "methods": [
-        "LoadProvidedSkills"
+        "LoadProvidedSkills",
+        "OnUserSkillsUpdated"
       ],
       "metadata": {
         "usage": {
@@ -12096,21 +12099,7 @@
       "module": "mojom",
       "file": "chrome_browser_ui_webui_web_app_internals_web_app_internals.mojom.js",
       "methods": [
-        "GetDebugInfoAsJsonString",
-        "InstallIsolatedWebAppFromDevProxy",
-        "SelectFileAndInstallIsolatedWebAppFromDevBundle",
-        "ParseUpdateManifestFromUrl",
-        "InstallIsolatedWebAppFromBundleUrl",
-        "UpdateDevProxyIsolatedWebApp",
-        "SelectFileAndUpdateIsolatedWebAppFromDevBundle",
-        "UpdateManifestInstalledIsolatedWebApp",
-        "DeleteIsolatedWebApp",
-        "SetUpdateChannelForIsolatedWebApp",
-        "SetPinnedVersionForIsolatedWebApp",
-        "ResetPinnedVersionForIsolatedWebApp",
-        "SetAllowDowngradesForIsolatedWebApp",
-        "SearchForIsolatedWebAppUpdates",
-        "GetIsolatedWebAppDevModeAppInfo"
+        "GetDebugInfoAsJsonString"
       ],
       "metadata": {
         "usage": {
@@ -31380,7 +31369,6 @@
       "file": "gpu_ipc_common_gpu_channel.mojom.js",
       "methods": [
         "OnConsoleMessage",
-        "OnGpuSwitched",
         "OnDestroyed",
         "OnReturnData",
         "OnSignalAck"
@@ -39310,6 +39298,7 @@
         "StopSending",
         "SetOutgoingDatagramExpirationDuration",
         "GetStats",
+        "GetReceiveStreamStats",
         "Close",
         "SetStreamPriority"
       ],
@@ -41323,7 +41312,6 @@
         "RequestDXGIInfo",
         "LoadedBlob",
         "WakeUpGpu",
-        "GpuSwitched",
         "DisplayAdded",
         "DisplayRemoved",
         "DisplayMetricsChanged",
@@ -52181,6 +52169,7 @@
         "chrome/browser/resource_coordinator/lifecycle_unit_state.mojom",
         "mojo/public/mojom/base/process_id.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "services/resource_coordinator/public/mojom/memory_instrumentation/memory_instrumentation.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -52719,11 +52708,7 @@
       "filename": "chrome_browser_ui_webui_web_app_internals_web_app_internals.mojom.js",
       "source": "chrome/browser/ui/webui/web_app_internals/web_app_internals.mojom",
       "module": "mojom",
-      "imports": [
-        "mojo/public/mojom/base/file_path.mojom",
-        "url/mojom/origin.mojom",
-        "url/mojom/url.mojom"
-      ]
+      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_webnn_internals_webnn_internals.mojom.js",

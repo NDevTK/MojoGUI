@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -744,8 +744,8 @@ mojo.internal.bindings.omnibox_popup.mojom.PageRemote = class {
   setInputState(arg_state) {
     return this.$.setInputState(arg_state);
   }
-  setFocus(arg_is_focused) {
-    return this.$.setFocus(arg_is_focused);
+  setFocus(arg_is_focused, arg_query_zps) {
+    return this.$.setFocus(arg_is_focused, arg_query_zps);
   }
   clearAutocompleteMatches() {
     return this.$.clearAutocompleteMatches();
@@ -795,12 +795,12 @@ mojo.internal.bindings.omnibox_popup.mojom.PageRemoteCallHandler = class {
       false);
   }
 
-  setFocus(arg_is_focused) {
+  setFocus(arg_is_focused, arg_query_zps) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.Page_SetFocus_ParamsSpec,
       null,
-      [arg_is_focused],
+      [arg_is_focused, arg_query_zps],
       false);
   }
 
@@ -914,7 +914,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.Page_SetFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFocus');
-          const result = this.impl.setFocus(params.arg_is_focused);
+          const result = this.impl.setFocus(params.arg_is_focused, params.arg_query_zps);
           break;
         }
         case 4: {
@@ -1076,6 +1076,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.Page_SetFocus_ParamsSpec, 'omnibox_popup.mojom.Page_SetFocus_Params', [
       mojo.internal.StructField('arg_is_focused', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_query_zps', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

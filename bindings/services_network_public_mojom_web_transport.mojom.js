@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -137,6 +137,8 @@ mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec = mojo.internal.b
 if (mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebTransportStatsSpec = mojo.internal.bindings.network.mojom.WebTransportStatsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportStatsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransportReceiveStreamStatsSpec = mojo.internal.bindings.network.mojom.WebTransportReceiveStreamStatsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransportReceiveStreamStatsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportReceiveStreamStatsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportReceiveStreamStatsSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebTransportStreamPrioritySpec = mojo.internal.bindings.network.mojom.WebTransportStreamPrioritySpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.WebTransportStreamPrioritySpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransportStreamPrioritySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransportStreamPrioritySpec.$ = {};
 mojo.internal.bindings.network.mojom.WebTransport = mojo.internal.bindings.network.mojom.WebTransport || {};
@@ -171,6 +173,10 @@ mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec = mojo.int
 if (mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_GetStats_ParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_GetStats_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ResponseParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.WebTransport_SetStreamPriority_ParamsSpec = mojo.internal.bindings.network.mojom.WebTransport_SetStreamPriority_ParamsSpec || { $: {} };
@@ -288,6 +294,9 @@ mojo.internal.bindings.network.mojom.WebTransportRemote = class {
   getStats() {
     return this.$.getStats();
   }
+  getReceiveStreamStats(arg_stream_id) {
+    return this.$.getReceiveStreamStats(arg_stream_id);
+  }
   close(arg_close_info) {
     return this.$.close(arg_close_info);
   }
@@ -300,6 +309,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebTransport', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -395,9 +405,18 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
       false);
   }
 
-  close(arg_close_info) {
+  getReceiveStreamStats(arg_stream_id) {
     return this.proxy.sendMessage(
       this.ordinals[9],  // ordinal
+      mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ParamsSpec,
+      mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ResponseParamsSpec,
+      [arg_stream_id],
+      false);
+  }
+
+  close(arg_close_info) {
+    return this.proxy.sendMessage(
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec,
       null,
       [arg_close_info],
@@ -406,7 +425,7 @@ mojo.internal.bindings.network.mojom.WebTransportRemoteCallHandler = class {
 
   setStreamPriority(arg_stream_id, arg_priority) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransport_SetStreamPriority_ParamsSpec,
       null,
       [arg_stream_id, arg_priority],
@@ -431,6 +450,7 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('network.mojom.WebTransport', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -602,12 +622,30 @@ mojo.internal.bindings.network.mojom.WebTransportReceiver = class {
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getReceiveStreamStats');
+          const result = this.impl.getReceiveStreamStats(params.arg_stream_id);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_stats' in response) ? response['arg_stats'] : response;
+              const resp_obj = { 'arg_stats': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getReceiveStreamStats FAILED:', e));
+          }
+          break;
+        }
+        case 10: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
           const result = this.impl.close(params.arg_close_info);
           break;
         }
-        case 10: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransport_SetStreamPriority_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStreamPriority');
@@ -661,8 +699,8 @@ mojo.internal.bindings.network.mojom.WebTransportClientRemote = class {
   onDatagramReceived(arg_data) {
     return this.$.onDatagramReceived(arg_data);
   }
-  onIncomingStreamClosed(arg_stream_id, arg_fin_received) {
-    return this.$.onIncomingStreamClosed(arg_stream_id, arg_fin_received);
+  onIncomingStreamClosed(arg_stream_id, arg_fin_received, arg_bytes_received) {
+    return this.$.onIncomingStreamClosed(arg_stream_id, arg_fin_received, arg_bytes_received);
   }
   onOutgoingStreamClosed(arg_stream_id) {
     return this.$.onOutgoingStreamClosed(arg_stream_id);
@@ -670,8 +708,8 @@ mojo.internal.bindings.network.mojom.WebTransportClientRemote = class {
   onReceivedStopSending(arg_stream_id, arg_stream_error_code) {
     return this.$.onReceivedStopSending(arg_stream_id, arg_stream_error_code);
   }
-  onReceivedResetStream(arg_stream_id, arg_stream_error_code) {
-    return this.$.onReceivedResetStream(arg_stream_id, arg_stream_error_code);
+  onReceivedResetStream(arg_stream_id, arg_stream_error_code, arg_bytes_received) {
+    return this.$.onReceivedResetStream(arg_stream_id, arg_stream_error_code, arg_bytes_received);
   }
   onClosed(arg_close_info, arg_final_stats) {
     return this.$.onClosed(arg_close_info, arg_final_stats);
@@ -704,12 +742,12 @@ mojo.internal.bindings.network.mojom.WebTransportClientRemoteCallHandler = class
       false);
   }
 
-  onIncomingStreamClosed(arg_stream_id, arg_fin_received) {
+  onIncomingStreamClosed(arg_stream_id, arg_fin_received, arg_bytes_received) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec,
       null,
-      [arg_stream_id, arg_fin_received],
+      [arg_stream_id, arg_fin_received, arg_bytes_received],
       false);
   }
 
@@ -731,12 +769,12 @@ mojo.internal.bindings.network.mojom.WebTransportClientRemoteCallHandler = class
       false);
   }
 
-  onReceivedResetStream(arg_stream_id, arg_stream_error_code) {
+  onReceivedResetStream(arg_stream_id, arg_stream_error_code, arg_bytes_received) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec,
       null,
-      [arg_stream_id, arg_stream_error_code],
+      [arg_stream_id, arg_stream_error_code, arg_bytes_received],
       false);
   }
 
@@ -837,7 +875,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onIncomingStreamClosed');
-          const result = this.impl.onIncomingStreamClosed(params.arg_stream_id, params.arg_fin_received);
+          const result = this.impl.onIncomingStreamClosed(params.arg_stream_id, params.arg_fin_received, params.arg_bytes_received);
           break;
         }
         case 2: {
@@ -858,7 +896,7 @@ mojo.internal.bindings.network.mojom.WebTransportClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceivedResetStream');
-          const result = this.impl.onReceivedResetStream(params.arg_stream_id, params.arg_stream_error_code);
+          const result = this.impl.onReceivedResetStream(params.arg_stream_id, params.arg_stream_error_code, params.arg_bytes_received);
           break;
         }
         case 5: {
@@ -1114,6 +1152,13 @@ mojo.internal.Struct(
     ],
     [[0, 64]]);
 
+// Struct: WebTransportReceiveStreamStats
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.WebTransportReceiveStreamStatsSpec, 'network.mojom.WebTransportReceiveStreamStats', [
+      mojo.internal.StructField('arg_bytes_received', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
 // Struct: WebTransportStreamPriority
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportStreamPrioritySpec, 'network.mojom.WebTransportStreamPriority', [
@@ -1212,6 +1257,18 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ParamsSpec, 'network.mojom.WebTransport_GetReceiveStreamStats_Params', [
+      mojo.internal.StructField('arg_stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.WebTransport_GetReceiveStreamStats_ResponseParamsSpec, 'network.mojom.WebTransport_GetReceiveStreamStats_ResponseParams', [
+      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.network.mojom.WebTransportReceiveStreamStatsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransport_Close_ParamsSpec, 'network.mojom.WebTransport_Close_Params', [
       mojo.internal.StructField('arg_close_info', 0, 0, mojo.internal.bindings.network.mojom.WebTransportCloseInfoSpec, null, true, 0, undefined),
     ],
@@ -1234,8 +1291,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportClient_OnIncomingStreamClosed_ParamsSpec, 'network.mojom.WebTransportClient_OnIncomingStreamClosed_Params', [
       mojo.internal.StructField('arg_stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_fin_received', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes_received', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportClient_OnOutgoingStreamClosed_ParamsSpec, 'network.mojom.WebTransportClient_OnOutgoingStreamClosed_Params', [
@@ -1254,8 +1312,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportClient_OnReceivedResetStream_ParamsSpec, 'network.mojom.WebTransportClient_OnReceivedResetStream_Params', [
       mojo.internal.StructField('arg_stream_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_stream_error_code', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes_received', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.WebTransportClient_OnClosed_ParamsSpec, 'network.mojom.WebTransportClient_OnClosed_Params', [

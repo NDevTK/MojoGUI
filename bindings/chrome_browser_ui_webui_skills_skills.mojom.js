@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -213,6 +213,8 @@ if (mojo.internal.bindings.skills.mojom.SkillsPageV2Spec.$.structSpec && mojo.in
 mojo.internal.bindings.skills.mojom.SkillsPageV2.$interfaceName = 'skills.mojom.SkillsPageV2';
 mojo.internal.bindings.skills.mojom.SkillsPageV2_LoadProvidedSkills_ParamsSpec = mojo.internal.bindings.skills.mojom.SkillsPageV2_LoadProvidedSkills_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.skills.mojom.SkillsPageV2_LoadProvidedSkills_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPageV2_LoadProvidedSkills_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPageV2_LoadProvidedSkills_ParamsSpec.$ = {};
+mojo.internal.bindings.skills.mojom.SkillsPageV2_OnUserSkillsUpdated_ParamsSpec = mojo.internal.bindings.skills.mojom.SkillsPageV2_OnUserSkillsUpdated_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.skills.mojom.SkillsPageV2_OnUserSkillsUpdated_ParamsSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPageV2_OnUserSkillsUpdated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPageV2_OnUserSkillsUpdated_ParamsSpec.$ = {};
 mojo.internal.bindings.skills.mojom.SkillsPageHandler = mojo.internal.bindings.skills.mojom.SkillsPageHandler || {};
 mojo.internal.bindings.skills.mojom.SkillsPageHandlerSpec = mojo.internal.bindings.skills.mojom.SkillsPageHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.skills.mojom.SkillsPageHandlerSpec.$.structSpec && mojo.internal.bindings.skills.mojom.SkillsPageHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.skills.mojom.SkillsPageHandlerSpec.$ = {};
@@ -1291,12 +1293,16 @@ mojo.internal.bindings.skills.mojom.SkillsPageV2Remote = class {
   loadProvidedSkills(arg_skills) {
     return this.$.loadProvidedSkills(arg_skills);
   }
+  onUserSkillsUpdated() {
+    return this.$.onUserSkillsUpdated();
+  }
 };
 
 mojo.internal.bindings.skills.mojom.SkillsPageV2RemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('skills.mojom.SkillsPageV2', [
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -1307,6 +1313,15 @@ mojo.internal.bindings.skills.mojom.SkillsPageV2RemoteCallHandler = class {
       mojo.internal.bindings.skills.mojom.SkillsPageV2_LoadProvidedSkills_ParamsSpec,
       null,
       [arg_skills],
+      false);
+  }
+
+  onUserSkillsUpdated() {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.skills.mojom.SkillsPageV2_OnUserSkillsUpdated_ParamsSpec,
+      null,
+      [],
       false);
   }
 
@@ -1328,6 +1343,7 @@ mojo.internal.bindings.skills.mojom.SkillsPageV2Receiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('skills.mojom.SkillsPageV2', [
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1377,6 +1393,13 @@ mojo.internal.bindings.skills.mojom.SkillsPageV2Receiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.SkillsPageV2_LoadProvidedSkills_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadProvidedSkills');
           const result = this.impl.loadProvidedSkills(params.arg_skills);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.SkillsPageV2_OnUserSkillsUpdated_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onUserSkillsUpdated');
+          const result = this.impl.onUserSkillsUpdated();
           break;
         }
       }
@@ -1997,6 +2020,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_skills', 0, 0, mojo.internal.Array(mojo.internal.bindings.skills.mojom.SkillSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.skills.mojom.SkillsPageV2_OnUserSkillsUpdated_ParamsSpec, 'skills.mojom.SkillsPageV2_OnUserSkillsUpdated_Params', [
+    ],
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.skills.mojom.SkillsPageHandler_SetPage_ParamsSpec, 'skills.mojom.SkillsPageHandler_SetPage_Params', [

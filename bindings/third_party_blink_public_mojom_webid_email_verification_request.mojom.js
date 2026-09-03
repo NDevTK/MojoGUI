@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -188,6 +188,7 @@ mojo.internal.bindings.blink.mojom.EmailVerificationRequestResult = {
   kTokenVerificationKbMissingCnf: 55,
   kTokenVerificationKbSignatureFailed: 56,
   kTokenVerificationSdJwtInvalidTyp: 57,
+  kCrossOriginIframeNotSupported: 58,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

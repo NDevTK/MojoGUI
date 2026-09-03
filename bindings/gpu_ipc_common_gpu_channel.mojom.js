@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -266,8 +266,6 @@ if (mojo.internal.bindings.gpu.mojom.CommandBufferClientSpec.$.structSpec && moj
 mojo.internal.bindings.gpu.mojom.CommandBufferClient.$interfaceName = 'gpu.mojom.CommandBufferClient';
 mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec = mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnConsoleMessage_ParamsSpec.$ = {};
-mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec = mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec.$ = {};
 mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec = mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec.$ = {};
 mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec = mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec || { $: {} };
@@ -1268,9 +1266,6 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemote = class {
   onConsoleMessage(arg_message) {
     return this.$.onConsoleMessage(arg_message);
   }
-  onGpuSwitched() {
-    return this.$.onGpuSwitched();
-  }
   onDestroyed(arg_reason, arg_error) {
     return this.$.onDestroyed(arg_reason, arg_error);
   }
@@ -1290,7 +1285,6 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
     ]);
   }
 
@@ -1303,18 +1297,9 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
       false);
   }
 
-  onGpuSwitched() {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
   onDestroyed(arg_reason, arg_error) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec,
       null,
       [arg_reason, arg_error],
@@ -1323,7 +1308,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
 
   onReturnData(arg_data) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec,
       null,
       [arg_data],
@@ -1332,7 +1317,7 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientRemoteCallHandler = class {
 
   onSignalAck(arg_signal_id, arg_state) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec,
       null,
       [arg_signal_id, arg_state],
@@ -1357,7 +1342,6 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('gpu.mojom.CommandBufferClient', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1414,26 +1398,19 @@ mojo.internal.bindings.gpu.mojom.CommandBufferClientReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onGpuSwitched');
-          const result = this.impl.onGpuSwitched();
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDestroyed');
           const result = this.impl.onDestroyed(params.arg_reason, params.arg_error);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnReturnData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReturnData');
           const result = this.impl.onReturnData(params.arg_data);
           break;
         }
-        case 4: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnSignalAck_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSignalAck');
@@ -2337,11 +2314,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnGpuSwitched_ParamsSpec, 'gpu.mojom.CommandBufferClient_OnGpuSwitched_Params', [
-    ],
-    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.CommandBufferClient_OnDestroyed_ParamsSpec, 'gpu.mojom.CommandBufferClient_OnDestroyed_Params', [

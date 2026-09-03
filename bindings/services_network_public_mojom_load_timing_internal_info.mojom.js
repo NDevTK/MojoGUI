@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -131,10 +131,15 @@ mojo.internal.bindings.network.mojom.AdvertisedAltSvcStateSpec = mojo.internal.b
 mojo.internal.bindings.network.mojom.ResolutionSourceSpec = mojo.internal.bindings.network.mojom.ResolutionSourceSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.NextProtoSpec = mojo.internal.bindings.network.mojom.NextProtoSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.HttpConnectionInfoCoarseSpec = mojo.internal.bindings.network.mojom.HttpConnectionInfoCoarseSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.QuicSessionEstablishmentReasonSpec = mojo.internal.bindings.network.mojom.QuicSessionEstablishmentReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.QuicSessionNonReuseReasonSpec = mojo.internal.bindings.network.mojom.QuicSessionNonReuseReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network.mojom.MultiplexedSessionCreationInitiatorSpec = mojo.internal.bindings.network.mojom.MultiplexedSessionCreationInitiatorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.DohResolutionDetailsSpec = mojo.internal.bindings.network.mojom.DohResolutionDetailsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.DohResolutionDetailsSpec.$.structSpec && mojo.internal.bindings.network.mojom.DohResolutionDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.DohResolutionDetailsSpec.$ = {};
 mojo.internal.bindings.network.mojom.ResolutionDetailsSpec = mojo.internal.bindings.network.mojom.ResolutionDetailsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.ResolutionDetailsSpec.$.structSpec && mojo.internal.bindings.network.mojom.ResolutionDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ResolutionDetailsSpec.$ = {};
+mojo.internal.bindings.network.mojom.QuicConnectionReuseDetailsSpec = mojo.internal.bindings.network.mojom.QuicConnectionReuseDetailsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.QuicConnectionReuseDetailsSpec.$.structSpec && mojo.internal.bindings.network.mojom.QuicConnectionReuseDetailsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.QuicConnectionReuseDetailsSpec.$ = {};
 mojo.internal.bindings.network.mojom.LoadTimingInternalInfoSpec = mojo.internal.bindings.network.mojom.LoadTimingInternalInfoSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.LoadTimingInternalInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.LoadTimingInternalInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.LoadTimingInternalInfoSpec.$ = {};
 
@@ -185,6 +190,38 @@ mojo.internal.bindings.network.mojom.HttpConnectionInfoCoarse = {
   kOTHER: 3,
 };
 
+// Enum: QuicSessionEstablishmentReason
+mojo.internal.bindings.network.mojom.QuicSessionEstablishmentReason = {
+  kUnknown: 0,
+  kNoSessionExisted: 1,
+  kSessionExistedButNotPreconnect: 2,
+  kSessionExistedAndWasPreconnect: 3,
+  kSessionExistedBoth: 4,
+  kInflightSessionButNotPreconnect: 5,
+  kInflightSessionAndWasPreconnect: 6,
+};
+
+// Enum: QuicSessionNonReuseReason
+mojo.internal.bindings.network.mojom.QuicSessionNonReuseReason = {
+  kNoSessionExisted_TrueColdStart: 0,
+  kNoSessionExisted_KeyMismatch_SocketTag: 1,
+  kNoSessionExisted_KeyMismatch_NetworkAnonymizationKey: 2,
+  kNoSessionExisted_KeyMismatch_PrivacyMode: 3,
+  kNoSessionExisted_KeyMismatch_SecureDnsPolicy: 4,
+  kNoSessionExisted_KeyMismatch_Other: 5,
+  kSessionExisted_ServerGoaway: 6,
+  kSessionExisted_Disconnected: 7,
+  kSessionExisted_OtherGoingAway: 8,
+  kNoSessionExisted_KeyMismatch_MultipleFields: 9,
+  kSessionExisted_MultipleReasons: 10,
+};
+
+// Enum: MultiplexedSessionCreationInitiator
+mojo.internal.bindings.network.mojom.MultiplexedSessionCreationInitiator = {
+  kUnknown: 0,
+  kPreconnect: 1,
+};
+
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
 // Struct: DohResolutionDetails
@@ -205,6 +242,14 @@ mojo.internal.Struct(
     ],
     [[0, 32]]);
 
+// Struct: QuicConnectionReuseDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.QuicConnectionReuseDetailsSpec, 'network.mojom.QuicConnectionReuseDetails', [
+      mojo.internal.StructField('arg_establishment_reason', 0, 0, mojo.internal.bindings.network.mojom.QuicSessionEstablishmentReasonSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_non_reuse_reason', 4, 0, mojo.internal.bindings.network.mojom.QuicSessionNonReuseReasonSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
 // Struct: LoadTimingInternalInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.LoadTimingInternalInfoSpec, 'network.mojom.LoadTimingInternalInfo', [
@@ -216,6 +261,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_session_source', 28, 0, mojo.internal.bindings.network.mojom.SessionSourceSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_initialize_stream_delay', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_advertised_alt_svc_state', 40, 0, mojo.internal.bindings.network.mojom.AdvertisedAltSvcStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_creation_initiator', 44, 0, mojo.internal.bindings.network.mojom.MultiplexedSessionCreationInitiatorSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_resolution_details', 48, 0, mojo.internal.bindings.network.mojom.ResolutionDetailsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_quic_connection_reuse_details', 56, 0, mojo.internal.bindings.network.mojom.QuicConnectionReuseDetailsSpec, null, true, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);

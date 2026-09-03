@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -241,6 +241,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_allow_webauthn_forwarding_$value', 2, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_allow_webauthn_forwarding_$flag', originalFieldName: 'arg_allow_webauthn_forwarding' }),
       mojo.internal.StructField('arg_allow_gnubby_forwarding_$flag', 2, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_allow_gnubby_forwarding_$value', originalFieldName: 'arg_allow_gnubby_forwarding' }),
       mojo.internal.StructField('arg_allow_gnubby_forwarding_$value', 2, 2, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_allow_gnubby_forwarding_$flag', originalFieldName: 'arg_allow_gnubby_forwarding' }),
+      mojo.internal.StructField('arg_allow_terminal_mode_$flag', 2, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_allow_terminal_mode_$value', originalFieldName: 'arg_allow_terminal_mode' }),
+      mojo.internal.StructField('arg_allow_terminal_mode_$value', 2, 4, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_allow_terminal_mode_$flag', originalFieldName: 'arg_allow_terminal_mode' }),
       mojo.internal.StructField('arg_clipboard_size_bytes_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_clipboard_size_bytes_$flag', originalFieldName: 'arg_clipboard_size_bytes' }),
       mojo.internal.StructField('arg_host_udp_port_range', 16, 0, mojo.internal.bindings.remoting.mojom.PortRangeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_maximum_session_duration', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),

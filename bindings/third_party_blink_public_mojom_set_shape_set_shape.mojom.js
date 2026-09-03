@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -151,6 +151,7 @@ mojo.internal.bindings.blink.mojom.SetShapeResult = {
   kSuccess: 0,
   kNoWindow: 1,
   kNotUnframed: 2,
+  kOutOfBounds: 3,
 };
 
 // Interface: SetShapeService

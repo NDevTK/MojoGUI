@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,12 +126,15 @@ mojo.internal.bindings.discards.mojom = mojo.internal.bindings.discards.mojom ||
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojom = mojo.internal.bindings.mojom || {};
+mojo.internal.bindings.memory_instrumentation = mojo.internal.bindings.memory_instrumentation || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.discards.mojom.LifecycleUnitVisibilitySpec = mojo.internal.bindings.discards.mojom.LifecycleUnitVisibilitySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.discards.mojom.CanFreezeSpec = mojo.internal.bindings.discards.mojom.CanFreezeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec = mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec || { $: {} };
 if (mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec.$.structSpec && mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec.$ = {};
+mojo.internal.bindings.discards.mojom.ProcessDescriptionSpec = mojo.internal.bindings.discards.mojom.ProcessDescriptionSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.ProcessDescriptionSpec.$.structSpec && mojo.internal.bindings.discards.mojom.ProcessDescriptionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.ProcessDescriptionSpec.$ = {};
 mojo.internal.bindings.discards.mojom.PageInfoSpec = mojo.internal.bindings.discards.mojom.PageInfoSpec || { $: {} };
 if (mojo.internal.bindings.discards.mojom.PageInfoSpec.$.structSpec && mojo.internal.bindings.discards.mojom.PageInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.PageInfoSpec.$ = {};
 mojo.internal.bindings.discards.mojom.FrameInfoSpec = mojo.internal.bindings.discards.mojom.FrameInfoSpec || { $: {} };
@@ -170,6 +173,10 @@ mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_Par
 if (mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec.$ = {};
 mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ParamsSpec.$ = {};
+mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ResponseParamsSpec = mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.discards.mojom.GraphChangeStream = mojo.internal.bindings.discards.mojom.GraphChangeStream || {};
 mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec = mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec || { $ : {} };
 if (mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphChangeStreamSpec.$ = {};
@@ -206,6 +213,9 @@ mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_Response
 if (mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.memory_instrumentation = mojo.internal.bindings.memory_instrumentation || {};
+mojo.internal.bindings.memory_instrumentation.mojom = mojo.internal.bindings.memory_instrumentation.mojom || {};
+mojo.internal.bindings.memory_instrumentation.mojom.ProcessMemoryDumpSpec = mojo.internal.bindings.memory_instrumentation.mojom.ProcessMemoryDumpSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.JSTimeSpec = mojo.internal.bindings.mojo_base.mojom.JSTimeSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -290,12 +300,16 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemote = class {
   refreshPerformanceTabCpuMeasurements() {
     return this.$.refreshPerformanceTabCpuMeasurements();
   }
+  getProcessMemoryDumps() {
+    return this.$.getProcessMemoryDumps();
+  }
 };
 
 mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('discards.mojom.DetailsProvider', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -379,6 +393,15 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRemoteCallHandler = class {
       false);
   }
 
+  getProcessMemoryDumps() {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
+      mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ParamsSpec,
+      mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.discards.mojom.DetailsProvider.getRemote = function() {
@@ -397,6 +420,7 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('discards.mojom.DetailsProvider', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -543,6 +567,23 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.refreshPerformanceTabCpuMeasurements');
           const result = this.impl.refreshPerformanceTabCpuMeasurements();
+          break;
+        }
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getProcessMemoryDumps');
+          const result = this.impl.getProcessMemoryDumps();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getProcessMemoryDumps FAILED:', e));
+          }
           break;
         }
       }
@@ -1076,6 +1117,14 @@ mojo.internal.Struct(
     ],
     [[0, 96]]);
 
+// Struct: ProcessDescription
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.ProcessDescriptionSpec, 'discards.mojom.ProcessDescription', [
+      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: PageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.PageInfoSpec, 'discards.mojom.PageInfo', [
@@ -1195,6 +1244,19 @@ mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec, 'discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ParamsSpec, 'discards.mojom.DetailsProvider_GetProcessMemoryDumps_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_GetProcessMemoryDumps_ResponseParamsSpec, 'discards.mojom.DetailsProvider_GetProcessMemoryDumps_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_process_dumps', 8, 0, mojo.internal.Array(mojo.internal.bindings.memory_instrumentation.mojom.ProcessMemoryDumpSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_process_descriptions', 16, 0, mojo.internal.Array(mojo.internal.bindings.discards.mojom.ProcessDescriptionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_FrameCreated_Params', [

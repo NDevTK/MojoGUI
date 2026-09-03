@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -559,8 +559,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.AttestationFormatSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_statement', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_signature', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subject_key', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 mojo.internal.Struct(
     mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_Params', [
       mojo.internal.StructField('arg_acceptable_algorithms', 0, 0, mojo.internal.Array(mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec, false), null, false, 0, undefined),

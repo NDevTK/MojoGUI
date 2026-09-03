@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -180,6 +180,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec = mojo.inter
 if (mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.OverflowButtonControlStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.OverflowButtonControlStateSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.OverflowButtonControlStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.OverflowButtonControlStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.OverflowButtonControlStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.PageActionStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PageActionStateSpec || { $: {} };
@@ -681,6 +683,13 @@ mojo.internal.Struct(
     ],
     [[0, 56]]);
 
+// Struct: OverflowButtonControlState
+mojo.internal.Struct(
+    mojo.internal.bindings.toolbar_ui_api.mojom.OverflowButtonControlStateSpec, 'toolbar_ui_api.mojom.OverflowButtonControlState', [
+      mojo.internal.StructField('arg_is_context_menu_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
 // Struct: ContentSettingImageState
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ContentSettingImageStateSpec, 'toolbar_ui_api.mojom.ContentSettingImageState', [
@@ -851,11 +860,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_performance_intervention_control_state', 32, 0, mojo.internal.bindings.toolbar_ui_api.mojom.PerformanceInterventionControlStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_app_menu_control_state', 40, 0, mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_avatar_control_state', 48, 0, mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_battery_saver_button_visible', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_touch_ui', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_layout_constants_version', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_location_bar_state', 64, 0, mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_extensions_state', 72, 0, mojo.internal.Array(mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pinned_toolbar_actions_state', 80, 0, mojo.internal.Array(mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_overflow_button_control_state', 56, 0, mojo.internal.bindings.toolbar_ui_api.mojom.OverflowButtonControlStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_battery_saver_button_visible', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_ui', 64, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_layout_constants_version', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_location_bar_state', 72, 0, mojo.internal.bindings.toolbar_ui_api.mojom.LocationBarStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extensions_state', 80, 0, mojo.internal.Array(mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pinned_toolbar_actions_state', 88, 0, mojo.internal.Array(mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec, false), null, false, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 104]]);

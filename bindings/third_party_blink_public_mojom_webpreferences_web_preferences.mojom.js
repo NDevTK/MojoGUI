@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8038.2';
+        const versionStr = window.mojoVersion || '155.0.8040.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -358,18 +358,19 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_text_track_margin_percentage', 208, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_default_minimum_page_scale_factor', 212, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_web_app_scope', 216, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_maximum_page_scale_factor', 224, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_autoplay_policy', 228, 0, mojo.internal.bindings.blink.mojom.AutoplayPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_root_scrollbar_theme_color', 232, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_preferred_root_scrollbar_color_scheme', 240, 0, mojo.internal.bindings.blink.mojom.PreferredColorSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_color_scheme', 244, 0, mojo.internal.bindings.blink.mojom.PreferredColorSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_contrast', 248, 0, mojo.internal.bindings.blink.mojom.PreferredContrastSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_low_priority_iframes_threshold', 252, 0, mojo.internal.bindings.blink.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_quality_estimator_web_holdback', 256, 0, mojo.internal.bindings.blink.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_strict_mime_type_check_for_worker_scripts_enabled', 260, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_modal_context_menu', 260, 1, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_payment_request_enabled', 260, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ai_ot_apis_enabled', 260, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_indigo_onboarding', 260, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_web_app_custom_manifest_url', 224, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_maximum_page_scale_factor', 232, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_autoplay_policy', 236, 0, mojo.internal.bindings.blink.mojom.AutoplayPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_root_scrollbar_theme_color', 240, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_preferred_root_scrollbar_color_scheme', 248, 0, mojo.internal.bindings.blink.mojom.PreferredColorSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_color_scheme', 252, 0, mojo.internal.bindings.blink.mojom.PreferredColorSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_contrast', 256, 0, mojo.internal.bindings.blink.mojom.PreferredContrastSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_low_priority_iframes_threshold', 260, 0, mojo.internal.bindings.blink.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_quality_estimator_web_holdback', 264, 0, mojo.internal.bindings.blink.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_strict_mime_type_check_for_worker_scripts_enabled', 268, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_modal_context_menu', 268, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_payment_request_enabled', 268, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ai_ot_apis_enabled', 268, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_indigo_onboarding', 268, 4, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 272]]);
+    [[0, 280]]);
