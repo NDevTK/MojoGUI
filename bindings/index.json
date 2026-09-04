@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-03T14:01:10.090466Z",
-  "version": "155.0.8040.0",
+  "generated_at": "2026-09-04T13:54:57.355361Z",
+  "version": "155.0.8042.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3963,6 +3963,7 @@
         "CreateAnnotationHandler",
         "CreateSkillsHandler",
         "CreateZeroStateSuggestionsHandler",
+        "CreateAiOverlayTools",
         "CreateTab",
         "ActivateTabWithUrl",
         "OpenLinkInPopup",
@@ -5259,6 +5260,7 @@
         "usage": {
           "associated": [],
           "direct": [
+            "Internal Interface: glic.mojom.WebClientHandler.CreateAiOverlayTools",
             "Internal Interface: ai_overlay_dialog.mojom.PageHandlerFactory.CreatePageHandler"
           ]
         },
@@ -7694,11 +7696,14 @@
         "ClearTabGroups",
         "ClearTabGroupChatHistory",
         "AskGeminiWithContext",
+        "GetMemoryBankChatHistory",
+        "ClearMemoryBankChatHistory",
         "ConfirmAllTabGroups",
         "GetConfirmedTabGroups",
         "RemoveConfirmedTabGroup",
         "CloseConfirmedTabGroup",
-        "RemoveAllConfirmedTabGroups"
+        "RemoveAllConfirmedTabGroups",
+        "ExecuteSmartSearch"
       ],
       "metadata": {
         "usage": {
@@ -10173,7 +10178,8 @@
         "SetInputState",
         "SetFocus",
         "ClearAutocompleteMatches",
-        "ClearPopup"
+        "ClearPopup",
+        "SetDefaultSearchProvider"
       ],
       "metadata": {
         "usage": {
@@ -13284,6 +13290,7 @@
         "OnPlaybackStateChanged",
         "OnPlaybackDurationChanged",
         "OnWordBoundaryReached",
+        "OnTextChunked",
         "RequestSpeechSynthesis"
       ],
       "metadata": {
@@ -13487,6 +13494,24 @@
         "gates": [
           "feature:kIndigo"
         ]
+      }
+    },
+    {
+      "name": "TabContextDecryptionTokenExtension",
+      "module": "chrome.mojom",
+      "file": "chrome_common_tab_context_decryption_token_extension.mojom.js",
+      "methods": [
+        "GetContainerDecryptionToken"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [
+            "Source: Associated Interface (RFH/Navigation)"
+          ],
+          "direct": []
+        },
+        "scope": "context",
+        "category": "associated"
       }
     },
     {
@@ -23733,7 +23758,8 @@
       "file": "components_browser_apis_ui_controllers_toolbar_toolbar_ui_api.mojom.js",
       "methods": [
         "OnNavigationControlsStateChanged",
-        "OnFocusRequested"
+        "OnFocusRequested",
+        "ShowSplitTabsContextMenu"
       ],
       "metadata": {
         "usage": {
@@ -25740,6 +25766,7 @@
         "SetAimButtonVisible",
         "SetAimButtonConfig",
         "SetInputText",
+        "SetKeywordSpaceTriggeringEnabled",
         "SetThumbnail",
         "OnContextualInputStatusChanged",
         "OnTabStripChanged",
@@ -27289,6 +27316,7 @@
         "GetPathForBlobForTesting",
         "FlushBackingStoreForTesting",
         "FlushBucketSequenceForTesting",
+        "PerformAndVerifySqliteMigrationForTesting",
         "GetUsageForTesting",
         "BindMockFailureSingletonForTesting",
         "ForceInitializeFromFilesForTesting"
@@ -51561,6 +51589,7 @@
         "mojo/public/mojom/base/version.mojom",
         "skia/public/mojom/bitmap.mojom",
         "third_party/blink/public/mojom/content_extraction/ai_page_content_metadata.mojom",
+        "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
@@ -53016,6 +53045,14 @@
       "source": "chrome/common/supervised_user_commands.mojom",
       "module": "supervised_user.mojom",
       "imports": []
+    },
+    {
+      "filename": "chrome_common_tab_context_decryption_token_extension.mojom.js",
+      "source": "chrome/common/tab_context_decryption_token_extension.mojom",
+      "module": "chrome.mojom",
+      "imports": [
+        "mojo/public/mojom/base/uuid.mojom"
+      ]
     },
     {
       "filename": "chrome_common_trusted_vault_encryption_keys_extension.mojom.js",
@@ -64045,7 +64082,8 @@
         "services/network/public/mojom/integrity_policy.mojom",
         "services/network/public/mojom/ip_address_space.mojom",
         "services/network/public/mojom/referrer_policy.mojom",
-        "services/network/public/mojom/web_sandbox_flags.mojom"
+        "services/network/public/mojom/web_sandbox_flags.mojom",
+        "third_party/blink/public/mojom/tokens/tokens.mojom"
       ]
     },
     {
