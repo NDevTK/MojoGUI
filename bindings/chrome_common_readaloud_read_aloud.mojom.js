@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '155.0.8042.0';
+        const versionStr = window.mojoVersion || '155.0.8043.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 
 mojo.internal.bindings.read_aloud.mojom.PlaybackStateSpec = mojo.internal.bindings.read_aloud.mojom.PlaybackStateSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.read_aloud.mojom.TextSegmentSpec = mojo.internal.bindings.read_aloud.mojom.TextSegmentSpec || { $: {} };

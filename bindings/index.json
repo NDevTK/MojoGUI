@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-04T13:54:57.355361Z",
-  "version": "155.0.8042.0",
+  "generated_at": "2026-09-05T13:08:58.599335Z",
+  "version": "155.0.8043.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -53003,8 +53003,8 @@
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
-        "mojo/public/mojom/base/work_in_progress.mojom",
-        "sandbox/policy/mojom/sandbox.mojom"
+        "sandbox/policy/mojom/sandbox.mojom",
+        "ui/accessibility/ax_features.mojom"
       ]
     },
     {
