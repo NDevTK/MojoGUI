@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-08T14:01:49.544695Z",
-  "version": "155.0.8044.2",
+  "generated_at": "2026-09-09T14:05:37.408952Z",
+  "version": "155.0.8048.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3352,6 +3352,56 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
+      }
+    },
+    {
+      "name": "BrowserActuatorInternalsPage",
+      "module": "browser_actuator_internals.mojom",
+      "file": "chrome_browser_browser_actuator_internals_browser_actuator_internals.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "BrowserActuatorInternalsUI",
+      "module": "browser_actuator_internals.mojom",
+      "file": "chrome_browser_browser_actuator_internals_browser_actuator_internals.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory.CreateUI"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "BrowserActuatorInternalsUIFactory",
+      "module": "browser_actuator_internals.mojom",
+      "file": "chrome_browser_browser_actuator_internals_browser_actuator_internals.mojom.js",
+      "methods": [
+        "CreateUI"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -11649,7 +11699,8 @@
         "InvokeSkill",
         "SendPrompt",
         "CloseDialog",
-        "GetPendingEditorData"
+        "GetPendingEditorData",
+        "SignIn"
       ],
       "metadata": {
         "usage": {
@@ -23775,6 +23826,7 @@
       "file": "components_browser_apis_ui_controllers_toolbar_extensions_bar.mojom.js",
       "methods": [
         "ExecuteUserAction",
+        "OnPointerDown",
         "ShowContextMenu",
         "ToggleExtensionsMenuFromWebUI"
       ],
@@ -23882,6 +23934,7 @@
         "SetAvatarButtonIphPromoShowing",
         "OnAppMenuFocusChanged",
         "ExecuteExtensionAction",
+        "OnExtensionActionPointerDown",
         "ShowExtensionContextMenu",
         "AdjustOmniboxTextForCopy",
         "OnPerformanceInterventionButtonClicked",
@@ -24570,6 +24623,42 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
+      }
+    },
+    {
+      "name": "FacilitatedPaymentsAgent",
+      "module": "payments.facilitated.mojom",
+      "file": "components_facilitated_payments_core_mojom_facilitated_payments_agent.mojom.js",
+      "methods": [
+        "SetQrCodeDetectionEnabled"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "FacilitatedPaymentsDriver",
+      "module": "payments.facilitated.mojom",
+      "file": "components_facilitated_payments_core_mojom_facilitated_payments_agent.mojom.js",
+      "methods": [
+        "ReportHeuristicScore"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -38587,7 +38676,8 @@
         "DisableExclusiveCookieDatabaseLockingForTesting",
         "IsHappyEyeballsV3Enabled",
         "HasRawHeadersAccess",
-        "SetEmulateNetworkBindingForTesting"
+        "SetEmulateNetworkBindingForTesting",
+        "ProcessSharedCacheEligibleEntriesForTesting"
       ],
       "metadata": {
         "usage": {
@@ -39385,11 +39475,31 @@
       }
     },
     {
+      "name": "WebTransportDatagramWritable",
+      "module": "network.mojom",
+      "file": "services_network_public_mojom_web_transport.mojom.js",
+      "methods": [
+        "SendDatagram",
+        "SetPriority"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: network.mojom.WebTransport.CreateDatagramWritable"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "WebTransport",
       "module": "network.mojom",
       "file": "services_network_public_mojom_web_transport.mojom.js",
       "methods": [
         "SendDatagram",
+        "CreateDatagramWritable",
         "CreateStream",
         "AcceptBidirectionalStream",
         "AcceptUnidirectionalStream",
@@ -51583,6 +51693,12 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_browser_actuator_internals_browser_actuator_internals.mojom.js",
+      "source": "chrome/browser/browser_actuator/internals/browser_actuator_internals.mojom",
+      "module": "browser_actuator_internals.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_contextual_cueing_internals_contextual_cueing_internals.mojom.js",
       "source": "chrome/browser/contextual_cueing/internals/contextual_cueing_internals.mojom",
       "module": "contextual_cueing_internals.mojom",
@@ -55815,6 +55931,12 @@
       "imports": [
         "mojo/public/mojom/base/shared_memory.mojom"
       ]
+    },
+    {
+      "filename": "components_facilitated_payments_core_mojom_facilitated_payments_agent.mojom.js",
+      "source": "components/facilitated_payments/core/mojom/facilitated_payments_agent.mojom",
+      "module": "payments.facilitated.mojom",
+      "imports": []
     },
     {
       "filename": "components_facilitated_payments_core_mojom_pix_code_validator.mojom.js",
@@ -66290,7 +66412,6 @@
       "imports": [
         "services/network/public/mojom/cross_origin_embedder_policy.mojom",
         "services/network/public/mojom/fetch_api.mojom",
-        "services/network/public/mojom/storage_access_api.mojom",
         "third_party/blink/public/mojom/blob/blob_url_store.mojom",
         "third_party/blink/public/mojom/browser_interface_broker.mojom",
         "third_party/blink/public/mojom/frame/reporting_observer.mojom",
