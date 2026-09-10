@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-09T14:05:37.408952Z",
-  "version": "155.0.8048.0",
+  "generated_at": "2026-09-10T13:59:10.985329Z",
+  "version": "155.0.8050.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3455,7 +3455,6 @@
         "OnWebviewMessage",
         "GetCommonSearchParams",
         "OnboardingTooltipDismissed",
-        "LensSearchTooltipDismissed",
         "AskGTooltipDismissed",
         "ReopenTabs",
         "PinSidePanel",
@@ -4555,7 +4554,10 @@
         "DeleteRegion",
         "ClosePreselectionBubble",
         "AddBackgroundBlur",
-        "SetLiveBlur"
+        "SetLiveBlur",
+        "SubmitPrompt",
+        "GetSuggestedActions",
+        "ExecuteSuggestedAction"
       ],
       "metadata": {
         "usage": {
@@ -4636,8 +4638,6 @@
         "ClosePreselectionBubble",
         "RecordUkmAndTaskCompletionForLensOverlayInteraction",
         "RecordLensOverlaySemanticEvent",
-        "MaybeShowTranslateFeaturePromo",
-        "MaybeCloseTranslateFeaturePromo",
         "FetchSupportedLanguages",
         "FinishReshowOverlay",
         "AcceptPrivacyNotice",
@@ -7770,6 +7770,52 @@
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "critical_actions.mojom",
+      "file": "chrome_browser_ui_webui_critical_actions_critical_actions.mojom.js",
+      "methods": [
+        "GetCriticalActions",
+        "DeleteCriticalAction",
+        "ClearAllCriticalActions"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: critical_actions.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "critical_actions.mojom",
+      "file": "chrome_browser_ui_webui_critical_actions_critical_actions.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -44943,6 +44989,7 @@
         "UpdateFaviconURL",
         "DownloadURL",
         "ShowCaptionSettings",
+        "UpdateToVideoAdFrame",
         "FocusedElementChanged",
         "TextSelectionChanged",
         "ShowPopupMenu",
@@ -45012,6 +45059,7 @@
       "methods": [
         "GetTextSurroundingSelection",
         "SendInterventionReport",
+        "UpdateChildFrameToVideoAd",
         "SetFrameOwnerProperties",
         "NotifyUserActivation",
         "NotifyVirtualKeyboardOverlayRect",
@@ -52347,6 +52395,12 @@
         "mojo/public/mojom/base/uuid.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_critical_actions_critical_actions.mojom.js",
+      "source": "chrome/browser/ui/webui/critical_actions/critical_actions.mojom",
+      "module": "critical_actions.mojom",
+      "imports": []
     },
     {
       "filename": "chrome_browser_ui_webui_customize_buttons_customize_buttons.mojom.js",
