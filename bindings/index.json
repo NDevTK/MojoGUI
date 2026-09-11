@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-10T13:59:10.985329Z",
-  "version": "155.0.8050.0",
+  "generated_at": "2026-09-11T14:03:28.117190Z",
+  "version": "155.0.8052.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3852,6 +3852,25 @@
       }
     },
     {
+      "name": "GeminiEnterpriseHandler",
+      "module": "glic.mojom",
+      "file": "chrome_browser_glic_gemini_enterprise_gemini_enterprise.mojom.js",
+      "methods": [
+        "OpenSignInTab",
+        "CloseSignInTab"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: glic.mojom.WebClientHandler.CreateGeminiEnterpriseHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PinCandidatesObserver",
       "module": "glic.mojom",
       "file": "chrome_browser_glic_host_glic.mojom.js",
@@ -4080,7 +4099,8 @@
         "RegisterConversation",
         "SetOnboardingCompleted",
         "SubscribeToTabData",
-        "SubscribeToTabFavicon"
+        "SubscribeToTabFavicon",
+        "CreateGeminiEnterpriseHandler"
       ],
       "metadata": {
         "usage": {
@@ -5231,7 +5251,12 @@
         "SetRememberedNote",
         "GetRememberedNotes",
         "SaveDebugFile",
-        "GetImageBytes"
+        "GetImageBytes",
+        "StartStreamingSession",
+        "SendAudioChunk",
+        "SendTextInput",
+        "ReportPlaybackStatus",
+        "StopStreamingSession"
       ],
       "metadata": {
         "usage": {
@@ -5258,7 +5283,11 @@
         "UpdateCurrentPageContext",
         "SetInputCaptionsVisible",
         "SetOutputCaptionsVisible",
-        "SetUsePersona"
+        "SetUsePersona",
+        "OnStreamingSessionStateChanged",
+        "OnTranscriptions",
+        "OnAudioOutput",
+        "OnGenerationStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -25974,6 +26003,7 @@
         "SetAimButtonConfig",
         "SetInputText",
         "SetKeywordSpaceTriggeringEnabled",
+        "SetAvailableKeywordModels",
         "SetThumbnail",
         "OnContextualInputStatusChanged",
         "OnTabStripChanged",
@@ -51808,10 +51838,19 @@
       ]
     },
     {
+      "filename": "chrome_browser_glic_gemini_enterprise_gemini_enterprise.mojom.js",
+      "source": "chrome/browser/glic/gemini_enterprise/gemini_enterprise.mojom",
+      "module": "glic.mojom",
+      "imports": [
+        "url/mojom/url.mojom"
+      ]
+    },
+    {
       "filename": "chrome_browser_glic_host_glic.mojom.js",
       "source": "chrome/browser/glic/host/glic.mojom",
       "module": "glic.mojom",
       "imports": [
+        "chrome/browser/glic/gemini_enterprise/gemini_enterprise.mojom",
         "chrome/browser/glic/host/glic_features.mojom",
         "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom",
         "chrome/common/actor_webui.mojom",
