@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-11T14:03:28.117190Z",
-  "version": "155.0.8052.0",
+  "generated_at": "2026-09-12T13:16:15.280765Z",
+  "version": "155.0.8054.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -8077,7 +8077,8 @@
       "module": "visual_guided_setter.mojom",
       "file": "chrome_browser_ui_webui_default_browser_visual_guided_setter.mojom.js",
       "methods": [
-        "SetErrorState"
+        "SetErrorState",
+        "SetDockedSettingsBounds"
       ],
       "metadata": {
         "usage": {
@@ -10201,7 +10202,9 @@
         "InvokeOmniboxEverywhere",
         "ShowLensIph",
         "CreateStartMenuShortcut",
-        "PinToTaskbar"
+        "PinToTaskbar",
+        "ResetProfilePrefs",
+        "ResetAllPrefs"
       ],
       "metadata": {
         "usage": {
@@ -10267,7 +10270,8 @@
       "module": "omnibox_everywhere.mojom",
       "file": "chrome_browser_ui_webui_omnibox_everywhere_mojom_omnibox_everywhere.mojom.js",
       "methods": [
-        "ShowContextActionMenu"
+        "ShowContextActionMenu",
+        "SetIsComposebox"
       ],
       "metadata": {
         "usage": {
@@ -14640,43 +14644,6 @@
       "methods": [
         "GetAll",
         "Connect"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "BluetoothDeviceAccessProvider",
-      "module": "chromecast.mojom",
-      "file": "chromecast_browser_bluetooth_public_mojom_web_bluetooth.mojom.js",
-      "methods": [
-        "RequestDeviceAccess"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "BluetoothDeviceAccessProviderClient",
-      "module": "chromecast.mojom",
-      "file": "chromecast_browser_bluetooth_public_mojom_web_bluetooth.mojom.js",
-      "methods": [
-        "GrantAccess",
-        "GrantAccessToAllDevices"
       ],
       "metadata": {
         "usage": {
@@ -24013,7 +23980,9 @@
         "ShowExtensionContextMenu",
         "AdjustOmniboxTextForCopy",
         "OnPerformanceInterventionButtonClicked",
-        "OnPerformanceInterventionButtonMousePressed"
+        "OnPerformanceInterventionButtonMousePressed",
+        "OnMediaButtonClicked",
+        "OnMediaButtonMousePressed"
       ],
       "metadata": {
         "usage": {
@@ -25968,6 +25937,7 @@
         "SetSmartTabSharingActive",
         "GetSmartTabSharingActive",
         "DismissFre",
+        "ShowHotkeyDropdown",
         "OpenHotkeySettings"
       ],
       "metadata": {
@@ -25994,7 +25964,7 @@
       "module": "searchbox.mojom",
       "file": "components_omnibox_browser_searchbox.mojom.js",
       "methods": [
-        "SetShowFre",
+        "SetFreState",
         "AutocompleteResultChanged",
         "UpdateSelection",
         "StepSelection",
@@ -27437,41 +27407,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "IndexedDBClientStateChecker",
-      "module": "storage.mojom",
-      "file": "components_services_storage_privileged_mojom_indexed_db_client_state_checker.mojom.js",
-      "methods": [
-        "DisallowInactiveClient",
-        "MakeClone"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: storage.mojom.IndexedDBClientStateChecker.MakeClone"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "IndexedDBClientKeepActive",
-      "module": "storage.mojom",
-      "file": "components_services_storage_privileged_mojom_indexed_db_client_state_checker.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: storage.mojom.IndexedDBClientStateChecker.DisallowInactiveClient"
           ]
         },
         "scope": "context",
@@ -35462,6 +35397,24 @@
       }
     },
     {
+      "name": "CertificateBroker",
+      "module": "remoting.mojom",
+      "file": "remoting_host_mojom_remoting_host.mojom.js",
+      "methods": [
+        "GetCertificates"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "WebAuthnRequestCanceller",
       "module": "remoting.mojom",
       "file": "remoting_host_mojom_webauthn_proxy.mojom.js",
@@ -38417,6 +38370,7 @@
         "ClearDomainReliability",
         "ClearSharedDictionaryCache",
         "ClearSharedDictionaryCacheForIsolationKey",
+        "ClearSharedDictionarySessionOnlyData",
         "SetDocumentReportingEndpoints",
         "SendReportsAndRemoveSource",
         "SendReportsForSource",
@@ -38641,7 +38595,8 @@
         "Configure",
         "EnableForProfile",
         "DisableForProfile",
-        "Retrieve"
+        "Retrieve",
+        "Search"
       ],
       "metadata": {
         "usage": {
@@ -53644,12 +53599,6 @@
       ]
     },
     {
-      "filename": "chromecast_browser_bluetooth_public_mojom_web_bluetooth.mojom.js",
-      "source": "chromecast/browser/bluetooth/public/mojom/web_bluetooth.mojom",
-      "module": "chromecast.mojom",
-      "imports": []
-    },
-    {
       "filename": "chromecast_browser_mojom_cast_content_window.mojom.js",
       "source": "chromecast/browser/mojom/cast_content_window.mojom",
       "module": "chromecast.mojom",
@@ -56914,18 +56863,11 @@
       ]
     },
     {
-      "filename": "components_services_storage_privileged_mojom_indexed_db_client_state_checker.mojom.js",
-      "source": "components/services/storage/privileged/mojom/indexed_db_client_state_checker.mojom",
-      "module": "storage.mojom",
-      "imports": []
-    },
-    {
       "filename": "components_services_storage_privileged_mojom_indexed_db_control.mojom.js",
       "source": "components/services/storage/privileged/mojom/indexed_db_control.mojom",
       "module": "storage.mojom",
       "imports": [
         "components/services/storage/privileged/mojom/bucket_client_info.mojom",
-        "components/services/storage/privileged/mojom/indexed_db_client_state_checker.mojom",
         "components/services/storage/privileged/mojom/indexed_db_control_test.mojom",
         "components/services/storage/privileged/mojom/indexed_db_internals_types.mojom",
         "components/services/storage/public/mojom/buckets/bucket_id.mojom",
@@ -59773,7 +59715,9 @@
         "mojo/public/mojom/base/values.mojom",
         "remoting/host/mojom/chromoting_host_services.mojom",
         "remoting/host/mojom/common.mojom",
-        "services/network/public/mojom/ip_endpoint.mojom"
+        "services/network/public/mojom/ip_endpoint.mojom",
+        "services/network/public/mojom/url_loader_network_service_observer.mojom",
+        "services/network/public/mojom/x509_certificate.mojom"
       ]
     },
     {
