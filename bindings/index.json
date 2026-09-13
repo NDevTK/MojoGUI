@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-12T13:16:15.280765Z",
-  "version": "155.0.8054.0",
+  "generated_at": "2026-09-13T14:00:43.236625Z",
+  "version": "155.0.8055.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3765,6 +3765,48 @@
       }
     },
     {
+      "name": "ContextualTasksToolbarUIObserver",
+      "module": "contextual_tasks_toolbar.mojom",
+      "file": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
+      "methods": [
+        "OnPermissionDashboardStateChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ContextualTasksToolbarUIService",
+      "module": "contextual_tasks_toolbar.mojom",
+      "file": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
+      "methods": [
+        "GetInitialState",
+        "OnChipMousePressed",
+        "OnChipClicked",
+        "OnChipPointerEntered",
+        "OnChipPointerExited",
+        "OnChipExpandAnimationEnded",
+        "OnChipCollapseAnimationEnded"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "GeicApi",
       "module": "geic.mojom",
       "file": "chrome_browser_geic_geic.mojom.js",
@@ -5334,7 +5376,8 @@
         "ClickElement",
         "SetFullscreen",
         "SelectOption",
-        "OpenGeminiPanel"
+        "OpenGeminiPanel",
+        "CloseGeminiPanel"
       ],
       "metadata": {
         "usage": {
@@ -51765,7 +51808,11 @@
       "filename": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
       "source": "chrome/browser/contextual_tasks/contextual_tasks_toolbar.mojom",
       "module": "contextual_tasks_toolbar.mojom",
-      "imports": []
+      "imports": [
+        "components/browser_apis/ui_controllers/toolbar/toolbar_ui_api_data_model.mojom",
+        "components/browser_apis/ui_controllers/toolbar/icon_handle.mojom",
+        "mojo/public/mojom/base/error.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_contextual_tasks_contextual_tasks_types.mojom.js",
@@ -61773,6 +61820,7 @@
       "imports": [
         "mojo/public/mojom/base/file.mojom",
         "mojo/public/mojom/base/file_path.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/values.mojom",
         "skia/public/mojom/bitmap.mojom"
       ]
