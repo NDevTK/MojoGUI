@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-14T16:04:45.169964Z",
-  "version": "155.0.8057.0",
+  "generated_at": "2026-09-15T14:37:02.343153Z",
+  "version": "155.0.8059.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3521,7 +3521,8 @@
         "TurnOnSmartTabSharing",
         "ShowSmartTabSharingTryItIph",
         "ShowSmartTabSharingDefaultOnIph",
-        "OnWindowClosed"
+        "OnWindowClosed",
+        "ResetForNewThread"
       ],
       "metadata": {
         "usage": {
@@ -4570,7 +4571,6 @@
         "OpenDisabledByAdminLinkAndClosePanel",
         "SignInAndClosePanel",
         "ResizeWidget",
-        "EnableDragResize",
         "OnWebUiStateChanged"
       ],
       "metadata": {
@@ -4586,6 +4586,24 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
+      }
+    },
+    {
+      "name": "SuggestedActionsListener",
+      "module": "glic.selection",
+      "file": "chrome_browser_glic_selection_selection_overlay.mojom.js",
+      "methods": [
+        "OnSuggestedActionsAvailable"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -33834,8 +33852,7 @@
         "StartWithPermissionAlreadyGranted",
         "StartDataStreams",
         "Stop",
-        "SendMessageToSink",
-        "EstimateTransmissionCapacity"
+        "SendMessageToSink"
       ],
       "metadata": {
         "usage": {
@@ -39092,6 +39109,42 @@
           "associated": [],
           "direct": [
             "Internal Interface: network.mojom.SharedDictionaryAccessObserver.Clone"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "SharedHttpCacheClient",
+      "module": "network.mojom",
+      "file": "services_network_public_mojom_shared_http_cache_client.mojom.js",
+      "methods": [
+        "OnResourcesAdded"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: network.mojom.SharedHttpCacheClientFactory.CreateClient"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "SharedHttpCacheClientFactory",
+      "module": "network.mojom",
+      "file": "services_network_public_mojom_shared_http_cache_client.mojom.js",
+      "methods": [
+        "CreateClient"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -61413,6 +61466,14 @@
       "imports": [
         "mojo/public/mojom/base/time.mojom",
         "services/network/public/mojom/shared_dictionary_isolation_key.mojom"
+      ]
+    },
+    {
+      "filename": "services_network_public_mojom_shared_http_cache_client.mojom.js",
+      "source": "services/network/public/mojom/shared_http_cache_client.mojom",
+      "module": "network.mojom",
+      "imports": [
+        "components/sqlite_vfs/mojom/sqlite_vfs.mojom"
       ]
     },
     {
