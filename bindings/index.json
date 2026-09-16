@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-15T14:37:02.343153Z",
-  "version": "155.0.8059.0",
+  "generated_at": "2026-09-16T14:31:09.839057Z",
+  "version": "156.0.8061.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4586,24 +4586,6 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
-      }
-    },
-    {
-      "name": "SuggestedActionsListener",
-      "module": "glic.selection",
-      "file": "chrome_browser_glic_selection_selection_overlay.mojom.js",
-      "methods": [
-        "OnSuggestedActionsAvailable"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
       }
     },
     {
@@ -24712,7 +24694,8 @@
         "DeleteDeviceTrustKey",
         "GetClientCertificateState",
         "GetSignalsReportingState",
-        "GetProvisioningDomainState"
+        "GetProvisioningDomainState",
+        "RefreshProvisioningDomainConfigs"
       ],
       "metadata": {
         "usage": {
