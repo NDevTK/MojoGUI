@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -155,12 +155,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_render_buffer_format_bgra8888', 5, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_msaa_is_slow', 5, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_avoid_stencil_buffers', 5, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_rgb_to_yuv_conversion', 5, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_yuv_readback', 5, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_mesa_framebuffer_flip_y', 5, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_context_supports_distance_field_text', 6, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_using_vulkan_context', 6, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_deferred_graphite_submit', 6, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_yuv_readback', 5, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mesa_framebuffer_flip_y', 5, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_context_supports_distance_field_text', 5, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_using_vulkan_context', 6, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_deferred_graphite_submit', 6, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_drm_formats_and_modifiers', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_drm_device_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],

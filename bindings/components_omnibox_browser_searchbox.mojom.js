@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -304,6 +304,8 @@ mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ParamsSpec
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec.$ = {};
+mojo.internal.bindings.searchbox.mojom.PageHandler_OnEscapePressed_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_OnEscapePressed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.searchbox.mojom.PageHandler_OnEscapePressed_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_OnEscapePressed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_OnEscapePressed_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.Page = mojo.internal.bindings.searchbox.mojom.Page || {};
 mojo.internal.bindings.searchbox.mojom.PageSpec = mojo.internal.bindings.searchbox.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.searchbox.mojom.PageSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageSpec.$ = {};
@@ -809,12 +811,16 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemote = class {
   openHotkeySettings() {
     return this.$.openHotkeySettings();
   }
+  onEscapePressed() {
+    return this.$.onEscapePressed();
+  }
 };
 
 mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1258,6 +1264,15 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
+  onEscapePressed() {
+    return this.proxy.sendMessage(
+      this.ordinals[44],  // ordinal
+      mojo.internal.bindings.searchbox.mojom.PageHandler_OnEscapePressed_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.searchbox.mojom.PageHandler.getRemote = function() {
@@ -1276,6 +1291,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('searchbox.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1790,6 +1806,13 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openHotkeySettings');
           const result = this.impl.openHotkeySettings();
+          break;
+        }
+        case 44: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnEscapePressed_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onEscapePressed');
+          const result = this.impl.onEscapePressed();
           break;
         }
       }
@@ -3039,6 +3062,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec, 'searchbox.mojom.PageHandler_OpenHotkeySettings_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_OnEscapePressed_ParamsSpec, 'searchbox.mojom.PageHandler_OnEscapePressed_Params', [
     ],
     [[0, 8]]);
 

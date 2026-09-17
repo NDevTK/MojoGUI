@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,7 +126,6 @@ mojo.internal.bindings.contextual_tasks.mojom = mojo.internal.bindings.contextua
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
-mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 
 mojo.internal.bindings.contextual_tasks.mojom.IconTypeSpec = mojo.internal.bindings.contextual_tasks.mojom.IconTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.contextual_tasks.mojom.ContextInfoSpec = mojo.internal.bindings.contextual_tasks.mojom.ContextInfoSpec || { $: {} };
@@ -193,8 +192,8 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_P
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOverflowMenuHelpUi_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOverflowMenuHelpUi_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOverflowMenuHelpUi_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOverflowMenuHelpUi_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOverflowMenuHelpUi_ParamsSpec.$ = {};
-mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenUrl_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenUrl_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenAskGHelpUi_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenAskGHelpUi_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenAskGHelpUi_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenAskGHelpUi_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenAskGHelpUi_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnTabClickedFromSourcesMenu_ParamsSpec || { $: {} };
@@ -349,6 +348,8 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_LockInput_ParamsSpec
 if (mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_LockInput_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_LockInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_LockInput_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_UnlockInput_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_UnlockInput_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_UnlockInput_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_UnlockInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_UnlockInput_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_OnLensOverlayStateChanged_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_OnLensOverlayStateChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_OnLensOverlayStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_OnLensOverlayStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_OnLensOverlayStateChanged_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.contextual_tasks = mojo.internal.bindings.contextual_tasks || {};
@@ -363,9 +364,6 @@ mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bind
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UuidSpec = mojo.internal.bindings.mojo_base.mojom.UuidSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
-mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
-mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec = mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -457,8 +455,8 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemote = class {
   openOverflowMenuHelpUi() {
     return this.$.openOverflowMenuHelpUi();
   }
-  openUrl(arg_url, arg_disposition) {
-    return this.$.openUrl(arg_url, arg_disposition);
+  openAskGHelpUi() {
+    return this.$.openAskGHelpUi();
   }
   moveTaskUiToNewTab() {
     return this.$.moveTaskUiToNewTab();
@@ -700,12 +698,12 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       false);
   }
 
-  openUrl(arg_url, arg_disposition) {
+  openAskGHelpUi() {
     return this.proxy.sendMessage(
       this.ordinals[15],  // ordinal
-      mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenUrl_ParamsSpec,
+      mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenAskGHelpUi_ParamsSpec,
       null,
-      [arg_url, arg_disposition],
+      [],
       false);
   }
 
@@ -1170,9 +1168,9 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenUrl_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.openUrl');
-          const result = this.impl.openUrl(params.arg_url, params.arg_disposition);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenAskGHelpUi_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openAskGHelpUi');
+          const result = this.impl.openAskGHelpUi();
           break;
         }
         case 16: {
@@ -2638,12 +2636,16 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageRemote = class {
   unlockInput() {
     return this.$.unlockInput();
   }
+  onLensOverlayStateChanged(arg_is_showing) {
+    return this.$.onLensOverlayStateChanged(arg_is_showing);
+  }
 };
 
 mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.ExtensionPage', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2727,6 +2729,15 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageRemoteCallHandler = c
       false);
   }
 
+  onLensOverlayStateChanged(arg_is_showing) {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
+      mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_OnLensOverlayStateChanged_ParamsSpec,
+      null,
+      [arg_is_showing],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage.getRemote = function() {
@@ -2745,6 +2756,7 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.ExtensionPage', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2850,6 +2862,13 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_UnlockInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unlockInput');
           const result = this.impl.unlockInput();
+          break;
+        }
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_OnLensOverlayStateChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onLensOverlayStateChanged');
+          const result = this.impl.onLensOverlayStateChanged(params.arg_is_showing);
           break;
         }
       }
@@ -3078,11 +3097,9 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenUrl_ParamsSpec, 'contextual_tasks.mojom.PageHandler_OpenUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_disposition', 8, 0, mojo.internal.bindings.ui.mojom.WindowOpenDispositionSpec, null, false, 0, undefined),
+    mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenAskGHelpUi_ParamsSpec, 'contextual_tasks.mojom.PageHandler_OpenAskGHelpUi_Params', [
     ],
-    [[0, 24]]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_ParamsSpec, 'contextual_tasks.mojom.PageHandler_MoveTaskUiToNewTab_Params', [
@@ -3462,4 +3479,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_UnlockInput_ParamsSpec, 'contextual_tasks.mojom.ExtensionPage_UnlockInput_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_OnLensOverlayStateChanged_ParamsSpec, 'contextual_tasks.mojom.ExtensionPage_OnLensOverlayStateChanged_Params', [
+      mojo.internal.StructField('arg_is_showing', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,8 +125,8 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.blink.mojom.RendererPreferencesSpec = mojo.internal.bindings.blink.mojom.RendererPreferencesSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.RendererPreferencesSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RendererPreferencesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RendererPreferencesSpec.$ = {};
@@ -191,9 +191,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_webrtc_ip_handling_policy', 48, 0, mojo.internal.bindings.blink.mojom.WebRtcIpHandlingPolicySpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_webrtc_udp_max_port', 52, 0, mojo.internal.Uint16, 0, false, 0, undefined),
       mojo.internal.StructField('arg_caret_browsing_enabled', 54, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_view_source_line_wrap_enabled', 54, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_system_color_chooser_is_modal', 54, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_global_privacy_control_setting_enabled', 54, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_autofill_at_memory_double_ctrl_trigger_enabled', 54, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_view_source_line_wrap_enabled', 54, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_system_color_chooser_is_modal', 54, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_global_privacy_control_setting_enabled', 54, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_webrtc_ip_handling_urls', 56, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebRtcIpHandlingUrlEntrySpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_webrtc_local_ips_allowed_urls', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_user_agent_override', 72, 0, mojo.internal.bindings.blink.mojom.UserAgentOverrideSpec, null, false, 0, undefined),

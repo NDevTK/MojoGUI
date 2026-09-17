@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -7154,6 +7154,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_local_profile_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_email', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_is_managed', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_avatar_ring', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 56]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -707,23 +707,24 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec, 'autofill.mojom.FormFieldDataPredictions', [
       mojo.internal.StructField('arg_host_form_signature', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signature', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_heuristic_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pwm_ml_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_server_type', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_html_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_overall_type', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attribute_types', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format_string', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parseable_name', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_section', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rank', 88, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rank_in_signature_group', 92, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rank_in_host_form', 96, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rank_in_host_form_signature_group', 100, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_did_trigger_javascript_autofill', 104, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_host_form_structural_signature', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signature', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_heuristic_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pwm_ml_type', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_server_type', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_html_type', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overall_type', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attribute_types', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format_string', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parseable_name', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_section', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rank', 96, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rank_in_signature_group', 100, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rank_in_host_form', 104, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rank_in_host_form_signature_group', 108, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_did_trigger_javascript_autofill', 112, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 120]]);
+    [[0, 128]]);
 
 // Struct: FormDataPredictions
 mojo.internal.Struct(

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -201,6 +201,7 @@ mojo.internal.bindings.composebox_query.mojom.ToolMode = {
   kAim: 9,
   kAimGenPrompt: 10,
   kAgentTask: 11,
+  kSearchMore: 12,
 };
 
 // Enum: InputType

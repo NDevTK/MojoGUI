@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -263,6 +263,9 @@ mojo.internal.bindings.network.mojom.CookiePartitionKeySpec = mojo.internal.bind
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.CookiePartitionKeyCollectionSpec = mojo.internal.bindings.network.mojom.CookiePartitionKeyCollectionSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.SchemefulSiteSpec = mojo.internal.bindings.network.mojom.SchemefulSiteSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -1148,7 +1151,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_cookie_access_delegate_type', 4, 0, mojo.internal.bindings.network.mojom.CookieAccessDelegateTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_content_settings', 8, 0, mojo.internal.Map(mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec, mojo.internal.Array(mojo.internal.bindings.content_settings.mojom.ContentSettingPatternSourceSpec, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_secure_origin_cookies_allowed_schemes', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_origin_cookies_allowed_origins', 24, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_origin_cookies_allowed_origins', 24, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec, mojo.internal.Array(mojo.internal.bindings.network.mojom.SchemefulSiteSpec, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_matching_scheme_cookies_allowed_schemes', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_third_party_cookies_allowed_schemes', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
     ],

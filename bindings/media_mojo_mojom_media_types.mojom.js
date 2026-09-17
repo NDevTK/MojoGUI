@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -291,6 +291,9 @@ mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mo
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TokenSpec = mojo.internal.bindings.mojo_base.mojom.TokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -855,28 +858,29 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_capture_update_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_source_size', 32, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_region_capture_rect', 40, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_capture_version', 48, 0, mojo.internal.bindings.media.mojom.CaptureVersionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_duration', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_frame_rate_$value', 64, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_frame_rate_$flag', originalFieldName: 'arg_frame_rate' }),
-      mojo.internal.StructField('arg_reference_time', 72, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_transformation', 80, 0, mojo.internal.bindings.media.mojom.VideoTransformationSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tracking_token', 88, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_device_scale_factor_$value', 96, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_device_scale_factor_$flag', originalFieldName: 'arg_device_scale_factor' }),
-      mojo.internal.StructField('arg_page_scale_factor_$value', 104, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_page_scale_factor_$flag', originalFieldName: 'arg_page_scale_factor' }),
-      mojo.internal.StructField('arg_root_scroll_offset_x_$value', 112, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_root_scroll_offset_x_$flag', originalFieldName: 'arg_root_scroll_offset_x' }),
-      mojo.internal.StructField('arg_root_scroll_offset_y_$value', 120, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_root_scroll_offset_y_$flag', originalFieldName: 'arg_root_scroll_offset_y' }),
-      mojo.internal.StructField('arg_top_controls_visible_height_$value', 128, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_top_controls_visible_height_$flag', originalFieldName: 'arg_top_controls_visible_height' }),
-      mojo.internal.StructField('arg_decode_begin_time', 136, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_decode_end_time', 144, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_processing_time', 152, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_rtp_timestamp_$value', 160, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_rtp_timestamp_$flag', originalFieldName: 'arg_rtp_timestamp' }),
-      mojo.internal.StructField('arg_receive_time', 168, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wallclock_frame_duration', 176, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_frame_sequence_$value', 184, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_frame_sequence_$flag', originalFieldName: 'arg_frame_sequence' }),
-      mojo.internal.StructField('arg_source_id_$value', 192, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_source_id_$flag', originalFieldName: 'arg_source_id' }),
-      mojo.internal.StructField('arg_background_blur', 200, 0, mojo.internal.bindings.media.mojom.EffectStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_region_capture_bounds', 48, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.TokenSpec, mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_version', 56, 0, mojo.internal.bindings.media.mojom.CaptureVersionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_duration', 64, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame_rate_$value', 72, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_frame_rate_$flag', originalFieldName: 'arg_frame_rate' }),
+      mojo.internal.StructField('arg_reference_time', 80, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_transformation', 88, 0, mojo.internal.bindings.media.mojom.VideoTransformationSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tracking_token', 96, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_scale_factor_$value', 104, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_device_scale_factor_$flag', originalFieldName: 'arg_device_scale_factor' }),
+      mojo.internal.StructField('arg_page_scale_factor_$value', 112, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_page_scale_factor_$flag', originalFieldName: 'arg_page_scale_factor' }),
+      mojo.internal.StructField('arg_root_scroll_offset_x_$value', 120, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_root_scroll_offset_x_$flag', originalFieldName: 'arg_root_scroll_offset_x' }),
+      mojo.internal.StructField('arg_root_scroll_offset_y_$value', 128, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_root_scroll_offset_y_$flag', originalFieldName: 'arg_root_scroll_offset_y' }),
+      mojo.internal.StructField('arg_top_controls_visible_height_$value', 136, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_top_controls_visible_height_$flag', originalFieldName: 'arg_top_controls_visible_height' }),
+      mojo.internal.StructField('arg_decode_begin_time', 144, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_decode_end_time', 152, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_processing_time', 160, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_rtp_timestamp_$value', 168, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_rtp_timestamp_$flag', originalFieldName: 'arg_rtp_timestamp' }),
+      mojo.internal.StructField('arg_receive_time', 176, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wallclock_frame_duration', 184, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame_sequence_$value', 192, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_frame_sequence_$flag', originalFieldName: 'arg_frame_sequence' }),
+      mojo.internal.StructField('arg_source_id_$value', 200, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_source_id_$flag', originalFieldName: 'arg_source_id' }),
+      mojo.internal.StructField('arg_background_blur', 208, 0, mojo.internal.bindings.media.mojom.EffectStateSpec, null, false, 0, undefined),
     ],
-    [[0, 216]]);
+    [[0, 224]]);
 
 // Struct: VideoFrame
 mojo.internal.Struct(

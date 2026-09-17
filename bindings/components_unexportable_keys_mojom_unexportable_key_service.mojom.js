@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -207,9 +207,10 @@ mojo.internal.bindings.unexportable_keys.mojom.ServiceError = {
 
 // Enum: BackgroundTaskPriority
 mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPriority = {
-  kBestEffort: 0,
-  kUserVisible: 1,
-  kUserBlocking: 2,
+  kMinPriorityInternalUseOnly: 0,
+  kBestEffort: 1,
+  kUserVisible: 2,
+  kUserBlocking: 3,
 };
 
 // Enum: AttestationFormat

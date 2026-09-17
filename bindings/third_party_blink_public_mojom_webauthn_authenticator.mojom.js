@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -740,6 +740,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_cred_props_rk', 13, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_echo_large_blob', 13, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_supports_large_blob', 13, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_echo_remote_client_data_json', 13, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_attestation_object', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_transports', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AuthenticatorTransportSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_prf_results', 32, 0, mojo.internal.bindings.blink.mojom.PRFValuesSpec, null, true, 0, undefined),
@@ -773,6 +774,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_large_blob_written', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_cross_device_fallback_url_$flag', 0, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_cross_device_fallback_url_$value', originalFieldName: 'arg_cross_device_fallback_url' }),
       mojo.internal.StructField('arg_cross_device_fallback_url_$value', 1, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_cross_device_fallback_url_$flag', originalFieldName: 'arg_cross_device_fallback_url' }),
+      mojo.internal.StructField('arg_echo_remote_client_data_json', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_prf_results', 8, 0, mojo.internal.bindings.blink.mojom.PRFValuesSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_large_blob', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_get_cred_blob', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),

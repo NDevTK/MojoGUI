@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8061.0';
+        const versionStr = window.mojoVersion || '156.0.8063.1';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,9 +125,15 @@
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 
 mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec = mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec || { $: {} };
 if (mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec.$ = {};
+
+// External type stubs (from imports)
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.SharedImageFormatSpec = mojo.internal.bindings.viz.mojom.SharedImageFormatSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
@@ -144,5 +150,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_disable_one_component_textures', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_shared_image_d3d', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_shared_image_swap_chain', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_skia_writable_yuv_formats', 8, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.SharedImageFormatSpec, false), null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);

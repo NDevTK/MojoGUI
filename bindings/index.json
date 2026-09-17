@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-16T14:31:09.839057Z",
-  "version": "156.0.8061.0",
+  "generated_at": "2026-09-17T14:35:40.054000Z",
+  "version": "156.0.8063.1",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3447,7 +3447,7 @@
         "OpenFeedbackUi",
         "OpenOnboardingHelpUi",
         "OpenOverflowMenuHelpUi",
-        "OpenUrl",
+        "OpenAskGHelpUi",
         "MoveTaskUiToNewTab",
         "OnTabClickedFromSourcesMenu",
         "OnFileClickedFromSourcesMenu",
@@ -3618,7 +3618,8 @@
         "EnterBasicMode",
         "ExitBasicMode",
         "LockInput",
-        "UnlockInput"
+        "UnlockInput",
+        "OnLensOverlayStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -5292,7 +5293,6 @@
         "CaptureRawViewportRegion",
         "SetRememberedNote",
         "GetRememberedNotes",
-        "SaveDebugFile",
         "GetImageBytes",
         "StartStreamingSession",
         "SendAudioChunk",
@@ -14514,6 +14514,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
       }
@@ -23998,6 +23999,7 @@
         "OnPageActionClick",
         "OnPageActionChipShowingChanged",
         "InvokePinnedToolbarAction",
+        "OnPinnedToolbarActionPointerDown",
         "OnLocationBarFocusWithinChanged",
         "MovePinnedToolbarAction",
         "MovePinnedToolbarActionBy",
@@ -24014,6 +24016,7 @@
         "OnHomeButtonDropFile",
         "OnToolbarDropFile",
         "ShowAvatarMenu",
+        "OnAvatarButtonMousePressed",
         "SetAvatarButtonHovered",
         "SetAvatarButtonFocused",
         "SetAvatarButtonIphPromoShowing",
@@ -25982,7 +25985,8 @@
         "GetSmartTabSharingActive",
         "DismissFre",
         "ShowHotkeyDropdown",
-        "OpenHotkeySettings"
+        "OpenHotkeySettings",
+        "OnEscapePressed"
       ],
       "metadata": {
         "usage": {
@@ -38414,6 +38418,7 @@
         "ClearSharedDictionaryCache",
         "ClearSharedDictionaryCacheForIsolationKey",
         "ClearSharedDictionarySessionOnlyData",
+        "RegisterHttpCacheClient",
         "SetDocumentReportingEndpoints",
         "SendReportsAndRemoveSource",
         "SendReportsForSource",
@@ -50547,11 +50552,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -51826,8 +51827,7 @@
         "mojo/public/mojom/base/uuid.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "mojo/public/mojom/base/proto_wrapper.mojom",
-        "url/mojom/url.mojom",
-        "ui/base/mojom/window_open_disposition.mojom"
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -58488,7 +58488,9 @@
       "filename": "gpu_ipc_common_shared_image_capabilities.mojom.js",
       "source": "gpu/ipc/common/shared_image_capabilities.mojom",
       "module": "gpu.mojom",
-      "imports": []
+      "imports": [
+        "services/viz/public/mojom/compositing/shared_image_format.mojom"
+      ]
     },
     {
       "filename": "gpu_ipc_common_shared_image_metadata.mojom.js",
@@ -59112,6 +59114,7 @@
         "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/token.mojom",
         "mojo/public/mojom/base/values.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
@@ -61050,7 +61053,8 @@
         "services/proxy_resolver/public/mojom/proxy_resolver.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/scheme_host_port.mojom",
-        "url/mojom/url.mojom"
+        "url/mojom/url.mojom",
+        "services/network/public/mojom/shared_http_cache_client.mojom"
       ]
     },
     {
@@ -65737,10 +65741,10 @@
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
         "third_party/blink/public/mojom/peerconnection/webrtc_ip_handling_policy.mojom",
+        "third_party/blink/public/mojom/peerconnection/webrtc_ip_handling_url_entry.mojom",
         "third_party/blink/public/mojom/user_agent/user_agent_metadata.mojom",
-        "ui/gfx/mojom/font_render_params.mojom",
         "ui/events/mojom/keyboard_codes.mojom",
-        "third_party/blink/public/mojom/peerconnection/webrtc_ip_handling_url_entry.mojom"
+        "ui/gfx/mojom/font_render_params.mojom"
       ]
     },
     {
