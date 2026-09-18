@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-17T14:35:40.054000Z",
-  "version": "156.0.8063.1",
+  "generated_at": "2026-09-18T14:01:27.650183Z",
+  "version": "156.0.8065.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -1668,7 +1668,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSkyVault"
+        ]
       }
     },
     {
@@ -3480,7 +3483,6 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3538,7 +3540,6 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3562,7 +3563,6 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3593,7 +3593,8 @@
       "methods": [
         "GetHandshakeMessage",
         "OnWebviewMessage",
-        "SetTaskId"
+        "SetTaskId",
+        "GetLensCropPreview"
       ],
       "metadata": {
         "usage": {
@@ -3613,12 +3614,6 @@
       "methods": [
         "PostAimMessage",
         "OnHandshakeComplete",
-        "HideInput",
-        "RestoreInput",
-        "EnterBasicMode",
-        "ExitBasicMode",
-        "LockInput",
-        "UnlockInput",
         "OnLensOverlayStateChanged"
       ],
       "metadata": {
@@ -3712,12 +3707,13 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Source: WebUI Binder (Restricted)"
           ]
         },
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3738,6 +3734,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -3761,6 +3758,7 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -4102,7 +4100,6 @@
         "OpenPinnedTabPicker",
         "ActivateTab",
         "ResizeWidget",
-        "CaptureScreenshot",
         "CaptureRegion",
         "DeleteCapturedRegion",
         "SetAudioDucking",
@@ -4572,7 +4569,8 @@
         "OpenDisabledByAdminLinkAndClosePanel",
         "SignInAndClosePanel",
         "ResizeWidget",
-        "OnWebUiStateChanged"
+        "OnWebUiStateChanged",
+        "NotifyClientLoadError"
       ],
       "metadata": {
         "usage": {
@@ -4587,6 +4585,24 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
+      }
+    },
+    {
+      "name": "SuggestedActionsListener",
+      "module": "glic.selection",
+      "file": "chrome_browser_glic_selection_selection_overlay.mojom.js",
+      "methods": [
+        "OnSuggestedActionsAvailable"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -6497,15 +6513,14 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kSkyVault"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -6528,8 +6543,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kSkyVault"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -7826,7 +7840,8 @@
         "RemoveConfirmedTabGroup",
         "CloseConfirmedTabGroup",
         "RemoveAllConfirmedTabGroups",
-        "ExecuteSmartSearch"
+        "ExecuteSmartSearch",
+        "OpenUrlsInTabGroup"
       ],
       "metadata": {
         "usage": {
@@ -10659,6 +10674,48 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "TabGroupsOrganizerPageHandler",
+      "module": "organizer_panel.mojom",
+      "file": "chrome_browser_ui_webui_organizer_panel_tab_groups.mojom.js",
+      "methods": [
+        "GetTabGroups"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: organizer_panel.mojom.TabGroupsOrganizerPageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
+      "name": "TabGroupsOrganizerPageHandlerFactory",
+      "module": "organizer_panel.mojom",
+      "file": "chrome_browser_ui_webui_organizer_panel_tab_groups.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -23377,7 +23434,6 @@
         "GetPotentialLastFourCombinationsForStandaloneCvc",
         "GetNonceForEmailVerification",
         "SendEmailVerificationToken",
-        "UpdateEmailVerificationState",
         "ObserveFieldVisibility"
       ],
       "metadata": {
@@ -23999,7 +24055,6 @@
         "OnPageActionClick",
         "OnPageActionChipShowingChanged",
         "InvokePinnedToolbarAction",
-        "OnPinnedToolbarActionPointerDown",
         "OnLocationBarFocusWithinChanged",
         "MovePinnedToolbarAction",
         "MovePinnedToolbarActionBy",
@@ -31923,9 +31978,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "permission:MIDI"
-        ],
         "scrambled": false
       }
     },
@@ -33038,7 +33090,6 @@
         "ChallengePlatform",
         "GetStorageId",
         "GetMediaFoundationCdmData",
-        "SetCdmClientToken",
         "OnCdmEvent"
       ],
       "metadata": {
@@ -43062,8 +43113,6 @@
         "scope": "context",
         "category": "associated",
         "gates": [
-          "feature:kServiceWorkerInDedicatedWorker",
-          "feature:kServiceWorkerBackgroundSyncInDedicatedWorker",
           "feature:kLazyBrowserInterfaceBroker"
         ],
         "scrambled": false
@@ -44000,10 +44049,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "permission:MIDI",
-          "permission:MIDI_SYSEX"
-        ],
         "scrambled": false
       }
     },
@@ -52858,6 +52903,15 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_ui_webui_organizer_panel_tab_groups.mojom.js",
+      "source": "chrome/browser/ui/webui/organizer_panel/tab_groups.mojom",
+      "module": "organizer_panel.mojom",
+      "imports": [
+        "components/tab_groups/public/mojom/tab_group_types.mojom",
+        "mojo/public/mojom/base/uuid.mojom"
+      ]
+    },
+    {
       "filename": "chrome_browser_ui_webui_page_action_internals_page_action_internals.mojom.js",
       "source": "chrome/browser/ui/webui/page_action_internals/page_action_internals.mojom",
       "module": "page_action_internals.mojom",
@@ -53312,6 +53366,7 @@
       "source": "chrome/common/read_anything/read_anything.mojom",
       "module": "read_anything.mojom",
       "imports": [
+        "mojo/public/mojom/base/big_string.mojom",
         "mojo/public/mojom/base/file.mojom",
         "url/mojom/url.mojom",
         "skia/public/mojom/skcolor.mojom",
