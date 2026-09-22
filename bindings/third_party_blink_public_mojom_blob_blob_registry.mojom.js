@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -324,8 +324,8 @@ mojo.internal.bindings.blink.mojom.BlobRegistryRemote = class {
   close() {
     this.proxy.close();
   }
-  register(arg_blob, arg_uuid, arg_content_type, arg_content_disposition, arg_elements) {
-    return this.$.register(arg_blob, arg_uuid, arg_content_type, arg_content_disposition, arg_elements);
+  register(arg_blob, arg_content_type, arg_content_disposition, arg_elements) {
+    return this.$.register(arg_blob, arg_content_type, arg_content_disposition, arg_elements);
   }
   registerFromStream(arg_content_type, arg_content_disposition, arg_length_hint, arg_data, arg_progress_client) {
     return this.$.registerFromStream(arg_content_type, arg_content_disposition, arg_length_hint, arg_data, arg_progress_client);
@@ -341,12 +341,12 @@ mojo.internal.bindings.blink.mojom.BlobRegistryRemoteCallHandler = class {
     ]);
   }
 
-  register(arg_blob, arg_uuid, arg_content_type, arg_content_disposition, arg_elements) {
+  register(arg_blob, arg_content_type, arg_content_disposition, arg_elements) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ParamsSpec,
       mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec,
-      [arg_blob, arg_uuid, arg_content_type, arg_content_disposition, arg_elements],
+      [arg_blob, arg_content_type, arg_content_disposition, arg_elements],
       false);
   }
 
@@ -426,11 +426,12 @@ mojo.internal.bindings.blink.mojom.BlobRegistryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_blob, params.arg_uuid, params.arg_content_type, params.arg_content_disposition, params.arg_elements);
+          const result = this.impl.register(params.arg_blob, params.arg_content_type, params.arg_content_disposition, params.arg_elements);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const resp_obj = response;
+              const val = (response && typeof response === 'object' && 'arg_uuid' in response) ? response['arg_uuid'] : response;
+              const resp_obj = { 'arg_uuid': val };
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec.$.structSpec, resp_obj);
@@ -481,17 +482,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ParamsSpec, 'blink.mojom.BlobRegistry_Register_Params', [
       mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobPendingReceiver), null, false, 0, undefined),
-      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_disposition', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_elements', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DataElementSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_disposition', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_elements', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DataElementSpec, false), null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec, 'blink.mojom.BlobRegistry_Register_ResponseParams', [
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec, 'blink.mojom.BlobRegistry_RegisterFromStream_Params', [

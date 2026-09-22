@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -586,6 +586,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_browser_version', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_ui_version', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_unelision', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_paste', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_selection', 32, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);

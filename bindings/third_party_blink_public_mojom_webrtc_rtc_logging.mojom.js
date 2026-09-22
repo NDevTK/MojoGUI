@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -145,6 +145,11 @@ if (mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_CancelDiagnosticLogg
 mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_CancelDiagnosticLogging_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_CancelDiagnosticLogging_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_CancelDiagnosticLogging_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_CancelDiagnosticLogging_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_CancelDiagnosticLogging_ResponseParamsSpec.$ = {};
 
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UuidSpec = mojo.internal.bindings.mojo_base.mojom.UuidSpec || { $: mojo.internal.OpaqueStruct.$ };
+
 // Interface: RTCLoggingDispatcher
 mojo.internal.bindings.blink.mojom.RTCLoggingDispatcherPendingReceiver = class {
   constructor(handle) {
@@ -175,8 +180,8 @@ mojo.internal.bindings.blink.mojom.RTCLoggingDispatcherRemote = class {
   close() {
     this.proxy.close();
   }
-  startDiagnosticLogging(arg_upload, arg_metadata) {
-    return this.$.startDiagnosticLogging(arg_upload, arg_metadata);
+  startDiagnosticLogging(arg_session_id, arg_upload, arg_metadata) {
+    return this.$.startDiagnosticLogging(arg_session_id, arg_upload, arg_metadata);
   }
   finishDiagnosticLogging(arg_metadata) {
     return this.$.finishDiagnosticLogging(arg_metadata);
@@ -196,12 +201,12 @@ mojo.internal.bindings.blink.mojom.RTCLoggingDispatcherRemoteCallHandler = class
     ]);
   }
 
-  startDiagnosticLogging(arg_upload, arg_metadata) {
+  startDiagnosticLogging(arg_session_id, arg_upload, arg_metadata) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_StartDiagnosticLogging_ParamsSpec,
       mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_StartDiagnosticLogging_ResponseParamsSpec,
-      [arg_upload, arg_metadata],
+      [arg_session_id, arg_upload, arg_metadata],
       false);
   }
 
@@ -291,12 +296,11 @@ mojo.internal.bindings.blink.mojom.RTCLoggingDispatcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_StartDiagnosticLogging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDiagnosticLogging');
-          const result = this.impl.startDiagnosticLogging(params.arg_upload, params.arg_metadata);
+          const result = this.impl.startDiagnosticLogging(params.arg_session_id, params.arg_upload, params.arg_metadata);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_uuid' in response) ? response['arg_uuid'] : response;
-              const resp_obj = { 'arg_uuid': val };
+              const resp_obj = response;
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_StartDiagnosticLogging_ResponseParamsSpec.$.structSpec, resp_obj);
@@ -363,16 +367,16 @@ mojo.internal.Struct(
     [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_StartDiagnosticLogging_ParamsSpec, 'blink.mojom.RTCLoggingDispatcher_StartDiagnosticLogging_Params', [
-      mojo.internal.StructField('arg_upload', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.blink.mojom.RTCMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upload', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 16, 0, mojo.internal.bindings.blink.mojom.RTCMetadataSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_StartDiagnosticLogging_ResponseParamsSpec, 'blink.mojom.RTCLoggingDispatcher_StartDiagnosticLogging_ResponseParams', [
-      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.RTCLoggingDispatcher_FinishDiagnosticLogging_ParamsSpec, 'blink.mojom.RTCLoggingDispatcher_FinishDiagnosticLogging_Params', [

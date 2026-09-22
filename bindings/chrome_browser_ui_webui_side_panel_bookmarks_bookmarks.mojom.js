@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -183,8 +183,6 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec = m
 if (mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_Undo_ParamsSpec.$ = {};
 mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec = mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec.$ = {};
-mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec = mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec.$ = {};
 mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec = mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec.$.structSpec && mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec.$ = {};
 mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec = mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec || { $: {} };
@@ -463,9 +461,6 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemote = class {
   renameBookmark(arg_node_id, arg_new_title) {
     return this.$.renameBookmark(arg_node_id, arg_new_title);
   }
-  moveBookmark(arg_node_id, arg_folder_id) {
-    return this.$.moveBookmark(arg_node_id, arg_folder_id);
-  }
   removeBookmarks(arg_node_ids) {
     return this.$.removeBookmarks(arg_node_ids);
   }
@@ -490,7 +485,6 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('side_panel.mojom.BookmarksPageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -670,18 +664,9 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
       false);
   }
 
-  moveBookmark(arg_node_id, arg_folder_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
-      mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec,
-      null,
-      [arg_node_id, arg_folder_id],
-      false);
-  }
-
   removeBookmarks(arg_node_ids) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ResponseParamsSpec,
       [arg_node_ids],
@@ -690,7 +675,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   setSortOrder(arg_sort_order) {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec,
       null,
       [arg_sort_order],
@@ -699,7 +684,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   setViewType(arg_view_type) {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec,
       null,
       [arg_view_type],
@@ -708,7 +693,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   showContextMenu(arg_id, arg_point, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec,
       null,
       [arg_id, arg_point, arg_source],
@@ -717,7 +702,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   showUI() {
     return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec,
       null,
       [],
@@ -726,7 +711,7 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerRemoteCallHandler = 
 
   getAllBookmarks() {
     return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec,
       mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ResponseParamsSpec,
       [],
@@ -751,7 +736,6 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('side_panel.mojom.BookmarksPageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -971,13 +955,6 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.moveBookmark');
-          const result = this.impl.moveBookmark(params.arg_node_id, params.arg_folder_id);
-          break;
-        }
-        case 18: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RemoveBookmarks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeBookmarks');
           const result = this.impl.removeBookmarks(params.arg_node_ids);
@@ -993,35 +970,35 @@ mojo.internal.bindings.side_panel.mojom.BookmarksPageHandlerReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_SetSortOrder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSortOrder');
           const result = this.impl.setSortOrder(params.arg_sort_order);
           break;
         }
-        case 20: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_SetViewType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setViewType');
           const result = this.impl.setViewType(params.arg_view_type);
           break;
         }
-        case 21: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.arg_id, params.arg_point, params.arg_source);
           break;
         }
-        case 22: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_ShowUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showUI');
           const result = this.impl.showUI();
           break;
         }
-        case 23: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_GetAllBookmarks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllBookmarks');
@@ -1427,13 +1404,6 @@ mojo.internal.Struct(
     mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_RenameBookmark_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_RenameBookmark_Params', [
       mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_new_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.side_panel.mojom.BookmarksPageHandler_MoveBookmark_ParamsSpec, 'side_panel.mojom.BookmarksPageHandler_MoveBookmark_Params', [
-      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_folder_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
 

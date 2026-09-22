@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -210,8 +210,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_message_font_family_name', 136, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_message_font_height', 144, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_autofill_shortcut_key_code', 148, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_autofill_trigger_string', 152, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_autofill_shortcut_modifiers', 160, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_explicitly_allowed_network_ports', 168, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_autofill_shortcut_modifiers', 152, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_explicitly_allowed_network_ports', 160, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
     ],
-    [[0, 184]]);
+    [[0, 176]]);

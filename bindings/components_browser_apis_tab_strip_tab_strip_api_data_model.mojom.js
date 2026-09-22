@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -283,8 +283,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.TabGroupSpec, 'tabs_api.mojom.TabGroup', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_temporary', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: TabGroupVisualData
 mojo.internal.Struct(

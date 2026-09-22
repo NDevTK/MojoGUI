@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -132,10 +132,6 @@ mojo.internal.bindings.media.mojom.CdmDocumentService = mojo.internal.bindings.m
 mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec = mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec || { $ : {} };
 if (mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentServiceSpec.$ = {};
 mojo.internal.bindings.media.mojom.CdmDocumentService.$interfaceName = 'media.mojom.CdmDocumentService';
-mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$ = {};
-mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$.structSpec && mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$ = {};
 mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec = mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec || { $: {} };
@@ -188,9 +184,6 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  challengePlatform(arg_service_id, arg_challenge) {
-    return this.$.challengePlatform(arg_service_id, arg_challenge);
-  }
   getStorageId(arg_version) {
     return this.$.getStorageId(arg_version);
   }
@@ -209,22 +202,12 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
     ]);
-  }
-
-  challengePlatform(arg_service_id, arg_challenge) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec,
-      mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec,
-      [arg_service_id, arg_challenge],
-      false);
   }
 
   getStorageId(arg_version) {
     return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
+      this.ordinals[0],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ResponseParamsSpec,
       [arg_version],
@@ -233,7 +216,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
 
   getMediaFoundationCdmData() {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec,
       mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ResponseParamsSpec,
       [],
@@ -242,7 +225,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceRemoteCallHandler = class {
 
   onCdmEvent(arg_event, arg_hresult) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec,
       null,
       [arg_event, arg_hresult],
@@ -267,7 +250,6 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('media.mojom.CdmDocumentService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -316,23 +298,6 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
       switch (dispatchId) {
         case 0: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.challengePlatform');
-          const result = this.impl.challengePlatform(params.arg_service_id, params.arg_challenge);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const resp_obj = response;
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] challengePlatform FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStorageId');
           const result = this.impl.getStorageId(params.arg_version);
@@ -348,7 +313,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_GetMediaFoundationCdmData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMediaFoundationCdmData');
@@ -366,7 +331,7 @@ mojo.internal.bindings.media.mojom.CdmDocumentServiceReceiver = class {
           }
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmDocumentService_OnCdmEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCdmEvent');
@@ -396,22 +361,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_cdm_store_path_root', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ParamsSpec, 'media.mojom.CdmDocumentService_ChallengePlatform_Params', [
-      mojo.internal.StructField('arg_service_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_challenge', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmDocumentService_ChallengePlatform_ResponseParamsSpec, 'media.mojom.CdmDocumentService_ChallengePlatform_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_signed_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signed_data_signature', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_platform_key_certificate', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.CdmDocumentService_GetStorageId_ParamsSpec, 'media.mojom.CdmDocumentService_GetStorageId_Params', [
       mojo.internal.StructField('arg_version', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),

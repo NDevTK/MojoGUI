@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -146,6 +146,10 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowFileSystem_Pa
 if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowFileSystem_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowFileSystem_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowFileSystem_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowFileSystem_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowFileSystem_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowFileSystem_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowFileSystem_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowFileSystem_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ParamsSpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ResponseParamsSpec.$ = {};
 
 // Interface: WorkerContentSettingsProxy
 mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyPendingReceiver = class {
@@ -189,12 +193,16 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemote = class {
   allowFileSystem() {
     return this.$.allowFileSystem();
   }
+  allowWriteToClipboard() {
+    return this.$.allowWriteToClipboard();
+  }
 };
 
 mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WorkerContentSettingsProxy', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -238,6 +246,15 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemoteCallHandler =
       false);
   }
 
+  allowWriteToClipboard() {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy.getRemote = function() {
@@ -256,6 +273,7 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WorkerContentSettingsProxy', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -375,6 +393,24 @@ mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyReceiver = class {
           }
           break;
         }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.allowWriteToClipboard');
+          const result = this.impl.allowWriteToClipboard();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
+              const resp_obj = { 'arg_result': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] allowWriteToClipboard FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -430,6 +466,17 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowFileSystem_ResponseParamsSpec, 'blink.mojom.WorkerContentSettingsProxy_AllowFileSystem_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ParamsSpec, 'blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ResponseParamsSpec, 'blink.mojom.WorkerContentSettingsProxy_AllowWriteToClipboard_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);

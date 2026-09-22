@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -240,8 +240,6 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetPresentationState_
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetPresentationState_ParamsSpec.$ = {};
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnGetVoicePackInfo_ParamsSpec.$ = {};
-mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec.$ = {};
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec || { $: {} };
@@ -279,9 +277,6 @@ if (mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadingModeShown_
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.AXEventSpec = mojo.internal.bindings.ax.mojom.AXEventSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
-mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
-mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec = mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.AXTreeIDSpec = mojo.internal.bindings.ax.mojom.AXTreeIDSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -1485,9 +1480,6 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemote = class {
   onGetVoicePackInfo(arg_voice_pack_info) {
     return this.$.onGetVoicePackInfo(arg_voice_pack_info);
   }
-  accessibilityLocationChangesReceived(arg_tree_id, arg_details) {
-    return this.$.accessibilityLocationChangesReceived(arg_tree_id, arg_details);
-  }
   onActiveAXTreeIDChanged(arg_tree_id, arg_ukm_source_id, arg_is_pdf) {
     return this.$.onActiveAXTreeIDChanged(arg_tree_id, arg_ukm_source_id, arg_is_pdf);
   }
@@ -1561,7 +1553,6 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
     ]);
   }
 
@@ -1592,18 +1583,9 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
       false);
   }
 
-  accessibilityLocationChangesReceived(arg_tree_id, arg_details) {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec,
-      null,
-      [arg_tree_id, arg_details],
-      false);
-  }
-
   onActiveAXTreeIDChanged(arg_tree_id, arg_ukm_source_id, arg_is_pdf) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec,
       null,
       [arg_tree_id, arg_ukm_source_id, arg_is_pdf],
@@ -1612,7 +1594,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onAXTreeDestroyed(arg_tree_id) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec,
       null,
       [arg_tree_id],
@@ -1621,7 +1603,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   setLanguageCode(arg_code) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec,
       null,
       [arg_code],
@@ -1630,7 +1612,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onTtsEngineInstalled() {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec,
       null,
       [],
@@ -1639,7 +1621,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   setDefaultLanguageCode(arg_code) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec,
       null,
       [arg_code],
@@ -1648,7 +1630,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onSettingsRestoredFromPrefs(arg_line_spacing, arg_letter_spacing, arg_font, arg_font_size, arg_links_enabled, arg_images_enabled, arg_color, arg_speech_rate, arg_voices, arg_languages_enabled_in_pref, arg_granularity, arg_last_non_disabled_line_focus, arg_line_focus_enabled) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec,
       null,
       [arg_line_spacing, arg_letter_spacing, arg_font, arg_font_size, arg_links_enabled, arg_images_enabled, arg_color, arg_speech_rate, arg_voices, arg_languages_enabled_in_pref, arg_granularity, arg_last_non_disabled_line_focus, arg_line_focus_enabled],
@@ -1657,7 +1639,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   screenAIServiceReady() {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec,
       null,
       [],
@@ -1666,7 +1648,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onReadingModeHidden(arg_tab_active) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec,
       null,
       [arg_tab_active],
@@ -1675,7 +1657,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onTabWillDetach() {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec,
       null,
       [],
@@ -1684,7 +1666,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onTabMuteStateChange(arg_muted) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec,
       null,
       [arg_muted],
@@ -1693,7 +1675,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onImageDataDownloaded(arg_tree_id, arg_node_id, arg_image) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec,
       null,
       [arg_tree_id, arg_node_id, arg_image],
@@ -1702,7 +1684,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onPinStatusReceived(arg_new_pin_state) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec,
       null,
       [arg_new_pin_state],
@@ -1711,7 +1693,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   updateContent(arg_title, arg_content) {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_UpdateContent_ParamsSpec,
       null,
       [arg_title, arg_content],
@@ -1720,7 +1702,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onReadabilityDistillationStateChanged(arg_state) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadabilityDistillationStateChanged_ParamsSpec,
       null,
       [arg_state],
@@ -1729,7 +1711,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onMainFrameSameDocumentNavigation(arg_url) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnMainFrameSameDocumentNavigation_ParamsSpec,
       null,
       [arg_url],
@@ -1738,7 +1720,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageRemoteCallHandler = clas
 
   onReadingModeShown(arg_open_trigger) {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadingModeShown_ParamsSpec,
       null,
       [arg_open_trigger],
@@ -1763,7 +1745,6 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('read_anything.mojom.UntrustedPage', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1849,117 +1830,110 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.accessibilityLocationChangesReceived');
-          const result = this.impl.accessibilityLocationChangesReceived(params.arg_tree_id, params.arg_details);
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActiveAXTreeIDChanged');
           const result = this.impl.onActiveAXTreeIDChanged(params.arg_tree_id, params.arg_ukm_source_id, params.arg_is_pdf);
           break;
         }
-        case 5: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnAXTreeDestroyed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAXTreeDestroyed');
           const result = this.impl.onAXTreeDestroyed(params.arg_tree_id);
           break;
         }
-        case 6: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetLanguageCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLanguageCode');
           const result = this.impl.setLanguageCode(params.arg_code);
           break;
         }
-        case 7: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTtsEngineInstalled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTtsEngineInstalled');
           const result = this.impl.onTtsEngineInstalled();
           break;
         }
-        case 8: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_SetDefaultLanguageCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDefaultLanguageCode');
           const result = this.impl.setDefaultLanguageCode(params.arg_code);
           break;
         }
-        case 9: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnSettingsRestoredFromPrefs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSettingsRestoredFromPrefs');
           const result = this.impl.onSettingsRestoredFromPrefs(params.arg_line_spacing, params.arg_letter_spacing, params.arg_font, params.arg_font_size, params.arg_links_enabled, params.arg_images_enabled, params.arg_color, params.arg_speech_rate, params.arg_voices, params.arg_languages_enabled_in_pref, params.arg_granularity, params.arg_last_non_disabled_line_focus, params.arg_line_focus_enabled);
           break;
         }
-        case 10: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_ScreenAIServiceReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.screenAIServiceReady');
           const result = this.impl.screenAIServiceReady();
           break;
         }
-        case 11: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadingModeHidden_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadingModeHidden');
           const result = this.impl.onReadingModeHidden(params.arg_tab_active);
           break;
         }
-        case 12: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabWillDetach_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabWillDetach');
           const result = this.impl.onTabWillDetach();
           break;
         }
-        case 13: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnTabMuteStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabMuteStateChange');
           const result = this.impl.onTabMuteStateChange(params.arg_muted);
           break;
         }
-        case 14: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnImageDataDownloaded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onImageDataDownloaded');
           const result = this.impl.onImageDataDownloaded(params.arg_tree_id, params.arg_node_id, params.arg_image);
           break;
         }
-        case 15: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnPinStatusReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPinStatusReceived');
           const result = this.impl.onPinStatusReceived(params.arg_new_pin_state);
           break;
         }
-        case 16: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_UpdateContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateContent');
           const result = this.impl.updateContent(params.arg_title, params.arg_content);
           break;
         }
-        case 17: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadabilityDistillationStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadabilityDistillationStateChanged');
           const result = this.impl.onReadabilityDistillationStateChanged(params.arg_state);
           break;
         }
-        case 18: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnMainFrameSameDocumentNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMainFrameSameDocumentNavigation');
           const result = this.impl.onMainFrameSameDocumentNavigation(params.arg_url);
           break;
         }
-        case 19: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnReadingModeShown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadingModeShown');
@@ -2256,13 +2230,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_voice_pack_info', 0, 0, mojo.internal.bindings.read_anything.mojom.VoicePackInfoSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_ParamsSpec, 'read_anything.mojom.UntrustedPage_AccessibilityLocationChangesReceived_Params', [
-      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 16, 0, mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_ParamsSpec, 'read_anything.mojom.UntrustedPage_OnActiveAXTreeIDChanged_Params', [

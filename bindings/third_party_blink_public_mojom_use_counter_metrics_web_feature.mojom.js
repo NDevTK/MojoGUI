@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1720,7 +1720,7 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kV8DeoptimizerDisableSpeculation: 2277,
   kCSSSelectorCue: 2278,
   kCSSSelectorWebkitCalendarPickerIndicator: 2279,
-  kCSSSelectorWebkitClearButton: 2280,
+  kOBSOLETE_CSSSelectorWebkitClearButton: 2280,
   kCSSSelectorWebkitColorSwatch: 2281,
   kCSSSelectorWebkitColorSwatchWrapper: 2282,
   kCSSSelectorWebkitDateAndTimeValue: 2283,
@@ -5329,6 +5329,8 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kSRIModuleMapIntegrityMismatch: 6020,
   kEventTimingCreationTimeInFuture: 6021,
   kAttributionReportingWindowOpen: 6022,
+  kStickyVideoAdDetected: 6023,
+  kCSSTimelineTreeScopeMismatch: 6024,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -204,7 +204,7 @@ mojo.internal.bindings.media.mojom.AvailabilityStatus = {
   kDownloadable: 1,
   kDownloading: 2,
   kAvailable: 3,
-  kDownloadableWithoutUserActivation: 4,
+  kDownloadableWithoutTransientUserActivation: 4,
 };
 
 // Enum: SpeechRecognitionQuality

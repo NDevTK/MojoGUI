@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -302,6 +302,8 @@ mojo.internal.bindings.searchbox.mojom.PageHandler_DismissFre_ParamsSpec = mojo.
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_DismissFre_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_DismissFre_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_DismissFre_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ParamsSpec.$ = {};
+mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ResponseParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec.$.structSpec && mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec.$ = {};
 mojo.internal.bindings.searchbox.mojom.PageHandler_OnEscapePressed_ParamsSpec = mojo.internal.bindings.searchbox.mojom.PageHandler_OnEscapePressed_ParamsSpec || { $: {} };
@@ -1250,7 +1252,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRemoteCallHandler = class {
     return this.proxy.sendMessage(
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ParamsSpec,
-      null,
+      mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ResponseParamsSpec,
       [arg_anchor_bounds],
       false);
   }
@@ -1799,6 +1801,16 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showHotkeyDropdown');
           const result = this.impl.showHotkeyDropdown(params.arg_anchor_bounds);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] showHotkeyDropdown FAILED:', e));
+          }
           break;
         }
         case 43: {
@@ -2510,8 +2522,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_keyword', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_display_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_icon_path', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_placeholder', 32, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: MatchKeywordModel
 mojo.internal.Struct(
@@ -3061,6 +3074,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_anchor_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_ShowHotkeyDropdown_ResponseParamsSpec, 'searchbox.mojom.PageHandler_ShowHotkeyDropdown_ResponseParams', [
+    ],
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.searchbox.mojom.PageHandler_OpenHotkeySettings_ParamsSpec, 'searchbox.mojom.PageHandler_OpenHotkeySettings_Params', [

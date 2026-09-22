@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1153,11 +1153,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ai_overlay_dialog.mojom.RawViewportRegionResultSpec, 'ai_overlay_dialog.mojom.RawViewportRegionResult', [
       mojo.internal.StructField('arg_jpeg_data_b64', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_width', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_jpeg_bytes', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scale_factor', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 48]]);
 
 // Struct: ImageBytesResult
 mojo.internal.Struct(

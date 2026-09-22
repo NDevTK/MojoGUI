@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-21T16:06:44.440078Z",
-  "version": "156.0.8066.0",
+  "generated_at": "2026-09-22T14:18:47.568024Z",
+  "version": "156.0.8068.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -10410,7 +10410,8 @@
         "RequestInputState",
         "OpenAimPopup",
         "SetEditHistoryState",
-        "OpenDevTools"
+        "OpenDevTools",
+        "AdvanceFocus"
       ],
       "metadata": {
         "usage": {
@@ -10783,8 +10784,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10833,8 +10833,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10860,8 +10859,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpTabGroupsModule"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -11055,7 +11053,6 @@
         "OpenBookmark",
         "Undo",
         "RenameBookmark",
-        "MoveBookmark",
         "RemoveBookmarks",
         "SetSortOrder",
         "SetViewType",
@@ -13524,7 +13521,6 @@
         "AccessibilityEventReceived",
         "OnGetPresentationState",
         "OnGetVoicePackInfo",
-        "AccessibilityLocationChangesReceived",
         "OnActiveAXTreeIDChanged",
         "OnAXTreeDestroyed",
         "SetLanguageCode",
@@ -33087,7 +33083,6 @@
       "module": "media.mojom",
       "file": "media_mojo_mojom_cdm_document_service.mojom.js",
       "methods": [
-        "ChallengePlatform",
         "GetStorageId",
         "GetMediaFoundationCdmData",
         "OnCdmEvent"
@@ -49695,7 +49690,8 @@
         "AllowIndexedDB",
         "AllowCacheStorage",
         "AllowWebLocks",
-        "AllowFileSystem"
+        "AllowFileSystem",
+        "AllowWriteToClipboard"
       ],
       "metadata": {
         "usage": {
@@ -58958,9 +58954,9 @@
       "source": "media/mojo/mojom/cdm_document_service.mojom",
       "module": "media.mojom",
       "imports": [
-        "mojo/public/mojom/base/unguessable_token.mojom",
+        "media/mojo/mojom/media_types.mojom",
         "mojo/public/mojom/base/file_path.mojom",
-        "media/mojo/mojom/media_types.mojom"
+        "mojo/public/mojom/base/unguessable_token.mojom"
       ]
     },
     {
@@ -66481,7 +66477,9 @@
       "filename": "third_party_blink_public_mojom_webrtc_rtc_logging.mojom.js",
       "source": "third_party/blink/public/mojom/webrtc/rtc_logging.mojom",
       "module": "blink.mojom",
-      "imports": []
+      "imports": [
+        "mojo/public/mojom/base/uuid.mojom"
+      ]
     },
     {
       "filename": "third_party_blink_public_mojom_webshare_share_error.mojom.js",

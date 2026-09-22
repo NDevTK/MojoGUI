@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8066.0';
+        const versionStr = window.mojoVersion || '156.0.8068.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -335,8 +335,8 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
-  requestClose() {
-    return this.$.requestClose();
+  requestClose(arg_input) {
+    return this.$.requestClose(arg_input);
   }
   showContextMenu(arg_point) {
     return this.$.showContextMenu(arg_point);
@@ -352,12 +352,12 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerRemoteCallHandler = cl
     ]);
   }
 
-  requestClose() {
+  requestClose(arg_input) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec,
       null,
-      [],
+      [arg_input],
       false);
   }
 
@@ -437,7 +437,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestClose');
-          const result = this.impl.requestClose();
+          const result = this.impl.requestClose(params.arg_input);
           break;
         }
         case 1: {
@@ -722,8 +722,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_RequestClose_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandler_RequestClose_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup_aim.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'omnibox_popup_aim.mojom.PageHandler_ShowContextMenu_Params', [
