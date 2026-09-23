@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-22T14:18:47.568024Z",
-  "version": "156.0.8068.0",
+  "generated_at": "2026-09-23T14:35:12.091526Z",
+  "version": "156.0.8069.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3804,71 +3804,6 @@
         },
         "scope": "context",
         "category": "internal"
-      }
-    },
-    {
-      "name": "GeicApi",
-      "module": "geic.mojom",
-      "file": "chrome_browser_geic_geic.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (Global Broker)"
-          ]
-        },
-        "scope": "context",
-        "category": "direct",
-        "scrambled": false
-      }
-    },
-    {
-      "name": "GeicBrowserHost",
-      "module": "geic.mojom",
-      "file": "chrome_browser_geic_geic.mojom.js",
-      "methods": [
-        "RegisterClient",
-        "GetFocusedTab",
-        "GetContextFromFocusedTab",
-        "ClosePanel",
-        "OpenSignInTab",
-        "CloseSignInTab"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (Global Broker)"
-          ]
-        },
-        "scope": "context",
-        "category": "direct",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement"
-        ],
-        "scrambled": false
-      }
-    },
-    {
-      "name": "GeicClient",
-      "module": "geic.mojom",
-      "file": "chrome_browser_geic_geic.mojom.js",
-      "methods": [
-        "OnFocusedTabChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "scrambled": false
       }
     },
     {
@@ -8945,7 +8880,7 @@
       "file": "chrome_browser_ui_webui_infobar_internals_infobar_internals.mojom.js",
       "methods": [
         "GetInfoBars",
-        "TriggerInfoBar"
+        "PerformInfoBarAction"
       ],
       "metadata": {
         "usage": {
@@ -10683,7 +10618,8 @@
       "module": "organizer_panel.mojom",
       "file": "chrome_browser_ui_webui_organizer_panel_tab_groups.mojom.js",
       "methods": [
-        "GetTabGroups"
+        "GetTabGroups",
+        "OpenTabGroup"
       ],
       "metadata": {
         "usage": {
@@ -13338,7 +13274,8 @@
         "category": "direct",
         "gates": [
           "feature:kWebPayments",
-          "feature:kWebAppInstallation"
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement"
         ]
       }
     },
@@ -24804,24 +24741,6 @@
       }
     },
     {
-      "name": "PixCodeValidator",
-      "module": "payments.facilitated.mojom",
-      "file": "components_facilitated_payments_core_mojom_pix_code_validator.mojom.js",
-      "methods": [
-        "ValidatePixCode"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: data_decoder.mojom.DataDecoderService.BindPixCodeValidator"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "DeviceListHost",
       "module": "global_media_controls.mojom",
       "file": "components_global_media_controls_public_mojom_device_service.mojom.js",
@@ -35894,8 +35813,7 @@
         "BindXmlParser",
         "BindWebBundleParserFactory",
         "BindGzipper",
-        "BindStructuredHeadersParser",
-        "BindPixCodeValidator"
+        "BindStructuredHeadersParser"
       ],
       "metadata": {
         "usage": {
@@ -45130,7 +45048,8 @@
         "RecordWindowProxyUsageMetrics",
         "NotifyDocumentInteractive",
         "InitializeCrashReportContext",
-        "RequestUnboundedSurface"
+        "RequestUnboundedSurface",
+        "SuppressXSLTDeprecationBanner"
       ],
       "metadata": {
         "usage": {
@@ -51898,17 +51817,6 @@
       "imports": []
     },
     {
-      "filename": "chrome_browser_geic_geic.mojom.js",
-      "source": "chrome/browser/geic/geic.mojom",
-      "module": "geic.mojom",
-      "imports": [
-        "chrome/browser/pwc/pwc_features.mojom",
-        "mojo/public/mojom/base/proto_wrapper.mojom",
-        "mojo/public/mojom/base/string16.mojom",
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
       "filename": "chrome_browser_glic_experimental_opt_in_glic_experimental_opt_in.mojom.js",
       "source": "chrome/browser/glic/experimental_opt_in/glic_experimental_opt_in.mojom",
       "module": "glic.mojom",
@@ -56115,12 +56023,6 @@
       "imports": []
     },
     {
-      "filename": "components_facilitated_payments_core_mojom_pix_code_validator.mojom.js",
-      "source": "components/facilitated_payments/core/mojom/pix_code_validator.mojom",
-      "module": "payments.facilitated.mojom",
-      "imports": []
-    },
-    {
       "filename": "components_global_media_controls_public_mojom_device_service.mojom.js",
       "source": "components/global_media_controls/public/mojom/device_service.mojom",
       "module": "global_media_controls.mojom",
@@ -60031,7 +59933,6 @@
       "source": "services/data_decoder/public/mojom/data_decoder_service.mojom",
       "module": "data_decoder.mojom",
       "imports": [
-        "components/facilitated_payments/core/mojom/pix_code_validator.mojom",
         "components/web_package/mojom/web_bundle_parser.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
         "services/data_decoder/public/mojom/gzipper.mojom",
@@ -64487,6 +64388,7 @@
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
+        "services/network/public/mojom/content_security_policy.mojom",
         "services/network/public/mojom/source_location.mojom",
         "services/network/public/mojom/storage_access_api.mojom",
         "services/network/public/mojom/url_request.mojom",
