@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-23T14:35:12.091526Z",
-  "version": "156.0.8069.0",
+  "generated_at": "2026-09-25T14:53:23.894640Z",
+  "version": "156.0.8073.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3496,6 +3496,7 @@
         "SetThreadTitle",
         "SetTaskDetails",
         "OnSidePanelStateChanged",
+        "FocusComposebox",
         "PostAimMessage",
         "OnHandshakeComplete",
         "SetOAuthToken",
@@ -3613,6 +3614,7 @@
       "file": "chrome_browser_contextual_tasks_contextual_tasks.mojom.js",
       "methods": [
         "PostAimMessage",
+        "PostSearchMessage",
         "OnHandshakeComplete",
         "OnLensOverlayStateChanged"
       ],
@@ -4185,7 +4187,8 @@
       "file": "chrome_browser_glic_host_glic.mojom.js",
       "methods": [
         "UploadEncryptedScreenshot",
-        "GetExperimentalTriggeringUpdates"
+        "GetExperimentalTriggeringUpdates",
+        "SubmitExperimentalTriggeringConfirmationResponse"
       ],
       "metadata": {
         "usage": {
@@ -4505,7 +4508,8 @@
         "SignInAndClosePanel",
         "ResizeWidget",
         "OnWebUiStateChanged",
-        "NotifyClientLoadError"
+        "NotifyClientLoadError",
+        "OnClientLoadFailed"
       ],
       "metadata": {
         "usage": {
@@ -4861,9 +4865,7 @@
       "module": "file_suggestion.mojom",
       "file": "chrome_browser_new_tab_page_modules_file_suggestion_drive_suggestion.mojom.js",
       "methods": [
-        "GetFiles",
-        "DismissModule",
-        "RestoreModule"
+        "GetFiles"
       ],
       "metadata": {
         "usage": {
@@ -4886,9 +4888,7 @@
       "module": "file_suggestion.mojom",
       "file": "chrome_browser_new_tab_page_modules_file_suggestion_microsoft_files.mojom.js",
       "methods": [
-        "GetFiles",
-        "DismissModule",
-        "RestoreModule"
+        "GetFiles"
       ],
       "metadata": {
         "usage": {
@@ -4907,36 +4907,11 @@
       }
     },
     {
-      "name": "MicrosoftAuthPageHandler",
-      "module": "ntp.authentication.mojom",
-      "file": "chrome_browser_new_tab_page_modules_v2_authentication_microsoft_auth.mojom.js",
-      "methods": [
-        "DismissModule",
-        "RestoreModule",
-        "ShouldShowModule"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kNtpTabGroupsModule"
-        ]
-      }
-    },
-    {
       "name": "GoogleCalendarPageHandler",
       "module": "ntp.calendar.mojom",
       "file": "chrome_browser_new_tab_page_modules_v2_calendar_google_calendar.mojom.js",
       "methods": [
-        "GetEvents",
-        "DismissModule",
-        "RestoreModule"
+        "GetEvents"
       ],
       "metadata": {
         "usage": {
@@ -4959,9 +4934,7 @@
       "module": "ntp.calendar.mojom",
       "file": "chrome_browser_new_tab_page_modules_v2_calendar_outlook_calendar.mojom.js",
       "methods": [
-        "GetEvents",
-        "DismissModule",
-        "RestoreModule"
+        "GetEvents"
       ],
       "metadata": {
         "usage": {
@@ -4983,9 +4956,7 @@
       "file": "chrome_browser_new_tab_page_modules_v2_most_relevant_tab_resumption_most_relevant_tab_resumption.mojom.js",
       "methods": [
         "GetURLVisits",
-        "DismissModule",
         "DismissURLVisit",
-        "RestoreModule",
         "RestoreURLVisit",
         "RecordAction"
       ],
@@ -5014,9 +4985,7 @@
       "methods": [
         "CreateNewTabGroup",
         "GetTabGroups",
-        "OpenTabGroup",
-        "DismissModule",
-        "RestoreModule"
+        "OpenTabGroup"
       ],
       "metadata": {
         "usage": {
@@ -6439,51 +6408,6 @@
     },
     {
       "name": "PageHandlerFactory",
-      "module": "ash.manage_mirrorsync.mojom",
-      "file": "chrome_browser_ui_webui_ash_manage_mirrorsync_manage_mirrorsync.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "ash.manage_mirrorsync.mojom",
-      "file": "chrome_browser_ui_webui_ash_manage_mirrorsync_manage_mirrorsync.mojom.js",
-      "methods": [
-        "GetChildFolders",
-        "GetSyncingPaths"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ash.manage_mirrorsync.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
       "module": "ash.office_fallback.mojom",
       "file": "chrome_browser_ui_webui_ash_office_fallback_office_fallback.mojom.js",
       "methods": [
@@ -7776,7 +7700,10 @@
         "CloseConfirmedTabGroup",
         "RemoveAllConfirmedTabGroups",
         "ExecuteSmartSearch",
-        "OpenUrlsInTabGroup"
+        "OpenUrlsInTabGroup",
+        "GetTopics",
+        "OpenTopic",
+        "OpenGlicPanel"
       ],
       "metadata": {
         "usage": {
@@ -7997,7 +7924,9 @@
       "name": "Page",
       "module": "default_browser_modal.mojom",
       "file": "chrome_browser_ui_webui_default_browser_default_browser_modal.mojom.js",
-      "methods": [],
+      "methods": [
+        "OnHasAcceptedChanged"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -8023,8 +7952,10 @@
       "file": "chrome_browser_ui_webui_default_browser_default_browser_modal.mojom.js",
       "methods": [
         "Confirm",
+        "TryAgain",
         "Cancel",
-        "ShowUI"
+        "ShowUI",
+        "CheckDefaultStatusAndMaybeClose"
       ],
       "metadata": {
         "usage": {
@@ -9668,7 +9599,6 @@
         "GetMostVisitedSettings",
         "GetDoodle",
         "OnDismissModule",
-        "OnRestoreModule",
         "SetModulesVisible",
         "UpdateDisabledModules",
         "OnModulesLoadedWithData",
@@ -10287,7 +10217,8 @@
       "file": "chrome_browser_ui_webui_omnibox_everywhere_mojom_omnibox_everywhere.mojom.js",
       "methods": [
         "OnContextMenuClosed",
-        "OpenComposebox"
+        "OpenComposebox",
+        "OnScreenshotCaptureCancelled"
       ],
       "metadata": {
         "usage": {
@@ -10614,12 +10545,82 @@
       }
     },
     {
+      "name": "PageHandler",
+      "module": "organizer_panel.mojom",
+      "file": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
+      "methods": [
+        "ClosePanel"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: organizer_panel.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "organizer_panel.mojom",
+      "file": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
+      "name": "TabGroupsOrganizerPage",
+      "module": "organizer_panel.mojom",
+      "file": "chrome_browser_ui_webui_organizer_panel_tab_groups.mojom.js",
+      "methods": [
+        "TabGroupAdded",
+        "TabGroupRemoved",
+        "TabGroupUpdated"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
       "name": "TabGroupsOrganizerPageHandler",
       "module": "organizer_panel.mojom",
       "file": "chrome_browser_ui_webui_organizer_panel_tab_groups.mojom.js",
       "methods": [
         "GetTabGroups",
-        "OpenTabGroup"
+        "OpenTabGroup",
+        "ShowContextMenu"
       ],
       "metadata": {
         "usage": {
@@ -15676,7 +15677,7 @@
         "OnHeartbeat",
         "ConnectToExtension",
         "DisplayConfirmDialog",
-        "ExecuteHttpRequest",
+        "DEPRECATED_ExecuteHttpRequest",
         "GetMachineRootID",
         "PersistMachineRootID",
         "OnMirrorSyncingStatusUpdate",
@@ -24299,6 +24300,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpTabGroupsModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -24349,6 +24351,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpTabGroupsModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -24371,6 +24374,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpTabGroupsModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -24403,6 +24407,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpTabGroupsModule",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -26517,7 +26522,8 @@
       "module": "policy.mojom",
       "file": "components_policy_resources_webui_mojom_policy.mojom.js",
       "methods": [
-        "StatusUpdated"
+        "StatusUpdated",
+        "PoliciesUpdated"
       ],
       "metadata": {
         "usage": {
@@ -28103,7 +28109,6 @@
         "DidDisallowFirstSubresource",
         "FrameIsAd",
         "FrameWasCreatedByAdScript",
-        "AdScriptDidCreateFencedFrame",
         "SetDocumentLoadStatistics",
         "OnAdsViolationTriggered"
       ],
@@ -29888,6 +29893,22 @@
         "RecordAudioBuffer",
         "StopRecording"
       ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "ResourceBrokerService",
+      "module": "resource_broker.mojom",
+      "file": "content_services_resource_broker_public_mojom_resource_broker.mojom.js",
+      "methods": [],
       "metadata": {
         "usage": {
           "associated": [],
@@ -39588,6 +39609,7 @@
         "SetOutgoingDatagramExpirationDuration",
         "GetStats",
         "GetReceiveStreamStats",
+        "GetSendStreamStats",
         "Close",
         "SetStreamPriority"
       ],
@@ -41430,6 +41452,7 @@
         "SetResolutionConstraints",
         "SetAutoThrottlingEnabled",
         "SetAnimationFpsLockIn",
+        "SetIsSecure",
         "ChangeTarget",
         "Start",
         "Stop",
@@ -44447,26 +44470,6 @@
       }
     },
     {
-      "name": "FencedFrameOwnerHost",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_fenced_frame_fenced_frame.mojom.js",
-      "methods": [
-        "Navigate",
-        "DidChangeFramePolicy"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [
-            "Source: Associated Interface (RFH/Navigation)",
-            "blink.mojom.LocalFrameHost.CreateFencedFrame"
-          ],
-          "direct": []
-        },
-        "scope": "context",
-        "category": "associated"
-      }
-    },
-    {
       "name": "FileUtilitiesHost",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_file_file_utilities.mojom.js",
@@ -45036,11 +45039,7 @@
         "DidInferColorScheme",
         "DidChangeSrcDoc",
         "ReceivedDelegatedCapability",
-        "SendFencedFrameReportingBeacon",
-        "SendFencedFrameReportingBeaconToCustomURL",
         "SendLegacyTechEvent",
-        "SetFencedFrameAutomaticBeaconReportEventData",
-        "CreateFencedFrame",
         "OnViewTransitionOptInChanged",
         "StartDragging",
         "IssueKeepAliveHandle",
@@ -51892,6 +51891,7 @@
       "source": "chrome/browser/glic/selection/selection_overlay.mojom",
       "module": "glic.selection",
       "imports": [
+        "chrome/browser/selection/mojom/action.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "skia/public/mojom/bitmap.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom"
@@ -52008,12 +52008,6 @@
       ]
     },
     {
-      "filename": "chrome_browser_new_tab_page_modules_v2_authentication_microsoft_auth.mojom.js",
-      "source": "chrome/browser/new_tab_page/modules/v2/authentication/microsoft_auth.mojom",
-      "module": "ntp.authentication.mojom",
-      "imports": []
-    },
-    {
       "filename": "chrome_browser_new_tab_page_modules_v2_calendar_calendar_data.mojom.js",
       "source": "chrome/browser/new_tab_page/modules/v2/calendar/calendar_data.mojom",
       "module": "ntp.calendar.mojom",
@@ -52069,9 +52063,7 @@
       "filename": "chrome_browser_pwc_pwc.mojom.js",
       "source": "chrome/browser/pwc/pwc.mojom",
       "module": "pwc.mojom",
-      "imports": [
-        "chrome/browser/pwc/pwc_features.mojom"
-      ]
+      "imports": []
     },
     {
       "filename": "chrome_browser_resource_coordinator_lifecycle_unit_state.mojom.js",
@@ -52083,6 +52075,12 @@
       "filename": "chrome_browser_resources_certificate_manager_certificate_manager.mojom.js",
       "source": "chrome/browser/resources/certificate_manager/certificate_manager.mojom",
       "module": "certificate_manager.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_selection_mojom_action.mojom.js",
+      "source": "chrome/browser/selection/mojom/action.mojom",
+      "module": "selection.mojom",
       "imports": []
     },
     {
@@ -52258,14 +52256,6 @@
       "source": "chrome/browser/ui/webui/ash/login/mojom/screens_osauth.mojom",
       "module": "ash.screens_osauth.mojom",
       "imports": []
-    },
-    {
-      "filename": "chrome_browser_ui_webui_ash_manage_mirrorsync_manage_mirrorsync.mojom.js",
-      "source": "chrome/browser/ui/webui/ash/manage_mirrorsync/manage_mirrorsync.mojom",
-      "module": "ash.manage_mirrorsync.mojom",
-      "imports": [
-        "mojo/public/mojom/base/file_path.mojom"
-      ]
     },
     {
       "filename": "chrome_browser_ui_webui_ash_office_fallback_office_fallback.mojom.js",
@@ -52807,12 +52797,18 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
+      "source": "chrome/browser/ui/webui/organizer_panel/organizer_panel.mojom",
+      "module": "organizer_panel.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_organizer_panel_tab_groups.mojom.js",
       "source": "chrome/browser/ui/webui/organizer_panel/tab_groups.mojom",
       "module": "organizer_panel.mojom",
       "imports": [
         "components/tab_groups/public/mojom/tab_group_types.mojom",
-        "mojo/public/mojom/base/uuid.mojom"
+        "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
     {
@@ -53273,11 +53269,8 @@
         "mojo/public/mojom/base/big_string.mojom",
         "mojo/public/mojom/base/file.mojom",
         "url/mojom/url.mojom",
-        "skia/public/mojom/skcolor.mojom",
         "skia/public/mojom/bitmap.mojom",
-        "ui/accessibility/ax_features.mojom",
         "ui/accessibility/mojom/ax_event.mojom",
-        "ui/accessibility/mojom/ax_location_and_scroll_updates.mojom",
         "ui/accessibility/mojom/ax_tree_id.mojom",
         "ui/accessibility/mojom/ax_tree_update.mojom",
         "mojo/public/mojom/base/values.mojom"
@@ -57475,7 +57468,6 @@
         "third_party/blink/public/mojom/browser_interface_broker.mojom",
         "third_party/blink/public/mojom/commit_result/commit_result.mojom",
         "third_party/blink/public/mojom/devtools/console_message.mojom",
-        "third_party/blink/public/mojom/fenced_frame/fenced_frame.mojom",
         "third_party/blink/public/mojom/fenced_frame/fenced_frame_config.mojom",
         "third_party/blink/public/mojom/frame/frame_owner_properties.mojom",
         "third_party/blink/public/mojom/frame/frame_policy.mojom",
@@ -57786,6 +57778,15 @@
       "imports": [
         "media/mojo/mojom/media_types.mojom",
         "sandbox/policy/mojom/sandbox.mojom"
+      ]
+    },
+    {
+      "filename": "content_services_resource_broker_public_mojom_resource_broker.mojom.js",
+      "source": "content/services/resource_broker/public/mojom/resource_broker.mojom",
+      "module": "resource_broker.mojom",
+      "imports": [
+        "sandbox/policy/mojom/sandbox.mojom",
+        "mojo/public/mojom/base/work_in_progress.mojom"
       ]
     },
     {
@@ -63911,17 +63912,6 @@
       "imports": []
     },
     {
-      "filename": "third_party_blink_public_mojom_fenced_frame_fenced_frame.mojom.js",
-      "source": "third_party/blink/public/mojom/fenced_frame/fenced_frame.mojom",
-      "module": "blink.mojom",
-      "imports": [
-        "mojo/public/mojom/base/string16.mojom",
-        "mojo/public/mojom/base/time.mojom",
-        "third_party/blink/public/mojom/frame/frame_policy.mojom",
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
       "filename": "third_party_blink_public_mojom_fenced_frame_fenced_frame_config.mojom.js",
       "source": "third_party/blink/public/mojom/fenced_frame/fenced_frame_config.mojom",
       "module": "blink.mojom",
@@ -64243,8 +64233,6 @@
         "third_party/blink/public/mojom/dom_storage/storage_area.mojom",
         "third_party/blink/public/mojom/drag/drag.mojom",
         "third_party/blink/public/mojom/favicon/favicon_url.mojom",
-        "third_party/blink/public/mojom/fenced_frame/fenced_frame.mojom",
-        "third_party/blink/public/mojom/fenced_frame/fenced_frame_config.mojom",
         "third_party/blink/public/mojom/fetch/fetch_api_request.mojom",
         "third_party/blink/public/mojom/frame/blocked_navigation_types.mojom",
         "third_party/blink/public/mojom/frame/frame_owner_properties.mojom",
