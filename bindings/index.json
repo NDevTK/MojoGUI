@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-25T14:53:23.894640Z",
-  "version": "156.0.8073.0",
+  "generated_at": "2026-09-26T13:59:42.875552Z",
+  "version": "156.0.8075.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -11,7 +11,8 @@
         "SetTextZoomFactor",
         "DocumentHasImage",
         "ResetScrollAndScaleState",
-        "SmoothScroll"
+        "SmoothScroll",
+        "PostEmbedderMessageEvent"
       ],
       "metadata": {
         "usage": {
@@ -3446,10 +3447,7 @@
         "CloseSidePanel",
         "ShowThreadHistory",
         "IsShownInTab",
-        "OpenMyActivityUi",
-        "OpenFeedbackUi",
         "OpenOnboardingHelpUi",
-        "OpenOverflowMenuHelpUi",
         "OpenAskGHelpUi",
         "MoveTaskUiToNewTab",
         "OnTabClickedFromSourcesMenu",
@@ -3460,8 +3458,6 @@
         "OnboardingTooltipDismissed",
         "AskGTooltipDismissed",
         "ReopenTabs",
-        "PinSidePanel",
-        "UnpinSidePanel",
         "OnContextMenuOpened",
         "NotifySmartTabSharingTryItIphResult",
         "NotifySmartTabSharingDefaultOnIphResult",
@@ -3519,7 +3515,6 @@
         "LockInput",
         "UnlockInput",
         "SetShowReopenTabs",
-        "OnSidePanelPinStateChanged",
         "SetExpandButtonEnabled",
         "TurnOnSmartTabSharing",
         "ShowSmartTabSharingTryItIph",
@@ -3595,7 +3590,8 @@
         "GetHandshakeMessage",
         "OnWebviewMessage",
         "SetTaskId",
-        "GetLensCropPreview"
+        "GetLensCropPreview",
+        "RemoveLensCrop"
       ],
       "metadata": {
         "usage": {
@@ -3616,7 +3612,8 @@
         "PostAimMessage",
         "PostSearchMessage",
         "OnHandshakeComplete",
-        "OnLensOverlayStateChanged"
+        "OnLensOverlayStateChanged",
+        "OnLensCropUpdated"
       ],
       "metadata": {
         "usage": {
@@ -3725,7 +3722,13 @@
       "name": "PageHandler",
       "module": "contextual_tasks_toolbar.mojom",
       "file": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
-      "methods": [],
+      "methods": [
+        "PinSidePanel",
+        "UnpinSidePanel",
+        "OpenMyActivityUi",
+        "OpenOverflowMenuHelpUi",
+        "OpenFeedbackUi"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -3746,7 +3749,9 @@
       "name": "Page",
       "module": "contextual_tasks_toolbar.mojom",
       "file": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
-      "methods": [],
+      "methods": [
+        "OnSidePanelPinStateChanged"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -4946,7 +4951,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpTabGroupsModule"
+          "feature:kNtpTabGroupsModule",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -7573,7 +7580,6 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7599,7 +7605,6 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7630,7 +7635,6 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7656,7 +7660,6 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -7702,6 +7705,7 @@
         "ExecuteSmartSearch",
         "OpenUrlsInTabGroup",
         "GetTopics",
+        "GetTopic",
         "OpenTopic",
         "OpenGlicPanel"
       ],
@@ -7718,7 +7722,6 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -9078,6 +9081,7 @@
         "GetInstalledAppsInfo",
         "InstallAppFromDevProxy",
         "InstallAppFromUpdateManifest",
+        "LaunchApp",
         "ParseUpdateManifestFromUrl",
         "SelectAndInstallAppFromLocalWebBundle",
         "SelectAndUpdateAppFromLocalWebBundle",
@@ -10305,7 +10309,8 @@
         "SetFocus",
         "ClearAutocompleteMatches",
         "ClearPopup",
-        "SetDefaultSearchProvider"
+        "SetDefaultSearchProvider",
+        "FocusSearchWithDefaultSearchEngineKeywordMode"
       ],
       "metadata": {
         "usage": {
@@ -11107,8 +11112,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -11157,8 +11163,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -11187,8 +11194,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kCustomizeChromeWallpaperSearch",
-          "feature:kOptimizationGuideModelExecution"
+          "feature:kNtpNextFeatures",
+          "feature:kNtpMostRelevantTabResumptionModule",
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -11846,8 +11854,7 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures",
-          "feature:kNtpMostRelevantTabResumptionModule"
+          "feature:kNtpNextFeatures"
         ]
       }
     },
@@ -13628,6 +13635,42 @@
         },
         "scope": "process",
         "category": "direct"
+      }
+    },
+    {
+      "name": "PlatformRuntime",
+      "module": "request_header_integrity.mojom",
+      "file": "chrome_common_request_header_integrity_platform_runtime.mojom.js",
+      "methods": [
+        "ProcessHeaders"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: request_header_integrity.mojom.PlatformRuntimeService.LoadLibrary"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PlatformRuntimeService",
+      "module": "request_header_integrity.mojom",
+      "file": "chrome_common_request_header_integrity_platform_runtime.mojom.js",
+      "methods": [
+        "LoadLibrary"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -22936,9 +22979,6 @@
         "GetAlwaysOnVpn",
         "SetAlwaysOnVpn",
         "GetSupportedVpnTypes",
-        "RequestTrafficCounters",
-        "ResetTrafficCounters",
-        "SetTrafficCountersResetDay",
         "CreateCustomApn",
         "CreateExclusivelyEnabledCustomApn",
         "RemoveCustomApn",
@@ -24017,7 +24057,8 @@
         "OnPerformanceInterventionButtonClicked",
         "OnPerformanceInterventionButtonMousePressed",
         "OnMediaButtonClicked",
-        "OnMediaButtonMousePressed"
+        "OnMediaButtonMousePressed",
+        "OnGlicButtonClicked"
       ],
       "metadata": {
         "usage": {
@@ -37945,25 +37986,6 @@
       }
     },
     {
-      "name": "FirstPartySetsAccessDelegate",
-      "module": "network.mojom",
-      "file": "services_network_public_mojom_first_party_sets_access_delegate.mojom.js",
-      "methods": [
-        "NotifyReady",
-        "SetEnabled"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "ResolveHostHandle",
       "module": "network.mojom",
       "file": "services_network_public_mojom_host_resolver.mojom.js",
@@ -38578,7 +38600,6 @@
         "SetTrustTokenKeyCommitments",
         "UpdateKeyPinsList",
         "BindTestInterfaceForTesting",
-        "SetFirstPartySets",
         "SetExplicitlyAllowedPorts",
         "ParseHeaders",
         "EnableDataUseUpdates",
@@ -41305,6 +41326,8 @@
       "methods": [
         "RegisterFrameSinkId",
         "InvalidateFrameSinkId",
+        "RequestNonEmptyFrameNotification",
+        "CancelNonEmptyFrameNotification",
         "SetFrameSinkDebugLabel",
         "CreateRootCompositorFrameSink",
         "CreateFrameSinkBundle",
@@ -41344,6 +41367,7 @@
       "file": "services_viz_privileged_mojom_compositing_frame_sink_manager.mojom.js",
       "methods": [
         "OnFirstSurfaceActivation",
+        "OnFirstNonEmptyFrame",
         "OnAggregatedHitTestRegionListUpdated",
         "OnFrameTokenChanged",
         "OnScreenshotCaptured",
@@ -43963,7 +43987,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
@@ -47791,7 +47814,6 @@
       "file": "third_party_blink_public_mojom_presentation_presentation.mojom.js",
       "methods": [
         "SetController",
-        "SetReceiver",
         "SetDefaultPresentationUrls",
         "ListenForScreenAvailability",
         "StopListeningForScreenAvailability",
@@ -47799,6 +47821,28 @@
         "ReconnectPresentation",
         "CloseConnection",
         "Terminate"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ],
+        "scrambled": false
+      }
+    },
+    {
+      "name": "PresentationReceiverService",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_presentation_presentation.mojom.js",
+      "methods": [
+        "SetReceiver"
       ],
       "metadata": {
         "usage": {
@@ -47853,6 +47897,9 @@
         },
         "scope": "context",
         "category": "internal",
+        "gates": [
+          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+        ],
         "scrambled": false
       }
     },
@@ -51109,9 +51156,12 @@
       "source": "android_webview/common/mojom/frame.mojom",
       "module": "android_webview.mojom",
       "imports": [
+        "mojo/public/mojom/base/shared_memory.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "third_party/blink/public/mojom/messaging/message_port_descriptor.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
+        "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -53307,6 +53357,16 @@
       "source": "chrome/common/request_header_integrity/chrome_companero.mojom",
       "module": "request_header_integrity.mojom",
       "imports": [
+        "services/network/public/mojom/http_request_headers.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_common_request_header_integrity_platform_runtime.mojom.js",
+      "source": "chrome/common/request_header_integrity/platform_runtime.mojom",
+      "module": "request_header_integrity.mojom",
+      "imports": [
+        "mojo/public/mojom/base/file_path.mojom",
+        "sandbox/policy/mojom/sandbox.mojom",
         "services/network/public/mojom/http_request_headers.mojom"
       ]
     },
@@ -57800,7 +57860,8 @@
       "source": "content/shell/common/memory_coordinator/memory_coordinator_test.mojom",
       "module": "content.mojom",
       "imports": [
-        "content/common/memory_coordinator/mojom/memory_coordinator.mojom"
+        "content/common/memory_coordinator/mojom/memory_coordinator.mojom",
+        "mojo/public/mojom/base/memory_limit.mojom"
       ]
     },
     {
@@ -60518,7 +60579,6 @@
         "mojo/public/mojom/base/time.mojom",
         "sandbox/policy/mojom/context.mojom",
         "services/network/public/mojom/cookie_partition_key.mojom",
-        "services/network/public/mojom/first_party_sets.mojom",
         "services/network/public/mojom/schemeful_site.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
@@ -60693,24 +60753,6 @@
       "module": "network.mojom",
       "imports": [
         "mojo/public/mojom/base/time.mojom"
-      ]
-    },
-    {
-      "filename": "services_network_public_mojom_first_party_sets.mojom.js",
-      "source": "services/network/public/mojom/first_party_sets.mojom",
-      "module": "network.mojom",
-      "imports": [
-        "mojo/public/mojom/base/version.mojom",
-        "services/network/public/mojom/schemeful_site.mojom"
-      ]
-    },
-    {
-      "filename": "services_network_public_mojom_first_party_sets_access_delegate.mojom.js",
-      "source": "services/network/public/mojom/first_party_sets_access_delegate.mojom",
-      "module": "network.mojom",
-      "imports": [
-        "services/network/public/mojom/first_party_sets.mojom",
-        "services/network/public/mojom/schemeful_site.mojom"
       ]
     },
     {
@@ -60953,7 +60995,6 @@
         "services/network/public/mojom/devtools_observer.mojom",
         "services/network/public/mojom/document_isolation_policy.mojom",
         "services/network/public/mojom/fetch_api.mojom",
-        "services/network/public/mojom/first_party_sets_access_delegate.mojom",
         "services/network/public/mojom/hash_value.mojom",
         "services/network/public/mojom/host_resolver.mojom",
         "services/network/public/mojom/http_cache_backend_file_operations.mojom",
@@ -61089,7 +61130,6 @@
         "sandbox/policy/mojom/context.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
         "services/network/public/mojom/client_security_state.mojom",
-        "services/network/public/mojom/first_party_sets.mojom",
         "services/network/public/mojom/host_resolver.mojom",
         "services/network/public/mojom/http_raw_headers.mojom",
         "services/network/public/mojom/http_response_headers.mojom",
