@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-27T14:56:05.398522Z",
-  "version": "156.0.8075.0",
+  "generated_at": "2026-09-28T17:56:00.568962Z",
+  "version": "156.0.8076.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -24024,7 +24024,6 @@
         "OnPageInitialized",
         "OnContentSettingImagePointerDown",
         "ShowContentSettingsBubble",
-        "OnContentSettingImageAnimationEnded",
         "OnPageActionPointerDown",
         "OnPageActionClick",
         "OnPageActionChipShowingChanged",
@@ -51944,6 +51943,7 @@
         "chrome/browser/selection/mojom/action.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "skia/public/mojom/bitmap.mojom",
+        "mojo/public/mojom/base/generic_pending_associated_receiver.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom"
       ]
     },

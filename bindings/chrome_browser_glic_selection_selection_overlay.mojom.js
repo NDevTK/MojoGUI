@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8075.0';
+        const versionStr = window.mojoVersion || '156.0.8076.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -189,6 +189,9 @@ mojo.internal.bindings.gfx.mojom.RectFSpec = mojo.internal.bindings.gfx.mojom.Re
 mojo.internal.bindings.glic = mojo.internal.bindings.glic || {};
 mojo.internal.bindings.glic.selection = mojo.internal.bindings.glic.selection || {};
 mojo.internal.bindings.glic.selection.RegionShapeSpec = mojo.internal.bindings.glic.selection.RegionShapeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec = mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -529,8 +532,8 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerRemote = class 
   getSuggestedActions(arg_listener) {
     return this.$.getSuggestedActions(arg_listener);
   }
-  executeSuggestedAction(arg_action_id) {
-    return this.$.executeSuggestedAction(arg_action_id);
+  executeSuggestedAction(arg_action_id, arg_channel) {
+    return this.$.executeSuggestedAction(arg_action_id, arg_channel);
   }
 };
 
@@ -622,12 +625,12 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerRemoteCallHandl
       false);
   }
 
-  executeSuggestedAction(arg_action_id) {
+  executeSuggestedAction(arg_action_id, arg_channel) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_ExecuteSuggestedAction_ParamsSpec,
       null,
-      [arg_action_id],
+      [arg_action_id, arg_channel],
       false);
   }
 
@@ -761,7 +764,7 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_ExecuteSuggestedAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeSuggestedAction');
-          const result = this.impl.executeSuggestedAction(params.arg_action_id);
+          const result = this.impl.executeSuggestedAction(params.arg_action_id, params.arg_channel);
           break;
         }
       }
@@ -1031,8 +1034,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_ExecuteSuggestedAction_ParamsSpec, 'glic.selection.SelectionOverlayPageHandler_ExecuteSuggestedAction_Params', [
       mojo.internal.StructField('arg_action_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel', 8, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.selection.SelectionOverlayPage_ScreenshotReceived_ParamsSpec, 'glic.selection.SelectionOverlayPage_ScreenshotReceived_Params', [
