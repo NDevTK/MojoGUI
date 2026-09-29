@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8076.0';
+        const versionStr = window.mojoVersion || '156.0.8078.3';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,7 +129,9 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 
+mojo.internal.bindings.read_aloud.mojom.SpeakerSpec = mojo.internal.bindings.read_aloud.mojom.SpeakerSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.read_aloud.mojom.PlaybackStateSpec = mojo.internal.bindings.read_aloud.mojom.PlaybackStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.read_aloud.mojom.PlaybackModeSpec = mojo.internal.bindings.read_aloud.mojom.PlaybackModeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.read_aloud.mojom.TextSegmentSpec = mojo.internal.bindings.read_aloud.mojom.TextSegmentSpec || { $: {} };
 if (mojo.internal.bindings.read_aloud.mojom.TextSegmentSpec.$.structSpec && mojo.internal.bindings.read_aloud.mojom.TextSegmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_aloud.mojom.TextSegmentSpec.$ = {};
 mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController = mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController || {};
@@ -152,6 +154,8 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetVoice_Par
 if (mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetVoice_ParamsSpec.$.structSpec && mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetVoice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetVoice_ParamsSpec.$ = {};
 mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackRate_ParamsSpec = mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackRate_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackRate_ParamsSpec.$.structSpec && mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackRate_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackRate_ParamsSpec.$ = {};
+mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackMode_ParamsSpec = mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackMode_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackMode_ParamsSpec.$.structSpec && mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackMode_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackMode_ParamsSpec.$ = {};
 mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_FlushBuffers_ParamsSpec = mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_FlushBuffers_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_FlushBuffers_ParamsSpec.$.structSpec && mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_FlushBuffers_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_FlushBuffers_ParamsSpec.$ = {};
 mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient = mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient || {};
@@ -199,6 +203,12 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Enum: Speaker
+mojo.internal.bindings.read_aloud.mojom.Speaker = {
+  kSpeaker1: 0,
+  kSpeaker2: 1,
+};
+
 // Enum: PlaybackState
 mojo.internal.bindings.read_aloud.mojom.PlaybackState = {
   kPaused: 0,
@@ -207,6 +217,12 @@ mojo.internal.bindings.read_aloud.mojom.PlaybackState = {
   kError: 3,
   kStopped: 4,
   kPlaybackCreation: 5,
+};
+
+// Enum: PlaybackMode
+mojo.internal.bindings.read_aloud.mojom.PlaybackMode = {
+  kClassic: 0,
+  kOverview: 1,
 };
 
 // Interface: ReadAloudPlaybackController
@@ -263,6 +279,9 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerRemote = clas
   setPlaybackRate(arg_rate) {
     return this.$.setPlaybackRate(arg_rate);
   }
+  setPlaybackMode(arg_mode) {
+    return this.$.setPlaybackMode(arg_mode);
+  }
   flushBuffers() {
     return this.$.flushBuffers();
   }
@@ -272,6 +291,7 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerRemoteCallHan
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('read_aloud.mojom.ReadAloudPlaybackController', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -356,9 +376,18 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerRemoteCallHan
       false);
   }
 
-  flushBuffers() {
+  setPlaybackMode(arg_mode) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
+      mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackMode_ParamsSpec,
+      null,
+      [arg_mode],
+      false);
+  }
+
+  flushBuffers() {
+    return this.proxy.sendMessage(
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_FlushBuffers_ParamsSpec,
       null,
       [],
@@ -383,6 +412,7 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerReceiver = cl
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('read_aloud.mojom.ReadAloudPlaybackController', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -493,6 +523,13 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerReceiver = cl
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackMode_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setPlaybackMode');
+          const result = this.impl.setPlaybackMode(params.arg_mode);
+          break;
+        }
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_FlushBuffers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flushBuffers');
           const result = this.impl.flushBuffers();
@@ -554,8 +591,8 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClientRemote 
   onTextChunked(arg_chunks) {
     return this.$.onTextChunked(arg_chunks);
   }
-  requestSpeechSynthesis(arg_text_chunk, arg_sequence_id) {
-    return this.$.requestSpeechSynthesis(arg_text_chunk, arg_sequence_id);
+  requestSpeechSynthesis(arg_text_chunk, arg_speaker, arg_sequence_id) {
+    return this.$.requestSpeechSynthesis(arg_text_chunk, arg_speaker, arg_sequence_id);
   }
 };
 
@@ -607,12 +644,12 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClientRemoteC
       false);
   }
 
-  requestSpeechSynthesis(arg_text_chunk, arg_sequence_id) {
+  requestSpeechSynthesis(arg_text_chunk, arg_speaker, arg_sequence_id) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_RequestSpeechSynthesis_ParamsSpec,
       mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_RequestSpeechSynthesis_ResponseParamsSpec,
-      [arg_text_chunk, arg_sequence_id],
+      [arg_text_chunk, arg_speaker, arg_sequence_id],
       false);
   }
 
@@ -714,7 +751,7 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClientReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_RequestSpeechSynthesis_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSpeechSynthesis');
-          const result = this.impl.requestSpeechSynthesis(params.arg_text_chunk, params.arg_sequence_id);
+          const result = this.impl.requestSpeechSynthesis(params.arg_text_chunk, params.arg_speaker, params.arg_sequence_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -882,6 +919,7 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerFactoryReques
 mojo.internal.Struct(
     mojo.internal.bindings.read_aloud.mojom.TextSegmentSpec, 'read_aloud.mojom.TextSegment', [
       mojo.internal.StructField('arg_segment_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_speaker', 4, 0, mojo.internal.bindings.read_aloud.mojom.SpeakerSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
     [[0, 24]]);
@@ -935,6 +973,12 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackMode_ParamsSpec, 'read_aloud.mojom.ReadAloudPlaybackController_SetPlaybackMode_Params', [
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.read_aloud.mojom.PlaybackModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackController_FlushBuffers_ParamsSpec, 'read_aloud.mojom.ReadAloudPlaybackController_FlushBuffers_Params', [
     ],
     [[0, 8]]);
@@ -968,9 +1012,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_RequestSpeechSynthesis_ParamsSpec, 'read_aloud.mojom.ReadAloudPlaybackControllerClient_RequestSpeechSynthesis_Params', [
       mojo.internal.StructField('arg_text_chunk', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sequence_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_speaker', 8, 0, mojo.internal.bindings.read_aloud.mojom.SpeakerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sequence_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_RequestSpeechSynthesis_ResponseParamsSpec, 'read_aloud.mojom.ReadAloudPlaybackControllerClient_RequestSpeechSynthesis_ResponseParams', [

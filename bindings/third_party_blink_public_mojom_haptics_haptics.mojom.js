@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8076.0';
+        const versionStr = window.mojoVersion || '156.0.8078.3';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -140,6 +140,8 @@ mojo.internal.bindings.blink.mojom.HapticEffect = {
   kEdge: 1,
   kTick: 2,
   kAlign: 3,
+  kSuccess: 4,
+  kError: 5,
 };
 
 // Interface: HapticsService

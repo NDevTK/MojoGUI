@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8076.0';
+        const versionStr = window.mojoVersion || '156.0.8078.3';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -576,7 +576,7 @@ mojo.internal.bindings.blink.mojom.WebDXFeature = {
   kDRAFT_HTMLSetterMethods: 443,
   kDRAFT_HTMLStreamMethods: 444,
   kCanvasHtml: 445,
-  kDRAFT_Symbols: 446,
+  kSymbolsFunction: 446,
   kJSSelfProfilingMarkers: 447,
   kDRAFT_Haptics: 448,
   kLargestContentfulPaint: 449,

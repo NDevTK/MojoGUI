@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-28T17:56:00.568962Z",
-  "version": "156.0.8076.0",
+  "generated_at": "2026-09-29T16:20:41.257896Z",
+  "version": "156.0.8078.3",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -13512,6 +13512,7 @@
         "SeekToTime",
         "SetVoice",
         "SetPlaybackRate",
+        "SetPlaybackMode",
         "FlushBuffers"
       ],
       "metadata": {
@@ -24042,6 +24043,7 @@
         "OnLhsChipDrag",
         "OnHomeButtonDropUrl",
         "OnHomeButtonDropFile",
+        "OnHomeButtonDropText",
         "OnToolbarDropFile",
         "ShowAvatarMenu",
         "OnAvatarButtonMousePressed",
@@ -38485,6 +38487,8 @@
         "Prefetch",
         "GetDeviceBoundSessionManager",
         "AddQuicHints",
+        "AddWildcardQuicHints",
+        "SetTryQuicByDefault",
         "SetVariationsHeaders"
       ],
       "metadata": {
@@ -50174,7 +50178,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -50209,7 +50212,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -50332,7 +50334,6 @@
         "gates": [
           "feature:kSubApps",
           "feature:kPaymentLinkDetection",
-          "feature:kNtpCalendarModule",
           "feature:kNtpTabGroupsModule"
         ]
       }
@@ -50380,7 +50381,6 @@
         "gates": [
           "feature:kSubApps",
           "feature:kPaymentLinkDetection",
-          "feature:kNtpCalendarModule",
           "feature:kNtpTabGroupsModule"
         ]
       }

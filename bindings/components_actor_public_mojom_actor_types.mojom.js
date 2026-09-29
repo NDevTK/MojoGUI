@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8076.0';
+        const versionStr = window.mojoVersion || '156.0.8078.3';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -290,6 +290,9 @@ mojo.internal.bindings.actor.mojom.ActionResultCode = {
   kFileUploadEmptyFileList: 1801,
   kSearchServiceUnavailable: 1900,
   kDefaultSearchProviderNotSet: 1901,
+  kPageSearchNoMatch: 2000,
+  kPageSearchAmbiguousMatch: 2001,
+  kPageSearchAlreadyOnMatchingTab: 2002,
 };
 
 // Enum: JournalEntryType

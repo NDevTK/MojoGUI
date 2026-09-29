@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8076.0';
+        const versionStr = window.mojoVersion || '156.0.8078.3';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1266,6 +1266,7 @@ mojo.internal.bindings.glic.mojom.HostCapability = {
   kChromeTools: 16,
   kSkillsV2: 17,
   kEmbeddedPdfBytesExtraction: 18,
+  kNoWebview: 19,
 };
 
 // Enum: ClientCapabilities

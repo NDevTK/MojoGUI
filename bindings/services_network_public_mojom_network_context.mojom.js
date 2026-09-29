@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8076.0';
+        const versionStr = window.mojoVersion || '156.0.8078.3';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -161,6 +161,8 @@ mojo.internal.bindings.network.mojom.URLLoaderFactoryParamsSpec = mojo.internal.
 if (mojo.internal.bindings.network.mojom.URLLoaderFactoryParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.URLLoaderFactoryParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.URLLoaderFactoryParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.IdAndAllowlistedPatternsSpec = mojo.internal.bindings.network.mojom.IdAndAllowlistedPatternsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.IdAndAllowlistedPatternsSpec.$.structSpec && mojo.internal.bindings.network.mojom.IdAndAllowlistedPatternsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.IdAndAllowlistedPatternsSpec.$ = {};
+mojo.internal.bindings.network.mojom.WildcardQuicHintSpec = mojo.internal.bindings.network.mojom.WildcardQuicHintSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.WildcardQuicHintSpec.$.structSpec && mojo.internal.bindings.network.mojom.WildcardQuicHintSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.WildcardQuicHintSpec.$ = {};
 mojo.internal.bindings.network.mojom.CustomProxyConnectionObserver = mojo.internal.bindings.network.mojom.CustomProxyConnectionObserver || {};
 mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverSpec = mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverSpec || { $ : {} };
 if (mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverSpec.$.structSpec && mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.CustomProxyConnectionObserverSpec.$ = {};
@@ -483,6 +485,10 @@ mojo.internal.bindings.network.mojom.NetworkContext_GetDeviceBoundSessionManager
 if (mojo.internal.bindings.network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkContext_GetDeviceBoundSessionManager_ParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec = mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkContext_AddQuicHints_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.NetworkContext_AddWildcardQuicHints_ParamsSpec = mojo.internal.bindings.network.mojom.NetworkContext_AddWildcardQuicHints_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.NetworkContext_AddWildcardQuicHints_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkContext_AddWildcardQuicHints_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkContext_AddWildcardQuicHints_ParamsSpec.$ = {};
+mojo.internal.bindings.network.mojom.NetworkContext_SetTryQuicByDefault_ParamsSpec = mojo.internal.bindings.network.mojom.NetworkContext_SetTryQuicByDefault_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.NetworkContext_SetTryQuicByDefault_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkContext_SetTryQuicByDefault_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkContext_SetTryQuicByDefault_ParamsSpec.$ = {};
 mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec = mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec.$.structSpec && mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec.$ = {};
 
@@ -1997,6 +2003,12 @@ mojo.internal.bindings.network.mojom.NetworkContextRemote = class {
   addQuicHints(arg_origins, arg_network_anonymization_key) {
     return this.$.addQuicHints(arg_origins, arg_network_anonymization_key);
   }
+  addWildcardQuicHints(arg_hints) {
+    return this.$.addWildcardQuicHints(arg_hints);
+  }
+  setTryQuicByDefault(arg_enable) {
+    return this.$.setTryQuicByDefault(arg_enable);
+  }
   setVariationsHeaders(arg_variations_headers) {
     return this.$.setVariationsHeaders(arg_variations_headers);
   }
@@ -2006,6 +2018,8 @@ mojo.internal.bindings.network.mojom.NetworkContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkContext', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2920,9 +2934,27 @@ mojo.internal.bindings.network.mojom.NetworkContextRemoteCallHandler = class {
       false);
   }
 
-  setVariationsHeaders(arg_variations_headers) {
+  addWildcardQuicHints(arg_hints) {
     return this.proxy.sendMessage(
       this.ordinals[91],  // ordinal
+      mojo.internal.bindings.network.mojom.NetworkContext_AddWildcardQuicHints_ParamsSpec,
+      null,
+      [arg_hints],
+      false);
+  }
+
+  setTryQuicByDefault(arg_enable) {
+    return this.proxy.sendMessage(
+      this.ordinals[92],  // ordinal
+      mojo.internal.bindings.network.mojom.NetworkContext_SetTryQuicByDefault_ParamsSpec,
+      null,
+      [arg_enable],
+      false);
+  }
+
+  setVariationsHeaders(arg_variations_headers) {
+    return this.proxy.sendMessage(
+      this.ordinals[93],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec,
       null,
       [arg_variations_headers],
@@ -2947,6 +2979,8 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('network.mojom.NetworkContext', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4216,6 +4250,20 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
         }
         case 91: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_AddWildcardQuicHints_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.addWildcardQuicHints');
+          const result = this.impl.addWildcardQuicHints(params.arg_hints);
+          break;
+        }
+        case 92: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetTryQuicByDefault_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setTryQuicByDefault');
+          const result = this.impl.setTryQuicByDefault(params.arg_enable);
+          break;
+        }
+        case 93: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVariationsHeaders');
           const result = this.impl.setVariationsHeaders(params.arg_variations_headers);
@@ -4466,6 +4514,14 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.IdAndAllowlistedPatternsSpec, 'network.mojom.IdAndAllowlistedPatterns', [
       mojo.internal.StructField('arg_network_restrictions_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_allowlists', 8, 0, mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: WildcardQuicHint
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.WildcardQuicHintSpec, 'network.mojom.WildcardQuicHint', [
+      mojo.internal.StructField('arg_host_suffix', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 8, 0, mojo.internal.Uint16, 443, false, 0, undefined),
     ],
     [[0, 24]]);
 mojo.internal.Struct(
@@ -5470,6 +5526,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_network_anonymization_key', 8, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetworkContext_AddWildcardQuicHints_ParamsSpec, 'network.mojom.NetworkContext_AddWildcardQuicHints_Params', [
+      mojo.internal.StructField('arg_hints', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WildcardQuicHintSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetworkContext_SetTryQuicByDefault_ParamsSpec, 'network.mojom.NetworkContext_SetTryQuicByDefault_Params', [
+      mojo.internal.StructField('arg_enable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_SetVariationsHeaders_ParamsSpec, 'network.mojom.NetworkContext_SetVariationsHeaders_Params', [
