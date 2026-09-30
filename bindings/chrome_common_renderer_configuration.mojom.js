@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8078.3';
+        const versionStr = window.mojoVersion || '157.0.8079.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
 mojo.internal.bindings.chrome.mojom.ResumeBlockedRequestsTriggerSpec = mojo.internal.bindings.chrome.mojom.ResumeBlockedRequestsTriggerSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec = mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec || { $: {} };
@@ -167,6 +168,9 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerPendingRecei
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec = mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -638,8 +642,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_force_safe_search', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('arg_youtube_restrict', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_allowed_domains_for_apps', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_integrity_headers', 24, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: StaticParams
 mojo.internal.Struct(

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8078.3';
+        const versionStr = window.mojoVersion || '157.0.8079.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -165,7 +165,6 @@ mojo.internal.bindings.blink.mojom.CSSSampleId = {
   kInternalOverflowBlock: 0,
   kInternalOverflowInline: 0,
   kInternalOverscrollContainer: 0,
-  kInternalOverscrollPosition: 0,
   kInternalUnbounded: 0,
   kTotalPagesMeasured: 1,
   kColor: 2,

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8078.3';
+        const versionStr = window.mojoVersion || '157.0.8079.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,6 +126,11 @@ mojo.internal.bindings.browser_actuator_internals.mojom = mojo.internal.bindings
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
+mojo.internal.bindings.browser_actuator_internals.mojom.MessageDirectionSpec = mojo.internal.bindings.browser_actuator_internals.mojom.MessageDirectionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.browser_actuator_internals.mojom.RecordedEventSpec = mojo.internal.bindings.browser_actuator_internals.mojom.RecordedEventSpec || { $: {} };
+if (mojo.internal.bindings.browser_actuator_internals.mojom.RecordedEventSpec.$.structSpec && mojo.internal.bindings.browser_actuator_internals.mojom.RecordedEventSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_actuator_internals.mojom.RecordedEventSpec.$ = {};
+mojo.internal.bindings.browser_actuator_internals.mojom.SessionSummarySpec = mojo.internal.bindings.browser_actuator_internals.mojom.SessionSummarySpec || { $: {} };
+if (mojo.internal.bindings.browser_actuator_internals.mojom.SessionSummarySpec.$.structSpec && mojo.internal.bindings.browser_actuator_internals.mojom.SessionSummarySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_actuator_internals.mojom.SessionSummarySpec.$ = {};
 mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsPage = mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsPage || {};
 mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsPageSpec = mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsPageSpec || { $ : {} };
 if (mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsPageSpec.$.structSpec && mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsPageSpec.$ = {};
@@ -134,12 +139,27 @@ mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternals
 mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUISpec = mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUISpec || { $ : {} };
 if (mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUISpec.$.structSpec && mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUISpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUISpec.$ = {};
 mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI.$interfaceName = 'browser_actuator_internals.mojom.BrowserActuatorInternalsUI';
+mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ParamsSpec = mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ParamsSpec.$ = {};
+mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ResponseParamsSpec = mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory = mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory || {};
 mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactorySpec = mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactorySpec || { $ : {} };
 if (mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactorySpec.$.structSpec && mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactorySpec.$ = {};
 mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory.$interfaceName = 'browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory';
 mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory_CreateUI_ParamsSpec = mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory_CreateUI_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory_CreateUI_ParamsSpec.$.structSpec && mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory_CreateUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory_CreateUI_ParamsSpec.$ = {};
+
+// External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.JSTimeSpec = mojo.internal.bindings.mojo_base.mojom.JSTimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: MessageDirection
+mojo.internal.bindings.browser_actuator_internals.mojom.MessageDirection = {
+  kDownstream: 0,
+  kUpstream: 1,
+};
 
 // Interface: BrowserActuatorInternalsPage
 mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsPagePendingReceiver = class {
@@ -285,13 +305,26 @@ mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternals
   close() {
     this.proxy.close();
   }
+  getSessionHistory() {
+    return this.$.getSessionHistory();
+  }
 };
 
 mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('browser_actuator_internals.mojom.BrowserActuatorInternalsUI', [
+      { explicit: null },
     ]);
+  }
+
+  getSessionHistory() {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ParamsSpec,
+      mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ResponseParamsSpec,
+      [],
+      false);
   }
 
 };
@@ -312,6 +345,7 @@ mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternals
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('browser_actuator_internals.mojom.BrowserActuatorInternalsUI', [
+      { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
       this.ordinalMap.set(ord, idx); // Scrambled/Explicit
@@ -355,6 +389,24 @@ mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternals
       this.mapOrdinal(header.ordinal, dispatchId);
       
       switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getSessionHistory');
+          const result = this.impl.getSessionHistory();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_sessions' in response) ? response['arg_sessions'] : response;
+              const resp_obj = { 'arg_sessions': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getSessionHistory FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -505,6 +557,41 @@ mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternals
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: RecordedEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.browser_actuator_internals.mojom.RecordedEventSpec, 'browser_actuator_internals.mojom.RecordedEvent', [
+      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_direction', 8, 0, mojo.internal.bindings.browser_actuator_internals.mojom.MessageDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message_truncated', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_types', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: SessionSummary
+mojo.internal.Struct(
+    mojo.internal.bindings.browser_actuator_internals.mojom.SessionSummarySpec, 'browser_actuator_internals.mojom.SessionSummary', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_wall_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_end_wall_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_total_downstream_messages', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_total_upstream_messages', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_events', 32, 0, mojo.internal.Array(mojo.internal.bindings.browser_actuator_internals.mojom.RecordedEventSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_total_events', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ParamsSpec, 'browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ResponseParamsSpec, 'browser_actuator_internals.mojom.BrowserActuatorInternalsUI_GetSessionHistory_ResponseParams', [
+      mojo.internal.StructField('arg_sessions', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser_actuator_internals.mojom.SessionSummarySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
 mojo.internal.Struct(
     mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory_CreateUI_ParamsSpec, 'browser_actuator_internals.mojom.BrowserActuatorInternalsUIFactory_CreateUI_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.browser_actuator_internals.mojom.BrowserActuatorInternalsPageRemote), null, false, 0, undefined),

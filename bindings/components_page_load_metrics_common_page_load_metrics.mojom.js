@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8078.3';
+        const versionStr = window.mojoVersion || '157.0.8079.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -551,9 +551,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.SubresourceLoadMetricsSpec, 'page_load_metrics.mojom.SubresourceLoadMetrics', [
       mojo.internal.StructField('arg_number_of_subresources_loaded', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_number_of_subresource_loads_handled_by_service_worker', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_subresource_load_metrics', 8, 0, mojo.internal.bindings.page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_number_of_subresource_loads_from_local_font_cache', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_subresource_load_metrics', 16, 0, mojo.internal.bindings.page_load_metrics.mojom.ServiceWorkerSubresourceLoadMetricsSpec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: ServiceWorkerSubresourceLoadMetrics
 mojo.internal.Struct(

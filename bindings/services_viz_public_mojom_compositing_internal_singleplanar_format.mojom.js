@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8078.3';
+        const versionStr = window.mojoVersion || '157.0.8079.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -137,15 +137,14 @@ mojo.internal.bindings.viz.mojom.SingleplanarFormat = {
   ETC1: 4,
   R_8: 5,
   RG_88: 6,
-  LUMINANCE_F16: 7,
-  RGBA_F16: 8,
-  R_16: 9,
-  RG_1616: 10,
-  RGBX_8888: 11,
-  BGRX_8888: 12,
-  RGBA_1010102: 13,
-  BGRA_1010102: 14,
-  R_F16: 15,
+  RGBA_F16: 7,
+  R_16: 8,
+  RG_1616: 9,
+  RGBX_8888: 10,
+  BGRX_8888: 11,
+  RGBA_1010102: 12,
+  BGRA_1010102: 13,
+  R_F16: 14,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

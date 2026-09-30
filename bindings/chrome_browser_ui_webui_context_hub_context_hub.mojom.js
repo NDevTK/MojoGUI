@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8078.3';
+        const versionStr = window.mojoVersion || '157.0.8079.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -172,6 +172,10 @@ mojo.internal.bindings.browser.context_hub.mojom.TopicVisitSpec = mojo.internal.
 if (mojo.internal.bindings.browser.context_hub.mojom.TopicVisitSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TopicVisitSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TopicVisitSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.TopicContinuationQuerySpec = mojo.internal.bindings.browser.context_hub.mojom.TopicContinuationQuerySpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.TopicContinuationQuerySpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TopicContinuationQuerySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TopicContinuationQuerySpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionItemSpec = mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionItemSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionItemSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionItemSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionSpec = mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.TopicSpec = mojo.internal.bindings.browser.context_hub.mojom.TopicSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.TopicSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TopicSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TopicSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.Page = mojo.internal.bindings.browser.context_hub.mojom.Page || {};
@@ -2195,6 +2199,23 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
+// Struct: TopicCollectionItem
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionItemSpec, 'browser.context_hub.mojom.TopicCollectionItem', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: TopicCollection
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionSpec, 'browser.context_hub.mojom.TopicCollection', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_items', 8, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: Topic
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.TopicSpec, 'browser.context_hub.mojom.Topic', [
@@ -2206,8 +2227,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_short_overview', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_visits', 48, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.TopicVisitSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_continuation_queries', 56, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.TopicContinuationQuerySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_collections', 64, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.TopicCollectionSpec, false), null, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.Page_OnAutoTodosChanged_ParamsSpec, 'browser.context_hub.mojom.Page_OnAutoTodosChanged_Params', [
       mojo.internal.StructField('arg_todos', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.AutoTodoItemSpec, false), null, false, 0, undefined),

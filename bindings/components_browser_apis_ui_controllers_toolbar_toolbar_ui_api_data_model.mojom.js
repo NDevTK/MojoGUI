@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '156.0.8078.3';
+        const versionStr = window.mojoVersion || '157.0.8079.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -680,6 +680,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('arg_should_be_shown', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_context_menu_visible', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prevent_overflow_$flag', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_prevent_overflow_$value', originalFieldName: 'arg_prevent_overflow' }),
+      mojo.internal.StructField('arg_prevent_overflow_$value', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_prevent_overflow_$flag', originalFieldName: 'arg_prevent_overflow' }),
     ],
     [[0, 16]]);
 

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-29T16:20:41.257896Z",
-  "version": "156.0.8078.3",
+  "generated_at": "2026-09-30T16:12:32.087888Z",
+  "version": "157.0.8079.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3378,7 +3378,9 @@
       "name": "BrowserActuatorInternalsUI",
       "module": "browser_actuator_internals.mojom",
       "file": "chrome_browser_browser_actuator_internals_browser_actuator_internals.mojom.js",
-      "methods": [],
+      "methods": [
+        "GetSessionHistory"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -51817,7 +51819,9 @@
       "filename": "chrome_browser_browser_actuator_internals_browser_actuator_internals.mojom.js",
       "source": "chrome/browser/browser_actuator/internals/browser_actuator_internals.mojom",
       "module": "browser_actuator_internals.mojom",
-      "imports": []
+      "imports": [
+        "mojo/public/mojom/base/time.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_contextual_cueing_internals_contextual_cueing_internals.mojom.js",
@@ -53349,7 +53353,8 @@
         "components/content_settings/common/content_settings_manager.mojom",
         "components/content_settings/core/common/content_settings.mojom",
         "mojo/public/mojom/base/time.mojom",
-        "url/mojom/url.mojom"
+        "url/mojom/url.mojom",
+        "services/network/public/mojom/http_request_headers.mojom"
       ]
     },
     {
