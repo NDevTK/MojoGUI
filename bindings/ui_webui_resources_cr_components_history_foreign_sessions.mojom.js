@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -156,8 +156,6 @@ mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_DeleteForeignSess
 if (mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_DeleteForeignSession_ParamsSpec.$.structSpec && mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_DeleteForeignSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_DeleteForeignSession_ParamsSpec.$ = {};
 mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_SetForeignSessionCollapsed_ParamsSpec = mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_SetForeignSessionCollapsed_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_SetForeignSessionCollapsed_ParamsSpec.$.structSpec && mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_SetForeignSessionCollapsed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_SetForeignSessionCollapsed_ParamsSpec.$ = {};
-mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_ShowUi_ParamsSpec = mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_ShowUi_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_ShowUi_ParamsSpec.$.structSpec && mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_ShowUi_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_ShowUi_ParamsSpec.$ = {};
 mojo.internal.bindings.history.mojom.ForeignSessionPage = mojo.internal.bindings.history.mojom.ForeignSessionPage || {};
 mojo.internal.bindings.history.mojom.ForeignSessionPageSpec = mojo.internal.bindings.history.mojom.ForeignSessionPageSpec || { $ : {} };
 if (mojo.internal.bindings.history.mojom.ForeignSessionPageSpec.$.structSpec && mojo.internal.bindings.history.mojom.ForeignSessionPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.ForeignSessionPageSpec.$ = {};
@@ -353,16 +351,12 @@ mojo.internal.bindings.history.mojom.ForeignSessionPageHandlerRemote = class {
   setForeignSessionCollapsed(arg_session_tag, arg_collapsed) {
     return this.$.setForeignSessionCollapsed(arg_session_tag, arg_collapsed);
   }
-  showUi() {
-    return this.$.showUi();
-  }
 };
 
 mojo.internal.bindings.history.mojom.ForeignSessionPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('history.mojom.ForeignSessionPageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -416,15 +410,6 @@ mojo.internal.bindings.history.mojom.ForeignSessionPageHandlerRemoteCallHandler 
       false);
   }
 
-  showUi() {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_ShowUi_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.history.mojom.ForeignSessionPageHandler.getRemote = function() {
@@ -443,7 +428,6 @@ mojo.internal.bindings.history.mojom.ForeignSessionPageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('history.mojom.ForeignSessionPageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -536,13 +520,6 @@ mojo.internal.bindings.history.mojom.ForeignSessionPageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_SetForeignSessionCollapsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setForeignSessionCollapsed');
           const result = this.impl.setForeignSessionCollapsed(params.arg_session_tag, params.arg_collapsed);
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_ShowUi_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.showUi');
-          const result = this.impl.showUi();
           break;
         }
       }
@@ -704,11 +681,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_session_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_window_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp_display_str', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Struct: ForeignSessionWindow
 mojo.internal.Struct(
@@ -774,11 +750,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_collapsed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.ForeignSessionPageHandler_ShowUi_ParamsSpec, 'history.mojom.ForeignSessionPageHandler_ShowUi_Params', [
-    ],
-    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.ForeignSessionPage_OnForeignSessionsChanged_ParamsSpec, 'history.mojom.ForeignSessionPage_OnForeignSessionsChanged_Params', [

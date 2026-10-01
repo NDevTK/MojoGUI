@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -256,6 +256,9 @@ mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bind
 mojo.internal.bindings.persistent_cache = mojo.internal.bindings.persistent_cache || {};
 mojo.internal.bindings.persistent_cache.mojom = mojo.internal.bindings.persistent_cache.mojom || {};
 mojo.internal.bindings.persistent_cache.mojom.PendingReadWriteBackendSpec = mojo.internal.bindings.persistent_cache.mojom.PendingReadWriteBackendSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.GpuClientTypeSpec = mojo.internal.bindings.viz.mojom.GpuClientTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.vrp_flags = mojo.internal.bindings.vrp_flags || {};
 mojo.internal.bindings.vrp_flags.mojom = mojo.internal.bindings.vrp_flags.mojom || {};
 mojo.internal.bindings.vrp_flags.mojom.VrpFlagsSpec = mojo.internal.bindings.vrp_flags.mojom.VrpFlagsSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -310,8 +313,8 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemote = class {
   close() {
     this.proxy.close();
   }
-  establishGpuChannel(arg_client_id, arg_client_tracing_id, arg_is_gpu_host, arg_enable_extra_handles_validation, arg_channel_handle) {
-    return this.$.establishGpuChannel(arg_client_id, arg_client_tracing_id, arg_is_gpu_host, arg_enable_extra_handles_validation, arg_channel_handle);
+  establishGpuChannel(arg_client_id, arg_client_tracing_id, arg_client_type, arg_channel_handle) {
+    return this.$.establishGpuChannel(arg_client_id, arg_client_tracing_id, arg_client_type, arg_channel_handle);
   }
   setChannelClientPid(arg_client_id, arg_client_pid) {
     return this.$.setChannelClientPid(arg_client_id, arg_client_pid);
@@ -443,12 +446,12 @@ mojo.internal.bindings.viz.mojom.GpuServiceRemoteCallHandler = class {
     ]);
   }
 
-  establishGpuChannel(arg_client_id, arg_client_tracing_id, arg_is_gpu_host, arg_enable_extra_handles_validation, arg_channel_handle) {
+  establishGpuChannel(arg_client_id, arg_client_tracing_id, arg_client_type, arg_channel_handle) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec,
       mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ResponseParamsSpec,
-      [arg_client_id, arg_client_tracing_id, arg_is_gpu_host, arg_enable_extra_handles_validation, arg_channel_handle],
+      [arg_client_id, arg_client_tracing_id, arg_client_type, arg_channel_handle],
       false);
   }
 
@@ -818,7 +821,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.establishGpuChannel');
-          const result = this.impl.establishGpuChannel(params.arg_client_id, params.arg_client_tracing_id, params.arg_is_gpu_host, params.arg_enable_extra_handles_validation, params.arg_channel_handle);
+          const result = this.impl.establishGpuChannel(params.arg_client_id, params.arg_client_tracing_id, params.arg_client_type, params.arg_channel_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1134,8 +1137,7 @@ mojo.internal.bindings.viz.mojom.GpuServiceRequest = mojo.internal.bindings.viz.
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.GpuService_EstablishGpuChannel_ParamsSpec, 'viz.mojom.GpuService_EstablishGpuChannel_Params', [
       mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_gpu_host', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_extra_handles_validation', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_client_type', 4, 0, mojo.internal.bindings.viz.mojom.GpuClientTypeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_tracing_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
       mojo.internal.StructField('arg_channel_handle', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
     ],

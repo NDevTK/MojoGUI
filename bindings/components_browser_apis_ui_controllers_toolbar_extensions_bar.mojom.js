@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -140,8 +140,6 @@ if (mojo.internal.bindings.extensions_bar.mojom.PageHandlerSpec.$.structSpec && 
 mojo.internal.bindings.extensions_bar.mojom.PageHandler.$interfaceName = 'extensions_bar.mojom.PageHandler';
 mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec = mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$ = {};
-mojo.internal.bindings.extensions_bar.mojom.PageHandler_OnPointerDown_ParamsSpec = mojo.internal.bindings.extensions_bar.mojom.PageHandler_OnPointerDown_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.extensions_bar.mojom.PageHandler_OnPointerDown_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.PageHandler_OnPointerDown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.PageHandler_OnPointerDown_ParamsSpec.$ = {};
 mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec = mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$ = {};
 mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec = mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec || { $: {} };
@@ -335,17 +333,14 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerRemote = class {
   close() {
     this.proxy.close();
   }
-  executeUserAction(arg_id, arg_is_pointer_interaction) {
-    return this.$.executeUserAction(arg_id, arg_is_pointer_interaction);
-  }
-  onPointerDown(arg_id) {
-    return this.$.onPointerDown(arg_id);
+  executeUserAction(arg_id) {
+    return this.$.executeUserAction(arg_id);
   }
   showContextMenu(arg_source, arg_id) {
     return this.$.showContextMenu(arg_source, arg_id);
   }
-  toggleExtensionsMenuFromWebUI(arg_is_pointer_interaction) {
-    return this.$.toggleExtensionsMenuFromWebUI(arg_is_pointer_interaction);
+  toggleExtensionsMenuFromWebUI() {
+    return this.$.toggleExtensionsMenuFromWebUI();
   }
 };
 
@@ -356,23 +351,13 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerRemoteCallHandler = class
       { explicit: null },
       { explicit: null },
       { explicit: null },
-      { explicit: null },
     ]);
   }
 
-  executeUserAction(arg_id, arg_is_pointer_interaction) {
+  executeUserAction(arg_id) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec,
-      null,
-      [arg_id, arg_is_pointer_interaction],
-      false);
-  }
-
-  onPointerDown(arg_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.extensions_bar.mojom.PageHandler_OnPointerDown_ParamsSpec,
       null,
       [arg_id],
       false);
@@ -380,19 +365,19 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerRemoteCallHandler = class
 
   showContextMenu(arg_source, arg_id) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec,
       null,
       [arg_source, arg_id],
       false);
   }
 
-  toggleExtensionsMenuFromWebUI(arg_is_pointer_interaction) {
+  toggleExtensionsMenuFromWebUI() {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec,
       null,
-      [arg_is_pointer_interaction],
+      [],
       false);
   }
 
@@ -414,7 +399,6 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('extensions_bar.mojom.PageHandler', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -465,28 +449,21 @@ mojo.internal.bindings.extensions_bar.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeUserAction');
-          const result = this.impl.executeUserAction(params.arg_id, params.arg_is_pointer_interaction);
+          const result = this.impl.executeUserAction(params.arg_id);
           break;
         }
         case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.extensions_bar.mojom.PageHandler_OnPointerDown_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onPointerDown');
-          const result = this.impl.onPointerDown(params.arg_id);
-          break;
-        }
-        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
           const result = this.impl.showContextMenu(params.arg_source, params.arg_id);
           break;
         }
-        case 3: {
+        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleExtensionsMenuFromWebUI');
-          const result = this.impl.toggleExtensionsMenuFromWebUI(params.arg_is_pointer_interaction);
+          const result = this.impl.toggleExtensionsMenuFromWebUI();
           break;
         }
       }
@@ -701,13 +678,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec, 'extensions_bar.mojom.PageHandler_ExecuteUserAction_Params', [
       mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_pointer_interaction', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions_bar.mojom.PageHandler_OnPointerDown_ParamsSpec, 'extensions_bar.mojom.PageHandler_OnPointerDown_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -720,9 +690,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec, 'extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_Params', [
-      mojo.internal.StructField('arg_is_pointer_interaction', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions_bar.mojom.Page_ActionsAddedOrUpdated_ParamsSpec, 'extensions_bar.mojom.Page_ActionsAddedOrUpdated_Params', [

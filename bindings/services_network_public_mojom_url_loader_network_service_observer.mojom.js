@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -741,8 +741,8 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemote = cla
   onCertificateRequested(arg_window_id, arg_cert_info, arg_cert_responder) {
     return this.$.onCertificateRequested(arg_window_id, arg_cert_info, arg_cert_responder);
   }
-  onAuthRequired(arg_window_id, arg_request_id, arg_url, arg_first_auth_attempt, arg_auth_info, arg_head_headers, arg_auth_challenge_responder) {
-    return this.$.onAuthRequired(arg_window_id, arg_request_id, arg_url, arg_first_auth_attempt, arg_auth_info, arg_head_headers, arg_auth_challenge_responder);
+  onAuthRequired(arg_window_id, arg_request_id, arg_url, arg_first_auth_attempt, arg_do_not_prompt_for_login, arg_auth_info, arg_head_headers, arg_auth_challenge_responder) {
+    return this.$.onAuthRequired(arg_window_id, arg_request_id, arg_url, arg_first_auth_attempt, arg_do_not_prompt_for_login, arg_auth_info, arg_head_headers, arg_auth_challenge_responder);
   }
   onLocalNetworkAccessPermissionRequired(arg_transport_type, arg_ip_address_space) {
     return this.$.onLocalNetworkAccessPermissionRequired(arg_transport_type, arg_ip_address_space);
@@ -806,12 +806,12 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemoteCallHa
       false);
   }
 
-  onAuthRequired(arg_window_id, arg_request_id, arg_url, arg_first_auth_attempt, arg_auth_info, arg_head_headers, arg_auth_challenge_responder) {
+  onAuthRequired(arg_window_id, arg_request_id, arg_url, arg_first_auth_attempt, arg_do_not_prompt_for_login, arg_auth_info, arg_head_headers, arg_auth_challenge_responder) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec,
       null,
-      [arg_window_id, arg_request_id, arg_url, arg_first_auth_attempt, arg_auth_info, arg_head_headers, arg_auth_challenge_responder],
+      [arg_window_id, arg_request_id, arg_url, arg_first_auth_attempt, arg_do_not_prompt_for_login, arg_auth_info, arg_head_headers, arg_auth_challenge_responder],
       false);
   }
 
@@ -988,7 +988,7 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthRequired');
-          const result = this.impl.onAuthRequired(params.arg_window_id, params.arg_request_id, params.arg_url, params.arg_first_auth_attempt, params.arg_auth_info, params.arg_head_headers, params.arg_auth_challenge_responder);
+          const result = this.impl.onAuthRequired(params.arg_window_id, params.arg_request_id, params.arg_url, params.arg_first_auth_attempt, params.arg_do_not_prompt_for_login, params.arg_auth_info, params.arg_head_headers, params.arg_auth_challenge_responder);
           break;
         }
         case 3: {
@@ -1183,6 +1183,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_window_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_first_auth_attempt', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_do_not_prompt_for_login', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_auth_info', 24, 0, mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_head_headers', 32, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, true, 0, undefined),

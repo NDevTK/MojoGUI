@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -155,6 +155,7 @@ mojo.internal.bindings.page_image_service.mojom.ClientId = {
   Bookmarks: 4,
   NtpTabResumption: 5,
   HistoryEmbeddings: 6,
+  ContextHubTopics: 7,
 };
 
 // Interface: PageImageServiceHandler

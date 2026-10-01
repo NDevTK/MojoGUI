@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -889,6 +889,7 @@ mojo.internal.bindings.blink.mojom.FrameOwnerElementType = {
   kEmbed: 3,
   kFrame: 4,
   kFencedframe: 5,
+  kPersistentwidget: 6,
 };
 
 // Enum: NavigationApiEntryRestoreReason

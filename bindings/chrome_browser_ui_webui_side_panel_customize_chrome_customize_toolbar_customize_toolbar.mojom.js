@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -202,7 +202,6 @@ mojo.internal.bindings.side_panel.customize_chrome.mojom.ActionId = {
   kTabSearch: 23,
   kSplitTab: 24,
   kContextualTasks: 25,
-  kShowTabsFromOtherDevices: 26,
 };
 
 // Enum: CategoryId

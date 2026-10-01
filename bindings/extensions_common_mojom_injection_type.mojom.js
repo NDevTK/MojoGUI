@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -132,6 +132,7 @@ mojo.internal.bindings.extensions.mojom.InjectionTypeSpec = mojo.internal.bindin
 mojo.internal.bindings.extensions.mojom.InjectionType = {
   kContentScript: 0,
   kProgrammaticScript: 1,
+  kDeclarativeScript: 2,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

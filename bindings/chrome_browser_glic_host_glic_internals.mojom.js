@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -192,6 +192,8 @@ mojo.internal.bindings.glic.mojom.InternalsPageHandler_RevokeGlicConsent_ParamsS
 if (mojo.internal.bindings.glic.mojom.InternalsPageHandler_RevokeGlicConsent_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InternalsPageHandler_RevokeGlicConsent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InternalsPageHandler_RevokeGlicConsent_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.InternalsPageHandler_RevokeActuationConsent_ParamsSpec = mojo.internal.bindings.glic.mojom.InternalsPageHandler_RevokeActuationConsent_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.InternalsPageHandler_RevokeActuationConsent_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InternalsPageHandler_RevokeActuationConsent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InternalsPageHandler_RevokeActuationConsent_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetHotkeyGlobalScopeMigratedV2_ParamsSpec = mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetHotkeyGlobalScopeMigratedV2_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetHotkeyGlobalScopeMigratedV2_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetHotkeyGlobalScopeMigratedV2_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetHotkeyGlobalScopeMigratedV2_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactory = mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactory || {};
 mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactorySpec = mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactorySpec.$ = {};
@@ -318,12 +320,16 @@ mojo.internal.bindings.glic.mojom.InternalsPageHandlerRemote = class {
   revokeActuationConsent() {
     return this.$.revokeActuationConsent();
   }
+  setHotkeyGlobalScopeMigratedV2(arg_migrated) {
+    return this.$.setHotkeyGlobalScopeMigratedV2(arg_migrated);
+  }
 };
 
 mojo.internal.bindings.glic.mojom.InternalsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.InternalsPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -427,6 +433,15 @@ mojo.internal.bindings.glic.mojom.InternalsPageHandlerRemoteCallHandler = class 
       false);
   }
 
+  setHotkeyGlobalScopeMigratedV2(arg_migrated) {
+    return this.proxy.sendMessage(
+      this.ordinals[10],  // ordinal
+      mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetHotkeyGlobalScopeMigratedV2_ParamsSpec,
+      null,
+      [arg_migrated],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.mojom.InternalsPageHandler.getRemote = function() {
@@ -445,6 +460,7 @@ mojo.internal.bindings.glic.mojom.InternalsPageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.InternalsPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -598,6 +614,13 @@ mojo.internal.bindings.glic.mojom.InternalsPageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.InternalsPageHandler_RevokeActuationConsent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.revokeActuationConsent');
           const result = this.impl.revokeActuationConsent();
+          break;
+        }
+        case 10: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetHotkeyGlobalScopeMigratedV2_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setHotkeyGlobalScopeMigratedV2');
+          const result = this.impl.setHotkeyGlobalScopeMigratedV2(params.arg_migrated);
           break;
         }
       }
@@ -866,6 +889,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.glic.mojom.ConfigInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_show_error_allowed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_experimental_triggering_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_hotkey_global_scope_migrated_v2', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_debug_info', 24, 0, mojo.internal.bindings.glic.mojom.InternalsDebugInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tiered_rollout_info', 32, 0, mojo.internal.bindings.glic.mojom.TieredRolloutInfoSpec, null, false, 0, undefined),
     ],
@@ -1040,6 +1064,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.InternalsPageHandler_RevokeActuationConsent_ParamsSpec, 'glic.mojom.InternalsPageHandler_RevokeActuationConsent_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetHotkeyGlobalScopeMigratedV2_ParamsSpec, 'glic.mojom.InternalsPageHandler_SetHotkeyGlobalScopeMigratedV2_Params', [
+      mojo.internal.StructField('arg_migrated', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactory_CreateInternalsPageHandler_ParamsSpec, 'glic.mojom.InternalsPageHandlerFactory_CreateInternalsPageHandler_Params', [

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -221,8 +221,6 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnAppMenuFocusChang
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnAppMenuFocusChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnAppMenuFocusChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnAppMenuFocusChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_ParamsSpec.$ = {};
-mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnExtensionActionPointerDown_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnExtensionActionPointerDown_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnExtensionActionPointerDown_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnExtensionActionPointerDown_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnExtensionActionPointerDown_ParamsSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowExtensionContextMenu_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowExtensionContextMenu_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowExtensionContextMenu_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowExtensionContextMenu_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowExtensionContextMenu_ParamsSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_AdjustOmniboxTextForCopy_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_AdjustOmniboxTextForCopy_ParamsSpec || { $: {} };
@@ -600,11 +598,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemote = class {
   onAppMenuFocusChanged(arg_focused) {
     return this.$.onAppMenuFocusChanged(arg_focused);
   }
-  executeExtensionAction(arg_extension_id, arg_is_pointer_interaction) {
-    return this.$.executeExtensionAction(arg_extension_id, arg_is_pointer_interaction);
-  }
-  onExtensionActionPointerDown(arg_extension_id) {
-    return this.$.onExtensionActionPointerDown(arg_extension_id);
+  executeExtensionAction(arg_extension_id) {
+    return this.$.executeExtensionAction(arg_extension_id);
   }
   showExtensionContextMenu(arg_extension_id, arg_source) {
     return this.$.showExtensionContextMenu(arg_extension_id, arg_source);
@@ -633,7 +628,6 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('toolbar_ui_api.mojom.ToolbarUIService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -975,19 +969,10 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
       false);
   }
 
-  executeExtensionAction(arg_extension_id, arg_is_pointer_interaction) {
+  executeExtensionAction(arg_extension_id) {
     return this.proxy.sendMessage(
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_ParamsSpec,
-      null,
-      [arg_extension_id, arg_is_pointer_interaction],
-      false);
-  }
-
-  onExtensionActionPointerDown(arg_extension_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[34],  // ordinal
-      mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnExtensionActionPointerDown_ParamsSpec,
       null,
       [arg_extension_id],
       false);
@@ -995,7 +980,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
 
   showExtensionContextMenu(arg_extension_id, arg_source) {
     return this.proxy.sendMessage(
-      this.ordinals[35],  // ordinal
+      this.ordinals[34],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowExtensionContextMenu_ParamsSpec,
       null,
       [arg_extension_id, arg_source],
@@ -1004,7 +989,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
 
   adjustOmniboxTextForCopy(arg_text, arg_selection_start) {
     return this.proxy.sendMessage(
-      this.ordinals[36],  // ordinal
+      this.ordinals[35],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_AdjustOmniboxTextForCopy_ParamsSpec,
       null,
       [arg_text, arg_selection_start],
@@ -1013,7 +998,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
 
   onPerformanceInterventionButtonClicked(arg_is_mouse_interaction) {
     return this.proxy.sendMessage(
-      this.ordinals[37],  // ordinal
+      this.ordinals[36],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnPerformanceInterventionButtonClicked_ParamsSpec,
       null,
       [arg_is_mouse_interaction],
@@ -1022,7 +1007,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
 
   onPerformanceInterventionButtonMousePressed() {
     return this.proxy.sendMessage(
-      this.ordinals[38],  // ordinal
+      this.ordinals[37],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnPerformanceInterventionButtonMousePressed_ParamsSpec,
       null,
       [],
@@ -1031,7 +1016,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
 
   onMediaButtonClicked(arg_is_mouse_interaction) {
     return this.proxy.sendMessage(
-      this.ordinals[39],  // ordinal
+      this.ordinals[38],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnMediaButtonClicked_ParamsSpec,
       null,
       [arg_is_mouse_interaction],
@@ -1040,7 +1025,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
 
   onMediaButtonMousePressed() {
     return this.proxy.sendMessage(
-      this.ordinals[40],  // ordinal
+      this.ordinals[39],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnMediaButtonMousePressed_ParamsSpec,
       null,
       [],
@@ -1049,7 +1034,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
 
   onGlicButtonClicked() {
     return this.proxy.sendMessage(
-      this.ordinals[41],  // ordinal
+      this.ordinals[40],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicButtonClicked_ParamsSpec,
       null,
       [],
@@ -1074,7 +1059,6 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('toolbar_ui_api.mojom.ToolbarUIService', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1394,59 +1378,52 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeExtensionAction');
-          const result = this.impl.executeExtensionAction(params.arg_extension_id, params.arg_is_pointer_interaction);
+          const result = this.impl.executeExtensionAction(params.arg_extension_id);
           break;
         }
         case 34: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnExtensionActionPointerDown_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onExtensionActionPointerDown');
-          const result = this.impl.onExtensionActionPointerDown(params.arg_extension_id);
-          break;
-        }
-        case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowExtensionContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showExtensionContextMenu');
           const result = this.impl.showExtensionContextMenu(params.arg_extension_id, params.arg_source);
           break;
         }
-        case 36: {
+        case 35: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_AdjustOmniboxTextForCopy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.adjustOmniboxTextForCopy');
           const result = this.impl.adjustOmniboxTextForCopy(params.arg_text, params.arg_selection_start);
           break;
         }
-        case 37: {
+        case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnPerformanceInterventionButtonClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPerformanceInterventionButtonClicked');
           const result = this.impl.onPerformanceInterventionButtonClicked(params.arg_is_mouse_interaction);
           break;
         }
-        case 38: {
+        case 37: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnPerformanceInterventionButtonMousePressed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPerformanceInterventionButtonMousePressed');
           const result = this.impl.onPerformanceInterventionButtonMousePressed();
           break;
         }
-        case 39: {
+        case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnMediaButtonClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaButtonClicked');
           const result = this.impl.onMediaButtonClicked(params.arg_is_mouse_interaction);
           break;
         }
-        case 40: {
+        case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnMediaButtonMousePressed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaButtonMousePressed');
           const result = this.impl.onMediaButtonMousePressed();
           break;
         }
-        case 41: {
+        case 40: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicButtonClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGlicButtonClicked');
@@ -1741,13 +1718,6 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_pointer_interaction', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnExtensionActionPointerDown_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_OnExtensionActionPointerDown_Params', [
       mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);

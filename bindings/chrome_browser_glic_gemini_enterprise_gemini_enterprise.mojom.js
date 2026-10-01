@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,10 +129,21 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.glic.mojom.OpenSignInTabResultSpec = mojo.internal.bindings.glic.mojom.OpenSignInTabResultSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.CloseSignInTabResultSpec = mojo.internal.bindings.glic.mojom.CloseSignInTabResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.AuthTabPurposeSpec = mojo.internal.bindings.glic.mojom.AuthTabPurposeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.OpenAuthTabResultSpec = mojo.internal.bindings.glic.mojom.OpenAuthTabResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.CloseAuthTabResultSpec = mojo.internal.bindings.glic.mojom.CloseAuthTabResultSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.OpenSignInTabOptionsSpec = mojo.internal.bindings.glic.mojom.OpenSignInTabOptionsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.OpenSignInTabOptionsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.OpenSignInTabOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.OpenSignInTabOptionsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.CloseSignInTabOptionsSpec = mojo.internal.bindings.glic.mojom.CloseSignInTabOptionsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.CloseSignInTabOptionsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.CloseSignInTabOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.CloseSignInTabOptionsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.OpenAuthTabOptionsSpec = mojo.internal.bindings.glic.mojom.OpenAuthTabOptionsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.OpenAuthTabOptionsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.OpenAuthTabOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.OpenAuthTabOptionsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.CloseAuthTabOptionsSpec = mojo.internal.bindings.glic.mojom.CloseAuthTabOptionsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.CloseAuthTabOptionsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.CloseAuthTabOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.CloseAuthTabOptionsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.OpenAuthTabResponseSpec = mojo.internal.bindings.glic.mojom.OpenAuthTabResponseSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.OpenAuthTabResponseSpec.$.structSpec && mojo.internal.bindings.glic.mojom.OpenAuthTabResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.OpenAuthTabResponseSpec.$ = {};
+mojo.internal.bindings.glic.mojom.CloseAuthTabResponseSpec = mojo.internal.bindings.glic.mojom.CloseAuthTabResponseSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.CloseAuthTabResponseSpec.$.structSpec && mojo.internal.bindings.glic.mojom.CloseAuthTabResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.CloseAuthTabResponseSpec.$ = {};
 mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler = mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler || {};
 mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandlerSpec = mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandlerSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandlerSpec.$ = {};
@@ -145,6 +156,14 @@ mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseSignInTab_ParamsS
 if (mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseSignInTab_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseSignInTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseSignInTab_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseSignInTab_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseSignInTab_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseSignInTab_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseSignInTab_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseSignInTab_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ParamsSpec = mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ParamsSpec = mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
@@ -166,6 +185,34 @@ mojo.internal.bindings.glic.mojom.CloseSignInTabResult = {
   kSuccess: 1,
   kAlreadyClosed: 2,
   kNoSignInTab: 3,
+};
+
+// Enum: AuthTabPurpose
+mojo.internal.bindings.glic.mojom.AuthTabPurpose = {
+  kUnknown: 0,
+  kSignIn: 1,
+  kConnectorOauth: 2,
+};
+
+// Enum: OpenAuthTabResult
+mojo.internal.bindings.glic.mojom.OpenAuthTabResult = {
+  kUnknown: 0,
+  kSuccess: 1,
+  kErrorNoUrl: 2,
+  kErrorDisallowedUrl: 3,
+  kErrorFailure: 4,
+  kErrorInvalidPurpose: 5,
+};
+
+// Enum: CloseAuthTabResult
+mojo.internal.bindings.glic.mojom.CloseAuthTabResult = {
+  kUnknown: 0,
+  kClosedActive: 1,
+  kClosedInactive: 2,
+  kAlreadyClosed: 3,
+  kNoAuthTab: 4,
+  kErrorInvalidPurpose: 5,
+  kNavigatedAway: 6,
 };
 
 // Interface: GeminiEnterpriseHandler
@@ -204,12 +251,20 @@ mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandlerRemote = class {
   closeSignInTab(arg_options) {
     return this.$.closeSignInTab(arg_options);
   }
+  openAuthTab(arg_options) {
+    return this.$.openAuthTab(arg_options);
+  }
+  closeAuthTab(arg_options) {
+    return this.$.closeAuthTab(arg_options);
+  }
 };
 
 mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.GeminiEnterpriseHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -233,6 +288,24 @@ mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandlerRemoteCallHandler = cla
       false);
   }
 
+  openAuthTab(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ParamsSpec,
+      mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ResponseParamsSpec,
+      [arg_options],
+      false);
+  }
+
+  closeAuthTab(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ParamsSpec,
+      mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ResponseParamsSpec,
+      [arg_options],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler.getRemote = function() {
@@ -251,6 +324,8 @@ mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.GeminiEnterpriseHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -332,6 +407,42 @@ mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandlerReceiver = class {
           }
           break;
         }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openAuthTab');
+          const result = this.impl.openAuthTab(params.arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
+              const resp_obj = { 'arg_response': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] openAuthTab FAILED:', e));
+          }
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.closeAuthTab');
+          const result = this.impl.closeAuthTab(params.arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_response' in response) ? response['arg_response'] : response;
+              const resp_obj = { 'arg_response': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] closeAuthTab FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -360,6 +471,35 @@ mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.CloseSignInTabOptionsSpec, 'glic.mojom.CloseSignInTabOptions', [
     ],
     [[0, 8]]);
+
+// Struct: OpenAuthTabOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.OpenAuthTabOptionsSpec, 'glic.mojom.OpenAuthTabOptions', [
+      mojo.internal.StructField('arg_purpose', 0, 0, mojo.internal.bindings.glic.mojom.AuthTabPurposeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: CloseAuthTabOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.CloseAuthTabOptionsSpec, 'glic.mojom.CloseAuthTabOptions', [
+      mojo.internal.StructField('arg_purpose', 0, 0, mojo.internal.bindings.glic.mojom.AuthTabPurposeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: OpenAuthTabResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.OpenAuthTabResponseSpec, 'glic.mojom.OpenAuthTabResponse', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.glic.mojom.OpenAuthTabResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: CloseAuthTabResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.CloseAuthTabResponseSpec, 'glic.mojom.CloseAuthTabResponse', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.glic.mojom.CloseAuthTabResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenSignInTab_ParamsSpec, 'glic.mojom.GeminiEnterpriseHandler_OpenSignInTab_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.OpenSignInTabOptionsSpec, null, true, 0, undefined),
@@ -381,6 +521,30 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseSignInTab_ResponseParamsSpec, 'glic.mojom.GeminiEnterpriseHandler_CloseSignInTab_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.glic.mojom.CloseSignInTabResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ParamsSpec, 'glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.OpenAuthTabOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ResponseParamsSpec, 'glic.mojom.GeminiEnterpriseHandler_OpenAuthTab_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.glic.mojom.OpenAuthTabResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ParamsSpec, 'glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.glic.mojom.CloseAuthTabOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ResponseParamsSpec, 'glic.mojom.GeminiEnterpriseHandler_CloseAuthTab_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.glic.mojom.CloseAuthTabResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

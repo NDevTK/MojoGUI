@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -154,6 +154,8 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetSurfaceEmbed_Para
 if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetSurfaceEmbed_ParamsSpec.$.structSpec && mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetSurfaceEmbed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetSurfaceEmbed_ParamsSpec.$ = {};
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec = mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec.$.structSpec && mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_AttachConnector_ParamsSpec.$ = {};
+mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_DetachConnector_ParamsSpec = mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_DetachConnector_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_DetachConnector_ParamsSpec.$.structSpec && mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_DetachConnector_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_DetachConnector_ParamsSpec.$ = {};
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec = mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec.$.structSpec && mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec.$ = {};
 mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_OnEmbedElementFocused_ParamsSpec = mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_OnEmbedElementFocused_ParamsSpec || { $: {} };
@@ -445,6 +447,9 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostRemote = class {
   attachConnector(arg_content_id, arg_is_embed_element_focused) {
     return this.$.attachConnector(arg_content_id, arg_is_embed_element_focused);
   }
+  detachConnector() {
+    return this.$.detachConnector();
+  }
   synchronizeVisualProperties(arg_visual_properties, arg_is_visible) {
     return this.$.synchronizeVisualProperties(arg_visual_properties, arg_is_visible);
   }
@@ -463,6 +468,7 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostRemoteCallHandler = c
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('surface_embed.mojom.SurfaceEmbedHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -490,9 +496,18 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostRemoteCallHandler = c
       false);
   }
 
-  synchronizeVisualProperties(arg_visual_properties, arg_is_visible) {
+  detachConnector() {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
+      mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_DetachConnector_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  synchronizeVisualProperties(arg_visual_properties, arg_is_visible) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec,
       null,
       [arg_visual_properties, arg_is_visible],
@@ -501,7 +516,7 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostRemoteCallHandler = c
 
   onEmbedElementFocused(arg_focused, arg_focus_type) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_OnEmbedElementFocused_ParamsSpec,
       null,
       [arg_focused, arg_focus_type],
@@ -510,7 +525,7 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostRemoteCallHandler = c
 
   onEmbedElementThrottlingStatusChanged(arg_status) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_OnEmbedElementThrottlingStatusChanged_ParamsSpec,
       null,
       [arg_status],
@@ -519,7 +534,7 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostRemoteCallHandler = c
 
   setParentAccessibilityInfo(arg_ax_node_id) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetParentAccessibilityInfo_ParamsSpec,
       null,
       [arg_ax_node_id],
@@ -544,6 +559,7 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('surface_embed.mojom.SurfaceEmbedHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -609,26 +625,33 @@ mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHostReceiver = class {
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_DetachConnector_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.detachConnector');
+          const result = this.impl.detachConnector();
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.synchronizeVisualProperties');
           const result = this.impl.synchronizeVisualProperties(params.arg_visual_properties, params.arg_is_visible);
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_OnEmbedElementFocused_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEmbedElementFocused');
           const result = this.impl.onEmbedElementFocused(params.arg_focused, params.arg_focus_type);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_OnEmbedElementThrottlingStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEmbedElementThrottlingStatusChanged');
           const result = this.impl.onEmbedElementThrottlingStatusChanged(params.arg_status);
           break;
         }
-        case 5: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SetParentAccessibilityInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setParentAccessibilityInfo');
@@ -705,6 +728,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_embed_element_focused', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_DetachConnector_ParamsSpec, 'surface_embed.mojom.SurfaceEmbedHost_DetachConnector_Params', [
+    ],
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_ParamsSpec, 'surface_embed.mojom.SurfaceEmbedHost_SynchronizeVisualProperties_Params', [

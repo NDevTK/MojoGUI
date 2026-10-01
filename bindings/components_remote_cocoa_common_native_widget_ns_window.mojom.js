@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1680,7 +1680,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_has_window_server_shadow', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_force_into_collection_cycle', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_tooltip', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_prevent_stale_content_after_hide', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_state_restoration_data', 8, 0, mojo.internal.bindings.remote_cocoa.mojom.StateRestorationDataSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);

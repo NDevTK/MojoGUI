@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -338,6 +338,10 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopic_ParamsSpec
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopic_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopic_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopic_ParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopic_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopic_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopic_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopic_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopic_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenGlicPanel_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenGlicPanel_ParamsSpec || { $: {} };
@@ -860,6 +864,9 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemote = class {
   getTopic(arg_id) {
     return this.$.getTopic(arg_id);
   }
+  getTopicPageImageUrl(arg_page_url) {
+    return this.$.getTopicPageImageUrl(arg_page_url);
+  }
   openTopic(arg_topic_id_or_url) {
     return this.$.openTopic(arg_topic_id_or_url);
   }
@@ -872,6 +879,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1237,9 +1245,18 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
       false);
   }
 
-  openTopic(arg_topic_id_or_url) {
+  getTopicPageImageUrl(arg_page_url) {
     return this.proxy.sendMessage(
       this.ordinals[36],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec,
+      [arg_page_url],
+      false);
+  }
+
+  openTopic(arg_topic_id_or_url) {
+    return this.proxy.sendMessage(
+      this.ordinals[37],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec,
       null,
       [arg_topic_id_or_url],
@@ -1248,7 +1265,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   openGlicPanel(arg_prompts) {
     return this.proxy.sendMessage(
-      this.ordinals[37],  // ordinal
+      this.ordinals[38],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenGlicPanel_ParamsSpec,
       null,
       [arg_prompts],
@@ -1273,6 +1290,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1969,12 +1987,30 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
         }
         case 36: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getTopicPageImageUrl');
+          const result = this.impl.getTopicPageImageUrl(params.arg_page_url);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_image_url' in response) ? response['arg_image_url'] : response;
+              const resp_obj = { 'arg_image_url': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getTopicPageImageUrl FAILED:', e));
+          }
+          break;
+        }
+        case 37: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openTopic');
           const result = this.impl.openTopic(params.arg_topic_id_or_url);
           break;
         }
-        case 37: {
+        case 38: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenGlicPanel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openGlicPanel');
@@ -2188,8 +2224,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.TopicVisitSpec, 'browser.context_hub.mojom.TopicVisit', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: TopicContinuationQuery
 mojo.internal.Struct(
@@ -2652,6 +2689,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopic_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_GetTopic_ResponseParams', [
       mojo.internal.StructField('arg_topic', 0, 0, mojo.internal.bindings.browser.context_hub.mojom.TopicSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ParamsSpec, 'browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_Params', [
+      mojo.internal.StructField('arg_page_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParams', [
+      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

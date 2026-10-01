@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-30T16:12:32.087888Z",
-  "version": "157.0.8079.0",
+  "generated_at": "2026-10-01T16:52:17.623819Z",
+  "version": "157.0.8081.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3447,11 +3447,9 @@
         "IsEmbeddedPageErrorDocument",
         "SetThreadTitle",
         "CloseSidePanel",
-        "ShowThreadHistory",
         "IsShownInTab",
         "OpenOnboardingHelpUi",
         "OpenAskGHelpUi",
-        "MoveTaskUiToNewTab",
         "OnTabClickedFromSourcesMenu",
         "OnFileClickedFromSourcesMenu",
         "OnImageClickedFromSourcesMenu",
@@ -3508,7 +3506,6 @@
         "RemoveInjectedInput",
         "OnZeroStateChange",
         "SetInNlm",
-        "OnAiPageStatusChanged",
         "OnLensOverlayStateChanged",
         "ShowErrorPage",
         "HideErrorPage",
@@ -3729,7 +3726,9 @@
         "UnpinSidePanel",
         "OpenMyActivityUi",
         "OpenOverflowMenuHelpUi",
-        "OpenFeedbackUi"
+        "OpenFeedbackUi",
+        "MoveTaskUiToNewTab",
+        "ShowThreadHistory"
       ],
       "metadata": {
         "usage": {
@@ -3752,7 +3751,8 @@
       "module": "contextual_tasks_toolbar.mojom",
       "file": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
       "methods": [
-        "OnSidePanelPinStateChanged"
+        "OnSidePanelPinStateChanged",
+        "OnAiPageStatusChanged"
       ],
       "metadata": {
         "usage": {
@@ -3843,7 +3843,9 @@
       "file": "chrome_browser_glic_gemini_enterprise_gemini_enterprise.mojom.js",
       "methods": [
         "OpenSignInTab",
-        "CloseSignInTab"
+        "CloseSignInTab",
+        "OpenAuthTab",
+        "CloseAuthTab"
       ],
       "metadata": {
         "usage": {
@@ -4287,7 +4289,8 @@
         "ShowExperimentalOptIn",
         "RevokeExperimentalTriggeringConsent",
         "RevokeGlicConsent",
-        "RevokeActuationConsent"
+        "RevokeActuationConsent",
+        "SetHotkeyGlobalScopeMigratedV2"
       ],
       "metadata": {
         "usage": {
@@ -4357,7 +4360,8 @@
         "OnLocationMismatchHelpClicked",
         "OnDisabledByAdminCloseClicked",
         "OnDisabledByAdminLinkClicked",
-        "OnClosePanelClicked"
+        "OnClosePanelClicked",
+        "OnShowErrorClicked"
       ],
       "metadata": {
         "usage": {
@@ -7708,6 +7712,7 @@
         "OpenUrlsInTabGroup",
         "GetTopics",
         "GetTopic",
+        "GetTopicPageImageUrl",
         "OpenTopic",
         "OpenGlicPanel"
       ],
@@ -23292,7 +23297,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kXuControls"
+          "feature:kXuControls",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -23945,7 +23952,6 @@
       "file": "components_browser_apis_ui_controllers_toolbar_extensions_bar.mojom.js",
       "methods": [
         "ExecuteUserAction",
-        "OnPointerDown",
         "ShowContextMenu",
         "ToggleExtensionsMenuFromWebUI"
       ],
@@ -24054,7 +24060,6 @@
         "SetAvatarButtonIphPromoShowing",
         "OnAppMenuFocusChanged",
         "ExecuteExtensionAction",
-        "OnExtensionActionPointerDown",
         "ShowExtensionContextMenu",
         "AdjustOmniboxTextForCopy",
         "OnPerformanceInterventionButtonClicked",
@@ -28220,6 +28225,7 @@
       "methods": [
         "SetSurfaceEmbed",
         "AttachConnector",
+        "DetachConnector",
         "SynchronizeVisualProperties",
         "OnEmbedElementFocused",
         "OnEmbedElementThrottlingStatusChanged",
@@ -30651,9 +30657,7 @@
         "category": "internal",
         "gates": [
           "feature:kMojoServices",
-          "feature:kXuControls",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kXuControls"
         ]
       }
     },
@@ -40959,9 +40963,7 @@
         "category": "internal",
         "gates": [
           "feature:kMojoServices",
-          "feature:kXuControls",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kXuControls"
         ]
       }
     },
@@ -42720,6 +42722,9 @@
         },
         "scope": "context",
         "category": "associated",
+        "gates": [
+          "feature:kLazyBrowserInterfaceBroker"
+        ],
         "scrambled": false
       }
     },
@@ -42742,6 +42747,9 @@
         },
         "scope": "context",
         "category": "associated",
+        "gates": [
+          "feature:kLazyBrowserInterfaceBroker"
+        ],
         "scrambled": false
       }
     },
@@ -50180,6 +50188,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -50214,6 +50223,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
@@ -50439,8 +50449,7 @@
         "OpenForeignSessionAllTabs",
         "OpenForeignSessionTab",
         "DeleteForeignSession",
-        "SetForeignSessionCollapsed",
-        "ShowUi"
+        "SetForeignSessionCollapsed"
       ],
       "metadata": {
         "usage": {
@@ -62364,6 +62373,12 @@
       "imports": []
     },
     {
+      "filename": "services_viz_privileged_mojom_gl_gpu_client_type.mojom.js",
+      "source": "services/viz/privileged/mojom/gl/gpu_client_type.mojom",
+      "module": "viz.mojom",
+      "imports": []
+    },
+    {
       "filename": "services_viz_privileged_mojom_gl_gpu_host.mojom.js",
       "source": "services/viz/privileged/mojom/gl/gpu_host.mojom",
       "module": "viz.mojom",
@@ -62410,6 +62425,7 @@
         "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/mojom/buffer_types.mojom",
         "ui/gl/mojom/gpu_preference.mojom",
+        "services/viz/privileged/mojom/gl/gpu_client_type.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "ui/gfx/mojom/dxgi_info.mojom",
         "components/vrp_flags/vrp_flags.mojom"
@@ -63033,6 +63049,7 @@
         "mojo/public/mojom/base/file.mojom",
         "services/webnn/public/mojom/ep_device_info.mojom",
         "services/webnn/public/mojom/ep_package_info.mojom",
+        "services/webnn/public/mojom/features.mojom",
         "services/webnn/public/mojom/webnn_compiler_context.mojom",
         "services/webnn/public/mojom/webnn_context_properties.mojom",
         "services/webnn/public/mojom/webnn_context_provider.mojom",

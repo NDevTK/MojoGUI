@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -156,6 +156,8 @@ mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnDisabledByAdminLinkCl
 if (mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnDisabledByAdminLinkClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnDisabledByAdminLinkClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnDisabledByAdminLinkClicked_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnClosePanelClicked_ParamsSpec = mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnClosePanelClicked_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnClosePanelClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnClosePanelClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnClosePanelClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnShowErrorClicked_ParamsSpec = mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnShowErrorClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnShowErrorClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnShowErrorClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnShowErrorClicked_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerFactory = mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerFactory || {};
 mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerFactorySpec = mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerFactorySpec.$ = {};
@@ -375,12 +377,16 @@ mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerRemote = class {
   onClosePanelClicked() {
     return this.$.onClosePanelClicked();
   }
+  onShowErrorClicked() {
+    return this.$.onShowErrorClicked();
+  }
 };
 
 mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.GlicOverlayPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -464,6 +470,15 @@ mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerRemoteCallHandler = clas
       false);
   }
 
+  onShowErrorClicked() {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
+      mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnShowErrorClicked_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler.getRemote = function() {
@@ -482,6 +497,7 @@ mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.GlicOverlayPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -587,6 +603,13 @@ mojo.internal.bindings.glic.mojom.GlicOverlayPageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnClosePanelClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClosePanelClicked');
           const result = this.impl.onClosePanelClicked();
+          break;
+        }
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnShowErrorClicked_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onShowErrorClicked');
+          const result = this.impl.onShowErrorClicked();
           break;
         }
       }
@@ -797,6 +820,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnClosePanelClicked_ParamsSpec, 'glic.mojom.GlicOverlayPageHandler_OnClosePanelClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.GlicOverlayPageHandler_OnShowErrorClicked_ParamsSpec, 'glic.mojom.GlicOverlayPageHandler_OnShowErrorClicked_Params', [
     ],
     [[0, 8]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8079.0';
+        const versionStr = window.mojoVersion || '157.0.8081.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -2581,6 +2581,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_show_in_current_tab_chip', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_show_in_previous_tab_chip', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_loading', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_active', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
