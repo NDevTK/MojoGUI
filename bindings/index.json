@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-01T16:52:17.623819Z",
-  "version": "157.0.8081.0",
+  "generated_at": "2026-10-02T16:07:00.385695Z",
+  "version": "157.0.8083.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3450,9 +3450,6 @@
         "IsShownInTab",
         "OpenOnboardingHelpUi",
         "OpenAskGHelpUi",
-        "OnTabClickedFromSourcesMenu",
-        "OnFileClickedFromSourcesMenu",
-        "OnImageClickedFromSourcesMenu",
         "OnWebviewMessage",
         "GetCommonSearchParams",
         "OnboardingTooltipDismissed",
@@ -3728,7 +3725,10 @@
         "OpenOverflowMenuHelpUi",
         "OpenFeedbackUi",
         "MoveTaskUiToNewTab",
-        "ShowThreadHistory"
+        "ShowThreadHistory",
+        "OnTabClickedFromSourcesMenu",
+        "OnFileClickedFromSourcesMenu",
+        "OnImageClickedFromSourcesMenu"
       ],
       "metadata": {
         "usage": {
@@ -3808,11 +3808,14 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Source: WebUI Binder (Restricted)"
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kPolicyPageMojoMigration"
+        ]
       }
     },
     {
@@ -4605,7 +4608,8 @@
       "file": "chrome_browser_glic_selection_selection_overlay.mojom.js",
       "methods": [
         "ScreenshotReceived",
-        "SetPostRegionSelections"
+        "SetPostRegionSelections",
+        "SetInteractionOptions"
       ],
       "metadata": {
         "usage": {
@@ -7583,7 +7587,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
@@ -7608,7 +7611,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
@@ -7714,7 +7716,8 @@
         "GetTopic",
         "GetTopicPageImageUrl",
         "OpenTopic",
-        "OpenGlicPanel"
+        "OpenGlicPanel",
+        "RunTodoTask"
       ],
       "metadata": {
         "usage": {
@@ -9592,7 +9595,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -9644,7 +9646,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -9680,7 +9681,6 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -24065,7 +24065,6 @@
         "OnPerformanceInterventionButtonClicked",
         "OnPerformanceInterventionButtonMousePressed",
         "OnMediaButtonClicked",
-        "OnMediaButtonMousePressed",
         "OnGlicButtonClicked"
       ],
       "metadata": {
@@ -24078,6 +24077,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kPolicyPageMojoMigration",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
@@ -24781,7 +24781,7 @@
       "module": "payments.facilitated.mojom",
       "file": "components_facilitated_payments_core_mojom_facilitated_payments_agent.mojom.js",
       "methods": [
-        "ReportHeuristicScore"
+        "ReportHeuristicSignals"
       ],
       "metadata": {
         "usage": {
@@ -29350,7 +29350,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Internal Interface: content.mojom.MemoryCoordinatorTest.BindRegistryHost"
           ]
         },
         "scope": "context",
@@ -29993,6 +29993,7 @@
       "module": "content.mojom",
       "file": "content_shell_common_memory_coordinator_memory_coordinator_test.mojom.js",
       "methods": [
+        "BindRegistryHost",
         "RegisterConsumer"
       ],
       "metadata": {
@@ -40495,6 +40496,7 @@
         "category": "internal",
         "gates": [
           "feature:kIndigo",
+          "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -49162,6 +49164,25 @@
       }
     },
     {
+      "name": "IdentityRequestResponseCallback",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_webid_fedcm_identity_request.mojom.js",
+      "methods": [
+        "OnNotHandled"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
       "name": "FederatedRequest",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_webid_federated_request.mojom.js",
@@ -50749,7 +50770,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -50790,7 +50810,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -50817,7 +50836,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kNtpCalendarModule",
@@ -51866,9 +51884,10 @@
       "source": "chrome/browser/contextual_tasks/contextual_tasks_toolbar.mojom",
       "module": "contextual_tasks_toolbar.mojom",
       "imports": [
-        "components/browser_apis/ui_controllers/toolbar/toolbar_ui_api_data_model.mojom",
         "components/browser_apis/ui_controllers/toolbar/icon_handle.mojom",
-        "mojo/public/mojom/base/error.mojom"
+        "components/browser_apis/ui_controllers/toolbar/toolbar_ui_api_data_model.mojom",
+        "mojo/public/mojom/base/error.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -60666,7 +60685,9 @@
       "filename": "services_network_public_mojom_data_pipe_getter.mojom.js",
       "source": "services/network/public/mojom/data_pipe_getter.mojom",
       "module": "network.mojom",
-      "imports": []
+      "imports": [
+        "mojo/public/mojom/base/byte_size.mojom"
+      ]
     },
     {
       "filename": "services_network_public_mojom_declarative_performance_observer.mojom.js",
@@ -62893,7 +62914,7 @@
       "source": "services/viz/public/mojom/compositing/texture_releaser.mojom",
       "module": "viz.mojom",
       "imports": [
-        "gpu/ipc/common/sync_token.mojom"
+        "gpu/ipc/common/exported_shared_image.mojom"
       ]
     },
     {
@@ -66390,6 +66411,14 @@
       "source": "third_party/blink/public/mojom/webid/email_verification_request.mojom",
       "module": "blink.mojom",
       "imports": []
+    },
+    {
+      "filename": "third_party_blink_public_mojom_webid_fedcm_identity_request.mojom.js",
+      "source": "third_party/blink/public/mojom/webid/fedcm_identity_request.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "third_party/blink/public/mojom/fetch/fetch_api_request.mojom"
+      ]
     },
     {
       "filename": "third_party_blink_public_mojom_webid_federated_request.mojom.js",
