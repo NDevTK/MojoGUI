@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-02T16:07:00.385695Z",
-  "version": "157.0.8083.0",
+  "generated_at": "2026-10-03T14:31:08.042974Z",
+  "version": "157.0.8084.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -2336,7 +2336,6 @@
         "SetTopicSource",
         "SetTemperatureUnit",
         "SetAlbumSelected",
-        "SetPageViewed",
         "FetchSettingsAndAlbums",
         "StartScreenSaverPreview",
         "ShouldShowTimeOfDayBanner",
@@ -4538,6 +4537,26 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
+      }
+    },
+    {
+      "name": "ExplainFulfillment",
+      "module": "glic.selection",
+      "file": "chrome_browser_glic_selection_explain_fulfillment.mojom.js",
+      "methods": [
+        "GetExplanation",
+        "OpenTabForSearch",
+        "AskGemini"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -13513,6 +13532,7 @@
       "methods": [
         "InitializeAudio",
         "SetTextContent",
+        "SetOverviewContent",
         "Play",
         "Pause",
         "SeekToWord",
@@ -24054,7 +24074,6 @@
         "OnHomeButtonDropText",
         "OnToolbarDropFile",
         "ShowAvatarMenu",
-        "OnAvatarButtonMousePressed",
         "SetAvatarButtonHovered",
         "SetAvatarButtonFocused",
         "SetAvatarButtonIphPromoShowing",
@@ -51968,6 +51987,12 @@
       ]
     },
     {
+      "filename": "chrome_browser_glic_selection_explain_fulfillment.mojom.js",
+      "source": "chrome/browser/glic/selection/explain_fulfillment.mojom",
+      "module": "glic.selection",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_glic_selection_selection_overlay.mojom.js",
       "source": "chrome/browser/glic/selection/selection_overlay.mojom",
       "module": "glic.selection",
@@ -61742,10 +61767,12 @@
         "services/network/public/mojom/ip_address.mojom",
         "services/network/public/mojom/ip_address_space.mojom",
         "services/network/public/mojom/network_param.mojom",
+        "services/network/public/mojom/schemeful_site.mojom",
         "services/network/public/mojom/ssl_info.mojom",
         "services/network/public/mojom/x509_certificate.mojom",
         "url/mojom/origin.mojom",
-        "url/mojom/url.mojom"
+        "url/mojom/url.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom"
       ]
     },
     {
