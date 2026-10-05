@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-04T15:04:23.885364Z",
-  "version": "157.0.8084.0",
+  "generated_at": "2026-10-05T19:04:50.091375Z",
+  "version": "157.0.8087.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -1907,7 +1907,6 @@
       "methods": [
         "OpenFeedbackDialog",
         "ToggleBrowserFullscreenMode",
-        "MaybeTriggerPdfHats",
         "IsFileArcWritable",
         "IsFileBrowserWritable",
         "EditInPhotos",
@@ -3493,7 +3492,6 @@
         "OnHandshakeComplete",
         "SetOAuthToken",
         "OnCookieSyncCompleted",
-        "OnContextUpdated",
         "HideInput",
         "RestoreInput",
         "EnterBasicMode",
@@ -3751,7 +3749,8 @@
       "file": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
       "methods": [
         "OnSidePanelPinStateChanged",
-        "OnAiPageStatusChanged"
+        "OnAiPageStatusChanged",
+        "OnContextUpdated"
       ],
       "metadata": {
         "usage": {
@@ -7644,7 +7643,10 @@
       "methods": [
         "OnAutoTodosChanged",
         "OnFirstPartyAutoTodosGenerationStateChanged",
-        "OnThirdPartyAutoTodosGenerationStateChanged"
+        "OnThirdPartyAutoTodosGenerationStateChanged",
+        "OnMemoryBankEntryAdded",
+        "OnMemoryBankEntryUpdated",
+        "OnMemoryBankEntriesDeleted"
       ],
       "metadata": {
         "usage": {
@@ -20841,46 +20843,6 @@
       }
     },
     {
-      "name": "ConnectionListenerV3",
-      "module": "nearby.connections.mojom",
-      "file": "chromeos_ash_services_nearby_public_mojom_nearby_connections.mojom.js",
-      "methods": [
-        "OnConnectionInitiatedV3",
-        "OnConnectionResultV3",
-        "OnDisconnectedV3",
-        "OnBandwidthChangedV3"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "PayloadListenerV3",
-      "module": "nearby.connections.mojom",
-      "file": "chromeos_ash_services_nearby_public_mojom_nearby_connections.mojom.js",
-      "methods": [
-        "OnPayloadReceivedV3",
-        "OnPayloadTransferUpdateV3"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "NearbyConnections",
       "module": "nearby.connections.mojom",
       "file": "chromeos_ash_services_nearby_public_mojom_nearby_connections.mojom.js",
@@ -20898,12 +20860,7 @@
         "CancelPayload",
         "StopAllEndpoints",
         "InitiateBandwidthUpgrade",
-        "RegisterPayloadFile",
-        "RequestConnectionV3",
-        "AcceptConnectionV3",
-        "RejectConnectionV3",
-        "DisconnectFromDeviceV3",
-        "RegisterServiceWithPresenceDeviceProvider"
+        "RegisterPayloadFile"
       ],
       "metadata": {
         "usage": {
@@ -37619,6 +37576,24 @@
       }
     },
     {
+      "name": "CacheStorageSideDataWriter",
+      "module": "network.mojom",
+      "file": "services_network_public_mojom_cache_storage_side_data_writer.mojom.js",
+      "methods": [
+        "WriteSideData"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "URLLoaderFactoryConnector",
       "module": "cert_verifier.mojom",
       "file": "services_network_public_mojom_cert_verifier_service.mojom.js",
@@ -43329,8 +43304,7 @@
         "MatchAll",
         "GetAllMatchedEntries",
         "Keys",
-        "Batch",
-        "WriteSideData"
+        "Batch"
       ],
       "metadata": {
         "usage": {
@@ -44179,6 +44153,25 @@
       "file": "third_party_blink_public_mojom_devtools_devtools_frontend.mojom.js",
       "methods": [
         "DispatchEmbedderMessage"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
+      "name": "DictationAgent",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_dictation_dictation_agent.mojom.js",
+      "methods": [
+        "PopulateEditContext"
       ],
       "metadata": {
         "usage": {
@@ -46366,8 +46359,7 @@
         "DidGenerateCacheableMetadata",
         "DidGenerateSourceKeyedCacheableMetadata",
         "FetchCachedCode",
-        "ClearCodeCacheEntry",
-        "DidGenerateCacheableMetadataInCacheStorage"
+        "ClearCodeCacheEntry"
       ],
       "metadata": {
         "usage": {
@@ -55011,7 +55003,6 @@
       "module": "nearby.connections.mojom",
       "imports": [
         "chromeos/ash/services/nearby/public/mojom/nearby_connections_types.mojom",
-        "chromeos/ash/services/nearby/public/mojom/nearby_presence.mojom",
         "mojo/public/mojom/base/file.mojom"
       ]
     },
@@ -60512,6 +60503,14 @@
       ]
     },
     {
+      "filename": "services_network_public_mojom_cache_storage_side_data_writer.mojom.js",
+      "source": "services/network/public/mojom/cache_storage_side_data_writer.mojom",
+      "module": "network.mojom",
+      "imports": [
+        "mojo/public/mojom/base/big_buffer.mojom"
+      ]
+    },
+    {
       "filename": "services_network_public_mojom_cert_verifier_service.mojom.js",
       "source": "services/network/public/mojom/cert_verifier_service.mojom",
       "module": "cert_verifier.mojom",
@@ -61827,6 +61826,7 @@
         "mojo/public/mojom/base/unguessable_token.mojom",
         "services/network/public/mojom/alternate_protocol_usage.mojom",
         "services/network/public/mojom/auth.mojom",
+        "services/network/public/mojom/cache_storage_side_data_writer.mojom",
         "services/network/public/mojom/cors.mojom",
         "services/network/public/mojom/device_bound_sessions.mojom",
         "services/network/public/mojom/encoded_body_length.mojom",
@@ -63900,6 +63900,12 @@
       ]
     },
     {
+      "filename": "third_party_blink_public_mojom_dictation_dictation_agent.mojom.js",
+      "source": "third_party/blink/public/mojom/dictation/dictation_agent.mojom",
+      "module": "blink.mojom",
+      "imports": []
+    },
+    {
       "filename": "third_party_blink_public_mojom_digital_goods_digital_goods.mojom.js",
       "source": "third_party/blink/public/mojom/digital_goods/digital_goods.mojom",
       "module": "payments.mojom",
@@ -64058,8 +64064,10 @@
       "source": "third_party/blink/public/mojom/fetch/fetch_api_response.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/time.mojom",
         "services/network/public/mojom/auth.mojom",
+        "services/network/public/mojom/cache_storage_side_data_writer.mojom",
         "services/network/public/mojom/fetch_api.mojom",
         "services/network/public/mojom/network_param.mojom",
         "services/network/public/mojom/network_types.mojom",
@@ -64306,6 +64314,7 @@
       "imports": [
         "cc/mojom/browser_controls_offset_tag_modifications.mojom",
         "cc/mojom/browser_controls_state.mojom",
+        "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/byte_size.mojom",
         "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
