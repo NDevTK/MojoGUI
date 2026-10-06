@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-05T19:04:50.091375Z",
-  "version": "157.0.8087.0",
+  "generated_at": "2026-10-06T16:28:52.644086Z",
+  "version": "157.0.8088.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -10578,11 +10578,39 @@
       }
     },
     {
+      "name": "Page",
+      "module": "organizer_panel.mojom",
+      "file": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
+      "methods": [
+        "OnSectionsExpandedChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
       "name": "PageHandler",
       "module": "organizer_panel.mojom",
       "file": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
       "methods": [
-        "ClosePanel"
+        "ClosePanel",
+        "IsSectionExpanded",
+        "SetSectionExpanded"
       ],
       "metadata": {
         "usage": {
@@ -10653,7 +10681,8 @@
       "methods": [
         "GetTabGroups",
         "OpenTabGroup",
-        "ShowContextMenu"
+        "ShowContextMenu",
+        "CreateNewTabGroup"
       ],
       "metadata": {
         "usage": {
@@ -23983,7 +24012,7 @@
       "module": "toolbar_ui_api.mojom",
       "file": "components_browser_apis_ui_controllers_toolbar_toolbar_ui_api.mojom.js",
       "methods": [
-        "OnNavigationControlsStateChanged",
+        "OnToolbarStateChanged",
         "OnFocusRequested",
         "ShowSplitTabsContextMenu"
       ],
@@ -30333,6 +30362,7 @@
         "ReplicateWebTestRuntimeFlagsChanges",
         "TestFinishedFromSecondaryRenderer",
         "ResetRendererAfterWebTest",
+        "ResetTestRunnerForNewWebTest",
         "ProcessWorkItem",
         "ReplicateWorkQueueStates"
       ],
@@ -40658,6 +40688,7 @@
       "module": "shape_detection.mojom",
       "file": "services_shape_detection_public_mojom_textdetection.mojom.js",
       "methods": [
+        "EnsureReady",
         "Detect"
       ],
       "metadata": {
@@ -61194,7 +61225,6 @@
         "services/network/public/mojom/http_response_headers.mojom",
         "services/network/public/mojom/ip_address_space.mojom",
         "services/network/public/mojom/ip_endpoint.mojom",
-        "services/network/public/mojom/key_pinning.mojom",
         "services/network/public/mojom/mutable_network_traffic_annotation_tag.mojom",
         "services/network/public/mojom/net_log.mojom",
         "services/network/public/mojom/network_annotation_monitor.mojom",
@@ -61218,7 +61248,8 @@
         "services/network/public/mojom/url_response_head.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom",
-        "components/vrp_flags/vrp_flags.mojom"
+        "components/vrp_flags/vrp_flags.mojom",
+        "services/network/public/mojom/key_pinning.mojom"
       ]
     },
     {
