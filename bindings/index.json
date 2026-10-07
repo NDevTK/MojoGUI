@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-06T16:28:52.644086Z",
-  "version": "157.0.8088.0",
+  "generated_at": "2026-10-07T17:19:45.605439Z",
+  "version": "157.0.8090.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3444,7 +3444,6 @@
         "IsPendingErrorPage",
         "IsEmbeddedPageErrorDocument",
         "SetThreadTitle",
-        "CloseSidePanel",
         "IsShownInTab",
         "OpenOnboardingHelpUi",
         "OpenAskGHelpUi",
@@ -3458,10 +3457,7 @@
         "NotifySmartTabSharingDefaultOnIphResult",
         "RegisterWindow",
         "CloseWindow",
-        "MaybeTriggerPinningPromo",
-        "ShowPageInfoBubble",
-        "OnLogoPointerDown",
-        "CreateNewThread"
+        "MaybeTriggerPinningPromo"
       ],
       "metadata": {
         "usage": {
@@ -3508,7 +3504,6 @@
         "LockInput",
         "UnlockInput",
         "SetShowReopenTabs",
-        "SetExpandButtonEnabled",
         "TurnOnSmartTabSharing",
         "ShowSmartTabSharingTryItIph",
         "ShowSmartTabSharingDefaultOnIph",
@@ -3606,7 +3601,8 @@
         "PostSearchMessage",
         "OnHandshakeComplete",
         "OnLensOverlayStateChanged",
-        "OnLensCropUpdated"
+        "OnLensCropUpdated",
+        "OnTabContextUpdated"
       ],
       "metadata": {
         "usage": {
@@ -3725,7 +3721,11 @@
         "ShowThreadHistory",
         "OnTabClickedFromSourcesMenu",
         "OnFileClickedFromSourcesMenu",
-        "OnImageClickedFromSourcesMenu"
+        "OnImageClickedFromSourcesMenu",
+        "CloseSidePanel",
+        "ShowPageInfoBubble",
+        "OnLogoPointerDown",
+        "CreateNewThread"
       ],
       "metadata": {
         "usage": {
@@ -3750,7 +3750,10 @@
       "methods": [
         "OnSidePanelPinStateChanged",
         "OnAiPageStatusChanged",
-        "OnContextUpdated"
+        "OnContextUpdated",
+        "SetExpandButtonEnabled",
+        "SetThreadTitle",
+        "OnSidePanelStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -7975,8 +7978,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8002,8 +8004,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -8025,8 +8026,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -10574,6 +10574,48 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "ForeignTabsPageHandler",
+      "module": "organizer_panel.mojom",
+      "file": "chrome_browser_ui_webui_organizer_panel_foreign_tabs.mojom.js",
+      "methods": [
+        "GetForeignTabs"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: organizer_panel.mojom.ForeignTabsPageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
+      "name": "ForeignTabsPageHandlerFactory",
+      "module": "organizer_panel.mojom",
+      "file": "chrome_browser_ui_webui_organizer_panel_foreign_tabs.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -13538,7 +13580,8 @@
         "UpdateContent",
         "OnReadabilityDistillationStateChanged",
         "OnMainFrameSameDocumentNavigation",
-        "OnReadingModeShown"
+        "OnReadingModeShown",
+        "OnTranslationStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -24796,7 +24839,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kSurfaceEmbed"
+        ]
       }
     },
     {
@@ -27607,7 +27653,6 @@
       "file": "components_services_storage_public_mojom_blob_storage_context.mojom.js",
       "methods": [
         "RegisterFromDataItem",
-        "RegisterFromMemory",
         "WriteBlobToFile",
         "Clone"
       ],
@@ -27714,6 +27759,8 @@
         "CreateDirectory",
         "DeleteFile",
         "GetFileInfo",
+        "GetDiskSpaceInfo",
+        "ComputeDirectorySize",
         "GetPathAccess",
         "RenameFile",
         "LockFile"
@@ -28595,7 +28642,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: data_decoder.mojom.DataDecoderService.BindWebBundleParserFactory"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -35069,7 +35116,6 @@
         "SignalWebAuthnExtension",
         "BeginFileRead",
         "BeginFileWrite",
-        "SetHostCursorRenderedByClient",
         "StartAudioInjector",
         "SetAudioInjectorSampleInfo"
       ],
@@ -35090,7 +35136,6 @@
       "file": "remoting_host_mojom_desktop_session.mojom.js",
       "methods": [
         "Start",
-        "SetComposeEnabled",
         "SetMaxFrameRate",
         "Pause",
         "BoostCaptureRate"
@@ -35887,7 +35932,6 @@
       "methods": [
         "BindImageDecoder",
         "BindXmlParser",
-        "BindWebBundleParserFactory",
         "BindGzipper",
         "BindStructuredHeadersParser"
       ],
@@ -40234,7 +40278,7 @@
     {
       "name": "SystemProxyResolver",
       "module": "proxy_resolver.mojom",
-      "file": "services_proxy_resolver_public_mojom_proxy_resolver.mojom.js",
+      "file": "services_proxy_resolver_public_mojom_system_proxy_resolver.mojom.js",
       "methods": [
         "GetProxyForUrl"
       ],
@@ -42301,6 +42345,25 @@
       }
     },
     {
+      "name": "AIDecisionModel",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_ai_ai_decision_model.mojom.js",
+      "methods": [
+        "Decide"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
       "name": "AIManagerCreateLanguageModelClient",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_ai_ai_language_model.mojom.js",
@@ -42444,6 +42507,26 @@
       }
     },
     {
+      "name": "AIManagerCreateDecisionModelClient",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_ai_ai_manager.mojom.js",
+      "methods": [
+        "OnSessionCreated",
+        "OnError"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
       "name": "AIManager",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_ai_ai_manager.mojom.js",
@@ -42460,7 +42543,9 @@
         "CanCreateProofreader",
         "CreateProofreader",
         "CanCreateSemanticEmbedder",
-        "CreateSemanticEmbedder"
+        "CreateSemanticEmbedder",
+        "CanCreateDecisionModel",
+        "CreateDecisionModel"
       ],
       "metadata": {
         "usage": {
@@ -42970,11 +43055,9 @@
           "associated": [],
           "direct": [
             "Internal Interface: storage.mojom.BlobStorageContext.RegisterFromDataItem",
-            "Internal Interface: storage.mojom.BlobStorageContext.RegisterFromMemory",
             "Internal Interface: blink.mojom.Blob.Clone",
             "Internal Interface: blink.mojom.BlobRegistry.Register",
-            "Internal Interface: blink.mojom.FileBackedBlobFactory.RegisterBlob",
-            "Internal Interface: blink.mojom.FileBackedBlobFactory.RegisterBlobSync"
+            "Internal Interface: blink.mojom.FileBackedBlobFactory.RegisterBlob"
           ]
         },
         "scope": "context",
@@ -43100,8 +43183,7 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_blob_file_backed_blob_factory.mojom.js",
       "methods": [
-        "RegisterBlob",
-        "RegisterBlobSync"
+        "RegisterBlob"
       ],
       "metadata": {
         "usage": {
@@ -43961,6 +44043,25 @@
         "gates": [
           "permission:MIDI_SYSEX"
         ]
+      }
+    },
+    {
+      "name": "CrossOriginStorageManager",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_cross_origin_storage_cross_origin_storage.mojom.js",
+      "methods": [
+        "RequestFileHandle"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -51905,6 +52006,7 @@
       "source": "chrome/browser/contextual_tasks/contextual_tasks.mojom",
       "module": "contextual_tasks.mojom",
       "imports": [
+        "components/omnibox/browser/searchbox.mojom",
         "mojo/public/mojom/base/uuid.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "mojo/public/mojom/base/proto_wrapper.mojom",
@@ -52925,6 +53027,14 @@
       "source": "chrome/browser/ui/webui/on_device_translation_internals/on_device_translation_internals.mojom",
       "module": "on_device_translation_internals.mojom",
       "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_organizer_panel_foreign_tabs.mojom.js",
+      "source": "chrome/browser/ui/webui/organizer_panel/foreign_tabs.mojom",
+      "module": "organizer_panel.mojom",
+      "imports": [
+        "url/mojom/url.mojom"
+      ]
     },
     {
       "filename": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
@@ -57139,6 +57249,7 @@
       "module": "storage.mojom",
       "imports": [
         "mojo/public/mojom/base/big_string.mojom",
+        "mojo/public/mojom/base/byte_size.mojom",
         "mojo/public/mojom/base/file.mojom",
         "mojo/public/mojom/base/file_error.mojom",
         "mojo/public/mojom/base/file_info.mojom",
@@ -60075,7 +60186,6 @@
       "source": "services/data_decoder/public/mojom/data_decoder_service.mojom",
       "module": "data_decoder.mojom",
       "imports": [
-        "components/web_package/mojom/web_bundle_parser.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
         "services/data_decoder/public/mojom/gzipper.mojom",
         "services/data_decoder/public/mojom/image_decoder.mojom",
@@ -61135,6 +61245,7 @@
         "services/network/public/mojom/websocket.mojom",
         "services/network/public/mojom/x509_certificate.mojom",
         "services/proxy_resolver/public/mojom/proxy_resolver.mojom",
+        "services/proxy_resolver/public/mojom/system_proxy_resolver.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/scheme_host_port.mojom",
         "url/mojom/url.mojom",
@@ -62012,6 +62123,15 @@
         "services/network/public/mojom/ip_address.mojom",
         "services/network/public/mojom/network_anonymization_key.mojom",
         "services/network/public/mojom/network_param.mojom",
+        "url/mojom/url.mojom"
+      ]
+    },
+    {
+      "filename": "services_proxy_resolver_public_mojom_system_proxy_resolver.mojom.js",
+      "source": "services/proxy_resolver/public/mojom/system_proxy_resolver.mojom",
+      "module": "proxy_resolver.mojom",
+      "imports": [
+        "sandbox/policy/mojom/sandbox.mojom",
         "url/mojom/url.mojom",
         "services/network/public/mojom/proxy_config.mojom"
       ]
@@ -63358,6 +63478,15 @@
       "imports": []
     },
     {
+      "filename": "third_party_blink_public_mojom_ai_ai_decision_model.mojom.js",
+      "source": "third_party/blink/public/mojom/ai/ai_decision_model.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "third_party/blink/public/mojom/ai/ai_common.mojom",
+        "third_party/blink/public/mojom/ai/model_streaming_responder.mojom"
+      ]
+    },
+    {
       "filename": "third_party_blink_public_mojom_ai_ai_language_model.mojom.js",
       "source": "third_party/blink/public/mojom/ai/ai_language_model.mojom",
       "module": "blink.mojom",
@@ -63376,6 +63505,7 @@
       "imports": [
         "services/on_device_model/public/mojom/download_observer.mojom",
         "third_party/blink/public/mojom/ai/ai_common.mojom",
+        "third_party/blink/public/mojom/ai/ai_decision_model.mojom",
         "third_party/blink/public/mojom/ai/ai_semantic_embedder.mojom",
         "third_party/blink/public/mojom/ai/ai_language_model.mojom",
         "third_party/blink/public/mojom/ai/ai_proofreader.mojom",
@@ -63857,6 +63987,16 @@
       "source": "third_party/blink/public/mojom/credentialmanagement/credential_type_flags.mojom",
       "module": "blink.mojom",
       "imports": []
+    },
+    {
+      "filename": "third_party_blink_public_mojom_cross_origin_storage_cross_origin_storage.mojom.js",
+      "source": "third_party/blink/public/mojom/cross_origin_storage/cross_origin_storage.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "third_party/blink/public/mojom/file_system_access/file_system_access_error.mojom",
+        "third_party/blink/public/mojom/file_system_access/file_system_access_file_handle.mojom",
+        "url/mojom/origin.mojom"
+      ]
     },
     {
       "filename": "third_party_blink_public_mojom_css_preferred_color_scheme.mojom.js",
