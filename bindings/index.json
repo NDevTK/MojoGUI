@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-07T17:19:45.605439Z",
-  "version": "157.0.8090.0",
+  "generated_at": "2026-10-08T17:13:41.108067Z",
+  "version": "157.0.8092.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3451,13 +3451,11 @@
         "GetCommonSearchParams",
         "OnboardingTooltipDismissed",
         "AskGTooltipDismissed",
-        "ReopenTabs",
         "OnContextMenuOpened",
         "NotifySmartTabSharingTryItIphResult",
         "NotifySmartTabSharingDefaultOnIphResult",
         "RegisterWindow",
-        "CloseWindow",
-        "MaybeTriggerPinningPromo"
+        "CloseWindow"
       ],
       "metadata": {
         "usage": {
@@ -3503,7 +3501,6 @@
         "UpdateComposeboxPosition",
         "LockInput",
         "UnlockInput",
-        "SetShowReopenTabs",
         "TurnOnSmartTabSharing",
         "ShowSmartTabSharingTryItIph",
         "ShowSmartTabSharingDefaultOnIph",
@@ -3725,7 +3722,8 @@
         "CloseSidePanel",
         "ShowPageInfoBubble",
         "OnLogoPointerDown",
-        "CreateNewThread"
+        "CreateNewThread",
+        "MaybeTriggerPinningPromo"
       ],
       "metadata": {
         "usage": {
@@ -5256,7 +5254,8 @@
         "SendAudioChunk",
         "SendTextInput",
         "ReportPlaybackStatus",
-        "StopStreamingSession"
+        "StopStreamingSession",
+        "ExecuteWebMcpTool"
       ],
       "metadata": {
         "usage": {
@@ -7741,6 +7740,12 @@
         "GetTopicPageImageUrl",
         "OpenTopic",
         "OpenGlicPanel",
+        "SetTopicFeedback",
+        "DeleteTopicFeedback",
+        "GetTopicFeedbacks",
+        "ClearTopicFeedbacks",
+        "GetTopicsFeedbackExportPreview",
+        "GenerateTopicsFeedbackBundle",
         "RunTodoTask"
       ],
       "metadata": {
@@ -10624,7 +10629,7 @@
       "module": "organizer_panel.mojom",
       "file": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
       "methods": [
-        "OnSectionsExpandedChanged"
+        "OnSectionsStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -10651,8 +10656,9 @@
       "file": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
       "methods": [
         "ClosePanel",
-        "IsSectionExpanded",
-        "SetSectionExpanded"
+        "GetSectionState",
+        "SetSectionExpanded",
+        "SetSectionShowAll"
       ],
       "metadata": {
         "usage": {
@@ -13526,6 +13532,7 @@
         "OnHighlightGranularityChanged",
         "OnLineFocusChanged",
         "OnReadAloudAudioStateChange",
+        "OnAiPlaybackStateChanged",
         "OnLinkClicked",
         "OnImageDataRequested",
         "OnSelectionChange",
@@ -20965,86 +20972,6 @@
       }
     },
     {
-      "name": "ScanSession",
-      "module": "ash.nearby.presence.mojom",
-      "file": "chromeos_ash_services_nearby_public_mojom_nearby_presence.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "ScanObserver",
-      "module": "ash.nearby.presence.mojom",
-      "file": "chromeos_ash_services_nearby_public_mojom_nearby_presence.mojom.js",
-      "methods": [
-        "OnDeviceFound",
-        "OnDeviceChanged",
-        "OnDeviceLost"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "NearbyPresence",
-      "module": "ash.nearby.presence.mojom",
-      "file": "chromeos_ash_services_nearby_public_mojom_nearby_presence.mojom.js",
-      "methods": [
-        "StartScan",
-        "SetScanObserver",
-        "UpdateLocalDeviceMetadata",
-        "UpdateLocalDeviceMetadataAndGenerateCredentials",
-        "UpdateRemoteSharedCredentials",
-        "GetLocalSharedCredentials"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: sharing.mojom.Sharing.Connect"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "NearbyPresenceCredentialStorage",
-      "module": "ash.nearby.presence.mojom",
-      "file": "chromeos_ash_services_nearby_public_mojom_nearby_presence_credential_storage.mojom.js",
-      "methods": [
-        "SaveCredentials",
-        "GetPublicCredentials",
-        "GetPrivateCredentials",
-        "UpdateLocalCredential"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "NearbyShareSettingsObserver",
       "module": "nearby_share.mojom",
       "file": "chromeos_ash_services_nearby_public_mojom_nearby_share_settings.mojom.js",
@@ -24111,7 +24038,6 @@
         "ShowExtensionContextMenu",
         "AdjustOmniboxTextForCopy",
         "OnPerformanceInterventionButtonClicked",
-        "OnPerformanceInterventionButtonMousePressed",
         "OnMediaButtonClicked",
         "OnGlicButtonClicked"
       ],
@@ -35649,43 +35575,6 @@
       }
     },
     {
-      "name": "AccessibilityService",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_accessibility_service.mojom.js",
-      "methods": [
-        "BindAccessibilityServiceClient"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "AccessibilityServiceClient",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_accessibility_service.mojom.js",
-      "methods": [
-        "BindAutomation",
-        "BindAutomationClient"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "Automation",
       "module": "ax.mojom",
       "file": "services_accessibility_public_mojom_automation.mojom.js",
@@ -35701,27 +35590,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "AutomationClient",
-      "module": "ax.mojom",
-      "file": "services_accessibility_public_mojom_automation_client.mojom.js",
-      "methods": [
-        "Enable",
-        "Disable",
-        "EnableChildTree",
-        "PerformAction"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ax.mojom.AccessibilityServiceClient.BindAutomationClient"
           ]
         },
         "scope": "context",
@@ -52337,6 +52205,7 @@
       "module": "ai_overlay_dialog.mojom",
       "imports": [
         "mojo/public/mojom/base/big_buffer.mojom",
+        "mojo/public/mojom/base/values.mojom",
         "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom",
         "third_party/blink/public/mojom/dom/dom_node_id.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
@@ -55175,24 +55044,6 @@
       ]
     },
     {
-      "filename": "chromeos_ash_services_nearby_public_mojom_nearby_presence.mojom.js",
-      "source": "chromeos/ash/services/nearby/public/mojom/nearby_presence.mojom",
-      "module": "ash.nearby.presence.mojom",
-      "imports": [
-        "mojo/public/mojom/base/absl_status.mojom",
-        "mojo/public/mojom/base/file.mojom"
-      ]
-    },
-    {
-      "filename": "chromeos_ash_services_nearby_public_mojom_nearby_presence_credential_storage.mojom.js",
-      "source": "chromeos/ash/services/nearby/public/mojom/nearby_presence_credential_storage.mojom",
-      "module": "ash.nearby.presence.mojom",
-      "imports": [
-        "chromeos/ash/services/nearby/public/mojom/nearby_presence.mojom",
-        "mojo/public/mojom/base/absl_status.mojom"
-      ]
-    },
-    {
       "filename": "chromeos_ash_services_nearby_public_mojom_nearby_share_settings.mojom.js",
       "source": "chromeos/ash/services/nearby/public/mojom/nearby_share_settings.mojom",
       "module": "nearby_share.mojom",
@@ -55229,14 +55080,12 @@
         "chromeos/ash/services/nearby/public/mojom/firewall_hole.mojom",
         "chromeos/ash/services/nearby/public/mojom/mdns.mojom",
         "chromeos/ash/services/nearby/public/mojom/nearby_connections.mojom",
-        "chromeos/ash/services/nearby/public/mojom/nearby_presence.mojom",
         "chromeos/ash/services/nearby/public/mojom/nearby_connections_types.mojom",
         "chromeos/ash/services/nearby/public/mojom/nearby_decoder.mojom",
         "chromeos/ash/services/nearby/public/mojom/tcp_socket_factory.mojom",
         "chromeos/ash/services/nearby/public/mojom/webrtc.mojom",
         "chromeos/services/network_config/public/mojom/cros_network_config.mojom",
         "chromeos/ash/services/nearby/public/mojom/quick_start_decoder.mojom",
-        "chromeos/ash/services/nearby/public/mojom/nearby_presence_credential_storage.mojom",
         "chromeos/ash/services/wifi_direct/public/mojom/wifi_direct_manager.mojom",
         "device/bluetooth/public/mojom/adapter.mojom",
         "sandbox/policy/mojom/sandbox.mojom"
@@ -56648,6 +56497,7 @@
       "imports": [
         "components/omnibox/browser/fusebox_action.mojom",
         "components/omnibox/browser/omnibox.mojom",
+        "components/omnibox/browser/suggest_template_info.mojom",
         "components/omnibox/composebox/composebox_query.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/string16.mojom",
@@ -56655,6 +56505,14 @@
         "mojo/public/mojom/base/unguessable_token.mojom",
         "ui/base/mojom/window_open_disposition.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
+        "url/mojom/url.mojom"
+      ]
+    },
+    {
+      "filename": "components_omnibox_browser_suggest_template_info.mojom.js",
+      "source": "components/omnibox/browser/suggest_template_info.mojom",
+      "module": "suggest_template_info.mojom",
+      "imports": [
         "url/mojom/url.mojom"
       ]
     },
@@ -60057,16 +59915,6 @@
       "imports": []
     },
     {
-      "filename": "services_accessibility_public_mojom_accessibility_service.mojom.js",
-      "source": "services/accessibility/public/mojom/accessibility_service.mojom",
-      "module": "ax.mojom",
-      "imports": [
-        "sandbox/policy/mojom/sandbox.mojom",
-        "services/accessibility/public/mojom/automation.mojom",
-        "services/accessibility/public/mojom/automation_client.mojom"
-      ]
-    },
-    {
       "filename": "services_accessibility_public_mojom_assistive_technology_type.mojom.js",
       "source": "services/accessibility/public/mojom/assistive_technology_type.mojom",
       "module": "ax.mojom",
@@ -60083,15 +59931,6 @@
         "ui/accessibility/mojom/ax_tree_id.mojom",
         "ui/accessibility/mojom/ax_tree_update.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
-      ]
-    },
-    {
-      "filename": "services_accessibility_public_mojom_automation_client.mojom.js",
-      "source": "services/accessibility/public/mojom/automation_client.mojom",
-      "module": "ax.mojom",
-      "imports": [
-        "ui/accessibility/mojom/ax_action_data.mojom",
-        "ui/accessibility/mojom/ax_tree_id.mojom"
       ]
     },
     {
