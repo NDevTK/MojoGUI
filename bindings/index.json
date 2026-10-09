@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-08T17:13:41.108067Z",
-  "version": "157.0.8092.0",
+  "generated_at": "2026-10-09T16:47:01.401890Z",
+  "version": "157.0.8094.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3751,7 +3751,8 @@
         "OnContextUpdated",
         "SetExpandButtonEnabled",
         "SetThreadTitle",
-        "OnSidePanelStateChanged"
+        "OnSidePanelStateChanged",
+        "SetProfileAvatarUrl"
       ],
       "metadata": {
         "usage": {
@@ -19218,52 +19219,6 @@
       }
     },
     {
-      "name": "PageHandlerFactory",
-      "module": "ash.borealis_motd.mojom",
-      "file": "chromeos_ash_experiences_guest_os_borealis_motd_borealis_motd.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "ash.borealis_motd.mojom",
-      "file": "chromeos_ash_experiences_guest_os_borealis_motd_borealis_motd.mojom.js",
-      "methods": [
-        "OnDismiss",
-        "OnUninstall",
-        "IsBorealisInstalled"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ash.borealis_motd.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
       "name": "FactorObserver",
       "module": "ash.auth.mojom",
       "file": "chromeos_ash_services_auth_factor_config_public_mojom_auth_factor_config.mojom.js",
@@ -25984,6 +25939,7 @@
         "GetPageClassification",
         "SetSmartTabSharingActive",
         "GetSmartTabSharingActive",
+        "ResetSmartTabSharing",
         "DismissFre",
         "ShowHotkeyDropdown",
         "OpenHotkeySettings",
@@ -29936,7 +29892,9 @@
       "name": "ResourceBrokerService",
       "module": "resource_broker.mojom",
       "file": "content_services_resource_broker_public_mojom_resource_broker.mojom.js",
-      "methods": [],
+      "methods": [
+        "Initialize"
+      ],
       "metadata": {
         "usage": {
           "associated": [],
@@ -34320,10 +34278,7 @@
           ]
         },
         "scope": "context",
-        "category": "direct",
-        "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ]
+        "category": "direct"
       }
     },
     {
@@ -38125,8 +38080,8 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kEnforceGamepadPermissionsPolicy",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "feature:kFontAccess",
+          "feature:kEnforceGamepadPermissionsPolicy"
         ]
       }
     },
@@ -43918,7 +43873,7 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_cross_origin_storage_cross_origin_storage.mojom.js",
       "methods": [
-        "RequestFileHandle"
+        "GetFileHandle"
       ],
       "metadata": {
         "usage": {
@@ -43971,9 +43926,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ],
         "scrambled": false
       }
     },
@@ -45282,11 +45234,6 @@
         },
         "scope": "context",
         "category": "internal",
-        "gates": [
-          "feature:kFontAccess",
-          "feature:kEnforceGamepadPermissionsPolicy",
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ],
         "scrambled": false
       }
     },
@@ -46491,7 +46438,6 @@
         "ReportAnchorElementPointerOut",
         "ReportAnchorElementPointerDown",
         "ReportAnchorElementPointerDataOnHoverTimerFired",
-        "ProcessPointerEventUsingMLModel",
         "ShouldSkipUpdateDelays"
       ],
       "metadata": {
@@ -47567,7 +47513,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
+          "feature:kEnforceGamepadPermissionsPolicy"
         ],
         "scrambled": false
       }
@@ -47653,9 +47599,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ],
         "scrambled": false
       }
     },
@@ -47857,9 +47800,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ],
         "scrambled": false
       }
     },
@@ -47879,9 +47819,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ],
         "scrambled": false
       }
     },
@@ -47923,9 +47860,6 @@
         },
         "scope": "context",
         "category": "internal",
-        "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ],
         "scrambled": false
       }
     },
@@ -48214,9 +48148,6 @@
         },
         "scope": "context",
         "category": "direct",
-        "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess"
-        ],
         "scrambled": false
       }
     },
@@ -48860,7 +48791,6 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kFencedFramesLocalUnpartitionedDataAccess",
           "feature:kXuControls"
         ],
         "scrambled": false
@@ -54713,12 +54643,6 @@
       "imports": []
     },
     {
-      "filename": "chromeos_ash_experiences_guest_os_borealis_motd_borealis_motd.mojom.js",
-      "source": "chromeos/ash/experiences/guest_os/borealis/motd/borealis_motd.mojom",
-      "module": "ash.borealis_motd.mojom",
-      "imports": []
-    },
-    {
       "filename": "chromeos_ash_services_auth_factor_config_public_mojom_auth_factor_config.mojom.js",
       "source": "chromeos/ash/services/auth_factor_config/public/mojom/auth_factor_config.mojom",
       "module": "ash.auth.mojom",
@@ -56505,6 +56429,7 @@
         "mojo/public/mojom/base/unguessable_token.mojom",
         "ui/base/mojom/window_open_disposition.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
+        "ui/gfx/range/mojom/range.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -56513,6 +56438,7 @@
       "source": "components/omnibox/browser/suggest_template_info.mojom",
       "module": "suggest_template_info.mojom",
       "imports": [
+        "mojo/public/mojom/base/string16.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -57894,8 +57820,8 @@
       "source": "content/services/resource_broker/public/mojom/resource_broker.mojom",
       "module": "resource_broker.mojom",
       "imports": [
-        "sandbox/policy/mojom/sandbox.mojom",
-        "mojo/public/mojom/base/work_in_progress.mojom"
+        "mojo/public/mojom/base/unguessable_token.mojom",
+        "sandbox/policy/mojom/sandbox.mojom"
       ]
     },
     {
@@ -58062,6 +57988,7 @@
         "device/vr/public/mojom/vr_service.mojom",
         "device/vr/public/mojom/xr_device.mojom",
         "device/vr/public/mojom/xr_session.mojom",
+        "gpu/ipc/common/exported_shared_image.mojom",
         "gpu/ipc/common/luid.mojom",
         "gpu/ipc/common/sync_token.mojom",
         "sandbox/policy/mojom/sandbox.mojom",
