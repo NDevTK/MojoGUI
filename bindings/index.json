@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-09T16:47:01.401890Z",
-  "version": "157.0.8094.0",
+  "generated_at": "2026-10-10T15:38:59.639852Z",
+  "version": "157.0.8096.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7725,6 +7725,7 @@
         "SwitchToTab",
         "CloseTab",
         "ClearTabGroups",
+        "ReplaceTabGroups",
         "ClearTabGroupChatHistory",
         "AskGeminiWithContext",
         "GetMemoryBankChatHistory",
@@ -9456,7 +9457,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -9485,7 +9487,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter"
+          "feature:kNtpFooter",
+          "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
     },
@@ -9799,9 +9802,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9823,9 +9824,7 @@
         "category": "internal",
         "gates": [
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -9850,9 +9849,7 @@
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
           "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -23788,6 +23785,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
@@ -23828,6 +23826,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
@@ -23849,6 +23848,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kNtpFooter",
           "feature:kWebUIToolbarProcessOverheadExperiment"
         ]
       }
@@ -28159,6 +28159,7 @@
       "methods": [
         "SetSurfaceEmbed",
         "AttachConnector",
+        "SetAllowPinchZoom",
         "DetachConnector",
         "SynchronizeVisualProperties",
         "OnEmbedElementFocused",
@@ -39522,6 +39523,7 @@
       "methods": [
         "SendDatagram",
         "CreateDatagramWritable",
+        "ExportKeyingMaterial",
         "CreateStream",
         "AcceptBidirectionalStream",
         "AcceptUnidirectionalStream",
@@ -39774,7 +39776,8 @@
         "StartSession",
         "ClassifyTextSafety",
         "DetectLanguage",
-        "LoadAdaptation"
+        "LoadAdaptation",
+        "LoadPostProcessor"
       ],
       "metadata": {
         "usage": {
@@ -39784,6 +39787,7 @@
             "Internal Interface: on_device_internals.mojom.PageHandler.LoadModel",
             "Internal Interface: on_device_internals.mojom.PageHandler.LoadPlatformModel",
             "Internal Interface: on_device_model.mojom.OnDeviceModel.LoadAdaptation",
+            "Internal Interface: on_device_model.mojom.OnDeviceModel.LoadPostProcessor",
             "Internal Interface: on_device_model.mojom.OnDeviceModelService.LoadModel",
             "Internal Interface: on_device_model.mojom.OnDeviceModelPlatformService.LoadPlatformModel"
           ]
@@ -50520,7 +50524,26 @@
         "ShouldShowPromoCard",
         "OnPromoCardShown",
         "OnPromoCardDismissed",
-        "OnPromoCardActionClicked"
+        "OnPromoCardActionClicked",
+        "SetPage"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "HistoryCrossDeviceSigninPromoPage",
+      "module": "history_cross_device_signin_promo.mojom",
+      "file": "ui_webui_resources_cr_components_history_history_cross_device_signin_promo.mojom.js",
+      "methods": [
+        "OnPromoBubbleStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -50713,9 +50736,7 @@
         "gates": [
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -50753,9 +50774,7 @@
         "gates": [
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -50779,9 +50798,7 @@
         "gates": [
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
-          "feature:kNtpCalendarModule",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpCalendarModule"
         ]
       }
     },
@@ -61753,7 +61770,6 @@
         "services/network/public/mojom/source_type.mojom",
         "services/network/public/mojom/ssl_info.mojom",
         "services/network/public/mojom/unencoded_digest.mojom",
-        "services/proxy_resolver/public/mojom/proxy_resolver.mojom",
         "url/mojom/url.mojom"
       ]
     },
