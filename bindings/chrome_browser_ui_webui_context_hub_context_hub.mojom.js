@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8096.0';
+        const versionStr = window.mojoVersion || '157.0.8098.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -492,6 +492,7 @@ mojo.internal.bindings.browser.context_hub.mojom.TopicDefectCategory = {
   kDuplicateOfAnotherTopic: 9,
   kSensitiveTopic: 10,
   kOther: 11,
+  kOutdated: 12,
 };
 
 // Enum: TopicRating
@@ -2752,24 +2753,20 @@ mojo.internal.Struct(
 // Struct: TopicsFeedbackExportPreview
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportPreviewSpec, 'browser.context_hub.mojom.TopicsFeedbackExportPreview', [
-      mojo.internal.StructField('arg_ldap', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stats', 8, 0, mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportStatsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_domains', 16, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportDomainSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportStatsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_domains', 8, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportDomainSpec, false), null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 // Struct: TopicsFeedbackExportOptions
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec, 'browser.context_hub.mojom.TopicsFeedbackExportOptions', [
       mojo.internal.StructField('arg_window_days', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_strip_all_titles', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_excluded_domains', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_excluded_urls', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_title_stripped_domains', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_missing_topics', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rater', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_missing_topics', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 40]]);
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.Page_OnAutoTodosChanged_ParamsSpec, 'browser.context_hub.mojom.Page_OnAutoTodosChanged_Params', [
       mojo.internal.StructField('arg_todos', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.AutoTodoItemSpec, false), null, false, 0, undefined),
