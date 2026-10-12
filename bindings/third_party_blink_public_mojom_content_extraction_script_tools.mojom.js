@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8098.0';
+        const versionStr = window.mojoVersion || '157.0.8101.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -354,8 +354,8 @@ mojo.internal.bindings.blink.mojom.ModelContextHostRemote = class {
   registerScriptTool(arg_tool) {
     return this.$.registerScriptTool(arg_tool);
   }
-  unregisterScriptTool(arg_name) {
-    return this.$.unregisterScriptTool(arg_name);
+  unregisterScriptTool(arg_tool_id) {
+    return this.$.unregisterScriptTool(arg_tool_id);
   }
   getScriptTools(arg_from_origins) {
     return this.$.getScriptTools(arg_from_origins);
@@ -399,12 +399,12 @@ mojo.internal.bindings.blink.mojom.ModelContextHostRemoteCallHandler = class {
       false);
   }
 
-  unregisterScriptTool(arg_name) {
+  unregisterScriptTool(arg_tool_id) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelContextHost_UnregisterScriptTool_ParamsSpec,
       null,
-      [arg_name],
+      [arg_tool_id],
       false);
   }
 
@@ -530,7 +530,7 @@ mojo.internal.bindings.blink.mojom.ModelContextHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelContextHost_UnregisterScriptTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregisterScriptTool');
-          const result = this.impl.unregisterScriptTool(params.arg_name);
+          const result = this.impl.unregisterScriptTool(params.arg_tool_id);
           break;
         }
         case 3: {
@@ -791,16 +791,17 @@ mojo.internal.Struct(
 // Struct: ScriptTool
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ScriptToolSpec, 'blink.mojom.ScriptTool', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_schema', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_annotations', 32, 0, mojo.internal.bindings.blink.mojom.ScriptToolAnnotationsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_exposed_origins', 40, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tool_owner_frame_token', 48, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 64, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_description', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_schema', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_annotations', 40, 0, mojo.internal.bindings.blink.mojom.ScriptToolAnnotationsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_exposed_origins', 48, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_owner_frame_token', 56, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 72, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ScriptToolHost_PauseExecution_ParamsSpec, 'blink.mojom.ScriptToolHost_PauseExecution_Params', [
     ],
@@ -825,7 +826,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelContextHost_UnregisterScriptTool_ParamsSpec, 'blink.mojom.ModelContextHost_UnregisterScriptTool_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
