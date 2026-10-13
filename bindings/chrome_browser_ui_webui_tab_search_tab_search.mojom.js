@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8101.0';
+        const versionStr = window.mojoVersion || '157.0.8102.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1202,10 +1202,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_last_active_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_active_elapsed_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_urls', 32, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_layout', 40, 0, mojo.internal.bindings.tab_search.mojom.SplitTabLayoutSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tab_titles', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_layout', 48, 0, mojo.internal.bindings.tab_search.mojom.SplitTabLayoutSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 56, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Struct: SwitchToTabInfo
 mojo.internal.Struct(

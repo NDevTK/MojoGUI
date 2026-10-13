@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8101.0';
+        const versionStr = window.mojoVersion || '157.0.8102.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -210,8 +210,12 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnImageDataReque
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnImageDataRequested_ParamsSpec.$ = {};
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec.$ = {};
+mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ResponseParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec.$ = {};
+mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ResponseParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec.$ = {};
 mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnDistillationStateChanged_ParamsSpec = mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnDistillationStateChanged_ParamsSpec || { $: {} };
@@ -994,7 +998,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
     return this.proxy.sendMessage(
       this.ordinals[24],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec,
-      null,
+      mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ResponseParamsSpec,
       [arg_target_tree_id, arg_anchor_node_id, arg_anchor_offset, arg_focus_node_id, arg_focus_offset],
       false);
   }
@@ -1003,7 +1007,7 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerRemoteCallHandler
     return this.proxy.sendMessage(
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec,
-      null,
+      mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ResponseParamsSpec,
       [],
       false);
   }
@@ -1379,6 +1383,17 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSelectionChange');
           const result = this.impl.onSelectionChange(params.arg_target_tree_id, params.arg_anchor_node_id, params.arg_anchor_offset, params.arg_focus_node_id, params.arg_focus_offset);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_applied' in response) ? response['arg_applied'] : response;
+              const resp_obj = { 'arg_applied': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] onSelectionChange FAILED:', e));
+          }
           break;
         }
         case 25: {
@@ -1386,6 +1401,17 @@ mojo.internal.bindings.read_anything.mojom.UntrustedPageHandlerReceiver = class 
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCollapseSelection');
           const result = this.impl.onCollapseSelection();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_applied' in response) ? response['arg_applied'] : response;
+              const resp_obj = { 'arg_applied': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] onCollapseSelection FAILED:', e));
+          }
           break;
         }
         case 26: {
@@ -2213,9 +2239,21 @@ mojo.internal.Struct(
     [[0, 40]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ResponseParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnSelectionChange_ResponseParams', [
+      mojo.internal.StructField('arg_applied', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ResponseParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnCollapseSelection_ResponseParams', [
+      mojo.internal.StructField('arg_applied', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_ParamsSpec, 'read_anything.mojom.UntrustedPageHandler_OnDistillationStatus_Params', [

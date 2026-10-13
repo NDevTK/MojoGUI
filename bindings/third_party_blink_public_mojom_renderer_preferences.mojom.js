@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8101.0';
+        const versionStr = window.mojoVersion || '157.0.8102.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -195,6 +195,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_view_source_line_wrap_enabled', 54, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_system_color_chooser_is_modal', 54, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_global_privacy_control_setting_enabled', 54, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_global_privacy_control_devtools_override_$flag', 54, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_global_privacy_control_devtools_override_$value', originalFieldName: 'arg_global_privacy_control_devtools_override' }),
+      mojo.internal.StructField('arg_global_privacy_control_devtools_override_$value', 54, 6, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_global_privacy_control_devtools_override_$flag', originalFieldName: 'arg_global_privacy_control_devtools_override' }),
       mojo.internal.StructField('arg_webrtc_ip_handling_urls', 56, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.WebRtcIpHandlingUrlEntrySpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_webrtc_local_ips_allowed_urls', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_user_agent_override', 72, 0, mojo.internal.bindings.blink.mojom.UserAgentOverrideSpec, null, false, 0, undefined),

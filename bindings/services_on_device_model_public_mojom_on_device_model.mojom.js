@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8101.0';
+        const versionStr = window.mojoVersion || '157.0.8102.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1973,8 +1973,9 @@ mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.ResponseChunkSpec, 'on_device_model.mojom.ResponseChunk', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_safety_info', 8, 0, mojo.internal.bindings.on_device_model.mojom.SafetyInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_thought', 16, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 // Struct: ResponseSummary
 mojo.internal.Struct(
@@ -2046,9 +2047,11 @@ mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.GenerateOptionsSpec, 'on_device_model.mojom.GenerateOptions', [
       mojo.internal.StructField('arg_max_output_tokens', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_add_output_tokens_to_context', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_thinking', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_constraint', 8, 0, mojo.internal.bindings.on_device_model.mojom.ResponseConstraintSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_thinking_token_budget', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: ToolDeclaration
 mojo.internal.Struct(

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8101.0';
+        const versionStr = window.mojoVersion || '157.0.8102.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -289,8 +289,13 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ContextMenuType = {
   kPinnedActionSidePanelShowMerchantTrust: 34,
   kPinnedActionSendSharedTabGroupFeedback: 35,
   kPinnedActionSidePanelShowComments: 36,
-  kAppMenu: 37,
-  kGlic: 38,
+  kPinnedActionShowAiOverlayDialog: 37,
+  kPinnedActionTtcToolbar: 38,
+  kPinnedActionSidePanelShowHistory: 39,
+  kPinnedActionShowChromeLabs: 40,
+  kPinnedActionSidePanelShowGlic: 41,
+  kAppMenu: 42,
+  kGlic: 43,
 };
 
 // Enum: SplitTabActiveLocation
@@ -459,7 +464,12 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarAction = {
   kSidePanelShowMerchantTrust: 26,
   kSendSharedTabGroupFeedback: 27,
   kSidePanelShowComments: 28,
-  kDivider: 29,
+  kShowAiOverlayDialog: 29,
+  kTtcToolbar: 30,
+  kSidePanelShowHistory: 31,
+  kShowChromeLabs: 32,
+  kSidePanelShowGlic: 33,
+  kDivider: 34,
 };
 
 // Enum: DownloadProgressRingStatus

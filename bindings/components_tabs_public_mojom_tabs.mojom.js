@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8101.0';
+        const versionStr = window.mojoVersion || '157.0.8102.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -142,14 +142,15 @@ mojo.internal.bindings.tabs.mojom.TabAlertState = {
   kActorWaitingOnUser: 8,
   kGlicAccessing: 9,
   kGlicSharing: 10,
-  kHidConnected: 11,
-  kMediaRecording: 12,
-  kPipPlaying: 13,
-  kSerialConnected: 14,
-  kTabCapturing: 15,
-  kUsbConnected: 16,
-  kVideoRecording: 17,
-  kVrPresentingInHeadset: 18,
+  kAiModeSharing: 11,
+  kHidConnected: 12,
+  kMediaRecording: 13,
+  kPipPlaying: 14,
+  kSerialConnected: 15,
+  kTabCapturing: 16,
+  kUsbConnected: 17,
+  kVideoRecording: 18,
+  kVrPresentingInHeadset: 19,
 };
 
 // Enum: TabNetworkState

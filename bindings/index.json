@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-12T19:34:38.537969Z",
-  "version": "157.0.8101.0",
+  "generated_at": "2026-10-13T17:17:58.664790Z",
+  "version": "157.0.8102.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3377,7 +3377,8 @@
       "module": "browser_actuator_internals.mojom",
       "file": "chrome_browser_browser_actuator_internals_browser_actuator_internals.mojom.js",
       "methods": [
-        "GetSessionHistory"
+        "GetSessionHistory",
+        "ExportSessionHistory"
       ],
       "metadata": {
         "usage": {
@@ -7748,7 +7749,10 @@
         "ClearTopicFeedbacks",
         "GetTopicsFeedbackExportPreview",
         "GenerateTopicsFeedbackBundle",
-        "RunTodoTask"
+        "RunTodoTask",
+        "OpenContextHubPage",
+        "OpenWebUrl",
+        "CopyAttachmentsToClipboard"
       ],
       "metadata": {
         "usage": {
@@ -10585,7 +10589,8 @@
       "module": "organizer_panel.mojom",
       "file": "chrome_browser_ui_webui_organizer_panel_foreign_tabs.mojom.js",
       "methods": [
-        "GetForeignTabs"
+        "GetForeignTabs",
+        "OpenTab"
       ],
       "metadata": {
         "usage": {
@@ -56153,6 +56158,7 @@
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/values.mojom",
+        "mojo/public/mojom/base/shared_memory.mojom",
         "third_party/blink/public/mojom/messaging/message_port_descriptor.mojom"
       ]
     },

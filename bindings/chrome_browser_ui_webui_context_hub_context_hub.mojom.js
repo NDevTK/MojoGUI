@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8101.0';
+        const versionStr = window.mojoVersion || '157.0.8102.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -134,6 +134,7 @@ mojo.internal.bindings.browser.context_hub.mojom.EntryTypeSpec = mojo.internal.b
 mojo.internal.bindings.browser.context_hub.mojom.ChatRoleSpec = mojo.internal.bindings.browser.context_hub.mojom.ChatRoleSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser.context_hub.mojom.TopicDefectCategorySpec = mojo.internal.bindings.browser.context_hub.mojom.TopicDefectCategorySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser.context_hub.mojom.TopicRatingSpec = mojo.internal.bindings.browser.context_hub.mojom.TopicRatingSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.browser.context_hub.mojom.CopyAttachmentsToClipboardStatusSpec = mojo.internal.bindings.browser.context_hub.mojom.CopyAttachmentsToClipboardStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec = mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.AutoTodoDataSpec = mojo.internal.bindings.browser.context_hub.mojom.AutoTodoDataSpec || { $: {} };
@@ -146,6 +147,8 @@ mojo.internal.bindings.browser.context_hub.mojom.PhotosReferenceSpec = mojo.inte
 if (mojo.internal.bindings.browser.context_hub.mojom.PhotosReferenceSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PhotosReferenceSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PhotosReferenceSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.DriveFileSpec = mojo.internal.bindings.browser.context_hub.mojom.DriveFileSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.DriveFileSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.DriveFileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.DriveFileSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec = mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.FirstPartyDataSpec = mojo.internal.bindings.browser.context_hub.mojom.FirstPartyDataSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.FirstPartyDataSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.FirstPartyDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.FirstPartyDataSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.ThirdPartyDataSpec = mojo.internal.bindings.browser.context_hub.mojom.ThirdPartyDataSpec || { $: {} };
@@ -200,6 +203,8 @@ mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportPreviewSpec
 if (mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportPreviewSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportPreviewSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportPreviewSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec = mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec = mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.Page = mojo.internal.bindings.browser.context_hub.mojom.Page || {};
 mojo.internal.bindings.browser.context_hub.mojom.PageSpec = mojo.internal.bindings.browser.context_hub.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageSpec.$ = {};
@@ -406,6 +411,18 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ParamsS
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.browser = mojo.internal.bindings.browser || {};
@@ -447,6 +464,10 @@ mojo.internal.bindings.browser.context_hub.mojom.name = "SmartSearch";
 mojo.internal.bindings.browser.context_hub.mojom.default_state = false;
 
 mojo.internal.bindings.browser.context_hub.mojom.name = "Topics";
+
+mojo.internal.bindings.browser.context_hub.mojom.default_state = false;
+
+mojo.internal.bindings.browser.context_hub.mojom.name = "MemoryBanksSearchPalette";
 
 mojo.internal.bindings.browser.context_hub.mojom.default_state = false;
 
@@ -500,6 +521,13 @@ mojo.internal.bindings.browser.context_hub.mojom.TopicRating = {
   kUnrated: 0,
   kLiked: 1,
   kDisliked: 2,
+};
+
+// Enum: CopyAttachmentsToClipboardStatus
+mojo.internal.bindings.browser.context_hub.mojom.CopyAttachmentsToClipboardStatus = {
+  kSuccess: 0,
+  kFileWriteFailed: 1,
+  kInvalidInput: 2,
 };
 
 // Interface: Page
@@ -1048,12 +1076,24 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemote = class {
   runTodoTask(arg_prompt) {
     return this.$.runTodoTask(arg_prompt);
   }
+  openContextHubPage() {
+    return this.$.openContextHubPage();
+  }
+  openWebUrl(arg_url) {
+    return this.$.openWebUrl(arg_url);
+  }
+  copyAttachmentsToClipboard(arg_files) {
+    return this.$.copyAttachmentsToClipboard(arg_files);
+  }
 };
 
 mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1527,6 +1567,33 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
       false);
   }
 
+  openContextHubPage() {
+    return this.proxy.sendMessage(
+      this.ordinals[47],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  openWebUrl(arg_url) {
+    return this.proxy.sendMessage(
+      this.ordinals[48],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ResponseParamsSpec,
+      [arg_url],
+      false);
+  }
+
+  copyAttachmentsToClipboard(arg_files) {
+    return this.proxy.sendMessage(
+      this.ordinals[49],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec,
+      [arg_files],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler.getRemote = function() {
@@ -1545,6 +1612,9 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2419,6 +2489,58 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+        case 47: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openContextHubPage');
+          const result = this.impl.openContextHubPage();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] openContextHubPage FAILED:', e));
+          }
+          break;
+        }
+        case 48: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openWebUrl');
+          const result = this.impl.openWebUrl(params.arg_url);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] openWebUrl FAILED:', e));
+          }
+          break;
+        }
+        case 49: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.copyAttachmentsToClipboard');
+          const result = this.impl.copyAttachmentsToClipboard(params.arg_files);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_status' in response) ? response['arg_status'] : response;
+              const resp_obj = { 'arg_status': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] copyAttachmentsToClipboard FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -2451,6 +2573,11 @@ mojo.internal.Union(
       'arg_drive': {
         'ordinal': 2,
         'type': mojo.internal.bindings.browser.context_hub.mojom.DriveFileSpec,
+        'nullable': false,
+      },
+      'arg_chrome_history_entry': {
+        'ordinal': 3,
+        'type': mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec,
         'nullable': false,
       },
     });
@@ -2508,11 +2635,20 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
+// Struct: ChromeHistoryEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec, 'browser.context_hub.mojom.ChromeHistoryEntry', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
 // Struct: FirstPartyData
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.FirstPartyDataSpec, 'browser.context_hub.mojom.FirstPartyData', [
       mojo.internal.StructField('arg_source_references', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_actionable_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_actionable_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 24]]);
 
@@ -2767,6 +2903,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_missing_topics', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 40]]);
+
+// Struct: MemoryBankFileAttachment
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec, 'browser.context_hub.mojom.MemoryBankFileAttachment', [
+      mojo.internal.StructField('arg_filename', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.Page_OnAutoTodosChanged_ParamsSpec, 'browser.context_hub.mojom.Page_OnAutoTodosChanged_Params', [
       mojo.internal.StructField('arg_todos', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.AutoTodoItemSpec, false), null, false, 0, undefined),
@@ -3323,6 +3467,39 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_RunTodoTask_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ParamsSpec, 'browser.context_hub.mojom.PageHandler_OpenContextHubPage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_OpenContextHubPage_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ParamsSpec, 'browser.context_hub.mojom.PageHandler_OpenWebUrl_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_OpenWebUrl_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec, 'browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_Params', [
+      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.browser.context_hub.mojom.CopyAttachmentsToClipboardStatusSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

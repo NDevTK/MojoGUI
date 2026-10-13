@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8101.0';
+        const versionStr = window.mojoVersion || '157.0.8102.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -137,6 +137,8 @@ mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTa
 if (mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ParamsSpec.$.structSpec && mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ParamsSpec.$ = {};
 mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ResponseParamsSpec = mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_OpenTab_ParamsSpec = mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_OpenTab_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_OpenTab_ParamsSpec.$.structSpec && mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_OpenTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_OpenTab_ParamsSpec.$ = {};
 mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerFactory = mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerFactory || {};
 mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerFactorySpec = mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerFactorySpec.$ = {};
@@ -182,12 +184,16 @@ mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerRemote = clas
   getForeignTabs() {
     return this.$.getForeignTabs();
   }
+  openTab(arg_session_tag, arg_session_tab_id) {
+    return this.$.openTab(arg_session_tag, arg_session_tab_id);
+  }
 };
 
 mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('organizer_panel.mojom.ForeignTabsPageHandler', [
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -198,6 +204,15 @@ mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerRemoteCallHan
       mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ParamsSpec,
       mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ResponseParamsSpec,
       [],
+      false);
+  }
+
+  openTab(arg_session_tag, arg_session_tab_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_OpenTab_ParamsSpec,
+      null,
+      [arg_session_tag, arg_session_tab_id],
       false);
   }
 
@@ -219,6 +234,7 @@ mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerReceiver = cl
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('organizer_panel.mojom.ForeignTabsPageHandler', [
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -279,6 +295,13 @@ mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerReceiver = cl
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] getForeignTabs FAILED:', e));
           }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_OpenTab_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openTab');
+          const result = this.impl.openTab(params.arg_session_tag, params.arg_session_tab_id);
           break;
         }
       }
@@ -435,12 +458,14 @@ mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerFactoryReques
 // Struct: ForeignTab
 mojo.internal.Struct(
     mojo.internal.bindings.organizer_panel.mojom.ForeignTabSpec, 'organizer_panel.mojom.ForeignTab', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_active_elapsed_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_tag', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active_elapsed_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 56]]);
 mojo.internal.Struct(
     mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ParamsSpec, 'organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_Params', [
     ],
@@ -451,6 +476,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.organizer_panel.mojom.ForeignTabSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_OpenTab_ParamsSpec, 'organizer_panel.mojom.ForeignTabsPageHandler_OpenTab_Params', [
+      mojo.internal.StructField('arg_session_tag', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_tab_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerFactory_CreatePageHandler_ParamsSpec, 'organizer_panel.mojom.ForeignTabsPageHandlerFactory_CreatePageHandler_Params', [
