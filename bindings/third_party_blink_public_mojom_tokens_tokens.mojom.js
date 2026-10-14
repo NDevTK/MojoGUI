@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8102.0';
+        const versionStr = window.mojoVersion || '158.0.8104.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -158,8 +158,6 @@ mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec = mojo.internal.bindin
 if (mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LayoutWorkletTokenSpec.$ = {};
 mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec = mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$ = {};
-mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec = mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec || { $: {} };
-if (mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec = mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec = mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec || { $: {} };
@@ -242,11 +240,6 @@ mojo.internal.Union(
         'type': mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec,
         'nullable': false,
       },
-      'arg_shared_storage_worklet_token': {
-        'ordinal': 4,
-        'type': mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec,
-        'nullable': false,
-      },
     });
 
 // Union: ExecutionContextToken
@@ -292,13 +285,8 @@ mojo.internal.Union(
         'type': mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec,
         'nullable': false,
       },
-      'arg_shared_storage_worklet_token': {
-        'ordinal': 8,
-        'type': mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec,
-        'nullable': false,
-      },
       'arg_shadow_realm_token': {
-        'ordinal': 9,
+        'ordinal': 8,
         'type': mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec,
         'nullable': false,
       },
@@ -402,13 +390,6 @@ mojo.internal.Struct(
 // Struct: PaintWorkletToken
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec, 'blink.mojom.PaintWorkletToken', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: SharedStorageWorkletToken
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SharedStorageWorkletTokenSpec, 'blink.mojom.SharedStorageWorkletToken', [
       mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);

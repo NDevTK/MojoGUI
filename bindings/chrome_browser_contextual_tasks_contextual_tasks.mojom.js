@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8102.0';
+        const versionStr = window.mojoVersion || '158.0.8104.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1957,11 +1957,11 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandlerRemote = class
   close() {
     this.proxy.close();
   }
-  getHandshakeMessage() {
-    return this.$.getHandshakeMessage();
+  getHandshakeMessage(arg_document_id) {
+    return this.$.getHandshakeMessage(arg_document_id);
   }
-  onWebviewMessage(arg_message) {
-    return this.$.onWebviewMessage(arg_message);
+  onWebviewMessage(arg_message, arg_document_id) {
+    return this.$.onWebviewMessage(arg_message, arg_document_id);
   }
   setTaskId(arg_uuid) {
     return this.$.setTaskId(arg_uuid);
@@ -1986,21 +1986,21 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandlerRemoteCallHand
     ]);
   }
 
-  getHandshakeMessage() {
+  getHandshakeMessage(arg_document_id) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandler_GetHandshakeMessage_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandler_GetHandshakeMessage_ResponseParamsSpec,
-      [],
+      [arg_document_id],
       false);
   }
 
-  onWebviewMessage(arg_message) {
+  onWebviewMessage(arg_message, arg_document_id) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandler_OnWebviewMessage_ParamsSpec,
       null,
-      [arg_message],
+      [arg_message, arg_document_id],
       false);
   }
 
@@ -2101,7 +2101,7 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandler_GetHandshakeMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHandshakeMessage');
-          const result = this.impl.getHandshakeMessage();
+          const result = this.impl.getHandshakeMessage(params.arg_document_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2119,7 +2119,7 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandler_OnWebviewMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebviewMessage');
-          const result = this.impl.onWebviewMessage(params.arg_message);
+          const result = this.impl.onWebviewMessage(params.arg_message, params.arg_document_id);
           break;
         }
         case 2: {
@@ -2201,8 +2201,8 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageRemote = class {
   postAimMessage(arg_message) {
     return this.$.postAimMessage(arg_message);
   }
-  postSearchMessage(arg_message) {
-    return this.$.postSearchMessage(arg_message);
+  postSearchMessage(arg_message, arg_document_id) {
+    return this.$.postSearchMessage(arg_message, arg_document_id);
   }
   onHandshakeComplete() {
     return this.$.onHandshakeComplete();
@@ -2240,12 +2240,12 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageRemoteCallHandler = c
       false);
   }
 
-  postSearchMessage(arg_message) {
+  postSearchMessage(arg_message, arg_document_id) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_PostSearchMessage_ParamsSpec,
       null,
-      [arg_message],
+      [arg_message, arg_document_id],
       false);
   }
 
@@ -2363,7 +2363,7 @@ mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_PostSearchMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postSearchMessage');
-          const result = this.impl.postSearchMessage(params.arg_message);
+          const result = this.impl.postSearchMessage(params.arg_message, params.arg_document_id);
           break;
         }
         case 2: {
@@ -2785,8 +2785,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandler_GetHandshakeMessage_ParamsSpec, 'contextual_tasks.mojom.ExtensionPageHandler_GetHandshakeMessage_Params', [
+      mojo.internal.StructField('arg_document_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandler_GetHandshakeMessage_ResponseParamsSpec, 'contextual_tasks.mojom.ExtensionPageHandler_GetHandshakeMessage_ResponseParams', [
@@ -2797,8 +2798,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandler_OnWebviewMessage_ParamsSpec, 'contextual_tasks.mojom.ExtensionPageHandler_OnWebviewMessage_Params', [
       mojo.internal.StructField('arg_message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.ExtensionPageHandler_SetTaskId_ParamsSpec, 'contextual_tasks.mojom.ExtensionPageHandler_SetTaskId_Params', [
@@ -2831,8 +2833,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_PostSearchMessage_ParamsSpec, 'contextual_tasks.mojom.ExtensionPage_PostSearchMessage_Params', [
       mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.ExtensionPage_OnHandshakeComplete_ParamsSpec, 'contextual_tasks.mojom.ExtensionPage_OnHandshakeComplete_Params', [

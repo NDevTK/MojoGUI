@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8102.0';
+        const versionStr = window.mojoVersion || '158.0.8104.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -235,6 +235,7 @@ mojo.internal.bindings.network.mojom.PermissionsPolicyFeature = {
   kWebNN: 147,
   kHaptics: 148,
   kPublicKeyCredentialsRemoteClientDataJson: 149,
+  kUnboundedElement: 150,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

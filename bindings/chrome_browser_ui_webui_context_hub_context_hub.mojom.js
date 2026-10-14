@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8102.0';
+        const versionStr = window.mojoVersion || '158.0.8104.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -491,6 +491,7 @@ mojo.internal.bindings.browser.context_hub.mojom.AutoTodoGroup = {
 mojo.internal.bindings.browser.context_hub.mojom.EntryType = {
   kTab: 0,
   kTextSelection: 1,
+  kImage: 2,
 };
 
 // Enum: ChatRole
@@ -2690,11 +2691,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_title', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_text', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tags', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_note', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_collection', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tags', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_note', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_collection', 72, 0, mojo.internal.String, null, true, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 // Struct: TabInfo
 mojo.internal.Struct(
@@ -2736,7 +2738,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tab_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_selected_text', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_text_selection', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
     [[0, 40]]);
 

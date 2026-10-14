@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8102.0';
+        const versionStr = window.mojoVersion || '158.0.8104.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -3641,7 +3641,7 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kReplacedElementPaintedWithLargeOverflow: 4329,
   kFlexboxAbsPosJustifyContent: 4330,
   kMultipleFetchHandlersInServiceWorker: 4331,
-  kStorageAccessAPI_requestStorageAccessFor_Method: 4332,
+  kOBSOLETE_StorageAccessAPI_requestStorageAccessFor_Method: 4332,
   kOBSOLETE_PrivateAggregationApiAll: 4333,
   kOBSOLETE_PrivateAggregationApiFledge: 4334,
   kOBSOLETE_PrivateAggregationApiSharedStorage: 4335,
@@ -5079,7 +5079,7 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kDigitalCredentialsProtocolUnknown: 5770,
   kSetCookieWithEmptyName: 5771,
   kSetCookieWithEmptyNameAndAmbiguousValue: 5772,
-  kStorageAccessAPI_requestStorageAccessFor_Method_AsyncSuccess: 5773,
+  kOBSOLETE_StorageAccessAPI_requestStorageAccessFor_Method_AsyncSuccess: 5773,
   kWebAudioRenderSizeHint: 5774,
   kWebAudioRenderQuantumSize: 5775,
   kImageElementTimingNotImageOrVideoNode: 5776,

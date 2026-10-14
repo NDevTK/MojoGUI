@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-13T17:17:58.664790Z",
-  "version": "157.0.8102.0",
+  "generated_at": "2026-10-14T14:53:34.134073Z",
+  "version": "158.0.8104.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4766,10 +4766,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebUIToolbarProcessOverheadExperiment"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -4787,10 +4784,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebUIToolbarProcessOverheadExperiment"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -9461,8 +9455,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -9491,8 +9484,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -12629,8 +12621,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -12654,8 +12645,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -12684,8 +12674,7 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -12708,8 +12697,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -12740,8 +12728,7 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -12776,8 +12763,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -13643,7 +13629,7 @@
       "file": "chrome_common_readaloud_read_aloud.mojom.js",
       "methods": [
         "OnPlaybackStateChanged",
-        "OnPlaybackDurationChanged",
+        "OnPlaybackProgressChanged",
         "OnWordBoundaryReached",
         "OnTextChunked",
         "RequestSpeechSynthesis"
@@ -23697,10 +23683,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebUIToolbarProcessOverheadExperiment"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -23721,8 +23704,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -23790,8 +23772,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -23831,8 +23812,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -23853,8 +23833,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -23877,8 +23856,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -23903,8 +23881,7 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -23932,8 +23909,7 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -23969,7 +23945,6 @@
         "OnPageInitialized",
         "OnContentSettingImagePointerDown",
         "ShowContentSettingsBubble",
-        "OnPageActionPointerDown",
         "OnPageActionClick",
         "OnPageActionChipShowingChanged",
         "InvokePinnedToolbarAction",
@@ -24011,8 +23986,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -45047,6 +45021,7 @@
         "GetKeepAliveHandleFactory",
         "DidAddMessageToConsole",
         "FrameSizeChanged",
+        "FrameBoundsInLocalRootChanged",
         "DidInferColorScheme",
         "DidChangeSrcDoc",
         "ReceivedDelegatedCapability",
@@ -50827,8 +50802,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },
@@ -50849,8 +50823,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kNtpFooter",
-          "feature:kWebUIToolbarProcessOverheadExperiment"
+          "feature:kNtpFooter"
         ]
       }
     },

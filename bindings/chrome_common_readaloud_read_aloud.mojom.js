@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '157.0.8102.0';
+        const versionStr = window.mojoVersion || '158.0.8104.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -168,8 +168,8 @@ if (mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClientSpe
 mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient.$interfaceName = 'read_aloud.mojom.ReadAloudPlaybackControllerClient';
 mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackStateChanged_ParamsSpec = mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackStateChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackStateChanged_ParamsSpec.$ = {};
-mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackDurationChanged_ParamsSpec = mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackDurationChanged_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackDurationChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackDurationChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackDurationChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackProgressChanged_ParamsSpec = mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackProgressChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackProgressChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackProgressChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackProgressChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnWordBoundaryReached_ParamsSpec = mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnWordBoundaryReached_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnWordBoundaryReached_ParamsSpec.$.structSpec && mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnWordBoundaryReached_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnWordBoundaryReached_ParamsSpec.$ = {};
 mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnTextChunked_ParamsSpec = mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnTextChunked_ParamsSpec || { $: {} };
@@ -618,11 +618,11 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClientRemote 
   onPlaybackStateChanged(arg_state) {
     return this.$.onPlaybackStateChanged(arg_state);
   }
-  onPlaybackDurationChanged(arg_duration) {
-    return this.$.onPlaybackDurationChanged(arg_duration);
+  onPlaybackProgressChanged(arg_elapsed, arg_duration) {
+    return this.$.onPlaybackProgressChanged(arg_elapsed, arg_duration);
   }
-  onWordBoundaryReached(arg_segment_index, arg_character_offset, arg_audio_timestamp) {
-    return this.$.onWordBoundaryReached(arg_segment_index, arg_character_offset, arg_audio_timestamp);
+  onWordBoundaryReached(arg_start_character_offset, arg_end_character_offset) {
+    return this.$.onWordBoundaryReached(arg_start_character_offset, arg_end_character_offset);
   }
   onTextChunked(arg_chunks) {
     return this.$.onTextChunked(arg_chunks);
@@ -653,21 +653,21 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClientRemoteC
       false);
   }
 
-  onPlaybackDurationChanged(arg_duration) {
+  onPlaybackProgressChanged(arg_elapsed, arg_duration) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackDurationChanged_ParamsSpec,
+      mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackProgressChanged_ParamsSpec,
       null,
-      [arg_duration],
+      [arg_elapsed, arg_duration],
       false);
   }
 
-  onWordBoundaryReached(arg_segment_index, arg_character_offset, arg_audio_timestamp) {
+  onWordBoundaryReached(arg_start_character_offset, arg_end_character_offset) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
       mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnWordBoundaryReached_ParamsSpec,
       null,
-      [arg_segment_index, arg_character_offset, arg_audio_timestamp],
+      [arg_start_character_offset, arg_end_character_offset],
       false);
   }
 
@@ -764,16 +764,16 @@ mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClientReceive
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackDurationChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onPlaybackDurationChanged');
-          const result = this.impl.onPlaybackDurationChanged(params.arg_duration);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackProgressChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onPlaybackProgressChanged');
+          const result = this.impl.onPlaybackProgressChanged(params.arg_elapsed, params.arg_duration);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnWordBoundaryReached_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWordBoundaryReached');
-          const result = this.impl.onWordBoundaryReached(params.arg_segment_index, params.arg_character_offset, params.arg_audio_timestamp);
+          const result = this.impl.onWordBoundaryReached(params.arg_start_character_offset, params.arg_end_character_offset);
           break;
         }
         case 3: {
@@ -1039,18 +1039,18 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackDurationChanged_ParamsSpec, 'read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackDurationChanged_Params', [
-      mojo.internal.StructField('arg_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackProgressChanged_ParamsSpec, 'read_aloud.mojom.ReadAloudPlaybackControllerClient_OnPlaybackProgressChanged_Params', [
+      mojo.internal.StructField('arg_elapsed', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnWordBoundaryReached_ParamsSpec, 'read_aloud.mojom.ReadAloudPlaybackControllerClient_OnWordBoundaryReached_Params', [
-      mojo.internal.StructField('arg_segment_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_character_offset', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_character_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_end_character_offset', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.read_aloud.mojom.ReadAloudPlaybackControllerClient_OnTextChunked_ParamsSpec, 'read_aloud.mojom.ReadAloudPlaybackControllerClient_OnTextChunked_Params', [
