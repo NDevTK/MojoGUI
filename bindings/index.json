@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-14T14:53:34.134073Z",
-  "version": "158.0.8104.0",
+  "generated_at": "2026-10-15T14:35:35.552110Z",
+  "version": "158.0.8106.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4306,7 +4306,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -5104,6 +5103,64 @@
         "AskForConfirmation",
         "TriggerReload",
         "TriggerMetadataUpdate"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "HarnessPageHandlerFactory",
+      "module": "ttc.mojom",
+      "file": "chrome_browser_ttc_core_eval_harness.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "HarnessPageHandler",
+      "module": "ttc.mojom",
+      "file": "chrome_browser_ttc_core_eval_harness.mojom.js",
+      "methods": [
+        "StartSession",
+        "CloseSession",
+        "SendText",
+        "SendAudio"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: ttc.mojom.HarnessPageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "HarnessPage",
+      "module": "ttc.mojom",
+      "file": "chrome_browser_ttc_core_eval_harness.mojom.js",
+      "methods": [
+        "OnModelTurnStarted",
+        "OnModelTurnEnded"
       ],
       "metadata": {
         "usage": {
@@ -7714,6 +7771,7 @@
         "GetAllMemoryBankTags",
         "GetAllMemoryBankCollections",
         "UpdateMemoryBankEntryAnnotations",
+        "UploadMemoryBankEntries",
         "GetTabs",
         "RetrieveAndGroupTabs",
         "GetExistingTabGroupsAndChats",
@@ -9933,187 +9991,6 @@
     },
     {
       "name": "Page",
-      "module": "aim_eligibility.mojom",
-      "file": "chrome_browser_ui_webui_omnibox_aim_eligibility_aim_eligibility.mojom.js",
-      "methods": [
-        "OnEligibilityStateChanged",
-        "OnDriveStatusChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "aim_eligibility.mojom",
-      "file": "chrome_browser_ui_webui_omnibox_aim_eligibility_aim_eligibility.mojom.js",
-      "methods": [
-        "GetEligibilityState",
-        "RequestServerEligibilityForDebugging",
-        "SetEligibilityResponseForDebugging"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: aim_eligibility.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
-      "module": "aim_eligibility.mojom",
-      "file": "chrome_browser_ui_webui_omnibox_aim_eligibility_aim_eligibility.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
-      "module": "omnibox.logging.mojom",
-      "file": "chrome_browser_ui_webui_omnibox_logging_logs.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "omnibox.logging.mojom",
-      "file": "chrome_browser_ui_webui_omnibox_logging_logs.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: omnibox.logging.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "Page",
-      "module": "omnibox.logging.mojom",
-      "file": "chrome_browser_ui_webui_omnibox_logging_logs.mojom.js",
-      "methods": [
-        "OnLogMessageAdded"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "OmniboxPageHandler",
-      "module": "mojom",
-      "file": "chrome_browser_ui_webui_omnibox_omnibox_internals.mojom.js",
-      "methods": [
-        "SetClientPage",
-        "StartOmniboxQuery",
-        "GetMlModelVersion",
-        "StartMl"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "OmniboxPage",
-      "module": "mojom",
-      "file": "chrome_browser_ui_webui_omnibox_omnibox_internals.mojom.js",
-      "methods": [
-        "HandleNewAutocompleteQuery",
-        "HandleNewAutocompleteResponse",
-        "HandleNewMlResponse",
-        "HandleAnswerIconImageData"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "Page",
       "module": "omnibox_everywhere_debug.mojom",
       "file": "chrome_browser_ui_webui_omnibox_everywhere_debug_omnibox_everywhere_debug.mojom.js",
       "methods": [
@@ -10267,6 +10144,187 @@
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
+      }
+    },
+    {
+      "name": "Page",
+      "module": "aim_eligibility.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_internals_aim_eligibility_aim_eligibility.mojom.js",
+      "methods": [
+        "OnEligibilityStateChanged",
+        "OnDriveStatusChanged"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "aim_eligibility.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_internals_aim_eligibility_aim_eligibility.mojom.js",
+      "methods": [
+        "GetEligibilityState",
+        "RequestServerEligibilityForDebugging",
+        "SetEligibilityResponseForDebugging"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: aim_eligibility.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "aim_eligibility.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_internals_aim_eligibility_aim_eligibility.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "omnibox.logging.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_internals_logging_logs.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "omnibox.logging.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_internals_logging_logs.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: omnibox.logging.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "Page",
+      "module": "omnibox.logging.mojom",
+      "file": "chrome_browser_ui_webui_omnibox_internals_logging_logs.mojom.js",
+      "methods": [
+        "OnLogMessageAdded"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "OmniboxInternalsPageHandler",
+      "module": "mojom",
+      "file": "chrome_browser_ui_webui_omnibox_internals_omnibox_internals.mojom.js",
+      "methods": [
+        "SetClientPage",
+        "StartOmniboxQuery",
+        "GetMlModelVersion",
+        "StartMl"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "OmniboxInternalsPage",
+      "module": "mojom",
+      "file": "chrome_browser_ui_webui_omnibox_internals_omnibox_internals.mojom.js",
+      "methods": [
+        "HandleNewAutocompleteQuery",
+        "HandleNewAutocompleteResponse",
+        "HandleNewMlResponse",
+        "HandleAnswerIconImageData"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -10624,6 +10682,7 @@
       "module": "organizer_panel.mojom",
       "file": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
       "methods": [
+        "OnVerticalTabsEnabledChanged",
         "OnSectionsStateChanged"
       ],
       "metadata": {
@@ -13607,6 +13666,7 @@
         "Pause",
         "SeekToWord",
         "SeekToTime",
+        "SeekRelative",
         "SetVoice",
         "SetPlaybackRate",
         "SetPlaybackMode",
@@ -50450,6 +50510,7 @@
         "RequestAccountInfo",
         "TurnOnHistorySync",
         "OpenCriticalActionConversation",
+        "GetSyncedDevicesForFiltering",
         "ShouldShowHistoryPageHistorySyncPromo",
         "RecordHistoryPageHistorySyncPromoDismissed",
         "IncrementHistoryPageHistorySyncPromoShownCount"
@@ -52109,6 +52170,14 @@
       "imports": []
     },
     {
+      "filename": "chrome_browser_ttc_core_eval_harness.mojom.js",
+      "source": "chrome/browser/ttc/core/eval_harness.mojom",
+      "module": "ttc.mojom",
+      "imports": [
+        "mojo/public/mojom/base/values.mojom"
+      ]
+    },
+    {
       "filename": "chrome_browser_ui_views_drive_picker_host_drive_picker_result_handler.mojom.js",
       "source": "chrome/browser/ui/views/drive_picker_host/drive_picker_result_handler.mojom",
       "module": "drive_picker_host.mojom",
@@ -52742,30 +52811,6 @@
       ]
     },
     {
-      "filename": "chrome_browser_ui_webui_omnibox_aim_eligibility_aim_eligibility.mojom.js",
-      "source": "chrome/browser/ui/webui/omnibox/aim_eligibility/aim_eligibility.mojom",
-      "module": "aim_eligibility.mojom",
-      "imports": [
-        "mojo/public/mojom/base/time.mojom"
-      ]
-    },
-    {
-      "filename": "chrome_browser_ui_webui_omnibox_logging_logs.mojom.js",
-      "source": "chrome/browser/ui/webui/omnibox/logging/logs.mojom",
-      "module": "omnibox.logging.mojom",
-      "imports": [
-        "mojo/public/mojom/base/time.mojom"
-      ]
-    },
-    {
-      "filename": "chrome_browser_ui_webui_omnibox_omnibox_internals.mojom.js",
-      "source": "chrome/browser/ui/webui/omnibox/omnibox_internals.mojom",
-      "module": "mojom",
-      "imports": [
-        "url/mojom/url.mojom"
-      ]
-    },
-    {
       "filename": "chrome_browser_ui_webui_omnibox_everywhere_debug_omnibox_everywhere_debug.mojom.js",
       "source": "chrome/browser/ui/webui/omnibox_everywhere/debug/omnibox_everywhere_debug.mojom",
       "module": "omnibox_everywhere_debug.mojom",
@@ -52780,6 +52825,30 @@
         "components/omnibox/composebox/composebox_query.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_omnibox_internals_aim_eligibility_aim_eligibility.mojom.js",
+      "source": "chrome/browser/ui/webui/omnibox_internals/aim_eligibility/aim_eligibility.mojom",
+      "module": "aim_eligibility.mojom",
+      "imports": [
+        "mojo/public/mojom/base/time.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_omnibox_internals_logging_logs.mojom.js",
+      "source": "chrome/browser/ui/webui/omnibox_internals/logging/logs.mojom",
+      "module": "omnibox.logging.mojom",
+      "imports": [
+        "mojo/public/mojom/base/time.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_browser_ui_webui_omnibox_internals_omnibox_internals.mojom.js",
+      "source": "chrome/browser/ui/webui/omnibox_internals/omnibox_internals.mojom",
+      "module": "mojom",
+      "imports": [
+        "url/mojom/url.mojom"
       ]
     },
     {
