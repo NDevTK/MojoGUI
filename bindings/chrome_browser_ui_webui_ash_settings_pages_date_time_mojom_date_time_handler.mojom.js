@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -146,6 +146,8 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_Res
 if (mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_GetTimezones_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec = mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$ = {};
+mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_OnSubpageClosed_ParamsSpec = mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_OnSubpageClosed_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_OnSubpageClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_OnSubpageClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_OnSubpageClosed_ParamsSpec.$ = {};
 mojo.internal.bindings.ash.settings.date_time.mojom.Page = mojo.internal.bindings.ash.settings.date_time.mojom.Page || {};
 mojo.internal.bindings.ash.settings.date_time.mojom.PageSpec = mojo.internal.bindings.ash.settings.date_time.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.ash.settings.date_time.mojom.PageSpec.$.structSpec && mojo.internal.bindings.ash.settings.date_time.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ash.settings.date_time.mojom.PageSpec.$ = {};
@@ -329,12 +331,16 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerRemote = class {
   showSetDateTimeUI() {
     return this.$.showSetDateTimeUI();
   }
+  onSubpageClosed() {
+    return this.$.onSubpageClosed();
+  }
 };
 
 mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ash.settings.date_time.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -368,6 +374,15 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerRemoteCallHandler
       false);
   }
 
+  onSubpageClosed() {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_OnSubpageClosed_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler.getRemote = function() {
@@ -386,6 +401,7 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerReceiver = class 
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('ash.settings.date_time.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -462,6 +478,13 @@ mojo.internal.bindings.ash.settings.date_time.mojom.PageHandlerReceiver = class 
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSetDateTimeUI');
           const result = this.impl.showSetDateTimeUI();
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_OnSubpageClosed_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onSubpageClosed');
+          const result = this.impl.onSubpageClosed();
           break;
         }
       }
@@ -660,6 +683,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_ParamsSpec, 'ash.settings.date_time.mojom.PageHandler_ShowSetDateTimeUI_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.date_time.mojom.PageHandler_OnSubpageClosed_ParamsSpec, 'ash.settings.date_time.mojom.PageHandler_OnSubpageClosed_Params', [
     ],
     [[0, 8]]);
 

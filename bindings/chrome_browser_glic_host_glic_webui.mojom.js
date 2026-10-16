@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -277,6 +277,7 @@ mojo.internal.bindings.glic.mojom.GuestPageType = {
   kGuestError: 2,
   kLoadError: 3,
   kDisabledByAdmin: 4,
+  kSecurityInterstitial: 5,
 };
 
 // Enum: WebUiState

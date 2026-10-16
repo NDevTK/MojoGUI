@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -217,6 +217,9 @@ mojo.internal.bindings.viz.mojom.ClipNodeSpec = mojo.internal.bindings.viz.mojom
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.EffectNodeSpec = mojo.internal.bindings.viz.mojom.EffectNodeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.FrameIntervalInputsSpec = mojo.internal.bindings.viz.mojom.FrameIntervalInputsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.FrameSinkIdSpec = mojo.internal.bindings.viz.mojom.FrameSinkIdSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -755,8 +758,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_screenshot_destination', 336, 0, mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_latency_info', 344, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.LatencyInfoSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_tracked_element_rects', 352, 0, mojo.internal.bindings.viz.mojom.TrackedElementRectsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_interval_inputs', 360, 0, mojo.internal.bindings.viz.mojom.FrameIntervalInputsSpec, null, true, 0, undefined),
     ],
-    [[0, 368]]);
+    [[0, 376]]);
 
 // Struct: PendingLayerContext
 mojo.internal.Struct(

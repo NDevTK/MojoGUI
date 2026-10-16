@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -291,6 +291,7 @@ mojo.internal.bindings.actor.mojom.ActionResultCode = {
   kSearchServiceUnavailable: 1900,
   kDefaultSearchProviderNotSet: 1901,
   kSiteBasedSearchNotAvailable: 1902,
+  kSearchUrlGenerationFailed: 1903,
   kPageSearchNoMatch: 2000,
   kPageSearchAmbiguousMatch: 2001,
   kPageSearchAlreadyOnMatchingTab: 2002,

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -181,6 +181,7 @@ mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatus = {
   kUnexpectedEmptyCapability: 10,
   kNoMediaDrmSupport: 11,
   kMediaFoundationGetExtendedDRMTypeSupportFailed: 12,
+  kPending: 13,
 };
 
 // Interface: KeySystemSupportObserver

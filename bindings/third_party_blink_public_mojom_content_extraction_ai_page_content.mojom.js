@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -180,6 +180,8 @@ mojo.internal.bindings.blink.mojom.AIPageContentTableDataSpec = mojo.internal.bi
 if (mojo.internal.bindings.blink.mojom.AIPageContentTableDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentTableDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentTableDataSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIPageContentMathDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentMathDataSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIPageContentMathDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentMathDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentMathDataSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec = mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIPageContentSelectOptionSpec = mojo.internal.bindings.blink.mojom.AIPageContentSelectOptionSpec || { $: {} };
@@ -271,6 +273,7 @@ mojo.internal.bindings.blink.mojom.AIPageContentAttributeType = {
   kListItem: 18,
   kDialogModal: 19,
   kDialogModeless: 20,
+  kMath: 21,
 };
 
 // Enum: AIPageContentAnnotatedRole
@@ -745,6 +748,14 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
+// Struct: AIPageContentMathData
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AIPageContentMathDataSpec, 'blink.mojom.AIPageContentMathData', [
+      mojo.internal.StructField('arg_stripped_mathml', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_block', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: AIPageContentFormData
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIPageContentFormDataSpec, 'blink.mojom.AIPageContentFormData', [
@@ -799,12 +810,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_table_data', 96, 0, mojo.internal.bindings.blink.mojom.AIPageContentTableDataSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_iframe_data', 104, 0, mojo.internal.bindings.blink.mojom.AIPageContentIframeDataSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_table_row_data', 112, 0, mojo.internal.bindings.blink.mojom.AIPageContentTableRowDataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_annotated_roles', 120, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AIPageContentAnnotatedRoleSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 128, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_aria_role', 136, 0, mojo.internal.bindings.ax.mojom.RoleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_label_for_dom_node_id_$value', 140, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_label_for_dom_node_id_$flag', originalFieldName: 'arg_label_for_dom_node_id' }),
+      mojo.internal.StructField('arg_math_data', 120, 0, mojo.internal.bindings.blink.mojom.AIPageContentMathDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_annotated_roles', 128, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AIPageContentAnnotatedRoleSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 136, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_aria_role', 144, 0, mojo.internal.bindings.ax.mojom.RoleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_label_for_dom_node_id_$value', 148, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_label_for_dom_node_id_$flag', originalFieldName: 'arg_label_for_dom_node_id' }),
     ],
-    [[0, 152]]);
+    [[0, 160]]);
 
 // Struct: AIPageContentNode
 mojo.internal.Struct(

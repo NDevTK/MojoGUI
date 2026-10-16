@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -142,8 +142,15 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpe
 if (mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec = mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ParamsSpec = mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ParamsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ResponseParamsSpec = mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
+mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
+mojo.internal.bindings.remoting.mojom.AgentStatusSpec = mojo.internal.bindings.remoting.mojom.AgentStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerSpec = mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -334,12 +341,16 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemote = class {
   bindSecurityKeyForwarder(arg_receiver) {
     return this.$.bindSecurityKeyForwarder(arg_receiver);
   }
+  setAgentStatus(arg_agent_status) {
+    return this.$.setAgentStatus(arg_agent_status);
+  }
 };
 
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.ChromotingSessionServices', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -373,6 +384,15 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemoteCallHandler
       false);
   }
 
+  setAgentStatus(arg_agent_status) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ParamsSpec,
+      mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ResponseParamsSpec,
+      [arg_agent_status],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServices.getRemote = function() {
@@ -391,6 +411,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesReceiver = class 
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('remoting.mojom.ChromotingSessionServices', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -458,6 +479,23 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesReceiver = class 
           const result = this.impl.bindSecurityKeyForwarder(params.arg_receiver);
           break;
         }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setAgentStatus');
+          const result = this.impl.setAgentStatus(params.arg_agent_status);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] setAgentStatus FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -496,4 +534,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderPendingReceiver), null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_SetAgentStatus_Params', [
+      mojo.internal.StructField('arg_agent_status', 0, 0, mojo.internal.bindings.remoting.mojom.AgentStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_SetAgentStatus_ResponseParamsSpec, 'remoting.mojom.ChromotingSessionServices_SetAgentStatus_ResponseParams', [
+    ],
+    [[0, 8]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -659,6 +659,14 @@ mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabFavicon_ParamsS
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabFavicon_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabFavicon_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_SubscribeToTabFavicon_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClientHandler_CreateGeminiEnterpriseHandler_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_CreateGeminiEnterpriseHandler_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_CreateGeminiEnterpriseHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_CreateGeminiEnterpriseHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_CreateGeminiEnterpriseHandler_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandler = mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandler || {};
 mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec = mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec.$ = {};
@@ -781,6 +789,10 @@ mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec = mojo.internal.bi
 if (mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClient_Invoke_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.CaptureRegionObserver = mojo.internal.bindings.glic.mojom.CaptureRegionObserver || {};
 mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec = mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec || { $ : {} };
 if (mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec.$.structSpec && mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec.$ = {};
@@ -3298,12 +3310,20 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemote = class {
   createGeminiEnterpriseHandler(arg_receiver) {
     return this.$.createGeminiEnterpriseHandler(arg_receiver);
   }
+  setClientStorageItem(arg_key, arg_value) {
+    return this.$.setClientStorageItem(arg_key, arg_value);
+  }
+  clearClientStorage() {
+    return this.$.clearClientStorage();
+  }
 };
 
 mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4107,6 +4127,24 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       false);
   }
 
+  setClientStorageItem(arg_key, arg_value) {
+    return this.proxy.sendMessage(
+      this.ordinals[80],  // ordinal
+      mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ParamsSpec,
+      mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ResponseParamsSpec,
+      [arg_key, arg_value],
+      false);
+  }
+
+  clearClientStorage() {
+    return this.proxy.sendMessage(
+      this.ordinals[81],  // ordinal
+      mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec,
+      mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.mojom.WebClientHandler.getRemote = function() {
@@ -4125,6 +4163,8 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -5107,6 +5147,40 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_CreateGeminiEnterpriseHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGeminiEnterpriseHandler');
           const result = this.impl.createGeminiEnterpriseHandler(params.arg_receiver);
+          break;
+        }
+        case 80: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setClientStorageItem');
+          const result = this.impl.setClientStorageItem(params.arg_key, params.arg_value);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] setClientStorageItem FAILED:', e));
+          }
+          break;
+        }
+        case 81: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.clearClientStorage');
+          const result = this.impl.clearClientStorage();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] clearClientStorage FAILED:', e));
+          }
           break;
         }
       }
@@ -6139,12 +6213,20 @@ mojo.internal.bindings.glic.mojom.WebClientRemote = class {
   invoke(arg_options) {
     return this.$.invoke(arg_options);
   }
+  notifyClientStorageItemChanged(arg_key, arg_value) {
+    return this.$.notifyClientStorageItemChanged(arg_key, arg_value);
+  }
+  notifyClientStorageCleared() {
+    return this.$.notifyClientStorageCleared();
+  }
 };
 
 mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClient', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -6448,6 +6530,24 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       false);
   }
 
+  notifyClientStorageItemChanged(arg_key, arg_value) {
+    return this.proxy.sendMessage(
+      this.ordinals[30],  // ordinal
+      mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_ParamsSpec,
+      null,
+      [arg_key, arg_value],
+      false);
+  }
+
+  notifyClientStorageCleared() {
+    return this.proxy.sendMessage(
+      this.ordinals[31],  // ordinal
+      mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.mojom.WebClient.getRemote = function() {
@@ -6466,6 +6566,8 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClient', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -6798,6 +6900,20 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] invoke FAILED:', e));
           }
+          break;
+        }
+        case 30: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.notifyClientStorageItemChanged');
+          const result = this.impl.notifyClientStorageItemChanged(params.arg_key, params.arg_value);
+          break;
+        }
+        case 31: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.notifyClientStorageCleared');
+          const result = this.impl.notifyClientStorageCleared();
           break;
         }
       }
@@ -7199,11 +7315,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_form_factor', 56, 0, mojo.internal.bindings.glic.mojom.FormFactorSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_enable_gmail_otp_opt_in', 60, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_enable_gmail_otp_confirmation', 60, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_client_storage', 60, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_host_capabilities', 64, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.HostCapabilitySpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_gemini_enterprise_settings', 72, 0, mojo.internal.bindings.glic.mojom.GeminiEnterpriseSettingsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_file_upload_policy_state', 80, 0, mojo.internal.bindings.glic.mojom.FileUploadPolicyStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_storage', 88, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
     ],
-    [[0, 96]]);
+    [[0, 104]]);
 
 // Struct: ScreenshotCollectionOptions
 mojo.internal.Struct(
@@ -8695,6 +8813,28 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ParamsSpec, 'glic.mojom.WebClientHandler_SetClientStorageItem_Params', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClientHandler_SetClientStorageItem_ResponseParamsSpec, 'glic.mojom.WebClientHandler_SetClientStorageItem_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec, 'glic.mojom.WebClientHandler_ClearClientStorage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec, 'glic.mojom.WebClientHandler_ClearClientStorage_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec, 'glic.mojom.ZeroStateSuggestionsHandler_GetZeroStateSuggestionsAndSubscribe_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsOptionsSpec, null, false, 0, undefined),
@@ -8970,6 +9110,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_Invoke_ResponseParamsSpec, 'glic.mojom.WebClient_Invoke_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_ParamsSpec, 'glic.mojom.WebClient_NotifyClientStorageItemChanged_Params', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec, 'glic.mojom.WebClient_NotifyClientStorageCleared_Params', [
     ],
     [[0, 8]]);
 

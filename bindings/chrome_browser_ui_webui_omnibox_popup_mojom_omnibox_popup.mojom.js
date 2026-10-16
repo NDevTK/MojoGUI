@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -165,6 +165,8 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandler_SetEditHistoryState_Param
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_SetEditHistoryState_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_SetEditHistoryState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_SetEditHistoryState_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDevTools_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDevTools_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDevTools_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDevTools_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDevTools_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.Page = mojo.internal.bindings.omnibox_popup.mojom.Page || {};
@@ -417,6 +419,9 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemote = class {
   openDevTools() {
     return this.$.openDevTools();
   }
+  openDogfoodFeedback() {
+    return this.$.openDogfoodFeedback();
+  }
   advanceFocus(arg_reverse) {
     return this.$.advanceFocus(arg_reverse);
   }
@@ -426,6 +431,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('omnibox_popup.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -550,9 +556,18 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
       false);
   }
 
-  advanceFocus(arg_reverse) {
+  openDogfoodFeedback() {
     return this.proxy.sendMessage(
       this.ordinals[12],  // ordinal
+      mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  advanceFocus(arg_reverse) {
+    return this.proxy.sendMessage(
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec,
       null,
       [arg_reverse],
@@ -577,6 +592,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('omnibox_popup.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -718,6 +734,13 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerReceiver = class {
           break;
         }
         case 12: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openDogfoodFeedback');
+          const result = this.impl.openDogfoodFeedback();
+          break;
+        }
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.advanceFocus');
@@ -1133,6 +1156,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDevTools_ParamsSpec, 'omnibox_popup.mojom.PageHandler_OpenDevTools_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec, 'omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_Params', [
     ],
     [[0, 8]]);
 

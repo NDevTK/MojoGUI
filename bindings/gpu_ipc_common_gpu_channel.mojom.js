@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -218,6 +218,10 @@ mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec = m
 if (mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ParamsSpec.$ = {};
 mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec = mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ParamsSpec = mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ParamsSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ParamsSpec.$ = {};
+mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ResponseParamsSpec = mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec = mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec.$.structSpec && mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec.$ = {};
 mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec = mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec || { $: {} };
@@ -454,6 +458,9 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemote = class {
   createGpuMemoryBuffer(arg_size, arg_format, arg_buffer_usage) {
     return this.$.createGpuMemoryBuffer(arg_size, arg_format, arg_buffer_usage);
   }
+  createSharedImageWithHandle(arg_mailbox, arg_info, arg_buffer_usage, arg_pool_id) {
+    return this.$.createSharedImageWithHandle(arg_mailbox, arg_info, arg_buffer_usage, arg_pool_id);
+  }
   createDCOMPTexture(arg_route_id, arg_receiver) {
     return this.$.createDCOMPTexture(arg_route_id, arg_receiver);
   }
@@ -478,6 +485,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('gpu.mojom.GpuChannel', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -587,9 +595,18 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
       false);
   }
 
-  createDCOMPTexture(arg_route_id, arg_receiver) {
+  createSharedImageWithHandle(arg_mailbox, arg_info, arg_buffer_usage, arg_pool_id) {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
+      mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ParamsSpec,
+      mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ResponseParamsSpec,
+      [arg_mailbox, arg_info, arg_buffer_usage, arg_pool_id],
+      false);
+  }
+
+  createDCOMPTexture(arg_route_id, arg_receiver) {
+    return this.proxy.sendMessage(
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ResponseParamsSpec,
       [arg_route_id, arg_receiver],
@@ -598,7 +615,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
 
   waitForTokenInRange(arg_routing_id, arg_start, arg_end) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ResponseParamsSpec,
       [arg_routing_id, arg_start, arg_end],
@@ -607,7 +624,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
 
   waitForGetOffsetInRange(arg_routing_id, arg_set_get_buffer_count, arg_start, arg_end) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ResponseParamsSpec,
       [arg_routing_id, arg_set_get_buffer_count, arg_start, arg_end],
@@ -616,7 +633,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
 
   copyToGpuMemoryBufferAsync(arg_mailbox, arg_sync_token_dependencies, arg_release_count) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ResponseParamsSpec,
       [arg_mailbox, arg_sync_token_dependencies, arg_release_count],
@@ -625,7 +642,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
 
   copyNativeGmbToSharedMemoryAsync(arg_buffer_handle, arg_shared_memory) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ResponseParamsSpec,
       [arg_buffer_handle, arg_shared_memory],
@@ -634,7 +651,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelRemoteCallHandler = class {
 
   signalSyncToken(arg_sync_tokens) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.gpu.mojom.GpuChannel_SignalSyncToken_ParamsSpec,
       mojo.internal.bindings.gpu.mojom.GpuChannel_SignalSyncToken_ResponseParamsSpec,
       [arg_sync_tokens],
@@ -659,6 +676,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('gpu.mojom.GpuChannel', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -863,6 +881,24 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createSharedImageWithHandle');
+          const result = this.impl.createSharedImageWithHandle(params.arg_mailbox, params.arg_info, params.arg_buffer_usage, params.arg_pool_id);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_buffer_handle' in response) ? response['arg_buffer_handle'] : response;
+              const resp_obj = { 'arg_buffer_handle': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] createSharedImageWithHandle FAILED:', e));
+          }
+          break;
+        }
+        case 11: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CreateDCOMPTexture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDCOMPTexture');
           const result = this.impl.createDCOMPTexture(params.arg_route_id, params.arg_receiver);
@@ -879,7 +915,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForTokenInRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitForTokenInRange');
@@ -897,7 +933,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_WaitForGetOffsetInRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.waitForGetOffsetInRange');
@@ -915,7 +951,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CopyToGpuMemoryBufferAsync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyToGpuMemoryBufferAsync');
@@ -933,7 +969,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_CopyNativeGmbToSharedMemoryAsync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyNativeGmbToSharedMemoryAsync');
@@ -951,7 +987,7 @@ mojo.internal.bindings.gpu.mojom.GpuChannelReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gpu.mojom.GpuChannel_SignalSyncToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.signalSyncToken');
@@ -2179,6 +2215,21 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParamsSpec, 'gpu.mojom.GpuChannel_CreateGpuMemoryBuffer_ResponseParams', [
+      mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ParamsSpec, 'gpu.mojom.GpuChannel_CreateSharedImageWithHandle_Params', [
+      mojo.internal.StructField('arg_mailbox', 0, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_usage', 16, 0, mojo.internal.bindings.gfx.mojom.BufferUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pool_id', 24, 0, mojo.internal.bindings.gpu.mojom.SharedImagePoolIdSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ResponseParamsSpec, 'gpu.mojom.GpuChannel_CreateSharedImageWithHandle_ResponseParams', [
       mojo.internal.StructField('arg_buffer_handle', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);

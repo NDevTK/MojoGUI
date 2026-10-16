@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -150,6 +150,8 @@ if (mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossD
 mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage.$interfaceName = 'history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage';
 mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_OnPromoBubbleStateChanged_ParamsSpec = mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_OnPromoBubbleStateChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_OnPromoBubbleStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_OnPromoBubbleStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_OnPromoBubbleStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_HidePromoCard_ParamsSpec = mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_HidePromoCard_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_HidePromoCard_ParamsSpec.$.structSpec && mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_HidePromoCard_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_HidePromoCard_ParamsSpec.$ = {};
 
 // Interface: HistoryCrossDeviceSigninPromoHandler
 mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoHandlerPendingReceiver = class {
@@ -424,12 +426,16 @@ mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDevic
   onPromoBubbleStateChanged(arg_is_open) {
     return this.$.onPromoBubbleStateChanged(arg_is_open);
   }
+  hidePromoCard() {
+    return this.$.hidePromoCard();
+  }
 };
 
 mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage', [
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -440,6 +446,15 @@ mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDevic
       mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_OnPromoBubbleStateChanged_ParamsSpec,
       null,
       [arg_is_open],
+      false);
+  }
+
+  hidePromoCard() {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_HidePromoCard_ParamsSpec,
+      null,
+      [],
       false);
   }
 
@@ -461,6 +476,7 @@ mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDevic
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage', [
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -510,6 +526,13 @@ mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDevic
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_OnPromoBubbleStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPromoBubbleStateChanged');
           const result = this.impl.onPromoBubbleStateChanged(params.arg_is_open);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_HidePromoCard_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.hidePromoCard');
+          const result = this.impl.hidePromoCard();
           break;
         }
       }
@@ -569,4 +592,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_open', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_HidePromoCard_ParamsSpec, 'history_cross_device_signin_promo.mojom.HistoryCrossDeviceSigninPromoPage_HidePromoCard_Params', [
+    ],
+    [[0, 8]]);
 

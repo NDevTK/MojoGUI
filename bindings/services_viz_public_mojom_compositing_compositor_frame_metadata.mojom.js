@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -141,9 +141,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec = mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
-mojo.internal.bindings.gfx.mojom.ContentColorUsageSpec = mojo.internal.bindings.gfx.mojom.ContentColorUsageSpec || { $: mojo.internal.Enum().$ };
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
-mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.DelegatedInkMetadataSpec = mojo.internal.bindings.gfx.mojom.DelegatedInkMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
@@ -215,30 +212,29 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_page_scale_factor', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
       mojo.internal.StructField('arg_root_scroll_offset', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_surface_backing_size_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_content_color_usage', 20, 0, mojo.internal.bindings.gfx.mojom.ContentColorUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_may_contain_video', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_may_throttle_if_undrawn_frames', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_handling_interaction', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_handling_animation', 20, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_send_frame_token_to_embedder', 20, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_top_controls_visible_height_$flag', 20, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_top_controls_visible_height_$value', originalFieldName: 'arg_top_controls_visible_height' }),
+      mojo.internal.StructField('arg_view_transition_deadline_in_frames_$flag', 20, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_view_transition_deadline_in_frames_$value', originalFieldName: 'arg_view_transition_deadline_in_frames' }),
+      mojo.internal.StructField('arg_is_mobile_optimized', 20, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_shared_element_resources', 21, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_software', 21, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_scrollable_viewport_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_visible_viewport_size', 32, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_may_contain_video', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_may_throttle_if_undrawn_frames', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_handling_interaction', 40, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_handling_animation', 40, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_send_frame_token_to_embedder', 40, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_top_controls_visible_height_$flag', 40, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_top_controls_visible_height_$value', originalFieldName: 'arg_top_controls_visible_height' }),
-      mojo.internal.StructField('arg_view_transition_deadline_in_frames_$flag', 40, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_view_transition_deadline_in_frames_$value', originalFieldName: 'arg_view_transition_deadline_in_frames' }),
-      mojo.internal.StructField('arg_is_mobile_optimized', 40, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_shared_element_resources', 41, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_software', 41, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_token', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_root_background_color', 48, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_latency_info', 56, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.LatencyInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_referenced_surfaces', 64, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.SurfaceRangeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_deadline', 72, 0, mojo.internal.bindings.viz.mojom.FrameDeadlineSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_activation_dependencies', 80, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.SurfaceIdAndDeadlineSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_begin_frame_ack', 88, 0, mojo.internal.bindings.viz.mojom.BeginFrameAckSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_top_controls_visible_height_$value', 96, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_top_controls_visible_height_$flag', originalFieldName: 'arg_top_controls_visible_height' }),
-      mojo.internal.StructField('arg_view_transition_deadline_in_frames_$value', 100, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_view_transition_deadline_in_frames_$flag', originalFieldName: 'arg_view_transition_deadline_in_frames' }),
-      mojo.internal.StructField('arg_min_page_scale_factor', 104, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_display_transform_hint', 108, 0, mojo.internal.bindings.gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_root_background_color', 40, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_latency_info', 48, 0, mojo.internal.Array(mojo.internal.bindings.ui.mojom.LatencyInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_referenced_surfaces', 56, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.SurfaceRangeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_deadline', 64, 0, mojo.internal.bindings.viz.mojom.FrameDeadlineSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_activation_dependencies', 72, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.SurfaceIdAndDeadlineSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_begin_frame_ack', 80, 0, mojo.internal.bindings.viz.mojom.BeginFrameAckSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_token', 88, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_top_controls_visible_height_$value', 92, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_top_controls_visible_height_$flag', originalFieldName: 'arg_top_controls_visible_height' }),
+      mojo.internal.StructField('arg_view_transition_deadline_in_frames_$value', 96, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_view_transition_deadline_in_frames_$flag', originalFieldName: 'arg_view_transition_deadline_in_frames' }),
+      mojo.internal.StructField('arg_min_page_scale_factor', 100, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_display_transform_hint', 104, 0, mojo.internal.bindings.gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_delegated_ink_metadata', 112, 0, mojo.internal.bindings.gfx.mojom.DelegatedInkMetadataSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_transition_directives', 120, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_capture_bounds', 128, 0, mojo.internal.bindings.viz.mojom.RegionCaptureBoundsSpec, null, false, 0, undefined),

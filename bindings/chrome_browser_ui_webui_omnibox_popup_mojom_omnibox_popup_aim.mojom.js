@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -674,8 +674,7 @@ mojo.internal.bindings.omnibox_popup_aim.mojom.PageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_input' in response) ? response['arg_input'] : response;
-              const resp_obj = { 'arg_input': val };
+              const resp_obj = response;
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.omnibox_popup_aim.mojom.Page_ClearPopup_ResponseParamsSpec.$.structSpec, resp_obj);
@@ -757,8 +756,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup_aim.mojom.Page_ClearPopup_ResponseParamsSpec, 'omnibox_popup_aim.mojom.Page_ClearPopup_ResponseParams', [
       mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query_submitted', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_ParamsSpec, 'omnibox_popup_aim.mojom.Page_SetPreserveContextOnClose_Params', [

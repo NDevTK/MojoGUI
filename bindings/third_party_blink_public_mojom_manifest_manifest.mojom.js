@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -144,8 +144,6 @@ mojo.internal.bindings.blink.mojom.ManifestSpec = mojo.internal.bindings.blink.m
 if (mojo.internal.bindings.blink.mojom.ManifestSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec = mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec.$ = {};
-mojo.internal.bindings.blink.mojom.LocaleSpec = mojo.internal.bindings.blink.mojom.LocaleSpec || { $: {} };
-if (mojo.internal.bindings.blink.mojom.LocaleSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocaleSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocaleSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec = mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec = mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec || { $: {} };
@@ -211,6 +209,9 @@ mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec = mojo.interna
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeSpec = mojo.internal.bindings.gfx.mojom.SizeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.LanguageTagSpec = mojo.internal.bindings.mojo_base.mojom.LanguageTagSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
@@ -336,10 +337,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_dark_background_color_$value', 220, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_dark_background_color_$flag', originalFieldName: 'arg_dark_background_color' }),
       mojo.internal.StructField('arg_tab_strip', 224, 0, mojo.internal.bindings.blink.mojom.ManifestTabStripSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_version', 232, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_name_localized', 240, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.LocaleSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_short_name_localized', 248, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.LocaleSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_description_localized', 256, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.LocaleSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_icons_localized', 264, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.LocaleSpec, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec, false), false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_name_localized', 240, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.LanguageTagSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_short_name_localized', 248, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.LanguageTagSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_description_localized', 256, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.LanguageTagSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_icons_localized', 264, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.LanguageTagSpec, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec, false), false), null, true, 0, undefined),
     ],
     [[0, 280]]);
 
@@ -352,13 +353,6 @@ mojo.internal.Struct(
     ],
     [[0, 32]]);
 
-// Struct: Locale
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LocaleSpec, 'blink.mojom.Locale', [
-      mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Struct: ManifestShortcutItem
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ManifestShortcutItemSpec, 'blink.mojom.ManifestShortcutItem', [
@@ -367,10 +361,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_description', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
       mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_icons', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_name_localized', 40, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.LocaleSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_short_name_localized', 48, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.LocaleSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_description_localized', 56, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.LocaleSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_icons_localized', 64, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.LocaleSpec, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec, false), false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_name_localized', 40, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.LanguageTagSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_short_name_localized', 48, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.LanguageTagSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_description_localized', 56, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.LanguageTagSpec, mojo.internal.bindings.blink.mojom.ManifestLocalizedTextObjectSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_icons_localized', 64, 0, mojo.internal.Map(mojo.internal.bindings.mojo_base.mojom.LanguageTagSpec, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec, false), false), null, true, 0, undefined),
     ],
     [[0, 80]]);
 

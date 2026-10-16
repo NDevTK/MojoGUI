@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -131,6 +131,8 @@ mojo.internal.bindings.blink.mojom.ScriptToolAnnotationsSpec = mojo.internal.bin
 if (mojo.internal.bindings.blink.mojom.ScriptToolAnnotationsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ScriptToolAnnotationsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ScriptToolAnnotationsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ScriptToolSpec = mojo.internal.bindings.blink.mojom.ScriptToolSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ScriptToolSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ScriptToolSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ScriptToolSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ExposedScriptToolSpec = mojo.internal.bindings.blink.mojom.ExposedScriptToolSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ExposedScriptToolSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ExposedScriptToolSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ExposedScriptToolSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ScriptToolHost = mojo.internal.bindings.blink.mojom.ScriptToolHost || {};
 mojo.internal.bindings.blink.mojom.ScriptToolHostSpec = mojo.internal.bindings.blink.mojom.ScriptToolHostSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.ScriptToolHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ScriptToolHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ScriptToolHostSpec.$ = {};
@@ -360,8 +362,8 @@ mojo.internal.bindings.blink.mojom.ModelContextHostRemote = class {
   getScriptTools(arg_from_origins) {
     return this.$.getScriptTools(arg_from_origins);
   }
-  executeRemoteScriptTool(arg_invocation_id, arg_tool_owner_frame_token, arg_expected_target_origin, arg_name, arg_input_arguments) {
-    return this.$.executeRemoteScriptTool(arg_invocation_id, arg_tool_owner_frame_token, arg_expected_target_origin, arg_name, arg_input_arguments);
+  executeRemoteScriptTool(arg_invocation_id, arg_tool_id, arg_tool_owner_frame_token, arg_expected_target_origin, arg_input_arguments) {
+    return this.$.executeRemoteScriptTool(arg_invocation_id, arg_tool_id, arg_tool_owner_frame_token, arg_expected_target_origin, arg_input_arguments);
   }
   cancelRemoteScriptTool(arg_invocation_id) {
     return this.$.cancelRemoteScriptTool(arg_invocation_id);
@@ -417,12 +419,12 @@ mojo.internal.bindings.blink.mojom.ModelContextHostRemoteCallHandler = class {
       false);
   }
 
-  executeRemoteScriptTool(arg_invocation_id, arg_tool_owner_frame_token, arg_expected_target_origin, arg_name, arg_input_arguments) {
+  executeRemoteScriptTool(arg_invocation_id, arg_tool_id, arg_tool_owner_frame_token, arg_expected_target_origin, arg_input_arguments) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelContextHost_ExecuteRemoteScriptTool_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ModelContextHost_ExecuteRemoteScriptTool_ResponseParamsSpec,
-      [arg_invocation_id, arg_tool_owner_frame_token, arg_expected_target_origin, arg_name, arg_input_arguments],
+      [arg_invocation_id, arg_tool_id, arg_tool_owner_frame_token, arg_expected_target_origin, arg_input_arguments],
       false);
   }
 
@@ -555,7 +557,7 @@ mojo.internal.bindings.blink.mojom.ModelContextHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelContextHost_ExecuteRemoteScriptTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeRemoteScriptTool');
-          const result = this.impl.executeRemoteScriptTool(params.arg_invocation_id, params.arg_tool_owner_frame_token, params.arg_expected_target_origin, params.arg_name, params.arg_input_arguments);
+          const result = this.impl.executeRemoteScriptTool(params.arg_invocation_id, params.arg_tool_id, params.arg_tool_owner_frame_token, params.arg_expected_target_origin, params.arg_input_arguments);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -622,8 +624,8 @@ mojo.internal.bindings.blink.mojom.ModelContextRemote = class {
   notifyToolChange() {
     return this.$.notifyToolChange();
   }
-  executeScriptTool(arg_invocation_id, arg_name, arg_input_arguments) {
-    return this.$.executeScriptTool(arg_invocation_id, arg_name, arg_input_arguments);
+  executeScriptTool(arg_invocation_id, arg_tool_id, arg_input_arguments) {
+    return this.$.executeScriptTool(arg_invocation_id, arg_tool_id, arg_input_arguments);
   }
   cancelScriptTool(arg_invocation_id) {
     return this.$.cancelScriptTool(arg_invocation_id);
@@ -649,12 +651,12 @@ mojo.internal.bindings.blink.mojom.ModelContextRemoteCallHandler = class {
       false);
   }
 
-  executeScriptTool(arg_invocation_id, arg_name, arg_input_arguments) {
+  executeScriptTool(arg_invocation_id, arg_tool_id, arg_input_arguments) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ParamsSpec,
       mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ResponseParamsSpec,
-      [arg_invocation_id, arg_name, arg_input_arguments],
+      [arg_invocation_id, arg_tool_id, arg_input_arguments],
       false);
   }
 
@@ -742,7 +744,7 @@ mojo.internal.bindings.blink.mojom.ModelContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeScriptTool');
-          const result = this.impl.executeScriptTool(params.arg_invocation_id, params.arg_name, params.arg_input_arguments);
+          const result = this.impl.executeScriptTool(params.arg_invocation_id, params.arg_tool_id, params.arg_input_arguments);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -798,10 +800,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_input_schema', 32, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_annotations', 40, 0, mojo.internal.bindings.blink.mojom.ScriptToolAnnotationsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_exposed_origins', 48, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tool_owner_frame_token', 56, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 72, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
     ],
-    [[0, 88]]);
+    [[0, 64]]);
+
+// Struct: ExposedScriptTool
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ExposedScriptToolSpec, 'blink.mojom.ExposedScriptTool', [
+      mojo.internal.StructField('arg_tool', 0, 0, mojo.internal.bindings.blink.mojom.ScriptToolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_owner_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ScriptToolHost_PauseExecution_ParamsSpec, 'blink.mojom.ScriptToolHost_PauseExecution_Params', [
     ],
@@ -838,16 +847,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelContextHost_GetScriptTools_ResponseParamsSpec, 'blink.mojom.ModelContextHost_GetScriptTools_ResponseParams', [
-      mojo.internal.StructField('arg_tools', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ScriptToolSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tools', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ExposedScriptToolSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelContextHost_ExecuteRemoteScriptTool_ParamsSpec, 'blink.mojom.ModelContextHost_ExecuteRemoteScriptTool_Params', [
       mojo.internal.StructField('arg_invocation_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tool_owner_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_target_origin', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_owner_frame_token', 16, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_target_origin', 32, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_input_arguments', 40, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 56]]);
@@ -873,7 +882,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ParamsSpec, 'blink.mojom.ModelContext_ExecuteScriptTool_Params', [
       mojo.internal.StructField('arg_invocation_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_input_arguments', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 32]]);

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -377,6 +377,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshResult = {
   kRefreshedAsWaiter: 7,
   kTransientSigningError: 8,
   kInScopeRefreshNotYetNeeded: 9,
+  kCanceled: 10,
 };
 
 // Enum: DeviceBoundSessionChallengeResult

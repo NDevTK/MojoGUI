@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -201,9 +201,6 @@ mojo.internal.bindings.cc.mojom.SyncedScrollOffsetSpec = mojo.internal.bindings.
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 mojo.internal.bindings.cc.mojom.UIResourceIdSpec = mojo.internal.bindings.cc.mojom.UIResourceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
-mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
-mojo.internal.bindings.gfx.mojom.ContentColorUsageSpec = mojo.internal.bindings.gfx.mojom.ContentColorUsageSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.MaskFilterInfoSpec = mojo.internal.bindings.gfx.mojom.MaskFilterInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -384,7 +381,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_nearest_neighbor', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_animated_image_update_rect', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_has_non_animated_image_update_rect', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_content_color_usage', 12, 0, mojo.internal.bindings.gfx.mojom.ContentColorUsageSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_recorded_bounds', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_proposed_tiling_scales_for_deletion', 24, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
     ],

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,6 +129,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
 mojo.internal.bindings.remoting.mojom.ProtocolErrorCodeSpec = mojo.internal.bindings.remoting.mojom.ProtocolErrorCodeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec = mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.remoting.mojom.AgentStateSpec = mojo.internal.bindings.remoting.mojom.AgentStateSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.remoting.mojom.SourceLocationSpec = mojo.internal.bindings.remoting.mojom.SourceLocationSpec || { $: {} };
 if (mojo.internal.bindings.remoting.mojom.SourceLocationSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SourceLocationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SourceLocationSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.TransportRouteSpec = mojo.internal.bindings.remoting.mojom.TransportRouteSpec || { $: {} };
@@ -139,6 +140,8 @@ mojo.internal.bindings.remoting.mojom.SessionPoliciesSpec = mojo.internal.bindin
 if (mojo.internal.bindings.remoting.mojom.SessionPoliciesSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SessionPoliciesSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SessionPoliciesSpec.$ = {};
 mojo.internal.bindings.remoting.mojom.SessionOptionsSpec = mojo.internal.bindings.remoting.mojom.SessionOptionsSpec || { $: {} };
 if (mojo.internal.bindings.remoting.mojom.SessionOptionsSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.SessionOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.SessionOptionsSpec.$ = {};
+mojo.internal.bindings.remoting.mojom.AgentStatusSpec = mojo.internal.bindings.remoting.mojom.AgentStatusSpec || { $: {} };
+if (mojo.internal.bindings.remoting.mojom.AgentStatusSpec.$.structSpec && mojo.internal.bindings.remoting.mojom.AgentStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.remoting.mojom.AgentStatusSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
@@ -189,6 +192,17 @@ mojo.internal.bindings.remoting.mojom.TransportRouteType = {
   kDirect: 1,
   kStun: 2,
   kRelay: 3,
+};
+
+// Enum: AgentState
+mojo.internal.bindings.remoting.mojom.AgentState = {
+  kIdle: 1,
+  kWorking: 2,
+  kToolUse: 3,
+  kReviewing: 4,
+  kAuthenticating: 5,
+  kInitializing: 6,
+  kError: 7,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
@@ -266,5 +280,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_av1_encoder_speed_$flag', 1, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_av1_encoder_speed_$value', originalFieldName: 'arg_av1_encoder_speed' }),
       mojo.internal.StructField('arg_vp9_encoder_speed_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_vp9_encoder_speed_$flag', originalFieldName: 'arg_vp9_encoder_speed' }),
       mojo.internal.StructField('arg_av1_encoder_speed_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_av1_encoder_speed_$flag', originalFieldName: 'arg_av1_encoder_speed' }),
+    ],
+    [[0, 24]]);
+
+// Struct: AgentStatus
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.AgentStatusSpec, 'remoting.mojom.AgentStatus', [
+      mojo.internal.StructField('arg_terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_agent_state', 4, 0, mojo.internal.bindings.remoting.mojom.AgentStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_conversation_title', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
 mojo.internal.bindings.policy.mojom.GetPoliciesReasonSpec = mojo.internal.bindings.policy.mojom.GetPoliciesReasonSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.policy.mojom.PolicyLevelSpec = mojo.internal.bindings.policy.mojom.PolicyLevelSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.policy.mojom.PolicyScopeSpec = mojo.internal.bindings.policy.mojom.PolicyScopeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.policy.mojom.LogSpec = mojo.internal.bindings.policy.mojom.LogSpec || { $: {} };
 if (mojo.internal.bindings.policy.mojom.LogSpec.$.structSpec && mojo.internal.bindings.policy.mojom.LogSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.policy.mojom.LogSpec.$ = {};
 mojo.internal.bindings.policy.mojom.StatusSpec = mojo.internal.bindings.policy.mojom.StatusSpec || { $: {} };
@@ -205,6 +207,18 @@ mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_b
 mojo.internal.bindings.policy.mojom.GetPoliciesReason = {
   kCopy: 0,
   kExport: 1,
+};
+
+// Enum: PolicyLevel
+mojo.internal.bindings.policy.mojom.PolicyLevel = {
+  kRecommended: 0,
+  kMandatory: 1,
+};
+
+// Enum: PolicyScope
+mojo.internal.bindings.policy.mojom.PolicyScope = {
+  kUser: 0,
+  kMachine: 1,
 };
 
 // Interface: PolicyPageHandler
@@ -972,12 +986,12 @@ mojo.internal.Struct(
 // Struct: Conflict
 mojo.internal.Struct(
     mojo.internal.bindings.policy.mojom.ConflictSpec, 'policy.mojom.Conflict', [
-      mojo.internal.StructField('arg_level', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 24, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_level', 0, 0, mojo.internal.bindings.policy.mojom.PolicyLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 4, 0, mojo.internal.bindings.policy.mojom.PolicyScopeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 40]]);
 
 // Struct: Policy
 mojo.internal.Struct(
@@ -988,18 +1002,18 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_future', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_all_sources_merged_$flag', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_all_sources_merged_$value', originalFieldName: 'arg_all_sources_merged' }),
       mojo.internal.StructField('arg_all_sources_merged_$value', 0, 5, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_all_sources_merged_$flag', originalFieldName: 'arg_all_sources_merged' }),
+      mojo.internal.StructField('arg_level', 4, 0, mojo.internal.bindings.policy.mojom.PolicyLevelSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_level', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 40, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_conflicts', 56, 0, mojo.internal.Array(mojo.internal.bindings.policy.mojom.ConflictSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_superseded', 64, 0, mojo.internal.Array(mojo.internal.bindings.policy.mojom.ConflictSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_warning', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_info', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 16, 0, mojo.internal.bindings.policy.mojom.PolicyScopeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 32, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_conflicts', 48, 0, mojo.internal.Array(mojo.internal.bindings.policy.mojom.ConflictSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_superseded', 56, 0, mojo.internal.Array(mojo.internal.bindings.policy.mojom.ConflictSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_warning', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 80, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 104]]);
+    [[0, 96]]);
 
 // Struct: PolicyGroup
 mojo.internal.Struct(

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-15T14:35:35.552110Z",
-  "version": "158.0.8106.0",
+  "generated_at": "2026-10-16T14:27:07.758570Z",
+  "version": "158.0.8108.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4091,7 +4091,9 @@
         "SetOnboardingCompleted",
         "SubscribeToTabData",
         "SubscribeToTabFavicon",
-        "CreateGeminiEnterpriseHandler"
+        "CreateGeminiEnterpriseHandler",
+        "SetClientStorageItem",
+        "ClearClientStorage"
       ],
       "metadata": {
         "usage": {
@@ -4248,7 +4250,9 @@
         "NotifyOnboardingCompletedChanged",
         "NotifyGeminiEnterpriseSettingsChanged",
         "NotifyActorTaskListRowClicked",
-        "Invoke"
+        "Invoke",
+        "NotifyClientStorageItemChanged",
+        "NotifyClientStorageCleared"
       ],
       "metadata": {
         "usage": {
@@ -6731,7 +6735,8 @@
       "methods": [
         "ShowParentAccessForTimezone",
         "GetTimezones",
-        "ShowSetDateTimeUI"
+        "ShowSetDateTimeUI",
+        "OnSubpageClosed"
       ],
       "metadata": {
         "usage": {
@@ -10366,6 +10371,7 @@
         "OpenAimPopup",
         "SetEditHistoryState",
         "OpenDevTools",
+        "OpenDogfoodFeedback",
         "AdvanceFocus"
       ],
       "metadata": {
@@ -31587,6 +31593,7 @@
         "DestroyCommandBuffer",
         "FlushDeferredRequests",
         "CreateGpuMemoryBuffer",
+        "CreateSharedImageWithHandle",
         "CreateDCOMPTexture",
         "WaitForTokenInRange",
         "WaitForGetOffsetInRange",
@@ -34850,7 +34857,8 @@
       "methods": [
         "BindWebAuthnProxy",
         "BindRemoteUrlOpener",
-        "BindSecurityKeyForwarder"
+        "BindSecurityKeyForwarder",
+        "SetAgentStatus"
       ],
       "metadata": {
         "usage": {
@@ -50584,7 +50592,8 @@
       "module": "history_cross_device_signin_promo.mojom",
       "file": "ui_webui_resources_cr_components_history_history_cross_device_signin_promo.mojom.js",
       "methods": [
-        "OnPromoBubbleStateChanged"
+        "OnPromoBubbleStateChanged",
+        "HidePromoCard"
       ],
       "metadata": {
         "usage": {
@@ -52198,9 +52207,9 @@
       "source": "chrome/browser/ui/webui/ai_overlay_dialog/ai_overlay_dialog.mojom",
       "module": "ai_overlay_dialog.mojom",
       "imports": [
+        "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/values.mojom",
-        "chrome/browser/ui/webui/ai_overlay_dialog/tools/tools.mojom",
         "third_party/blink/public/mojom/dom/dom_node_id.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom"
@@ -59769,6 +59778,7 @@
       "source": "remoting/host/mojom/chromoting_host_services.mojom",
       "module": "remoting.mojom",
       "imports": [
+        "remoting/host/mojom/common.mojom",
         "remoting/host/mojom/webauthn_proxy.mojom",
         "remoting/host/mojom/remote_security_key.mojom",
         "remoting/host/mojom/remote_url_opener.mojom"
@@ -62563,7 +62573,6 @@
         "skia/public/mojom/skcolor4f.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
-        "ui/gfx/mojom/display_color_spaces.mojom",
         "ui/gfx/mojom/overlay_transform.mojom",
         "ui/latency/mojom/latency_info.mojom"
       ]
@@ -62748,7 +62757,6 @@
         "skia/public/mojom/skcolor4f.mojom",
         "skia/public/mojom/skpath.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
-        "ui/gfx/mojom/display_color_spaces.mojom",
         "ui/gfx/mojom/mask_filter_info.mojom",
         "ui/gfx/mojom/rrect_f.mojom",
         "ui/gfx/mojom/transform.mojom"
@@ -62766,6 +62774,7 @@
         "cc/mojom/ui_resource_id.mojom",
         "services/viz/public/mojom/compositing/animation.mojom",
         "services/viz/public/mojom/compositing/begin_frame_args.mojom",
+        "services/viz/public/mojom/compositing/frame_interval_inputs.mojom",
         "services/viz/public/mojom/compositing/layer.mojom",
         "services/viz/public/mojom/compositing/local_surface_id.mojom",
         "services/viz/public/mojom/compositing/resource_id.mojom",
@@ -65089,6 +65098,7 @@
       "source": "third_party/blink/public/mojom/manifest/manifest.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/language_tag.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "services/device/public/mojom/screen_orientation_lock_types.mojom",
         "third_party/blink/public/mojom/manifest/display_mode.mojom",

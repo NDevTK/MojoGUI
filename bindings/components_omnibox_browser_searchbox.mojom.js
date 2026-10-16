@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8106.0';
+        const versionStr = window.mojoVersion || '158.0.8108.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -2625,12 +2625,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_suggest_template', 64, 0, mojo.internal.bindings.suggest_template_info.mojom.SuggestTemplateInfoSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_type', 72, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_remove_button_a11y_label', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tail_suggest_common_prefix', 88, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_keyword_model', 96, 0, mojo.internal.bindings.searchbox.mojom.MatchKeywordModelSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_fusebox_action', 104, 0, mojo.internal.bindings.fusebox_action.mojom.FuseboxActionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_url_emphasis', 112, 0, mojo.internal.bindings.searchbox.mojom.UrlEmphasisSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_description_icon_path', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tail_suggest_common_prefix', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_keyword_model', 104, 0, mojo.internal.bindings.searchbox.mojom.MatchKeywordModelSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_fusebox_action', 112, 0, mojo.internal.bindings.fusebox_action.mojom.FuseboxActionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url_emphasis', 120, 0, mojo.internal.bindings.searchbox.mojom.UrlEmphasisSpec, null, true, 0, undefined),
     ],
-    [[0, 128]]);
+    [[0, 136]]);
 
 // Struct: TabInfo
 mojo.internal.Struct(
