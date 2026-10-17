@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-16T14:27:07.758570Z",
-  "version": "158.0.8108.0",
+  "generated_at": "2026-10-17T13:22:43.770894Z",
+  "version": "158.0.8110.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -5391,7 +5391,8 @@
         "SetFullscreen",
         "SelectOption",
         "OpenGeminiPanel",
-        "CloseGeminiPanel"
+        "CloseGeminiPanel",
+        "AnalyzeAndManageTabs"
       ],
       "metadata": {
         "usage": {
@@ -50853,6 +50854,27 @@
       }
     },
     {
+      "name": "PluralStringProvider",
+      "module": "plural_string.mojom",
+      "file": "ui_webui_resources_cr_components_search_plural_string_provider.mojom.js",
+      "methods": [
+        "GetPluralString"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpCalendarModule"
+        ]
+      }
+    },
+    {
       "name": "SigninPageHandler",
       "module": "signin.mojom",
       "file": "ui_webui_resources_cr_components_signin_signin.mojom.js",
@@ -52221,6 +52243,7 @@
       "module": "ai_overlay_dialog.mojom",
       "imports": [
         "mojo/public/mojom/base/empty.mojom",
+        "mojo/public/mojom/base/values.mojom",
         "third_party/blink/public/mojom/dom/dom_node_id.mojom",
         "url/mojom/url.mojom"
       ]
@@ -52759,8 +52782,8 @@
       "source": "chrome/browser/ui/webui/new_tab_page/action_chips/action_chips.mojom",
       "module": "action_chips.mojom",
       "imports": [
-        "components/omnibox/browser/fusebox_action.mojom",
         "components/omnibox/browser/searchbox.mojom",
+        "components/omnibox/browser/suggest_template_info.mojom",
         "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
@@ -53190,6 +53213,8 @@
         "mojo/public/mojom/base/unguessable_token.mojom",
         "third_party/blink/public/mojom/content_extraction/ai_page_content.mojom",
         "third_party/blink/public/mojom/content_extraction/script_tools.mojom",
+        "third_party/blink/public/mojom/input/scroll_direction.mojom",
+        "ui/events/mojom/scroll_granularity.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
@@ -56512,6 +56537,7 @@
       "source": "components/omnibox/browser/suggest_template_info.mojom",
       "module": "suggest_template_info.mojom",
       "imports": [
+        "components/omnibox/browser/fusebox_action.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "url/mojom/url.mojom"
       ]
@@ -62614,13 +62640,11 @@
       "imports": [
         "services/viz/public/mojom/compositing/compositor_render_pass_id.mojom",
         "services/viz/public/mojom/compositing/copy_output_request.mojom",
-        "services/viz/public/mojom/compositing/filter_operations.mojom",
         "services/viz/public/mojom/compositing/quads.mojom",
         "services/viz/public/mojom/compositing/view_transition_element_resource_id.mojom",
         "services/viz/public/mojom/compositing/subtree_capture_id.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
-        "ui/gfx/mojom/transform.mojom",
-        "skia/public/mojom/skpath.mojom"
+        "ui/gfx/mojom/transform.mojom"
       ]
     },
     {
@@ -62825,11 +62849,13 @@
         "cc/mojom/paint_flags.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "services/viz/public/mojom/compositing/compositor_render_pass_id.mojom",
+        "services/viz/public/mojom/compositing/filter_operations.mojom",
         "services/viz/public/mojom/compositing/resource_id.mojom",
         "services/viz/public/mojom/compositing/view_transition_element_resource_id.mojom",
         "services/viz/public/mojom/compositing/shared_quad_state.mojom",
         "services/viz/public/mojom/compositing/surface_range.mojom",
         "skia/public/mojom/skcolor4f.mojom",
+        "skia/public/mojom/skpath.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/mojom/color_space.mojom",
         "ui/gfx/mojom/hdr_metadata.mojom",
@@ -66028,6 +66054,7 @@
         "third_party/blink/public/mojom/service_worker/service_worker_registration.mojom",
         "third_party/blink/public/mojom/service_worker/service_worker_router_rule.mojom",
         "third_party/blink/public/mojom/storage_key/storage_key.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/origin.mojom",
         "url/mojom/url.mojom"
       ]
@@ -67699,6 +67726,12 @@
         "skia/public/mojom/skcolor.mojom",
         "url/mojom/url.mojom"
       ]
+    },
+    {
+      "filename": "ui_webui_resources_cr_components_search_plural_string_provider.mojom.js",
+      "source": "ui/webui/resources/cr_components/search/plural_string_provider.mojom",
+      "module": "plural_string.mojom",
+      "imports": []
     },
     {
       "filename": "ui_webui_resources_cr_components_signin_signin.mojom.js",
