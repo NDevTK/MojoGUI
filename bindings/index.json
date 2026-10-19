@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-18T13:41:28.015113Z",
-  "version": "158.0.8110.0",
+  "generated_at": "2026-10-19T16:46:15.117912Z",
+  "version": "158.0.8111.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -26234,7 +26234,6 @@
       "file": "components_optimization_guide_public_mojom_model_broker.mojom.js",
       "methods": [
         "CreateSession",
-        "CreateTextSafetySession",
         "ReportHealthyCompletion"
       ],
       "metadata": {
@@ -39857,7 +39856,6 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: optimization_guide.mojom.ModelSolution.CreateTextSafetySession",
             "Internal Interface: on_device_model.mojom.TextSafetySession.Clone",
             "Internal Interface: on_device_model.mojom.TextSafetyModel.StartSession"
           ]

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8110.0';
+        const versionStr = window.mojoVersion || '158.0.8111.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -140,8 +140,6 @@ if (mojo.internal.bindings.optimization_guide.mojom.ModelSolutionSpec.$.structSp
 mojo.internal.bindings.optimization_guide.mojom.ModelSolution.$interfaceName = 'optimization_guide.mojom.ModelSolution';
 mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateSession_ParamsSpec.$ = {};
-mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$ = {};
 mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec = mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$.structSpec && mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$ = {};
 mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber = mojo.internal.bindings.optimization_guide.mojom.ModelSubscriber || {};
@@ -189,11 +187,6 @@ mojo.internal.bindings.on_device_model.mojom.SessionPendingReceiver = mojo.inter
 mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
 mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
 mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec = mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.on_device_model = mojo.internal.bindings.on_device_model || {};
-mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_model.mojom || {};
-mojo.internal.bindings.on_device_model.mojom.TextSafetySessionSpec = mojo.internal.bindings.on_device_model.mojom.TextSafetySessionSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote = mojo.internal.bindings.on_device_model.mojom.TextSafetySessionRemote || class {};
-mojo.internal.bindings.on_device_model.mojom.TextSafetySessionPendingReceiver = mojo.internal.bindings.on_device_model.mojom.TextSafetySessionPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 
 // Enum: OnDeviceFeature
 mojo.internal.bindings.optimization_guide.mojom.OnDeviceFeature = {
@@ -266,9 +259,6 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemote = class {
   createSession(arg_session, arg_params) {
     return this.$.createSession(arg_session, arg_params);
   }
-  createTextSafetySession(arg_session) {
-    return this.$.createTextSafetySession(arg_session);
-  }
   reportHealthyCompletion() {
     return this.$.reportHealthyCompletion();
   }
@@ -278,7 +268,6 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemoteCallHandler =
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.ModelSolution', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -293,18 +282,9 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionRemoteCallHandler =
       false);
   }
 
-  createTextSafetySession(arg_session) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec,
-      null,
-      [arg_session],
-      false);
-  }
-
   reportHealthyCompletion() {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[1],  // ordinal
       mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec,
       null,
       [],
@@ -329,7 +309,6 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('optimization_guide.mojom.ModelSolution', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -383,13 +362,6 @@ mojo.internal.bindings.optimization_guide.mojom.ModelSolutionReceiver = class {
           break;
         }
         case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.createTextSafetySession');
-          const result = this.impl.createTextSafetySession(params.arg_session);
-          break;
-        }
-        case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportHealthyCompletion');
@@ -802,11 +774,10 @@ mojo.internal.bindings.optimization_guide.mojom.ModelBrokerRequest = mojo.intern
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.ModelSolutionConfigSpec, 'optimization_guide.mojom.ModelSolutionConfig', [
       mojo.internal.StructField('arg_feature_config', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_safety_config', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model_versions', 16, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model_capabilities', 24, 0, mojo.internal.bindings.on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_versions', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_capabilities', 16, 0, mojo.internal.bindings.on_device_model.mojom.CapabilitiesSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: ModelSubscriptionOptions
 mojo.internal.Struct(
@@ -820,12 +791,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.on_device_model.mojom.SessionParamsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide.mojom.ModelSolution_CreateTextSafetySession_ParamsSpec, 'optimization_guide.mojom.ModelSolution_CreateTextSafetySession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_model.mojom.TextSafetySessionPendingReceiver), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_ParamsSpec, 'optimization_guide.mojom.ModelSolution_ReportHealthyCompletion_Params', [

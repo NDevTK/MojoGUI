@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8110.0';
+        const versionStr = window.mojoVersion || '158.0.8111.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -952,6 +952,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_pinned_toolbar_actions_state', 96, 0, mojo.internal.Array(mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionStateSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_layout_constants_version', 104, 0, mojo.internal.Int32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_touch_ui', 108, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_controls_appear_inactive', 108, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_glic_button_state', 112, 0, mojo.internal.bindings.toolbar_ui_api.mojom.GlicButtonStateSpec, null, false, 0, undefined),
     ],
     [[0, 128]]);
