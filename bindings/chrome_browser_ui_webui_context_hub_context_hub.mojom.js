@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8111.0';
+        const versionStr = window.mojoVersion || '158.0.8113.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -126,6 +126,7 @@ mojo.internal.bindings.browser.context_hub = mojo.internal.bindings.browser.cont
 mojo.internal.bindings.browser.context_hub.mojom = mojo.internal.bindings.browser.context_hub.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.browser.context_hub.mojom.AutoTodoStatusSpec = mojo.internal.bindings.browser.context_hub.mojom.AutoTodoStatusSpec || { $: mojo.internal.Enum().$ };
@@ -387,6 +388,10 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUr
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenGlicPanel_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenGlicPanel_ParamsSpec || { $: {} };
@@ -451,6 +456,9 @@ mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_ba
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UuidSpec = mojo.internal.bindings.mojo_base.mojom.UuidSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
+mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -1061,6 +1069,9 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemote = class {
   getTopicPageImageUrl(arg_page_url) {
     return this.$.getTopicPageImageUrl(arg_page_url);
   }
+  getTopicPageFaviconColor(arg_page_url) {
+    return this.$.getTopicPageFaviconColor(arg_page_url);
+  }
   openTopic(arg_topic_id_or_url) {
     return this.$.openTopic(arg_topic_id_or_url);
   }
@@ -1103,6 +1114,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1508,9 +1520,18 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
       false);
   }
 
-  openTopic(arg_topic_id_or_url) {
+  getTopicPageFaviconColor(arg_page_url) {
     return this.proxy.sendMessage(
       this.ordinals[39],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ResponseParamsSpec,
+      [arg_page_url],
+      false);
+  }
+
+  openTopic(arg_topic_id_or_url) {
+    return this.proxy.sendMessage(
+      this.ordinals[40],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec,
       null,
       [arg_topic_id_or_url],
@@ -1519,7 +1540,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   openGlicPanel(arg_prompts) {
     return this.proxy.sendMessage(
-      this.ordinals[40],  // ordinal
+      this.ordinals[41],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenGlicPanel_ParamsSpec,
       null,
       [arg_prompts],
@@ -1528,7 +1549,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   setTopicFeedback(arg_feedback) {
     return this.proxy.sendMessage(
-      this.ordinals[41],  // ordinal
+      this.ordinals[42],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTopicFeedback_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTopicFeedback_ResponseParamsSpec,
       [arg_feedback],
@@ -1537,7 +1558,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   deleteTopicFeedback(arg_topic_id) {
     return this.proxy.sendMessage(
-      this.ordinals[42],  // ordinal
+      this.ordinals[43],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_DeleteTopicFeedback_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_DeleteTopicFeedback_ResponseParamsSpec,
       [arg_topic_id],
@@ -1546,7 +1567,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   getTopicFeedbacks() {
     return this.proxy.sendMessage(
-      this.ordinals[43],  // ordinal
+      this.ordinals[44],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicFeedbacks_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicFeedbacks_ResponseParamsSpec,
       [],
@@ -1555,7 +1576,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   clearTopicFeedbacks() {
     return this.proxy.sendMessage(
-      this.ordinals[44],  // ordinal
+      this.ordinals[45],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTopicFeedbacks_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTopicFeedbacks_ResponseParamsSpec,
       [],
@@ -1564,7 +1585,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   getTopicsFeedbackExportPreview(arg_window_days) {
     return this.proxy.sendMessage(
-      this.ordinals[45],  // ordinal
+      this.ordinals[46],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicsFeedbackExportPreview_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicsFeedbackExportPreview_ResponseParamsSpec,
       [arg_window_days],
@@ -1573,7 +1594,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   generateTopicsFeedbackBundle(arg_options) {
     return this.proxy.sendMessage(
-      this.ordinals[46],  // ordinal
+      this.ordinals[47],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTopicsFeedbackBundle_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTopicsFeedbackBundle_ResponseParamsSpec,
       [arg_options],
@@ -1582,7 +1603,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   runTodoTask(arg_prompt) {
     return this.proxy.sendMessage(
-      this.ordinals[47],  // ordinal
+      this.ordinals[48],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ResponseParamsSpec,
       [arg_prompt],
@@ -1591,7 +1612,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   openContextHubPage() {
     return this.proxy.sendMessage(
-      this.ordinals[48],  // ordinal
+      this.ordinals[49],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ResponseParamsSpec,
       [],
@@ -1600,7 +1621,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   openWebUrl(arg_url) {
     return this.proxy.sendMessage(
-      this.ordinals[49],  // ordinal
+      this.ordinals[50],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ResponseParamsSpec,
       [arg_url],
@@ -1609,7 +1630,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
 
   copyAttachmentsToClipboard(arg_files) {
     return this.proxy.sendMessage(
-      this.ordinals[50],  // ordinal
+      this.ordinals[51],  // ordinal
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec,
       mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec,
       [arg_files],
@@ -1634,6 +1655,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2396,19 +2418,37 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
         }
         case 39: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getTopicPageFaviconColor');
+          const result = this.impl.getTopicPageFaviconColor(params.arg_page_url);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_color' in response) ? response['arg_color'] : response;
+              const resp_obj = { 'arg_color': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getTopicPageFaviconColor FAILED:', e));
+          }
+          break;
+        }
+        case 40: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenTopic_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openTopic');
           const result = this.impl.openTopic(params.arg_topic_id_or_url);
           break;
         }
-        case 40: {
+        case 41: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenGlicPanel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openGlicPanel');
           const result = this.impl.openGlicPanel(params.arg_prompts);
           break;
         }
-        case 41: {
+        case 42: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_SetTopicFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTopicFeedback');
@@ -2425,7 +2465,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 42: {
+        case 43: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_DeleteTopicFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteTopicFeedback');
@@ -2442,7 +2482,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 43: {
+        case 44: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicFeedbacks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTopicFeedbacks');
@@ -2460,7 +2500,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 44: {
+        case 45: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_ClearTopicFeedbacks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearTopicFeedbacks');
@@ -2477,7 +2517,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 45: {
+        case 46: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicsFeedbackExportPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTopicsFeedbackExportPreview');
@@ -2495,7 +2535,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 46: {
+        case 47: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTopicsFeedbackBundle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateTopicsFeedbackBundle');
@@ -2513,7 +2553,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 47: {
+        case 48: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_RunTodoTask_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runTodoTask');
@@ -2531,7 +2571,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 48: {
+        case 49: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenContextHubPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openContextHubPage');
@@ -2548,7 +2588,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 49: {
+        case 50: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_OpenWebUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openWebUrl');
@@ -2565,7 +2605,7 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 50: {
+        case 51: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyAttachmentsToClipboard');
@@ -3450,6 +3490,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_GetTopicPageImageUrl_ResponseParams', [
       mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ParamsSpec, 'browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_Params', [
+      mojo.internal.StructField('arg_page_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_GetTopicPageFaviconColor_ResponseParams', [
+      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
 

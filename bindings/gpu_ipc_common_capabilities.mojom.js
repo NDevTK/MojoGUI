@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8111.0';
+        const versionStr = window.mojoVersion || '158.0.8113.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -158,8 +158,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_supports_yuv_readback', 5, 5, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_mesa_framebuffer_flip_y', 5, 6, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_context_supports_distance_field_text', 5, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_using_vulkan_context', 6, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_deferred_graphite_submit', 6, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_deferred_graphite_submit', 6, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_drm_formats_and_modifiers', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
       mojo.internal.StructField('arg_drm_device_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
     ],

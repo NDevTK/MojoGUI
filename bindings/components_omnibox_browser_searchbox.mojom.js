@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8111.0';
+        const versionStr = window.mojoVersion || '158.0.8113.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -2662,8 +2662,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_source', 4, 0, mojo.internal.bindings.searchbox.mojom.TabAttachmentSourceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_from_single_tab_menu_item', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_active_tab', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 
 // Struct: SearchContext
 mojo.internal.Struct(

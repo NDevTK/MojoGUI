@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8111.0';
+        const versionStr = window.mojoVersion || '158.0.8113.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -165,6 +165,8 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_Par
 if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec.$ = {};
 mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetCursorChip_ParamsSpec = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetCursorChip_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetCursorChip_ParamsSpec.$.structSpec && mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetCursorChip_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetCursorChip_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
@@ -521,12 +523,16 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemote = class {
   triggerClickAnimation() {
     return this.$.triggerClickAnimation();
   }
+  setCursorChip(arg_text) {
+    return this.$.setCursorChip(arg_text);
+  }
 };
 
 mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('actor.ui.mojom.ActorOverlayPage', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -580,6 +586,15 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemoteCallHandler = class 
       false);
   }
 
+  setCursorChip(arg_text) {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetCursorChip_ParamsSpec,
+      null,
+      [arg_text],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage.getRemote = function() {
@@ -598,6 +613,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('actor.ui.mojom.ActorOverlayPage', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -701,6 +717,13 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver = class {
           }
           break;
         }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetCursorChip_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setCursorChip');
+          const result = this.impl.setCursorChip(params.arg_text);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -788,4 +811,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParams', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetCursorChip_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetCursorChip_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8111.0';
+        const versionStr = window.mojoVersion || '158.0.8113.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -168,7 +168,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_screen_infos', 0, 0, mojo.internal.bindings.display.mojom.ScreenInfosSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_auto_resize_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_resizable', 8, 1, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_always_on_top', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_always_on_top_popup', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_scroll_focused_node_into_view', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_fullscreen_granted', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_pinch_gesture_active', 8, 5, mojo.internal.Bool, false, false, 0, undefined),

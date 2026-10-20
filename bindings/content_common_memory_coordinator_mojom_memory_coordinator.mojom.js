@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8111.0';
+        const versionStr = window.mojoVersion || '158.0.8113.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -556,7 +556,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, 'content.mojom.MemoryConsumerTraits', [
       mojo.internal.StructField('arg_consumer_type', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_estimated_memory_usage', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_release_memory_cost', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_release_memory_data_access', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_information_retention', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_execution_type', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_supports_memory_limit', 5, 0, mojo.internal.Uint8, 0, false, 0, undefined),
@@ -566,6 +566,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_garbage_collects_v8_heap', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_is_stateful', 10, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_recovery_behavior', 11, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_release_memory_cpu_cost', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

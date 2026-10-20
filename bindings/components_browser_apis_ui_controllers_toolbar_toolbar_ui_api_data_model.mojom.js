@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8111.0';
+        const versionStr = window.mojoVersion || '158.0.8113.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -409,6 +409,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PageActionId = {
   kActionShowPaymentsChurnedUsersBubble: 32,
   kActionFakePageActionForDebug: 33,
   kActionWalletReminderNotice: 34,
+  kActionGmailOtpOptIn: 35,
 };
 
 // Enum: PageActionTrigger
@@ -718,6 +719,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_open', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_should_show', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_context_menu_visible', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_match_toolbar_style', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_nudge_label', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-19T16:46:15.117912Z",
-  "version": "158.0.8111.0",
+  "generated_at": "2026-10-20T14:39:15.737295Z",
+  "version": "158.0.8113.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3339,7 +3339,8 @@
         "SetBorderGlowVisibility",
         "SetTheme",
         "MoveCursorTo",
-        "TriggerClickAnimation"
+        "TriggerClickAnimation",
+        "SetCursorChip"
       ],
       "metadata": {
         "usage": {
@@ -7799,6 +7800,7 @@
         "GetTopics",
         "GetTopic",
         "GetTopicPageImageUrl",
+        "GetTopicPageFaviconColor",
         "OpenTopic",
         "OpenGlicPanel",
         "SetTopicFeedback",
@@ -52534,6 +52536,7 @@
       "imports": [
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/uuid.mojom",
+        "skia/public/mojom/skcolor.mojom",
         "url/mojom/url.mojom"
       ]
     },
