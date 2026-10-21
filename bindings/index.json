@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-20T14:39:15.737295Z",
-  "version": "158.0.8113.0",
+  "generated_at": "2026-10-21T14:50:31.401874Z",
+  "version": "158.0.8115.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4408,6 +4408,7 @@
         "SetProfileReadyState",
         "OnGuestNavigationStarted",
         "OnGuestNavigated",
+        "OnGuestMainPageLoaded",
         "OnGuestProcessGone",
         "WebClientStateChanged"
       ],
@@ -38351,6 +38352,7 @@
         "GetViaObliviousHttp",
         "GetCookieManager",
         "GetRestrictedCookieManager",
+        "GetRestrictedDeviceBoundSessionManager",
         "GetTrustTokenQueryAnswerer",
         "ClearTrustTokenData",
         "ClearTrustTokenSessionOnlyData",
@@ -39015,6 +39017,42 @@
         },
         "scope": "context",
         "category": "direct"
+      }
+    },
+    {
+      "name": "RestrictedDeviceBoundSessionObserver",
+      "module": "network.mojom",
+      "file": "services_network_public_mojom_restricted_device_bound_sessions.mojom.js",
+      "methods": [
+        "OnDeviceBoundSessionRegistered"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "RestrictedDeviceBoundSessionManager",
+      "module": "network.mojom",
+      "file": "services_network_public_mojom_restricted_device_bound_sessions.mojom.js",
+      "methods": [
+        "SubscribeToRegistrations"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: network.mojom.NetworkContext.GetRestrictedDeviceBoundSessionManager"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
       }
     },
     {
@@ -53215,6 +53253,7 @@
         "third_party/blink/public/mojom/content_extraction/ai_page_content.mojom",
         "third_party/blink/public/mojom/content_extraction/script_tools.mojom",
         "third_party/blink/public/mojom/input/scroll_direction.mojom",
+        "third_party/blink/public/mojom/tokens/tokens.mojom",
         "ui/events/mojom/scroll_granularity.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
@@ -53241,6 +53280,7 @@
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
         "skia/public/mojom/bitmap.mojom",
+        "third_party/blink/public/mojom/tokens/tokens.mojom",
         "third_party/blink/public/mojom/window_features/window_features.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom"
@@ -58115,6 +58155,7 @@
         "device/vr/public/mojom/xr_hand_tracking_data.mojom",
         "device/vr/public/mojom/xr_session.mojom",
         "mojo/public/mojom/base/big_buffer.mojom",
+        "mojo/public/mojom/base/shared_memory.mojom",
         "mojo/public/mojom/base/time.mojom",
         "gpu/ipc/common/exported_shared_image.mojom",
         "gpu/ipc/common/shared_image_metadata.mojom",
@@ -61088,6 +61129,7 @@
         "services/network/public/mojom/proxy_resolving_socket.mojom",
         "services/network/public/mojom/reporting_service.mojom",
         "services/network/public/mojom/restricted_cookie_manager.mojom",
+        "services/network/public/mojom/restricted_device_bound_sessions.mojom",
         "services/network/public/mojom/restricted_udp_socket.mojom",
         "services/network/public/mojom/schemeful_site.mojom",
         "services/network/public/mojom/shared_dictionary_access_observer.mojom",
@@ -61447,6 +61489,15 @@
         "services/network/public/mojom/storage_access_api.mojom",
         "url/mojom/url.mojom",
         "url/mojom/origin.mojom"
+      ]
+    },
+    {
+      "filename": "services_network_public_mojom_restricted_device_bound_sessions.mojom.js",
+      "source": "services/network/public/mojom/restricted_device_bound_sessions.mojom",
+      "module": "network.mojom",
+      "imports": [
+        "mojo/public/mojom/base/time.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
@@ -66758,6 +66809,7 @@
       "module": "blink.mojom",
       "imports": [
         "services/network/public/mojom/content_security_policy.mojom",
+        "services/network/public/mojom/permissions_policy/permissions_policy.mojom",
         "third_party/blink/public/mojom/loader/fetch_client_settings_object.mojom",
         "third_party/blink/public/mojom/worker/worker_options.mojom",
         "url/mojom/url.mojom"
