@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8115.0';
+        const versionStr = window.mojoVersion || '158.0.8117.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -210,6 +210,10 @@ mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec
 if (mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec = mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec = mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec = mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.Page = mojo.internal.bindings.browser.context_hub.mojom.Page || {};
 mojo.internal.bindings.browser.context_hub.mojom.PageSpec = mojo.internal.bindings.browser.context_hub.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageSpec.$ = {};
@@ -436,6 +440,12 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToCl
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StartSkillRecording_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StartSkillRecording_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StartSkillRecording_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StartSkillRecording_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StartSkillRecording_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.browser = mojo.internal.bindings.browser || {};
@@ -453,6 +463,9 @@ mojo.internal.bindings.browser.context_hub.mojom.TopicIdOrUrlSpec = mojo.interna
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UuidSpec = mojo.internal.bindings.mojo_base.mojom.UuidSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -1108,12 +1121,20 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemote = class {
   copyAttachmentsToClipboard(arg_files) {
     return this.$.copyAttachmentsToClipboard(arg_files);
   }
+  startSkillRecording() {
+    return this.$.startSkillRecording();
+  }
+  stopSkillRecording() {
+    return this.$.stopSkillRecording();
+  }
 };
 
 mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1637,6 +1658,24 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
       false);
   }
 
+  startSkillRecording() {
+    return this.proxy.sendMessage(
+      this.ordinals[52],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StartSkillRecording_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  stopSkillRecording() {
+    return this.proxy.sendMessage(
+      this.ordinals[53],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler.getRemote = function() {
@@ -1655,6 +1694,8 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2623,6 +2664,31 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+        case 52: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StartSkillRecording_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.startSkillRecording');
+          const result = this.impl.startSkillRecording();
+          break;
+        }
+        case 53: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.stopSkillRecording');
+          const result = this.impl.stopSkillRecording();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_data' in response) ? response['arg_data'] : response;
+              const resp_obj = { 'arg_data': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] stopSkillRecording FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -3014,6 +3080,21 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_content', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
+
+// Struct: SkillRecordingAction
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec, 'browser.context_hub.mojom.SkillRecordingAction', [
+      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SkillRecordingSessionData
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec, 'browser.context_hub.mojom.SkillRecordingSessionData', [
+      mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.Page_OnAutoTodosChanged_ParamsSpec, 'browser.context_hub.mojom.Page_OnAutoTodosChanged_Params', [
       mojo.internal.StructField('arg_todos', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.AutoTodoItemSpec, false), null, false, 0, undefined),
@@ -3626,6 +3707,22 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_CopyAttachmentsToClipboard_ResponseParams', [
       mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.browser.context_hub.mojom.CopyAttachmentsToClipboardStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StartSkillRecording_ParamsSpec, 'browser.context_hub.mojom.PageHandler_StartSkillRecording_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ParamsSpec, 'browser.context_hub.mojom.PageHandler_StopSkillRecording_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

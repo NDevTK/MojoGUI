@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8115.0';
+        const versionStr = window.mojoVersion || '158.0.8117.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -185,6 +185,8 @@ mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec = m
 if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordCtaClick_ParamsSpec.$ = {};
 mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec.$ = {};
+mojo.internal.bindings.whats_new.mojom.PageHandler_OpenCrossDeviceSigninQrBubble_ParamsSpec = mojo.internal.bindings.whats_new.mojom.PageHandler_OpenCrossDeviceSigninQrBubble_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.whats_new.mojom.PageHandler_OpenCrossDeviceSigninQrBubble_ParamsSpec.$.structSpec && mojo.internal.bindings.whats_new.mojom.PageHandler_OpenCrossDeviceSigninQrBubble_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.whats_new.mojom.PageHandler_OpenCrossDeviceSigninQrBubble_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
@@ -452,12 +454,16 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemote = class {
   recordNextButtonClick() {
     return this.$.recordNextButtonClick();
   }
+  openCrossDeviceSigninQrBubble() {
+    return this.$.openCrossDeviceSigninQrBubble();
+  }
 };
 
 mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('whats_new.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -681,6 +687,15 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
+  openCrossDeviceSigninQrBubble() {
+    return this.proxy.sendMessage(
+      this.ordinals[22],  // ordinal
+      mojo.internal.bindings.whats_new.mojom.PageHandler_OpenCrossDeviceSigninQrBubble_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.whats_new.mojom.PageHandler.getRemote = function() {
@@ -699,6 +714,7 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('whats_new.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -929,6 +945,13 @@ mojo.internal.bindings.whats_new.mojom.PageHandlerReceiver = class {
           const result = this.impl.recordNextButtonClick();
           break;
         }
+        case 22: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.whats_new.mojom.PageHandler_OpenCrossDeviceSigninQrBubble_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openCrossDeviceSigninQrBubble');
+          const result = this.impl.openCrossDeviceSigninQrBubble();
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -1089,6 +1112,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.whats_new.mojom.PageHandler_RecordNextButtonClick_ParamsSpec, 'whats_new.mojom.PageHandler_RecordNextButtonClick_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.whats_new.mojom.PageHandler_OpenCrossDeviceSigninQrBubble_ParamsSpec, 'whats_new.mojom.PageHandler_OpenCrossDeviceSigninQrBubble_Params', [
     ],
     [[0, 8]]);
 

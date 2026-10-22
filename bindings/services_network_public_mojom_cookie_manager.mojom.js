@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8115.0';
+        const versionStr = window.mojoVersion || '158.0.8117.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -317,9 +317,8 @@ mojo.internal.bindings.network.mojom.CookieExemptionReason = {
   kUserSetting: 1,
   kEnterprisePolicy: 2,
   kStorageAccess: 3,
-  kTopLevelStorageAccess: 4,
-  kScheme: 5,
-  kSameSiteNoneCookiesInSandbox: 6,
+  kScheme: 4,
+  kSameSiteNoneCookiesInSandbox: 5,
 };
 
 // Enum: ContextType

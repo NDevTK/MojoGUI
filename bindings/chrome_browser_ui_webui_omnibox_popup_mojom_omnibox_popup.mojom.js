@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8115.0';
+        const versionStr = window.mojoVersion || '158.0.8117.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -808,8 +808,8 @@ mojo.internal.bindings.omnibox_popup.mojom.PageRemote = class {
   setInputState(arg_state) {
     return this.$.setInputState(arg_state);
   }
-  setFocus(arg_is_focused, arg_query_zps, arg_select_all) {
-    return this.$.setFocus(arg_is_focused, arg_query_zps, arg_select_all);
+  setFocus(arg_is_focused, arg_query_zps, arg_select_all, arg_show_full_url) {
+    return this.$.setFocus(arg_is_focused, arg_query_zps, arg_select_all, arg_show_full_url);
   }
   clearAutocompleteMatches() {
     return this.$.clearAutocompleteMatches();
@@ -867,12 +867,12 @@ mojo.internal.bindings.omnibox_popup.mojom.PageRemoteCallHandler = class {
       false);
   }
 
-  setFocus(arg_is_focused, arg_query_zps, arg_select_all) {
+  setFocus(arg_is_focused, arg_query_zps, arg_select_all, arg_show_full_url) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.Page_SetFocus_ParamsSpec,
       null,
-      [arg_is_focused, arg_query_zps, arg_select_all],
+      [arg_is_focused, arg_query_zps, arg_select_all, arg_show_full_url],
       false);
   }
 
@@ -1006,7 +1006,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.Page_SetFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFocus');
-          const result = this.impl.setFocus(params.arg_is_focused, params.arg_query_zps, params.arg_select_all);
+          const result = this.impl.setFocus(params.arg_is_focused, params.arg_query_zps, params.arg_select_all, params.arg_show_full_url);
           break;
         }
         case 4: {
@@ -1199,6 +1199,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_focused', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_query_zps', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_select_all', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_full_url', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-21T14:50:31.401874Z",
-  "version": "158.0.8115.0",
+  "generated_at": "2026-10-22T14:48:46.132585Z",
+  "version": "158.0.8117.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7813,7 +7813,9 @@
         "RunTodoTask",
         "OpenContextHubPage",
         "OpenWebUrl",
-        "CopyAttachmentsToClipboard"
+        "CopyAttachmentsToClipboard",
+        "StartSkillRecording",
+        "StopSkillRecording"
       ],
       "metadata": {
         "usage": {
@@ -10908,6 +10910,7 @@
         "DeleteAllPasswordManagerData",
         "CopyPlaintextBackupPassword",
         "RemoveBackupPassword",
+        "RemoveCredential",
         "RemovePasswordException",
         "StartBulkPasswordCheck",
         "MovePasswordsToAccount",
@@ -12654,7 +12657,8 @@
         "RecordCarouselScrollButtonClick",
         "RecordExpandMediaToggled",
         "RecordCtaClick",
-        "RecordNextButtonClick"
+        "RecordNextButtonClick",
+        "OpenCrossDeviceSigninQrBubble"
       ],
       "metadata": {
         "usage": {
@@ -23286,9 +23290,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kXuControls",
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
+          "feature:kXuControls"
         ]
       }
     },
@@ -29260,7 +29262,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kDeviceBoundSessionJsApi"
+        ]
       }
     },
     {
@@ -30644,7 +30649,9 @@
         "category": "internal",
         "gates": [
           "feature:kMojoServices",
-          "feature:kXuControls"
+          "feature:kXuControls",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -33829,7 +33836,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kDeviceBoundSessionJsApi"
+        ]
       }
     },
     {
@@ -33871,7 +33881,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kDeviceBoundSessionJsApi"
+        ]
       }
     },
     {
@@ -34410,7 +34423,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kDeviceBoundSessionJsApi"
+        ]
       }
     },
     {
@@ -37762,7 +37778,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kDeviceBoundSessionJsApi"
+        ]
       }
     },
     {
@@ -37843,7 +37862,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kDeviceBoundSessionJsApi"
+        ]
       }
     },
     {
@@ -39016,7 +39038,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kDeviceBoundSessionJsApi"
+        ]
       }
     },
     {
@@ -39048,11 +39073,15 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: network.mojom.NetworkContext.GetRestrictedDeviceBoundSessionManager"
+            "Source: BrowserInterfaceBroker (Global Broker)",
+            "network.mojom.NetworkContext.GetRestrictedDeviceBoundSessionManager"
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "direct",
+        "gates": [
+          "feature:kDeviceBoundSessionJsApi"
+        ]
       }
     },
     {
@@ -39363,7 +39392,10 @@
           ]
         },
         "scope": "context",
-        "category": "direct"
+        "category": "direct",
+        "gates": [
+          "feature:kDeviceBoundSessionJsApi"
+        ]
       }
     },
     {
@@ -40947,7 +40979,9 @@
         "category": "internal",
         "gates": [
           "feature:kMojoServices",
-          "feature:kXuControls"
+          "feature:kXuControls",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
         ]
       }
     },
@@ -42880,6 +42914,9 @@
         },
         "scope": "context",
         "category": "direct",
+        "gates": [
+          "feature:kDeviceBoundSessionJsApi"
+        ],
         "scrambled": false
       }
     },
@@ -42901,6 +42938,9 @@
         },
         "scope": "context",
         "category": "direct",
+        "gates": [
+          "feature:kDeviceBoundSessionJsApi"
+        ],
         "scrambled": false
       }
     },
@@ -50502,7 +50542,8 @@
         "OpenForeignSessionAllTabs",
         "OpenForeignSessionTab",
         "DeleteForeignSession",
-        "SetForeignSessionCollapsed"
+        "SetForeignSessionCollapsed",
+        "ShowUi"
       ],
       "metadata": {
         "usage": {
@@ -51884,6 +51925,12 @@
       "filename": "cc_mojom_ui_resource_id.mojom.js",
       "source": "cc/mojom/ui_resource_id.mojom",
       "module": "cc.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_accessibility_page_colors.mojom.js",
+      "source": "chrome/browser/accessibility/page_colors.mojom",
+      "module": "page_colors.mojom",
       "imports": []
     },
     {
@@ -63104,6 +63151,7 @@
         "gpu/ipc/common/sync_token.mojom",
         "media/mojo/mojom/video_encode_accelerator.mojom",
         "mojo/public/mojom/base/shared_memory.mojom",
+        "services/viz/privileged/mojom/gl/gpu_client_type.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "ui/gfx/mojom/buffer_types.mojom"
       ]

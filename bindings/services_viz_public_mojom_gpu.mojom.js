@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8115.0';
+        const versionStr = window.mojoVersion || '158.0.8117.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -155,6 +155,9 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote || class {};
 mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderPendingReceiver = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
+mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
+mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
+mojo.internal.bindings.viz.mojom.GpuClientTypeSpec = mojo.internal.bindings.viz.mojom.GpuClientTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: Gpu
 mojo.internal.bindings.viz.mojom.GpuPendingReceiver = class {
@@ -331,12 +334,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec, 'viz.mojom.Gpu_EstablishGpuChannel_ResponseParams', [
       mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_handle', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gpu_info', 8, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_feature_info', 16, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_image_capabilities', 24, 0, mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_type', 4, 0, mojo.internal.bindings.viz.mojom.GpuClientTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_handle', 8, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_gpu_info', 16, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_feature_info', 24, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_image_capabilities', 32, 0, mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec, null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec, 'viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_Params', [

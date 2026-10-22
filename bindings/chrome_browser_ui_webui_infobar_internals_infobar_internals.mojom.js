@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8115.0';
+        const versionStr = window.mojoVersion || '158.0.8117.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -185,9 +185,10 @@ mojo.internal.bindings.infobar_internals.mojom.InfoBarType = {
   kSessionRestore: 25,
   kSigninQRCode: 26,
   kStartupLaunch: 27,
-  kThemeInstalled: 28,
-  kWebAppBlockedMigration: 29,
-  kWebAuthFlow: 30,
+  kTabSharing: 28,
+  kThemeInstalled: 29,
+  kWebAppBlockedMigration: 30,
+  kWebAuthFlow: 31,
 };
 
 // Enum: InfoBarAction
