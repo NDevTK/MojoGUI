@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-22T14:48:46.132585Z",
-  "version": "158.0.8117.0",
+  "generated_at": "2026-10-23T14:34:55.929105Z",
+  "version": "158.0.8119.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -5136,7 +5136,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kAiOverlayDialog"
+        ]
       }
     },
     {
@@ -5157,26 +5160,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "HarnessPage",
-      "module": "ttc.mojom",
-      "file": "chrome_browser_ttc_core_eval_harness.mojom.js",
-      "methods": [
-        "OnModelTurnStarted",
-        "OnModelTurnEnded"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kAiOverlayDialog"
+        ]
       }
     },
     {
@@ -6234,13 +6221,33 @@
       "module": "ash.screens_common.mojom",
       "file": "chrome_browser_ui_webui_ash_login_mojom_screens_common.mojom.js",
       "methods": [
-        "OnSetupComplete"
+        "OnSetupComplete",
+        "OnTestImageSkipClicked"
       ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
             "Internal Interface: ash.screens_factory.mojom.ScreensFactory.EstablishFjordTouchControllerScreenPipe"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "FjordTouchControllerPage",
+      "module": "ash.screens_common.mojom",
+      "file": "chrome_browser_ui_webui_ash_login_mojom_screens_common.mojom.js",
+      "methods": [
+        "SetTestImageSkipButtonVisible",
+        "SetNextButtonEnabled"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -6868,7 +6875,6 @@
         "ObserveDisplayBrightnessSettings",
         "ObserveAmbientLightSensor",
         "RecordChangingDisplaySettings",
-        "SetShinyPerformance",
         "SetInternalDisplayScreenBrightness",
         "SetInternalDisplayAmbientLightSensorEnabled",
         "StartNativeTouchscreenMappingExperience",
@@ -11123,6 +11129,48 @@
       }
     },
     {
+      "name": "SettingsSearchHandlerFactory",
+      "module": "settings_search.mojom",
+      "file": "chrome_browser_ui_webui_settings_search_mojom_settings_search.mojom.js",
+      "methods": [
+        "CreateSettingsSearchHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
+      "name": "SettingsSearchHandler",
+      "module": "settings_search.mojom",
+      "file": "chrome_browser_ui_webui_settings_search_mojom_settings_search.mojom.js",
+      "methods": [
+        "Search"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: settings_search.mojom.SettingsSearchHandlerFactory.CreateSettingsSearchHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
+      }
+    },
+    {
       "name": "BookmarksPageHandlerFactory",
       "module": "side_panel.mojom",
       "file": "chrome_browser_ui_webui_side_panel_bookmarks_bookmarks.mojom.js",
@@ -13650,7 +13698,8 @@
         "OnReadabilityDistillationStateChanged",
         "OnMainFrameSameDocumentNavigation",
         "OnReadingModeShown",
-        "OnTranslationStateChanged"
+        "OnTranslationStateChanged",
+        "OnTranslationFailed"
       ],
       "metadata": {
         "usage": {
@@ -14064,7 +14113,8 @@
       "methods": [
         "BindSafeArchiveAnalyzer",
         "BindSingleFileTarFileExtractor",
-        "BindSingleFileTarXzFileExtractor"
+        "BindSingleFileTarXzFileExtractor",
+        "BindSingleFileZstdFileExtractor"
       ],
       "metadata": {
         "usage": {
@@ -14130,7 +14180,8 @@
           "associated": [],
           "direct": [
             "Internal Interface: chrome.mojom.FileUtilService.BindSingleFileTarFileExtractor",
-            "Internal Interface: chrome.mojom.FileUtilService.BindSingleFileTarXzFileExtractor"
+            "Internal Interface: chrome.mojom.FileUtilService.BindSingleFileTarXzFileExtractor",
+            "Internal Interface: chrome.mojom.FileUtilService.BindSingleFileZstdFileExtractor"
           ]
         },
         "scope": "context",
@@ -23903,10 +23954,7 @@
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kNtpFooter"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -29159,6 +29207,7 @@
         "DidCommitProvisionalLoad",
         "DidCommitSameDocumentNavigation",
         "DidOpenDocumentInputStream",
+        "DidCommitDocumentReplacement",
         "BeginNavigation",
         "SubresourceResponseStarted",
         "ResourceLoadComplete",
@@ -39679,6 +39728,7 @@
         "OnDatagramReceived",
         "OnIncomingStreamClosed",
         "OnOutgoingStreamClosed",
+        "OnOutgoingStreamStatsFinalized",
         "OnReceivedStopSending",
         "OnReceivedResetStream",
         "OnClosed",
@@ -39955,6 +40005,42 @@
       }
     },
     {
+      "name": "DecisionSession",
+      "module": "on_device_model.mojom",
+      "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
+      "methods": [
+        "Decide"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: on_device_model.mojom.DecisionModel.StartSession"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "DecisionModel",
+      "module": "on_device_model.mojom",
+      "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
+      "methods": [
+        "StartSession"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: on_device_model.mojom.OnDeviceModelService.LoadDecisionModel"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "AsrStreamResponder",
       "module": "on_device_model.mojom",
       "file": "services_on_device_model_public_mojom_on_device_model.mojom.js",
@@ -40016,6 +40102,7 @@
         "LoadModel",
         "GetCapabilities",
         "LoadTextSafetyModel",
+        "LoadDecisionModel",
         "GetDeviceAndPerformanceInfo"
       ],
       "metadata": {
@@ -53069,6 +53156,22 @@
       ]
     },
     {
+      "filename": "chrome_browser_ui_webui_settings_search_mojom_setting_id.mojom.js",
+      "source": "chrome/browser/ui/webui/settings/search/mojom/setting_id.mojom",
+      "module": "settings_search.mojom",
+      "imports": []
+    },
+    {
+      "filename": "chrome_browser_ui_webui_settings_search_mojom_settings_search.mojom.js",
+      "source": "chrome/browser/ui/webui/settings/search/mojom/settings_search.mojom",
+      "module": "settings_search.mojom",
+      "imports": [
+        "chrome/browser/ui/webui/settings/search/mojom/setting_id.mojom",
+        "mojo/public/mojom/base/string16.mojom",
+        "ui/gfx/range/mojom/range.mojom"
+      ]
+    },
+    {
       "filename": "chrome_browser_ui_webui_side_panel_bookmarks_bookmarks.mojom.js",
       "source": "chrome/browser/ui/webui/side_panel/bookmarks/bookmarks.mojom",
       "module": "side_panel.mojom",
@@ -55946,6 +56049,7 @@
         "components/browser_apis/ui_controllers/toolbar/extensions_bar_data_model.mojom",
         "components/browser_apis/ui_controllers/toolbar/icon_handle.mojom",
         "components/content_settings/core/common/content_settings_types.mojom",
+        "mojo/public/mojom/base/empty.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
         "skia/public/mojom/skcolor.mojom",
@@ -64168,7 +64272,6 @@
       "source": "third_party/blink/public/mojom/fenced_frame/fenced_frame_config.mojom",
       "module": "blink.mojom",
       "imports": [
-        "services/network/public/mojom/schemeful_site.mojom",
         "services/network/public/mojom/permissions_policy/permissions_policy.mojom",
         "services/network/public/mojom/permissions_policy/permissions_policy_feature.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
