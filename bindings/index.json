@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-23T14:34:55.929105Z",
-  "version": "158.0.8119.0",
+  "generated_at": "2026-10-24T13:49:35.464946Z",
+  "version": "158.0.8121.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4094,7 +4094,8 @@
         "SubscribeToTabFavicon",
         "CreateGeminiEnterpriseHandler",
         "SetClientStorageItem",
-        "ClearClientStorage"
+        "ClearClientStorage",
+        "GetSendTabToSelfDevices"
       ],
       "metadata": {
         "usage": {
@@ -4615,7 +4616,8 @@
         "SetLiveBlur",
         "SubmitPrompt",
         "GetSuggestedActions",
-        "ExecuteSuggestedAction"
+        "ExecuteSuggestedAction",
+        "OpenSettings"
       ],
       "metadata": {
         "usage": {
@@ -26743,6 +26745,27 @@
       }
     },
     {
+      "name": "OakTlsSession",
+      "module": "private_ai.mojom",
+      "file": "components_private_ai_mojom_oak_session.mojom.js",
+      "methods": [
+        "StartHandshake",
+        "ProcessHandshakeFrame",
+        "Encrypt",
+        "Decrypt"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PrivateAiInternalsPage",
       "module": "private_ai_internals.mojom",
       "file": "components_private_ai_private_ai_internals_webui_private_ai_internals.mojom.js",
@@ -27019,6 +27042,7 @@
       "methods": [
         "OnVisibilityChanged",
         "OnSpaceActivationChanged",
+        "OnWindowOcclusionChanged",
         "OnWindowNativeThemeChanged",
         "OnViewSizeChanged",
         "GetSheetOffsetY",
@@ -38468,6 +38492,7 @@
         "LookUpProxyForURL",
         "ForceReloadProxyConfig",
         "ClearBadProxiesCache",
+        "GetProxySettings",
         "CreateWebSocket",
         "CreateWebTransport",
         "CreateNetLogExporter",
@@ -38488,7 +38513,7 @@
         "LoadHttpAuthCacheProxyEntries",
         "AddAuthCacheEntry",
         "SetCorsNonWildcardRequestHeadersSupport",
-        "EnableStaticKeyPinningForTesting",
+        "ReinitializeKeyPinningForTesting",
         "VerifyCertificateForTesting",
         "GetTrustAnchorIDsForTesting",
         "AddDomainReliabilityContextForTesting",
@@ -38510,12 +38535,14 @@
         "AddQuicHints",
         "AddWildcardQuicHints",
         "SetTryQuicByDefault",
-        "SetVariationsHeaders"
+        "SetVariationsHeaders",
+        "Clone"
       ],
       "metadata": {
         "usage": {
           "associated": [],
           "direct": [
+            "Internal Interface: network.mojom.NetworkContext.Clone",
             "Internal Interface: network.mojom.NetworkService.CreateNetworkContext",
             "Internal Interface: network.mojom.NetworkContextCreator.CreateNetworkContext"
           ]
@@ -50686,6 +50713,7 @@
         "TurnOnHistorySync",
         "OpenCriticalActionConversation",
         "GetSyncedDevicesForFiltering",
+        "GetTimePeriodOptions",
         "ShouldShowHistoryPageHistorySyncPromo",
         "RecordHistoryPageHistorySyncPromoDismissed",
         "IncrementHistoryPageHistorySyncPromoShownCount"
