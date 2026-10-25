@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '158.0.8121.0';
+        const versionStr = window.mojoVersion || '158.0.8123.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -145,6 +145,10 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpe
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ParamsSpec.$ = {};
+mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ResponseParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec.$.structSpec && mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec.$ = {};
 mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec = mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec || { $: {} };
@@ -366,6 +370,9 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemote = class {
   getThreadUrl() {
     return this.$.getThreadUrl();
   }
+  moveActiveTabToNewThreadIfShared() {
+    return this.$.moveActiveTabToNewThreadIfShared();
+  }
   getUrlForTask(arg_uuid) {
     return this.$.getUrlForTask(arg_uuid);
   }
@@ -449,6 +456,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       { explicit: null },
       { explicit: null },
       { explicit: null },
+      { explicit: null },
     ]);
   }
 
@@ -461,9 +469,18 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
       false);
   }
 
-  getUrlForTask(arg_uuid) {
+  moveActiveTabToNewThreadIfShared() {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
+      mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ParamsSpec,
+      mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  getUrlForTask(arg_uuid) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ResponseParamsSpec,
       [arg_uuid],
@@ -472,7 +489,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   setTaskId(arg_uuid) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec,
       null,
       [arg_uuid],
@@ -481,7 +498,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   isZeroState(arg_url) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsZeroState_ResponseParamsSpec,
       [arg_url],
@@ -490,7 +507,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   isAiPage(arg_url) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsAiPage_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsAiPage_ResponseParamsSpec,
       [arg_url],
@@ -499,7 +516,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   isPendingErrorPage(arg_task_id) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsPendingErrorPage_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsPendingErrorPage_ResponseParamsSpec,
       [arg_task_id],
@@ -508,7 +525,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   isEmbeddedPageErrorDocument() {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsEmbeddedPageErrorDocument_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsEmbeddedPageErrorDocument_ResponseParamsSpec,
       [],
@@ -517,7 +534,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   setThreadTitle(arg_title) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec,
       null,
       [arg_title],
@@ -526,7 +543,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   isShownInTab() {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ResponseParamsSpec,
       [],
@@ -535,7 +552,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   openOnboardingHelpUi() {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec,
       null,
       [],
@@ -544,7 +561,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   openAskGHelpUi() {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenAskGHelpUi_ParamsSpec,
       null,
       [],
@@ -553,7 +570,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   onWebviewMessage(arg_message) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec,
       null,
       [arg_message],
@@ -562,7 +579,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   getCommonSearchParams(arg_is_dark_mode, arg_is_side_panel) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec,
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ResponseParamsSpec,
       [arg_is_dark_mode, arg_is_side_panel],
@@ -571,7 +588,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   onboardingTooltipDismissed() {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec,
       null,
       [],
@@ -580,7 +597,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   askGTooltipDismissed() {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_AskGTooltipDismissed_ParamsSpec,
       null,
       [],
@@ -589,7 +606,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   onContextMenuOpened() {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnContextMenuOpened_ParamsSpec,
       null,
       [],
@@ -598,7 +615,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   notifySmartTabSharingTryItIphResult(arg_accepted) {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_NotifySmartTabSharingTryItIphResult_ParamsSpec,
       null,
       [arg_accepted],
@@ -607,7 +624,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   notifySmartTabSharingDefaultOnIphResult(arg_accepted) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_NotifySmartTabSharingDefaultOnIphResult_ParamsSpec,
       null,
       [arg_accepted],
@@ -616,7 +633,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   registerWindow(arg_task_id, arg_url, arg_window_id) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_RegisterWindow_ParamsSpec,
       null,
       [arg_task_id, arg_url, arg_window_id],
@@ -625,7 +642,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerRemoteCallHandler = cla
 
   closeWindow(arg_window_id) {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.contextual_tasks.mojom.PageHandler_CloseWindow_ParamsSpec,
       null,
       [arg_window_id],
@@ -650,6 +667,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('contextual_tasks.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -733,6 +751,24 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.moveActiveTabToNewThreadIfShared');
+          const result = this.impl.moveActiveTabToNewThreadIfShared();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_moved' in response) ? response['arg_moved'] : response;
+              const resp_obj = { 'arg_moved': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] moveActiveTabToNewThreadIfShared FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetUrlForTask_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getUrlForTask');
           const result = this.impl.getUrlForTask(params.arg_uuid);
@@ -749,14 +785,14 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_SetTaskId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTaskId');
           const result = this.impl.setTaskId(params.arg_uuid);
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsZeroState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isZeroState');
@@ -774,7 +810,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsAiPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isAiPage');
@@ -792,7 +828,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 5: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsPendingErrorPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isPendingErrorPage');
@@ -810,7 +846,7 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 6: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsEmbeddedPageErrorDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isEmbeddedPageErrorDocument');
@@ -828,14 +864,14 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 7: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_SetThreadTitle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThreadTitle');
           const result = this.impl.setThreadTitle(params.arg_title);
           break;
         }
-        case 8: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_IsShownInTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isShownInTab');
@@ -853,28 +889,28 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenOnboardingHelpUi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openOnboardingHelpUi');
           const result = this.impl.openOnboardingHelpUi();
           break;
         }
-        case 10: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OpenAskGHelpUi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAskGHelpUi');
           const result = this.impl.openAskGHelpUi();
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnWebviewMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebviewMessage');
           const result = this.impl.onWebviewMessage(params.arg_message);
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetCommonSearchParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCommonSearchParams');
@@ -892,49 +928,49 @@ mojo.internal.bindings.contextual_tasks.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnboardingTooltipDismissed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onboardingTooltipDismissed');
           const result = this.impl.onboardingTooltipDismissed();
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_AskGTooltipDismissed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.askGTooltipDismissed');
           const result = this.impl.askGTooltipDismissed();
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_OnContextMenuOpened_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextMenuOpened');
           const result = this.impl.onContextMenuOpened();
           break;
         }
-        case 16: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_NotifySmartTabSharingTryItIphResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySmartTabSharingTryItIphResult');
           const result = this.impl.notifySmartTabSharingTryItIphResult(params.arg_accepted);
           break;
         }
-        case 17: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_NotifySmartTabSharingDefaultOnIphResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySmartTabSharingDefaultOnIphResult');
           const result = this.impl.notifySmartTabSharingDefaultOnIphResult(params.arg_accepted);
           break;
         }
-        case 18: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_RegisterWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerWindow');
           const result = this.impl.registerWindow(params.arg_task_id, params.arg_url, params.arg_window_id);
           break;
         }
-        case 19: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks.mojom.PageHandler_CloseWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeWindow');
@@ -2458,6 +2494,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParamsSpec, 'contextual_tasks.mojom.PageHandler_GetThreadUrl_ResponseParams', [
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ParamsSpec, 'contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ResponseParamsSpec, 'contextual_tasks.mojom.PageHandler_MoveActiveTabToNewThreadIfShared_ResponseParams', [
+      mojo.internal.StructField('arg_moved', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
