@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-26T16:27:06.228875Z",
-  "version": "158.0.8125.0",
+  "generated_at": "2026-10-27T15:43:05.939602Z",
+  "version": "158.0.8127.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3632,8 +3632,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -3657,8 +3656,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -3679,8 +3677,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -4335,8 +4332,7 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
-          "feature:kNtpNextFeatures"
+          "feature:kPolicyPageMojoMigration"
         ]
       }
     },
@@ -4431,6 +4427,7 @@
       "file": "chrome_browser_glic_host_glic_webui.mojom.js",
       "methods": [
         "IntentToShow",
+        "WaitForLoad",
         "SetProfileReadyState",
         "UpdatePageState",
         "ClientReadyStateChanged",
@@ -4638,7 +4635,8 @@
       "methods": [
         "ScreenshotReceived",
         "SetPostRegionSelections",
-        "SetInteractionOptions"
+        "SetInteractionOptions",
+        "SetSidePanelOpen"
       ],
       "metadata": {
         "usage": {
@@ -7733,7 +7731,6 @@
           "feature:kWebPayments",
           "feature:kWebAppInstallation",
           "feature:kInstallElement",
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
@@ -7758,7 +7755,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
@@ -7836,7 +7832,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration",
           "feature:kNtpNextFeatures",
           "feature:kNtpMostRelevantTabResumptionModule",
           "feature:kGlicActorUi",
@@ -8397,7 +8392,8 @@
         "OnConsentKitIframeMessage",
         "OnConsentKitPrivacyFlowResult",
         "OnConsentKitError",
-        "OnShowErrorDialog"
+        "OnShowErrorDialog",
+        "OnHideErrorDialog"
       ],
       "metadata": {
         "usage": {
@@ -12477,6 +12473,8 @@
         "GetNtpPromoPreferences",
         "ClearNewBadgeData",
         "ClearWhatsNewData",
+        "ClearWhatsNewModuleData",
+        "ClearWhatsNewEditionData",
         "ClearNtpPromoData",
         "ClearNtpPromoPreferences",
         "LaunchWhatsNewStaging",
@@ -15999,6 +15997,42 @@
           "associated": [],
           "direct": [
             "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "NativeMessagingPort",
+      "module": "drivefs.mojom",
+      "file": "chromeos_ash_components_drivefs_mojom_drivefs_native_messaging.mojom.js",
+      "methods": [
+        "PostMessageToExtension"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: drivefs.mojom.DriveFsDelegate.ConnectToExtension"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "NativeMessagingHost",
+      "module": "drivefs.mojom",
+      "file": "chromeos_ash_components_drivefs_mojom_drivefs_native_messaging.mojom.js",
+      "methods": [
+        "HandleMessageFromExtension"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: drivefs.mojom.DriveFs.CreateNativeHostSession"
           ]
         },
         "scope": "context",
@@ -21962,42 +21996,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: chromeos.cdm.mojom.BrowserCdmFactory.GetOutputProtection"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "NativeMessagingPort",
-      "module": "drivefs.mojom",
-      "file": "chromeos_components_drivefs_mojom_drivefs_native_messaging.mojom.js",
-      "methods": [
-        "PostMessageToExtension"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: drivefs.mojom.DriveFsDelegate.ConnectToExtension"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "NativeMessagingHost",
-      "module": "drivefs.mojom",
-      "file": "chromeos_components_drivefs_mojom_drivefs_native_messaging.mojom.js",
-      "methods": [
-        "HandleMessageFromExtension"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: drivefs.mojom.DriveFs.CreateNativeHostSession"
           ]
         },
         "scope": "context",
@@ -54211,11 +54209,17 @@
       "source": "chromeos/ash/components/drivefs/mojom/drivefs.mojom",
       "module": "drivefs.mojom",
       "imports": [
-        "chromeos/components/drivefs/mojom/drivefs_native_messaging.mojom",
+        "chromeos/ash/components/drivefs/mojom/drivefs_native_messaging.mojom",
         "chromeos/ash/components/drivefs/mojom/notifications.mojom",
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/time.mojom"
       ]
+    },
+    {
+      "filename": "chromeos_ash_components_drivefs_mojom_drivefs_native_messaging.mojom.js",
+      "source": "chromeos/ash/components/drivefs/mojom/drivefs_native_messaging.mojom",
+      "module": "drivefs.mojom",
+      "imports": []
     },
     {
       "filename": "chromeos_ash_components_drivefs_mojom_fake_drivefs_launcher.mojom.js",
@@ -55491,12 +55495,6 @@
       "filename": "chromeos_components_cdm_factory_daemon_mojom_output_protection.mojom.js",
       "source": "chromeos/components/cdm_factory_daemon/mojom/output_protection.mojom",
       "module": "chromeos.cdm.mojom",
-      "imports": []
-    },
-    {
-      "filename": "chromeos_components_drivefs_mojom_drivefs_native_messaging.mojom.js",
-      "source": "chromeos/components/drivefs/mojom/drivefs_native_messaging.mojom",
-      "module": "drivefs.mojom",
       "imports": []
     },
     {
