@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-27T15:43:05.939602Z",
-  "version": "158.0.8127.0",
+  "generated_at": "2026-10-28T16:32:56.616678Z",
+  "version": "159.0.8128.2",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4067,6 +4067,7 @@
         "ReportClientTransientError",
         "ProcessCounterAbuseVerdict",
         "OnOptinImpression",
+        "OnInputFocused",
         "OnUserInputSubmitted",
         "OnContextUploadStarted",
         "OnContextUploadCompleted",
@@ -4615,7 +4616,8 @@
         "SubmitPrompt",
         "GetSuggestedActions",
         "ExecuteSuggestedAction",
-        "OpenSettings"
+        "OpenSettings",
+        "OpenDogfoodFeedback"
       ],
       "metadata": {
         "usage": {
@@ -8607,7 +8609,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: feature_showcase.mojom.GeminiPageHandlerFactory.CreateGeminiPageHandler"
+            "Internal Interface: feature_showcase.mojom.GeminiPageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
@@ -8619,7 +8621,7 @@
       "module": "feature_showcase.mojom",
       "file": "chrome_browser_ui_webui_feature_showcase_gemini.mojom.js",
       "methods": [
-        "CreateGeminiPageHandler"
+        "CreatePageHandler"
       ],
       "metadata": {
         "usage": {
@@ -8644,7 +8646,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: feature_showcase.mojom.GoogleLensPageHandlerFactory.CreateGoogleLensPageHandler"
+            "Internal Interface: feature_showcase.mojom.GoogleLensPageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
@@ -8656,7 +8658,7 @@
       "module": "feature_showcase.mojom",
       "file": "chrome_browser_ui_webui_feature_showcase_google_lens.mojom.js",
       "methods": [
-        "CreateGoogleLensPageHandler"
+        "CreatePageHandler"
       ],
       "metadata": {
         "usage": {
@@ -8681,7 +8683,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: feature_showcase.mojom.PasswordManagerPageHandlerFactory.CreatePasswordManagerPageHandler"
+            "Internal Interface: feature_showcase.mojom.PasswordManagerPageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
@@ -8693,7 +8695,7 @@
       "module": "feature_showcase.mojom",
       "file": "chrome_browser_ui_webui_feature_showcase_password_manager.mojom.js",
       "methods": [
-        "CreatePasswordManagerPageHandler"
+        "CreatePageHandler"
       ],
       "metadata": {
         "usage": {
@@ -8719,7 +8721,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: feature_showcase.mojom.ThemesAndCustomizationPageHandlerFactory.CreateThemesAndCustomizationPageHandler"
+            "Internal Interface: feature_showcase.mojom.ThemesAndCustomizationPageHandlerFactory.CreatePageHandler"
           ]
         },
         "scope": "context",
@@ -8731,7 +8733,7 @@
       "module": "feature_showcase.mojom",
       "file": "chrome_browser_ui_webui_feature_showcase_themes_and_customization.mojom.js",
       "methods": [
-        "CreateThemesAndCustomizationPageHandler"
+        "CreatePageHandler"
       ],
       "metadata": {
         "usage": {
@@ -10118,7 +10120,8 @@
       "file": "chrome_browser_ui_webui_omnibox_everywhere_mojom_omnibox_everywhere.mojom.js",
       "methods": [
         "ShowContextActionMenu",
-        "SetIsComposebox"
+        "SetIsComposebox",
+        "OnDismissMostVisited"
       ],
       "metadata": {
         "usage": {
@@ -10185,7 +10188,8 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -10209,7 +10213,8 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -10231,7 +10236,8 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -15156,24 +15162,6 @@
       }
     },
     {
-      "name": "ActivityUrlFilterConfiguration",
-      "module": "chromecast.mojom",
-      "file": "chromecast_common_mojom_activity_url_filter.mojom.js",
-      "methods": [
-        "SetFilter"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
       "name": "ActivityWindow",
       "module": "chromecast.mojom",
       "file": "chromecast_common_mojom_activity_window.mojom.js",
@@ -15216,60 +15204,6 @@
       "file": "chromecast_common_mojom_application_media_capabilities.mojom.js",
       "methods": [
         "AddObserver"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "AssistantMessagePipe",
-      "module": "chromecast.mojom",
-      "file": "chromecast_common_mojom_assistant_messenger.mojom.js",
-      "methods": [
-        "SendMessage"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: chromecast.mojom.AssistantMessageService.CreateMessagePipe"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "AssistantMessageClient",
-      "module": "chromecast.mojom",
-      "file": "chromecast_common_mojom_assistant_messenger.mojom.js",
-      "methods": [
-        "OnMessage"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "AssistantMessageService",
-      "module": "chromecast.mojom",
-      "file": "chromecast_common_mojom_assistant_messenger.mojom.js",
-      "methods": [
-        "CreateMessagePipe"
       ],
       "metadata": {
         "usage": {
@@ -15354,42 +15288,6 @@
       "file": "chromecast_common_mojom_feature_manager.mojom.js",
       "methods": [
         "ConfigureFeatures"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "FeatureUpdateObserver",
-      "module": "chromecast.mojom",
-      "file": "chromecast_common_mojom_feature_update.mojom.js",
-      "methods": [
-        "OnFeaturesUpdated"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "FeatureUpdateService",
-      "module": "chromecast.mojom",
-      "file": "chromecast_common_mojom_feature_update.mojom.js",
-      "methods": [
-        "RegisterFeatureUpdateObserver"
       ],
       "metadata": {
         "usage": {
@@ -26979,10 +26877,7 @@
         "DestroyContentView",
         "CloseWindow",
         "CloseWindowNow",
-        "SetInitialBounds",
         "SetBounds",
-        "SetSize",
-        "SetSizeAndCenter",
         "SetVisibilityState",
         "SetAnimationEnabled",
         "SetTransitionsToAnimate",
@@ -35874,6 +35769,7 @@
       "methods": [
         "GetNewCertVerifier",
         "UpdateCRLSet",
+        "UpdateKeyPinsList",
         "UpdateNetworkTime"
       ],
       "metadata": {
@@ -43245,6 +43141,23 @@
       }
     },
     {
+      "name": "SnapshotPermissionToken",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_blob_file_backed_blob_factory.mojom.js",
+      "methods": [],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "scrambled": false
+      }
+    },
+    {
       "name": "FileBackedBlobFactory",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_blob_file_backed_blob_factory.mojom.js",
@@ -45036,25 +44949,6 @@
         "ResultsRetrieved",
         "DidWrite",
         "ErrorOccurred"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "scrambled": false
-      }
-    },
-    {
-      "name": "ReceivedSnapshotListener",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_filesystem_file_system.mojom.js",
-      "methods": [
-        "DidReceiveSnapshotFile"
       ],
       "metadata": {
         "usage": {
@@ -50653,6 +50547,7 @@
       "methods": [
         "GetForeignSessions",
         "OpenForeignSessionAllTabs",
+        "OpenForeignSessionWindow",
         "OpenForeignSessionTab",
         "DeleteForeignSession",
         "SetForeignSessionCollapsed",
@@ -53159,6 +53054,7 @@
       "source": "chrome/browser/ui/webui/password_manager/password_manager.mojom",
       "module": "password_manager.mojom",
       "imports": [
+        "mojo/public/mojom/base/string16.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -54043,12 +53939,6 @@
       ]
     },
     {
-      "filename": "chromecast_common_mojom_activity_url_filter.mojom.js",
-      "source": "chromecast/common/mojom/activity_url_filter.mojom",
-      "module": "chromecast.mojom",
-      "imports": []
-    },
-    {
       "filename": "chromecast_common_mojom_activity_window.mojom.js",
       "source": "chromecast/common/mojom/activity_window.mojom",
       "module": "chromecast.mojom",
@@ -54059,14 +53949,6 @@
       "source": "chromecast/common/mojom/application_media_capabilities.mojom",
       "module": "chromecast.shell.mojom",
       "imports": []
-    },
-    {
-      "filename": "chromecast_common_mojom_assistant_messenger.mojom.js",
-      "source": "chromecast/common/mojom/assistant_messenger.mojom",
-      "module": "chromecast.mojom",
-      "imports": [
-        "mojo/public/mojom/base/values.mojom"
-      ]
     },
     {
       "filename": "chromecast_common_mojom_audio_socket.mojom.js",
@@ -54086,14 +53968,6 @@
       "filename": "chromecast_common_mojom_feature_manager.mojom.js",
       "source": "chromecast/common/mojom/feature_manager.mojom",
       "module": "chromecast.shell.mojom",
-      "imports": [
-        "mojo/public/mojom/base/values.mojom"
-      ]
-    },
-    {
-      "filename": "chromecast_common_mojom_feature_update.mojom.js",
-      "source": "chromecast/common/mojom/feature_update.mojom",
-      "module": "chromecast.mojom",
       "imports": [
         "mojo/public/mojom/base/values.mojom"
       ]
@@ -60265,7 +60139,8 @@
         "services/network/public/mojom/cert_verifier_service.mojom",
         "services/network/public/mojom/cert_verifier_service_updater.mojom",
         "services/network/public/mojom/ct_policy.mojom",
-        "services/network/public/mojom/network_param.mojom"
+        "services/network/public/mojom/network_param.mojom",
+        "services/network/public/mojom/key_pinning.mojom"
       ]
     },
     {
@@ -64496,7 +64371,8 @@
         "mojo/public/mojom/base/file_info.mojom",
         "mojo/public/mojom/base/time.mojom",
         "third_party/blink/public/mojom/blob/serialized_blob.mojom",
-        "third_party/blink/public/mojom/blob/blob.mojom"
+        "third_party/blink/public/mojom/blob/blob.mojom",
+        "third_party/blink/public/mojom/blob/file_backed_blob_factory.mojom"
       ]
     },
     {
