@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-28T16:32:56.616678Z",
-  "version": "159.0.8128.2",
+  "generated_at": "2026-10-29T16:39:15.703766Z",
+  "version": "159.0.8130.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -12340,6 +12340,53 @@
     },
     {
       "name": "PageHandlerFactory",
+      "module": "tabstrip_ntb.mojom",
+      "file": "chrome_browser_ui_webui_tabstrip_ntb_tabstrip_ntb.mojom.js",
+      "methods": [
+        "BindPage"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "Page",
+      "module": "tabstrip_ntb.mojom",
+      "file": "chrome_browser_ui_webui_tabstrip_ntb_tabstrip_ntb.mojom.js",
+      "methods": [
+        "SetButtonVisible"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kWebPayments",
+          "feature:kWebAppInstallation",
+          "feature:kInstallElement",
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
       "module": "unexportable_keys_internals.mojom",
       "file": "chrome_browser_ui_webui_unexportable_keys_internals_unexportable_keys_internals.mojom.js",
       "methods": [
@@ -15518,64 +15565,6 @@
       "methods": [
         "Connect",
         "RequestVisible"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "ExternalService",
-      "module": "chromecast.external_mojo.mojom",
-      "file": "chromecast_external_mojo_public_mojom_connector.mojom.js",
-      "methods": [
-        "OnBindInterface"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "ExternalConnector",
-      "module": "chromecast.external_mojo.mojom",
-      "file": "chromecast_external_mojo_public_mojom_connector.mojom.js",
-      "methods": [
-        "RegisterServiceInstances",
-        "BindInterface",
-        "Clone",
-        "BindChromiumConnector",
-        "QueryServiceList"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: chromecast.external_mojo.mojom.ExternalConnector.Clone"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "TestExternalConnector",
-      "module": "chromecast.external_mojo.mojom",
-      "file": "chromecast_external_mojo_public_mojom_test_connector.mojom.js",
-      "methods": [
-        "BindInterfaceInternal"
       ],
       "metadata": {
         "usage": {
@@ -23240,7 +23229,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kXuControls"
+          "feature:kXuControls",
+          "feature:kWebViewMemoryProfilingClient"
         ]
       }
     },
@@ -26477,6 +26467,8 @@
         "RevertLocalTestPolicies",
         "SetLocalTestPolicies",
         "GetPolicyLogs",
+        "ReloadPolicies",
+        "UploadReport",
         "CheckPromotionEligibility",
         "SetBannerDismissed",
         "RecordBannerRedirected",
@@ -26617,7 +26609,10 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "gates": [
+          "feature:kWebViewMemoryProfilingClient"
+        ]
       }
     },
     {
@@ -27052,26 +27047,6 @@
       }
     },
     {
-      "name": "SafeBrowsing",
-      "module": "safe_browsing.mojom",
-      "file": "components_safe_browsing_content_common_safe_browsing.mojom.js",
-      "methods": [
-        "CreateCheckerAndCheck",
-        "Clone"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: RenderProcessHost (Process)",
-            "safe_browsing.mojom.SafeBrowsing.Clone"
-          ]
-        },
-        "scope": "process",
-        "category": "direct"
-      }
-    },
-    {
       "name": "ThreatReporter",
       "module": "safe_browsing.mojom",
       "file": "components_safe_browsing_content_common_safe_browsing.mojom.js",
@@ -27196,14 +27171,11 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: safe_browsing.mojom.SafeBrowsing.CreateCheckerAndCheck"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebViewMemoryProfilingClient"
-        ]
+        "category": "internal"
       }
     },
     {
@@ -53226,6 +53198,12 @@
       ]
     },
     {
+      "filename": "chrome_browser_ui_webui_tabstrip_ntb_tabstrip_ntb.mojom.js",
+      "source": "chrome/browser/ui/webui/tabstrip_ntb/tabstrip_ntb.mojom",
+      "module": "tabstrip_ntb.mojom",
+      "imports": []
+    },
+    {
       "filename": "chrome_browser_ui_webui_unexportable_keys_internals_unexportable_keys_internals.mojom.js",
       "source": "chrome/browser/ui/webui/unexportable_keys_internals/unexportable_keys_internals.mojom",
       "module": "unexportable_keys_internals.mojom",
@@ -54021,20 +53999,6 @@
       "imports": [
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
-    },
-    {
-      "filename": "chromecast_external_mojo_public_mojom_connector.mojom.js",
-      "source": "chromecast/external_mojo/public/mojom/connector.mojom",
-      "module": "chromecast.external_mojo.mojom",
-      "imports": [
-        "mojo/public/mojom/base/time.mojom"
-      ]
-    },
-    {
-      "filename": "chromecast_external_mojo_public_mojom_test_connector.mojom.js",
-      "source": "chromecast/external_mojo/public/mojom/test_connector.mojom",
-      "module": "chromecast.external_mojo.mojom",
-      "imports": []
     },
     {
       "filename": "chromecast_media_mojom_media_types.mojom.js",
