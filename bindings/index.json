@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-29T16:39:15.703766Z",
-  "version": "159.0.8130.0",
+  "generated_at": "2026-10-30T16:30:35.893884Z",
+  "version": "159.0.8132.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3644,7 +3644,8 @@
         "GetRelevantContext",
         "SetForcedEmbeddedPageHost",
         "GetForcedEmbeddedPageHost",
-        "GetEligibilityState"
+        "GetEligibilityState",
+        "GetSessionAndUserDataState"
       ],
       "metadata": {
         "usage": {
@@ -3713,6 +3714,8 @@
         "UnpinSidePanel",
         "OpenMyActivityUi",
         "OpenOverflowMenuHelpUi",
+        "OpenManageAccountUi",
+        "OpenLogOutFlow",
         "OpenFeedbackUi",
         "MoveTaskUiToNewTab",
         "ShowThreadHistory",
@@ -3752,7 +3755,8 @@
         "SetExpandButtonEnabled",
         "SetThreadTitle",
         "OnSidePanelStateChanged",
-        "SetProfileAvatarUrl"
+        "SetProfileAvatarUrl",
+        "SetAccountInfo"
       ],
       "metadata": {
         "usage": {
@@ -4333,7 +4337,9 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kPolicyPageMojoMigration"
+          "feature:kPolicyPageMojoMigration",
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
         ]
       }
     },
@@ -9214,7 +9220,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
       }
@@ -9243,7 +9248,6 @@
           "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
       }
@@ -9267,7 +9271,6 @@
         "gates": [
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay",
-          "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
       }
@@ -10663,7 +10666,8 @@
       "file": "chrome_browser_ui_webui_organizer_panel_foreign_tabs.mojom.js",
       "methods": [
         "GetForeignTabs",
-        "OpenTab"
+        "OpenTab",
+        "ShowCrossDeviceSignInPromo"
       ],
       "metadata": {
         "usage": {
@@ -12503,6 +12507,28 @@
       }
     },
     {
+      "name": "UserEducationInternalsPageHandlerFactory",
+      "module": "mojom.user_education_internals",
+      "file": "chrome_browser_ui_webui_user_education_internals_user_education_internals.mojom.js",
+      "methods": [
+        "CreateUserEducationInternalsPageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kCustomizeChromeWallpaperSearch",
+          "feature:kOptimizationGuideModelExecution"
+        ]
+      }
+    },
+    {
       "name": "UserEducationInternalsPageHandler",
       "module": "mojom.user_education_internals",
       "file": "chrome_browser_ui_webui_user_education_internals_user_education_internals.mojom.js",
@@ -12537,7 +12563,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)"
+            "Internal Interface: mojom.user_education_internals.UserEducationInternalsPageHandlerFactory.CreateUserEducationInternalsPageHandler"
           ]
         },
         "scope": "context",
@@ -23847,6 +23873,48 @@
       }
     },
     {
+      "name": "BookmarkBarObserver",
+      "module": "bookmark_bar_api.mojom",
+      "file": "components_browser_apis_ui_controllers_bookmark_bar_bookmark_bar_api.mojom.js",
+      "methods": [
+        "OnDisplayOptionsChanged",
+        "OnContextMenuClosed"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "BookmarkBarUIController",
+      "module": "bookmark_bar_api.mojom",
+      "file": "components_browser_apis_ui_controllers_bookmark_bar_bookmark_bar_api.mojom.js",
+      "methods": [
+        "GetDisplayOptions",
+        "OpenAppsPage",
+        "OpenBookmark",
+        "OpenAllInFolder",
+        "RecordFolderOpened",
+        "ShowContextMenu"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "PageHandlerFactory",
       "module": "extensions_bar.mojom",
       "file": "components_browser_apis_ui_controllers_toolbar_extensions_bar.mojom.js",
@@ -26609,10 +26677,7 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated",
-        "gates": [
-          "feature:kWebViewMemoryProfilingClient"
-        ]
+        "category": "associated"
       }
     },
     {
@@ -29432,6 +29497,7 @@
         "LookUpDictionaryOverlayFromRange",
         "SyncGetCharacterIndexAtPoint",
         "SyncGetFirstRectForRange",
+        "GetFirstRectForRange",
         "ExecuteEditCommand",
         "Undo",
         "Redo",
@@ -45160,7 +45226,9 @@
         "NotifyDocumentInteractive",
         "InitializeCrashReportContext",
         "RequestUnboundedSurface",
-        "SuppressXSLTDeprecationBanner"
+        "SuppressXSLTDeprecationBanner",
+        "DidHaveFormEdit",
+        "DidHaveUserEdit"
       ],
       "metadata": {
         "usage": {
@@ -45429,7 +45497,7 @@
         "DetachAndDispose",
         "EnableAutoResize",
         "DisableAutoResize",
-        "DidUpdateVisualProperties",
+        "DidUpdateChildLocalSurfaceId",
         "SetFrameSinkId",
         "ChildProcessGone",
         "CreateRemoteChild",
@@ -51868,6 +51936,7 @@
       "source": "cc/mojom/render_frame_metadata.mojom",
       "module": "cc.mojom",
       "imports": [
+        "cc/mojom/root_scroll_offset_update_frequency.mojom",
         "services/viz/public/mojom/compositing/local_surface_id.mojom",
         "services/viz/public/mojom/compositing/selection.mojom",
         "services/viz/public/mojom/compositing/tracked_element_rects.mojom",
@@ -51971,6 +52040,7 @@
       "imports": [
         "chrome/browser/contextual_tasks/contextual_tasks_types.mojom",
         "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "url/mojom/url.mojom"
       ]
     },
@@ -55856,6 +55926,19 @@
         "components/browser_apis/tab_strip/tab_strip_api_types.mojom",
         "mojo/public/mojom/base/empty.mojom",
         "mojo/public/mojom/base/error.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
+      ]
+    },
+    {
+      "filename": "components_browser_apis_ui_controllers_bookmark_bar_bookmark_bar_api.mojom.js",
+      "source": "components/browser_apis/ui_controllers/bookmark_bar/bookmark_bar_api.mojom",
+      "module": "bookmark_bar_api.mojom",
+      "imports": [
+        "components/browser_apis/bookmarks/bookmarks_api.mojom",
+        "mojo/public/mojom/base/empty.mojom",
+        "mojo/public/mojom/base/error.mojom",
+        "ui/base/mojom/menu_source_type.mojom",
+        "ui/base/mojom/window_open_disposition.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
@@ -62056,7 +62139,6 @@
       "imports": [
         "sandbox/policy/mojom/sandbox.mojom",
         "services/network/public/mojom/ip_address.mojom",
-        "services/network/public/mojom/network_anonymization_key.mojom",
         "services/network/public/mojom/network_param.mojom",
         "url/mojom/url.mojom"
       ]
@@ -64596,7 +64678,6 @@
       "source": "third_party/blink/public/mojom/frame/remote_frame.mojom",
       "module": "blink.mojom",
       "imports": [
-        "cc/mojom/render_frame_metadata.mojom",
         "cc/mojom/touch_action.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/time.mojom",
@@ -64607,6 +64688,7 @@
         "services/network/public/mojom/url_request.mojom",
         "services/network/public/mojom/web_sandbox_flags.mojom",
         "services/viz/public/mojom/compositing/frame_sink_id.mojom",
+        "services/viz/public/mojom/compositing/local_surface_id.mojom",
         "third_party/blink/public/mojom/ad_tagging/ad_evidence.mojom",
         "third_party/blink/public/mojom/blob/blob_url_store.mojom",
         "third_party/blink/public/mojom/frame/frame_owner_properties.mojom",
