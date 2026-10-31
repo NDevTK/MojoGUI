@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-30T16:30:35.893884Z",
-  "version": "159.0.8132.0",
+  "generated_at": "2026-10-31T15:34:37.504944Z",
+  "version": "159.0.8134.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3597,9 +3597,7 @@
       "module": "contextual_tasks.mojom",
       "file": "chrome_browser_contextual_tasks_contextual_tasks.mojom.js",
       "methods": [
-        "PostAimMessage",
         "PostSearchMessage",
-        "OnHandshakeComplete",
         "OnLensOverlayStateChanged",
         "OnLensCropUpdated",
         "OnTabContextUpdated"
@@ -3750,6 +3748,7 @@
       "file": "chrome_browser_contextual_tasks_contextual_tasks_toolbar.mojom.js",
       "methods": [
         "OnSidePanelPinStateChanged",
+        "OnPinButtonEligibilityChanged",
         "OnAiPageStatusChanged",
         "OnContextUpdated",
         "SetExpandButtonEnabled",
@@ -4557,6 +4556,7 @@
       "module": "glic.selection",
       "file": "chrome_browser_glic_selection_explain_fulfillment.mojom.js",
       "methods": [
+        "RequestConsent",
         "GetExplanation",
         "OpenTabForSearch",
         "AskGemini"
@@ -13713,6 +13713,7 @@
         "OnFontSizeChange",
         "OnLinksEnabledChanged",
         "OnTranslationRequested",
+        "OnSendFeedback",
         "OnImagesEnabledChanged",
         "OnColorChange",
         "OnSpeechRateChange",
@@ -16558,7 +16559,6 @@
         "OnSystemUiInstanceReady",
         "OnTracingInstanceReady",
         "OnTtsInstanceReady",
-        "OnUsbHostInstanceReady",
         "OnVideoInstanceReady",
         "OnVolumeMounterInstanceReady",
         "OnWakeLockInstanceReady",
@@ -18851,46 +18851,6 @@
         "Speak",
         "Stop",
         "RefreshVoices"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "UsbHostHost",
-      "module": "arc.mojom",
-      "file": "chromeos_ash_experiences_arc_mojom_usb_host.mojom.js",
-      "methods": [
-        "OpenDevice",
-        "GetDeviceInfo",
-        "RequestPermission"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "UsbHostInstance",
-      "module": "arc.mojom",
-      "file": "chromeos_ash_experiences_arc_mojom_usb_host.mojom.js",
-      "methods": [
-        "Init",
-        "OnDeviceAdded",
-        "OnDeviceRemoved"
       ],
       "metadata": {
         "usage": {
@@ -42056,6 +42016,24 @@
       }
     },
     {
+      "name": "WebNNCompilerHost",
+      "module": "webnn.mojom",
+      "file": "services_webnn_public_mojom_webnn_browser_host.mojom.js",
+      "methods": [
+        "Terminate"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: webnn.mojom.WebNNBrowserHost.RequestCompilerContext"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "WebNNBrowserHost",
       "module": "webnn.mojom",
       "file": "services_webnn_public_mojom_webnn_browser_host.mojom.js",
@@ -47350,7 +47328,8 @@
           "direct": []
         },
         "scope": "context",
-        "category": "associated"
+        "category": "associated",
+        "scrambled": false
       }
     },
     {
@@ -47368,7 +47347,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -51228,7 +51208,8 @@
         "OnPageRemoteCreated",
         "OnGetMark",
         "OnClearMark",
-        "OnUmaReportTime"
+        "OnUmaReportTime",
+        "OnUmaReportLongTimeSpan"
       ],
       "metadata": {
         "usage": {
@@ -54366,7 +54347,6 @@
         "chromeos/ash/experiences/arc/mojom/system_ui.mojom",
         "chromeos/ash/experiences/arc/mojom/tracing.mojom",
         "chromeos/ash/experiences/arc/mojom/tts.mojom",
-        "chromeos/ash/experiences/arc/mojom/usb_host.mojom",
         "chromeos/ash/experiences/arc/mojom/video.mojom",
         "chromeos/ash/experiences/arc/mojom/volume_mounter.mojom",
         "chromeos/ash/experiences/arc/mojom/wake_lock.mojom",
@@ -54765,14 +54745,6 @@
       "source": "chromeos/ash/experiences/arc/mojom/tts.mojom",
       "module": "arc.mojom",
       "imports": []
-    },
-    {
-      "filename": "chromeos_ash_experiences_arc_mojom_usb_host.mojom.js",
-      "source": "chromeos/ash/experiences/arc/mojom/usb_host.mojom",
-      "module": "arc.mojom",
-      "imports": [
-        "services/device/public/mojom/usb_device.mojom"
-      ]
     },
     {
       "filename": "chromeos_ash_experiences_arc_mojom_video.mojom.js",
@@ -65724,14 +65696,6 @@
         "services/network/public/mojom/referrer_policy.mojom",
         "url/mojom/url.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
-      ]
-    },
-    {
-      "filename": "third_party_blink_public_mojom_parakeet_ad_request.mojom.js",
-      "source": "third_party/blink/public/mojom/parakeet/ad_request.mojom",
-      "module": "blink.mojom",
-      "imports": [
-        "url/mojom/url.mojom"
       ]
     },
     {
