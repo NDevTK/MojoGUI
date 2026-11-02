@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8136.0';
+        const versionStr = window.mojoVersion || '159.0.8138.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -130,6 +130,7 @@ mojo.internal.bindings.connectors_internals.mojom.KeyManagerInitializedValueSpec
 mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec = mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec = mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailureSpec = mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.connectors_internals.mojom.SignalsSourceSpec = mojo.internal.bindings.connectors_internals.mojom.SignalsSourceSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec = mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec || { $: {} };
 if (mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec.$.structSpec && mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec.$ = {};
 mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec = mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec || { $: {} };
@@ -220,6 +221,13 @@ mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailure = {
   INSUFFICIENT_PERMISSIONS: 2,
   OS_RESTRICTION: 3,
   INVALID_INSTALLATION: 4,
+};
+
+// Enum: SignalsSource
+mojo.internal.bindings.connectors_internals.mojom.SignalsSource = {
+  kNone: 0,
+  kLastUploadedReport: 1,
+  kCollectedOnDemand: 2,
 };
 
 // Interface: PageHandler
@@ -627,6 +635,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_status_report_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_signals_report_enabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_can_collect_all_fields', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_signals_source', 12, 0, mojo.internal.bindings.connectors_internals.mojom.SignalsSourceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_upload_attempt_timestamp', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_upload_success_timestamp', 24, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_last_signals_upload_config', 32, 0, mojo.internal.String, null, false, 0, undefined),
