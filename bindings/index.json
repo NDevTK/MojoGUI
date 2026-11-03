@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-02T20:11:22.400010Z",
-  "version": "159.0.8138.0",
+  "generated_at": "2026-11-03T17:36:22.240801Z",
+  "version": "159.0.8140.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -23838,7 +23838,8 @@
       "file": "components_browser_apis_ui_controllers_bookmark_bar_bookmark_bar_api.mojom.js",
       "methods": [
         "OnDisplayOptionsChanged",
-        "OnContextMenuClosed"
+        "OnContextMenuClosed",
+        "ShowFolderMenu"
       ],
       "metadata": {
         "usage": {
@@ -23857,10 +23858,9 @@
       "file": "components_browser_apis_ui_controllers_bookmark_bar_bookmark_bar_api.mojom.js",
       "methods": [
         "GetDisplayOptions",
-        "OpenAppsPage",
-        "OpenBookmark",
-        "OpenAllInFolder",
-        "RecordFolderOpened",
+        "OnAppsShortcutPressed",
+        "OnBookmarkPressed",
+        "OnFolderPressed",
         "ShowContextMenu"
       ],
       "metadata": {
@@ -30765,7 +30765,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kComputePressure",
+          "feature:kCrossOriginStorage",
           "feature:kFontAccess",
           "feature:kEnforceGamepadPermissionsPolicy"
         ]
@@ -38374,6 +38374,8 @@
         "CloseAllConnections",
         "CloseIdleConnections",
         "SetNetworkConditions",
+        "SetSocketLayerNetworkConditions",
+        "ClearSocketLayerNetworkConditions",
         "SetAcceptLanguage",
         "SetEnableReferrers",
         "CreateUDPSocket",
@@ -43042,7 +43044,7 @@
         "category": "internal",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess",
+          "feature:kCrossOriginStorage",
           "feature:kFontDataServiceForCSSLocalFonts"
         ],
         "scrambled": false
@@ -43109,7 +43111,7 @@
         "category": "associated",
         "gates": [
           "feature:kComputePressure",
-          "feature:kFontAccess"
+          "feature:kCrossOriginStorage"
         ],
         "scrambled": false
       }
@@ -43450,7 +43452,8 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kComputePressure"
+          "feature:kComputePressure",
+          "feature:kCrossOriginStorage"
         ],
         "scrambled": false
       }
@@ -43750,6 +43753,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
+          "feature:kCrossOriginStorage",
           "feature:kFontAccess"
         ],
         "scrambled": false
@@ -44051,11 +44055,11 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+            "Source: BrowserInterfaceBroker (Global Broker)"
           ]
         },
         "scope": "context",
-        "category": "internal",
+        "category": "direct",
         "scrambled": false
       }
     },
@@ -44637,6 +44641,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
+          "feature:kCrossOriginStorage",
           "feature:kFontAccess",
           "feature:kEnforceGamepadPermissionsPolicy"
         ],
@@ -44869,6 +44874,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
+          "feature:kCrossOriginStorage",
           "feature:kFontAccess",
           "feature:kEnforceGamepadPermissionsPolicy"
         ],
@@ -45012,6 +45018,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
+          "feature:kCrossOriginStorage",
           "feature:kFontAccess",
           "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kFontDataServiceForCSSLocalFonts"
@@ -45036,7 +45043,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kComputePressure",
+          "feature:kCrossOriginStorage",
           "feature:kFontAccess",
           "feature:kEnforceGamepadPermissionsPolicy"
         ],
@@ -46474,7 +46481,8 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kComputePressure"
+          "feature:kComputePressure",
+          "feature:kCrossOriginStorage"
         ],
         "scrambled": false
       }
@@ -46499,6 +46507,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
+          "feature:kCrossOriginStorage",
           "feature:kFontAccess"
         ],
         "scrambled": false
@@ -49089,7 +49098,8 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kComputePressure"
+          "feature:kComputePressure",
+          "feature:kCrossOriginStorage"
         ]
       }
     },
@@ -49204,7 +49214,8 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kComputePressure"
+          "feature:kComputePressure",
+          "feature:kCrossOriginStorage"
         ],
         "scrambled": false
       }
@@ -49607,6 +49618,7 @@
         "category": "internal",
         "gates": [
           "feature:kComputePressure",
+          "feature:kCrossOriginStorage",
           "feature:kFontAccess",
           "feature:kEnforceGamepadPermissionsPolicy"
         ],
@@ -49651,6 +49663,7 @@
         "category": "direct",
         "gates": [
           "feature:kComputePressure",
+          "feature:kCrossOriginStorage",
           "feature:kFontAccess",
           "feature:kEnforceGamepadPermissionsPolicy"
         ]
@@ -50798,79 +50811,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
-      "module": "history_embeddings.mojom",
-      "file": "ui_webui_resources_cr_components_history_embeddings_history_embeddings.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "history_embeddings.mojom",
-      "file": "ui_webui_resources_cr_components_history_embeddings_history_embeddings.mojom.js",
-      "methods": [
-        "Search",
-        "SendQualityLog",
-        "RecordSearchResultsMetrics",
-        "SetUserFeedback",
-        "OpenSettingsPage"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: history_embeddings.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay"
-        ]
-      }
-    },
-    {
-      "name": "Page",
-      "module": "history_embeddings.mojom",
-      "file": "ui_webui_resources_cr_components_history_embeddings_history_embeddings.mojom.js",
-      "methods": [
-        "SearchResultChanged"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kWebPayments",
-          "feature:kWebAppInstallation",
-          "feature:kInstallElement",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
         ]
@@ -55910,7 +55850,6 @@
         "mojo/public/mojom/base/empty.mojom",
         "mojo/public/mojom/base/error.mojom",
         "ui/base/mojom/menu_source_type.mojom",
-        "ui/base/mojom/window_open_disposition.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
@@ -56231,7 +56170,8 @@
       "source": "components/enterprise/connectors/connectors_internals.mojom",
       "module": "connectors_internals.mojom",
       "imports": [
-        "mojo/public/mojom/base/time.mojom"
+        "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/values.mojom"
       ]
     },
     {
@@ -67822,15 +67762,6 @@
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom",
         "components/history_clusters/public/mojom/history_cluster_types.mojom"
-      ]
-    },
-    {
-      "filename": "ui_webui_resources_cr_components_history_embeddings_history_embeddings.mojom.js",
-      "source": "ui/webui/resources/cr_components/history_embeddings/history_embeddings.mojom",
-      "module": "history_embeddings.mojom",
-      "imports": [
-        "mojo/public/mojom/base/time.mojom",
-        "url/mojom/url.mojom"
       ]
     },
     {
