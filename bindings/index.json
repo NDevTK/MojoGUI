@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-03T17:36:22.240801Z",
-  "version": "159.0.8140.0",
+  "generated_at": "2026-11-04T17:45:11.612684Z",
+  "version": "159.0.8142.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3755,7 +3755,8 @@
         "SetThreadTitle",
         "OnSidePanelStateChanged",
         "SetProfileAvatarUrl",
-        "SetAccountInfo"
+        "SetAccountInfo",
+        "SetSignedInAccountCount"
       ],
       "metadata": {
         "usage": {
@@ -10710,6 +10711,7 @@
       "file": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
       "methods": [
         "OnVerticalTabsEnabledChanged",
+        "OnIsInTrayViewChanged",
         "OnSectionsStateChanged"
       ],
       "metadata": {
@@ -22702,6 +22704,8 @@
         "scope": "context",
         "category": "internal",
         "gates": [
+          "feature:kWebLockScreenApi",
+          "feature:kLazyBrowserInterfaceBroker",
           "feature:kCustomizeChromeWallpaperSearch",
           "feature:kOptimizationGuideModelExecution"
         ]
@@ -35767,7 +35771,7 @@
       "methods": [
         "GetNewCertVerifier",
         "UpdateCRLSet",
-        "UpdateKeyPinsList",
+        "UpdatePKIMetadata",
         "UpdateNetworkTime"
       ],
       "metadata": {
@@ -36086,6 +36090,24 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "HapticsService",
+      "module": "device.mojom",
+      "file": "services_device_public_mojom_haptics.mojom.js",
+      "methods": [
+        "PlayHaptics"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct"
       }
     },
     {
@@ -43191,9 +43213,6 @@
         },
         "scope": "context",
         "category": "associated",
-        "gates": [
-          "feature:kLazyBrowserInterfaceBroker"
-        ],
         "scrambled": false
       }
     },
@@ -43908,13 +43927,16 @@
       ],
       "metadata": {
         "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (Global Broker)"
-          ]
+          "associated": [
+            "Source: Associated Interface (RFH/Navigation)"
+          ],
+          "direct": []
         },
         "scope": "context",
-        "category": "direct",
+        "category": "associated",
+        "gates": [
+          "feature:kLazyBrowserInterfaceBroker"
+        ],
         "scrambled": false
       }
     },
@@ -43936,6 +43958,9 @@
         },
         "scope": "context",
         "category": "internal",
+        "gates": [
+          "feature:kLazyBrowserInterfaceBroker"
+        ],
         "scrambled": false
       }
     },
@@ -45706,25 +45731,6 @@
           "feature:kEnforceGamepadPermissionsPolicy",
           "feature:kWebMachineLearningNeuralNetwork"
         ],
-        "scrambled": false
-      }
-    },
-    {
-      "name": "HapticsService",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_haptics_haptics.mojom.js",
-      "methods": [
-        "PlayHaptics"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (Global Broker)"
-          ]
-        },
-        "scope": "context",
-        "category": "direct",
         "scrambled": false
       }
     },
@@ -60244,6 +60250,12 @@
       ]
     },
     {
+      "filename": "services_device_public_mojom_haptics.mojom.js",
+      "source": "services/device/public/mojom/haptics.mojom",
+      "module": "device.mojom",
+      "imports": []
+    },
+    {
       "filename": "services_device_public_mojom_hid.mojom.js",
       "source": "services/device/public/mojom/hid.mojom",
       "module": "device.mojom",
@@ -64731,12 +64743,6 @@
       ]
     },
     {
-      "filename": "third_party_blink_public_mojom_haptics_haptics.mojom.js",
-      "source": "third_party/blink/public/mojom/haptics/haptics.mojom",
-      "module": "blink.mojom",
-      "imports": []
-    },
-    {
       "filename": "third_party_blink_public_mojom_hid_hid.mojom.js",
       "source": "third_party/blink/public/mojom/hid/hid.mojom",
       "module": "blink.mojom",
@@ -65191,10 +65197,11 @@
         "mojo/public/mojom/base/language_tag.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "services/device/public/mojom/screen_orientation_lock_types.mojom",
+        "services/network/public/mojom/permissions_policy/permissions_policy.mojom",
+        "skia/public/mojom/skcolor.mojom",
         "third_party/blink/public/mojom/manifest/display_mode.mojom",
         "third_party/blink/public/mojom/manifest/manifest_launch_handler.mojom",
         "third_party/blink/public/mojom/manifest/manifest_migration_behavior.mojom",
-        "services/network/public/mojom/permissions_policy/permissions_policy.mojom",
         "third_party/blink/public/mojom/safe_url_pattern.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/origin.mojom",
