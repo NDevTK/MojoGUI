@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-04T17:45:11.612684Z",
-  "version": "159.0.8142.0",
+  "generated_at": "2026-11-05T17:54:30.880309Z",
+  "version": "159.0.8144.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -10124,6 +10124,7 @@
       "file": "chrome_browser_ui_webui_omnibox_everywhere_mojom_omnibox_everywhere.mojom.js",
       "methods": [
         "ShowContextActionMenu",
+        "ShowOverflowMenu",
         "SetIsComposebox",
         "OnDismissMostVisited"
       ],
@@ -10148,6 +10149,7 @@
       "file": "chrome_browser_ui_webui_omnibox_everywhere_mojom_omnibox_everywhere.mojom.js",
       "methods": [
         "OnContextMenuClosed",
+        "OnOverflowMenuClosed",
         "OpenComposebox",
         "OnScreenshotCaptureCancelled"
       ],
@@ -10929,6 +10931,8 @@
         "RemoveBackupPassword",
         "RemoveCredential",
         "RemovePasswordException",
+        "MuteInsecureCredential",
+        "UnmuteInsecureCredential",
         "StartBulkPasswordCheck",
         "MovePasswordsToAccount",
         "ResetImporter",
@@ -14726,6 +14730,24 @@
       "methods": [
         "Progress",
         "Complete"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "UiaElementProbe",
+      "module": "chrome.mojom",
+      "file": "chrome_services_util_win_public_mojom_uia_element_probe.mojom.js",
+      "methods": [
+        "FindElement"
       ],
       "metadata": {
         "usage": {
@@ -23323,7 +23345,6 @@
         "ScrollFieldIntoView",
         "TriggerFormExtraction",
         "TriggerFormExtractionWithResponse",
-        "ClearFormCache",
         "ApplyFieldsAction",
         "ApplyFieldAction",
         "ExtractFormWithField",
@@ -23673,9 +23694,7 @@
         "Back",
         "Forward",
         "BackButtonHovered",
-        "NavigateHome",
-        "Navigate",
-        "NavigateText"
+        "NavigateHome"
       ],
       "metadata": {
         "usage": {
@@ -24004,6 +24023,8 @@
         "OnHomeButtonDropUrl",
         "OnHomeButtonDropFile",
         "OnHomeButtonDropText",
+        "OnToolbarDropUrl",
+        "OnToolbarDropText",
         "OnToolbarDropFile",
         "ShowAvatarMenu",
         "SetAvatarButtonHovered",
@@ -35916,6 +35937,7 @@
         "BindBatteryMonitor",
         "BindPressureManager",
         "BindVibrationManager",
+        "BindHapticsService",
         "BindHidManager",
         "BindPowerMonitor",
         "BindPublicIpAddressGeolocationProvider",
@@ -36103,7 +36125,8 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: BrowserInterfaceBroker (Global Broker)"
+            "Source: BrowserInterfaceBroker (Global Broker)",
+            "device.mojom.DeviceService.BindHapticsService"
           ]
         },
         "scope": "context",
@@ -38321,7 +38344,8 @@
       "file": "services_network_public_mojom_network_context.mojom.js",
       "methods": [
         "OnLoaderCreated",
-        "OnLoaderForCorsPreflightCreated"
+        "OnLoaderForCorsPreflightCreated",
+        "OnLoaderFailedWithRemoteEndpoint"
       ],
       "metadata": {
         "usage": {
@@ -42600,7 +42624,8 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_ai_ai_semantic_embedder.mojom.js",
       "methods": [
-        "Embed"
+        "Embed",
+        "CancelEmbed"
       ],
       "metadata": {
         "usage": {
@@ -52920,6 +52945,7 @@
         "components/omnibox/browser/searchbox.mojom",
         "components/omnibox/composebox/composebox_query.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",
+        "ui/base/mojom/menu_source_type.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
@@ -53797,6 +53823,17 @@
       "imports": [
         "mojo/public/mojom/base/file_path.mojom",
         "sandbox/policy/mojom/sandbox.mojom"
+      ]
+    },
+    {
+      "filename": "chrome_services_util_win_public_mojom_uia_element_probe.mojom.js",
+      "source": "chrome/services/util_win/public/mojom/uia_element_probe.mojom",
+      "module": "chrome.mojom",
+      "imports": [
+        "mojo/public/mojom/base/time.mojom",
+        "mojo/public/mojom/base/wstring.mojom",
+        "sandbox/policy/mojom/sandbox.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
     {
@@ -60179,6 +60216,7 @@
         "services/device/public/mojom/geolocation_context.mojom",
         "services/device/public/mojom/geolocation_control.mojom",
         "services/device/public/mojom/geolocation_internals.mojom",
+        "services/device/public/mojom/haptics.mojom",
         "services/device/public/mojom/hid.mojom",
         "services/device/public/mojom/power_monitor.mojom",
         "services/device/public/mojom/public_ip_address_geolocation_provider.mojom",
