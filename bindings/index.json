@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-05T17:54:30.880309Z",
-  "version": "159.0.8144.0",
+  "generated_at": "2026-11-06T17:11:20.922152Z",
+  "version": "159.0.8146.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4374,7 +4374,8 @@
         "OnDisabledByAdminCloseClicked",
         "OnDisabledByAdminLinkClicked",
         "OnClosePanelClicked",
-        "OnShowErrorClicked"
+        "OnShowErrorClicked",
+        "OnRelaunchClicked"
       ],
       "metadata": {
         "usage": {
@@ -4532,6 +4533,7 @@
         "OpenProfilePickerAndClosePanel",
         "OpenDisabledByAdminLinkAndClosePanel",
         "SignInAndClosePanel",
+        "RelaunchForProviderChange",
         "ResizeWidget",
         "OnWebUiStateChanged",
         "NotifyClientLoadError",
@@ -4645,7 +4647,8 @@
         "ScreenshotReceived",
         "SetPostRegionSelections",
         "SetInteractionOptions",
-        "SetSidePanelOpen"
+        "SetSidePanelOpen",
+        "PageContextReceived"
       ],
       "metadata": {
         "usage": {
@@ -7828,6 +7831,9 @@
         "OpenContextHubPage",
         "OpenWebUrl",
         "CopyAttachmentsToClipboard",
+        "GetBrowseMemoryBanksShortcut",
+        "GetSuggestedBrowseMemoryBanksShortcut",
+        "SetBrowseMemoryBanksShortcut",
         "StartSkillRecording",
         "StopSkillRecording"
       ],
@@ -25982,6 +25988,7 @@
         "GetSmartTabSharingActive",
         "ResetSmartTabSharing",
         "DismissFre",
+        "RecordFreImpression",
         "ShowHotkeyDropdown",
         "OpenHotkeySettings",
         "OnEscapePressed"
@@ -26951,6 +26958,7 @@
         "SetLocalEventMonitorEnabled",
         "SetCursor",
         "EnableImmersiveFullscreen",
+        "EnableImmersiveFullscreenWithTransparentTitlebar",
         "DisableImmersiveFullscreen",
         "UpdateToolbarVisibility",
         "OnTopContainerViewBoundsChanged",
@@ -27019,6 +27027,7 @@
         "OnImmersiveFullscreenToolbarRevealChanged",
         "OnImmersiveFullscreenMenuBarRevealChanged",
         "OnAutohidingMenuBarHeightChanged",
+        "OnImmersiveFullscreenTitlebarFrameChanged",
         "DoDialogButtonAction",
         "GetDialogButtonInfo",
         "GetDoDialogButtonsExist",
@@ -36016,8 +36025,7 @@
       "file": "services_device_public_mojom_geolocation.mojom.js",
       "methods": [
         "SetHighAccuracyHint",
-        "QueryNextPosition",
-        "QueryCachedPosition"
+        "QueryNextPosition"
       ],
       "metadata": {
         "usage": {
@@ -36042,6 +36050,7 @@
       "file": "services_device_public_mojom_geolocation_context.mojom.js",
       "methods": [
         "BindGeolocation",
+        "QueryCachedPosition",
         "OnPermissionUpdated",
         "SetOverride",
         "ClearOverride"
@@ -43948,7 +43957,8 @@
         "UnregisterScriptTool",
         "GetScriptTools",
         "ExecuteRemoteScriptTool",
-        "CancelRemoteScriptTool"
+        "CancelRemoteScriptTool",
+        "SetScriptToolsReady"
       ],
       "metadata": {
         "usage": {
@@ -45324,7 +45334,6 @@
         "PluginActionAt",
         "AdvanceFocusInFrame",
         "AdvanceFocusForIME",
-        "ReportContentSecurityPolicyViolation",
         "DidUpdateFramePolicy",
         "PostMessageEvent",
         "JavaScriptMethodExecuteRequest",
@@ -48346,6 +48355,25 @@
         },
         "scope": "context",
         "category": "direct",
+        "scrambled": false
+      }
+    },
+    {
+      "name": "OutsideContextCSPViolationReporter",
+      "module": "blink.mojom",
+      "file": "third_party_blink_public_mojom_security_context_outside_context_csp_violation_reporter.mojom.js",
+      "methods": [
+        "ReportCSPViolation"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
         "scrambled": false
       }
     },
@@ -66020,6 +66048,14 @@
       "imports": []
     },
     {
+      "filename": "third_party_blink_public_mojom_security_context_outside_context_csp_violation_reporter.mojom.js",
+      "source": "third_party/blink/public/mojom/security_context/outside_context_csp_violation_reporter.mojom",
+      "module": "blink.mojom",
+      "imports": [
+        "services/network/public/mojom/content_security_policy.mojom"
+      ]
+    },
+    {
       "filename": "third_party_blink_public_mojom_selection_menu_selection_menu_behavior.mojom.js",
       "source": "third_party/blink/public/mojom/selection_menu/selection_menu_behavior.mojom",
       "module": "blink.mojom",
@@ -66671,6 +66707,7 @@
       "source": "third_party/blink/public/mojom/webtransport/web_transport_connector.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/unguessable_token.mojom",
         "services/network/public/mojom/web_transport.mojom",
         "url/mojom/url.mojom"
       ]
@@ -66860,6 +66897,7 @@
         "services/network/public/mojom/content_security_policy.mojom",
         "services/network/public/mojom/permissions_policy/permissions_policy.mojom",
         "third_party/blink/public/mojom/loader/fetch_client_settings_object.mojom",
+        "third_party/blink/public/mojom/security_context/outside_context_csp_violation_reporter.mojom",
         "third_party/blink/public/mojom/worker/worker_options.mojom",
         "url/mojom/url.mojom"
       ]
@@ -67788,6 +67826,7 @@
       "source": "ui/webui/resources/cr_components/history/history.mojom",
       "module": "history.mojom",
       "imports": [
+        "mojo/public/mojom/base/time.mojom",
         "url/mojom/url.mojom"
       ]
     },
