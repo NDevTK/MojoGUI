@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,10 +127,19 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.toolbar_ui_api = mojo.internal.bindings.toolbar_ui_api || {};
 
+mojo.internal.bindings.extensions_bar.mojom.FlatEdgeSpec = mojo.internal.bindings.extensions_bar.mojom.FlatEdgeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec = mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec || { $: {} };
+if (mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec.$ = {};
 mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec = mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec || { $: {} };
 if (mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.extensions_bar = mojo.internal.bindings.extensions_bar || {};
+mojo.internal.bindings.extensions_bar.mojom = mojo.internal.bindings.extensions_bar.mojom || {};
+mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec = mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.EmptySpec = mojo.internal.bindings.mojo_base.mojom.EmptySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
@@ -138,18 +147,47 @@ mojo.internal.bindings.toolbar_ui_api = mojo.internal.bindings.toolbar_ui_api ||
 mojo.internal.bindings.toolbar_ui_api.mojom = mojo.internal.bindings.toolbar_ui_api.mojom || {};
 mojo.internal.bindings.toolbar_ui_api.mojom.IconHandleSpec = mojo.internal.bindings.toolbar_ui_api.mojom.IconHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Enum: FlatEdge
+mojo.internal.bindings.extensions_bar.mojom.FlatEdge = {
+  kNone: 0,
+  kStart: 1,
+  kEnd: 2,
+};
+
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: ExtensionActionId
+mojo.internal.Union(
+    mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec, 'extensions_bar.mojom.ExtensionActionId', {
+      'arg_extension_id': {
+        'ordinal': 0,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+      'arg_extensions_menu_button': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.mojo_base.mojom.EmptySpec,
+        'nullable': false,
+      },
+      'arg_request_access_button': {
+        'ordinal': 2,
+        'type': mojo.internal.Uint32,
+        'nullable': false,
+      },
+    });
 
 // Struct: ExtensionActionInfo
 mojo.internal.Struct(
     mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec, 'extensions_bar.mojom.ExtensionActionInfo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_accessible_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tooltip', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_visible', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_visible', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_pinned_by_default_iph_anchor', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_highlighted', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 32, 0, mojo.internal.bindings.toolbar_ui_api.mojom.IconHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accessible_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tooltip', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_visible', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_visible', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_pinned_by_default_iph_anchor', 32, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_highlighted', 32, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_flat_edge', 36, 0, mojo.internal.bindings.extensions_bar.mojom.FlatEdgeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 40, 0, mojo.internal.bindings.toolbar_ui_api.mojom.IconHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
     ],
-    [[0, 48]]);
+    [[0, 64]]);

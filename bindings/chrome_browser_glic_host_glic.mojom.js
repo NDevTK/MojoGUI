@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -151,6 +151,7 @@ mojo.internal.bindings.glic.mojom.PinTriggerSpec = mojo.internal.bindings.glic.m
 mojo.internal.bindings.glic.mojom.UnpinTriggerSpec = mojo.internal.bindings.glic.mojom.UnpinTriggerSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.CancelActionsResultSpec = mojo.internal.bindings.glic.mojom.CancelActionsResultSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.GlicRequestEventSpec = mojo.internal.bindings.glic.mojom.GlicRequestEventSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.TooltipImpressionTypeSpec = mojo.internal.bindings.glic.mojom.TooltipImpressionTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.SwitchConversationErrorReasonSpec = mojo.internal.bindings.glic.mojom.SwitchConversationErrorReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.RegisterConversationErrorReasonSpec = mojo.internal.bindings.glic.mojom.RegisterConversationErrorReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.WebClientModeSpec = mojo.internal.bindings.glic.mojom.WebClientModeSpec || { $: mojo.internal.Enum().$ };
@@ -677,6 +678,8 @@ mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_Param
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandler = mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandler || {};
 mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec = mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec.$ = {};
@@ -1143,6 +1146,15 @@ mojo.internal.bindings.glic.mojom.GlicRequestEvent = {
   kResponseSent: 1,
   kRequestHandlerException: 2,
   kRequestReceivedWhileInactive: 4,
+};
+
+// Enum: TooltipImpressionType
+mojo.internal.bindings.glic.mojom.TooltipImpressionType = {
+  kUnknown: 0,
+  kTooltip1: 1,
+  kTooltip2a: 2,
+  kTooltip2b: 3,
+  kTooltip3: 4,
 };
 
 // Enum: SwitchConversationErrorReason
@@ -3333,12 +3345,16 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemote = class {
   getSendTabToSelfDevices() {
     return this.$.getSendTabToSelfDevices();
   }
+  onTooltipImpression(arg_impression) {
+    return this.$.onTooltipImpression(arg_impression);
+  }
 };
 
 mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4182,6 +4198,15 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       false);
   }
 
+  onTooltipImpression(arg_impression) {
+    return this.proxy.sendMessage(
+      this.ordinals[84],  // ordinal
+      mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec,
+      null,
+      [arg_impression],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.mojom.WebClientHandler.getRemote = function() {
@@ -4200,6 +4225,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -5245,6 +5271,13 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] getSendTabToSelfDevices FAILED:', e));
           }
+          break;
+        }
+        case 84: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onTooltipImpression');
+          const result = this.impl.onTooltipImpression(params.arg_impression);
           break;
         }
       }
@@ -8934,6 +8967,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec, 'glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParams', [
       mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.SendTabToSelfDeviceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec, 'glic.mojom.WebClientHandler_OnTooltipImpression_Params', [
+      mojo.internal.StructField('arg_impression', 0, 0, mojo.internal.bindings.glic.mojom.TooltipImpressionTypeSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -174,6 +174,8 @@ mojo.internal.bindings.blink.mojom.AIDecisionModelQuestionType = {
 mojo.internal.bindings.blink.mojom.AIDecisionModelBackend = {
   kEmbeddingGemmaV1: 0,
   kLanguageModel: 1,
+  kLayaEnWint8: 2,
+  kLayaMlWint8: 3,
 };
 
 // Interface: AIDecisionModel

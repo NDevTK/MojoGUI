@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -158,6 +158,9 @@ mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec = mojo.internal.bi
 if (mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec.$.structSpec && mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.tab_groups = mojo.internal.bindings.tab_groups || {};
 mojo.internal.bindings.tab_groups.mojom = mojo.internal.bindings.tab_groups.mojom || {};
 mojo.internal.bindings.tab_groups.mojom.ColorSpec = mojo.internal.bindings.tab_groups.mojom.ColorSpec || { $: mojo.internal.Enum().$ };
@@ -247,8 +250,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_active', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_selected', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_blocked', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
 
 // Struct: Window
 mojo.internal.Struct(

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -675,8 +675,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_source_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_mime_type', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_has_c2pa_manifest_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_has_c2pa_manifest_$value', originalFieldName: 'arg_has_c2pa_manifest' }),
+      mojo.internal.StructField('arg_has_c2pa_manifest_$value', 32, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_has_c2pa_manifest_$flag', originalFieldName: 'arg_has_c2pa_manifest' }),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 // Struct: AIPageContentSvgRootData
 mojo.internal.Struct(

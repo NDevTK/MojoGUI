@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -197,7 +197,16 @@ mojo.internal.bindings.arc.mojom.VideoCodecProfile = {
   HEVCPROFILE_EXT_MAX: 36,
   DOLBYVISION_PROFILE10: 37,
   DOLBYVISION_PROFILE20: 38,
-  VIDEO_CODEC_PROFILE_MAX: 38,
+  AV2PROFILE_MIN: 39,
+  AV2PROFILE_MAIN_420_10_IP0: 39,
+  AV2PROFILE_MAIN_420_10_IP1: 40,
+  AV2PROFILE_MAIN_420_10_IP2: 41,
+  AV2PROFILE_MAIN_422_10_IP1: 42,
+  AV2PROFILE_MAIN_444_10_IP1: 43,
+  AV2PROFILE_MAIN_444C_12_IP2: 44,
+  AV2PROFILE_CONFIGURABLE: 45,
+  AV2PROFILE_MAX: 45,
+  VIDEO_CODEC_PROFILE_MAX: 45,
 };
 
 // Enum: HalPixelFormat

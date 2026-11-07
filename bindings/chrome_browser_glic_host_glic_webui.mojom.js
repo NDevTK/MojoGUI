@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -168,6 +168,8 @@ mojo.internal.bindings.glic.mojom.Page_UpdatePageState_ParamsSpec = mojo.interna
 if (mojo.internal.bindings.glic.mojom.Page_UpdatePageState_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.Page_UpdatePageState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.Page_UpdatePageState_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.Page_ClientReadyStateChanged_ParamsSpec = mojo.internal.bindings.glic.mojom.Page_ClientReadyStateChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.Page_ClientReadyStateChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.Page_ClientReadyStateChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.Page_ClientReadyStateChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec = mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec = mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.GlicPreloadHandler = mojo.internal.bindings.glic.mojom.GlicPreloadHandler || {};
@@ -629,6 +631,9 @@ mojo.internal.bindings.glic.mojom.PageRemote = class {
   clientReadyStateChanged(arg_ready) {
     return this.$.clientReadyStateChanged(arg_ready);
   }
+  showPendingProviderChange() {
+    return this.$.showPendingProviderChange();
+  }
   zoom(arg_action) {
     return this.$.zoom(arg_action);
   }
@@ -638,6 +643,7 @@ mojo.internal.bindings.glic.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -692,9 +698,18 @@ mojo.internal.bindings.glic.mojom.PageRemoteCallHandler = class {
       false);
   }
 
-  zoom(arg_action) {
+  showPendingProviderChange() {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
+      mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  zoom(arg_action) {
+    return this.proxy.sendMessage(
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec,
       null,
       [arg_action],
@@ -719,6 +734,7 @@ mojo.internal.bindings.glic.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -815,6 +831,13 @@ mojo.internal.bindings.glic.mojom.PageReceiver = class {
           break;
         }
         case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.showPendingProviderChange');
+          const result = this.impl.showPendingProviderChange();
+          break;
+        }
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.zoom');
@@ -1824,6 +1847,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_ready', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec, 'glic.mojom.Page_ShowPendingProviderChange_Params', [
+    ],
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec, 'glic.mojom.Page_Zoom_Params', [

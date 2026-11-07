@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -972,6 +972,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_specific_tab_index_$flag', 32, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_specific_tab_index_$value', originalFieldName: 'arg_specific_tab_index' }),
       mojo.internal.StructField('arg_take_screenshot', 33, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_supersede_if_in_progress', 33, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_headless_actuation', 33, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_fre_override', 36, 0, mojo.internal.bindings.glic.mojom.FreOverrideSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_zss_additional_content', 40, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_skill_id', 48, 0, mojo.internal.String, null, true, 0, undefined),

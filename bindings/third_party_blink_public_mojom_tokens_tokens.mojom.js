@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -160,6 +160,8 @@ mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec = mojo.internal.binding
 if (mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.PaintWorkletTokenSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec = mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ContinuationTokenSpec = mojo.internal.bindings.blink.mojom.ContinuationTokenSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ContinuationTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContinuationTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContinuationTokenSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec = mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ScriptToolTokenSpec = mojo.internal.bindings.blink.mojom.ScriptToolTokenSpec || { $: {} };
@@ -183,6 +185,9 @@ if (mojo.internal.bindings.blink.mojom.WebNNGraphTokenSpec.$.structSpec && mojo.
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.UuidSpec = mojo.internal.bindings.mojo_base.mojom.UuidSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
@@ -402,6 +407,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ShadowRealmTokenSpec, 'blink.mojom.ShadowRealmToken', [
       mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: ContinuationToken
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContinuationTokenSpec, 'blink.mojom.ContinuationToken', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

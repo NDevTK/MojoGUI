@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,6 +125,7 @@
 mojo.internal.bindings.toolbar_ui_api.mojom = mojo.internal.bindings.toolbar_ui_api.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.extensions_bar = mojo.internal.bindings.extensions_bar || {};
 mojo.internal.bindings.content_settings = mojo.internal.bindings.content_settings || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
@@ -231,8 +232,13 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnMediaButtonClicke
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnMediaButtonClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnMediaButtonClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnMediaButtonClicked_ParamsSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicButtonClicked_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicButtonClicked_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicButtonClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicButtonClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicButtonClicked_ParamsSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicActorTaskIconClicked_ParamsSpec = mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicActorTaskIconClicked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicActorTaskIconClicked_ParamsSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicActorTaskIconClicked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicActorTaskIconClicked_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.extensions_bar = mojo.internal.bindings.extensions_bar || {};
+mojo.internal.bindings.extensions_bar.mojom = mojo.internal.bindings.extensions_bar.mojom || {};
+mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec = mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointFSpec = mojo.internal.bindings.gfx.mojom.PointFSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -594,11 +600,11 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemote = class {
   onAppMenuFocusChanged(arg_focused) {
     return this.$.onAppMenuFocusChanged(arg_focused);
   }
-  executeExtensionAction(arg_extension_id) {
-    return this.$.executeExtensionAction(arg_extension_id);
+  executeExtensionAction(arg_id) {
+    return this.$.executeExtensionAction(arg_id);
   }
-  showExtensionContextMenu(arg_extension_id, arg_source) {
-    return this.$.showExtensionContextMenu(arg_extension_id, arg_source);
+  showExtensionContextMenu(arg_id, arg_source) {
+    return this.$.showExtensionContextMenu(arg_id, arg_source);
   }
   adjustOmniboxTextForCopy(arg_text, arg_selection_start) {
     return this.$.adjustOmniboxTextForCopy(arg_text, arg_selection_start);
@@ -612,12 +618,16 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemote = class {
   onGlicButtonClicked() {
     return this.$.onGlicButtonClicked();
   }
+  onGlicActorTaskIconClicked() {
+    return this.$.onGlicActorTaskIconClicked();
+  }
 };
 
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('toolbar_ui_api.mojom.ToolbarUIService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -957,21 +967,21 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
       false);
   }
 
-  executeExtensionAction(arg_extension_id) {
+  executeExtensionAction(arg_id) {
     return this.proxy.sendMessage(
       this.ordinals[33],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_ParamsSpec,
       null,
-      [arg_extension_id],
+      [arg_id],
       false);
   }
 
-  showExtensionContextMenu(arg_extension_id, arg_source) {
+  showExtensionContextMenu(arg_id, arg_source) {
     return this.proxy.sendMessage(
       this.ordinals[34],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowExtensionContextMenu_ParamsSpec,
       null,
-      [arg_extension_id, arg_source],
+      [arg_id, arg_source],
       false);
   }
 
@@ -1011,6 +1021,15 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
       false);
   }
 
+  onGlicActorTaskIconClicked() {
+    return this.proxy.sendMessage(
+      this.ordinals[39],  // ordinal
+      mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicActorTaskIconClicked_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService.getRemote = function() {
@@ -1029,6 +1048,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('toolbar_ui_api.mojom.ToolbarUIService', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1346,14 +1366,14 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeExtensionAction');
-          const result = this.impl.executeExtensionAction(params.arg_extension_id);
+          const result = this.impl.executeExtensionAction(params.arg_id);
           break;
         }
         case 34: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowExtensionContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showExtensionContextMenu');
-          const result = this.impl.showExtensionContextMenu(params.arg_extension_id, params.arg_source);
+          const result = this.impl.showExtensionContextMenu(params.arg_id, params.arg_source);
           break;
         }
         case 35: {
@@ -1382,6 +1402,13 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicButtonClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGlicButtonClicked');
           const result = this.impl.onGlicButtonClicked();
+          break;
+        }
+        case 39: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicActorTaskIconClicked_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onGlicActorTaskIconClicked');
+          const result = this.impl.onGlicActorTaskIconClicked();
           break;
         }
       }
@@ -1672,16 +1699,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_ExecuteExtensionAction_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_ShowExtensionContextMenu_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_ShowExtensionContextMenu_Params', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 16, 0, mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_AdjustOmniboxTextForCopy_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_AdjustOmniboxTextForCopy_Params', [
@@ -1702,6 +1729,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicButtonClicked_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_OnGlicButtonClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnGlicActorTaskIconClicked_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_OnGlicActorTaskIconClicked_Params', [
     ],
     [[0, 8]]);
 

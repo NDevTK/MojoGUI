@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -184,6 +184,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.BatterySaverControlStateSpec = mojo.
 if (mojo.internal.bindings.toolbar_ui_api.mojom.BatterySaverControlStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.BatterySaverControlStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.BatterySaverControlStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.GlicButtonStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.GlicButtonStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.GlicButtonStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.GlicButtonStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.GlicButtonStateSpec.$ = {};
+mojo.internal.bindings.toolbar_ui_api.mojom.GlicActorTaskIconStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.GlicActorTaskIconStateSpec || { $: {} };
+if (mojo.internal.bindings.toolbar_ui_api.mojom.GlicActorTaskIconStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.GlicActorTaskIconStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.GlicActorTaskIconStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec || { $: {} };
 if (mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec.$.structSpec && mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.toolbar_ui_api.mojom.AppMenuControlStateSpec.$ = {};
 mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec = mojo.internal.bindings.toolbar_ui_api.mojom.AvatarControlStateSpec || { $: {} };
@@ -734,9 +736,20 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_context_menu_visible', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_should_match_toolbar_style', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_use_custom_theme_fallback', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_split', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_nudge_label', 8, 0, mojo.internal.String, null, true, 0, undefined),
     ],
     [[0, 24]]);
+
+// Struct: GlicActorTaskIconState
+mojo.internal.Struct(
+    mojo.internal.bindings.toolbar_ui_api.mojom.GlicActorTaskIconStateSpec, 'toolbar_ui_api.mojom.GlicActorTaskIconState', [
+      mojo.internal.StructField('arg_should_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_pressed', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_nudge_label', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tooltip', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 // Struct: AppMenuControlState
 mojo.internal.Struct(
@@ -971,5 +984,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_touch_ui', 108, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_controls_appear_inactive', 108, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_glic_button_state', 112, 0, mojo.internal.bindings.toolbar_ui_api.mojom.GlicButtonStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_glic_actor_task_icon_state', 120, 0, mojo.internal.bindings.toolbar_ui_api.mojom.GlicActorTaskIconStateSpec, null, false, 0, undefined),
     ],
-    [[0, 128]]);
+    [[0, 136]]);

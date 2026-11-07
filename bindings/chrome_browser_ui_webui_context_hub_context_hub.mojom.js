@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -135,6 +135,7 @@ mojo.internal.bindings.browser.context_hub.mojom.EntryTypeSpec = mojo.internal.b
 mojo.internal.bindings.browser.context_hub.mojom.ChatRoleSpec = mojo.internal.bindings.browser.context_hub.mojom.ChatRoleSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser.context_hub.mojom.TopicDefectCategorySpec = mojo.internal.bindings.browser.context_hub.mojom.TopicDefectCategorySpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser.context_hub.mojom.TopicRatingSpec = mojo.internal.bindings.browser.context_hub.mojom.TopicRatingSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionTypeSpec = mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser.context_hub.mojom.CopyAttachmentsToClipboardStatusSpec = mojo.internal.bindings.browser.context_hub.mojom.CopyAttachmentsToClipboardStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser.context_hub.mojom.MemoryBanksShortcutStatusSpec = mojo.internal.bindings.browser.context_hub.mojom.MemoryBanksShortcutStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec = mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec || { $: {} };
@@ -209,12 +210,12 @@ mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportPreviewSpec
 if (mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportPreviewSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportPreviewSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportPreviewSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec = mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.TopicsFeedbackExportOptionsSpec.$ = {};
-mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec = mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec || { $: {} };
-if (mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec = mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec = mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec = mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.Page = mojo.internal.bindings.browser.context_hub.mojom.Page || {};
 mojo.internal.bindings.browser.context_hub.mojom.PageSpec = mojo.internal.bindings.browser.context_hub.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageSpec.$ = {};
@@ -564,6 +565,11 @@ mojo.internal.bindings.browser.context_hub.mojom.TopicRating = {
   kUnrated: 0,
   kLiked: 1,
   kDisliked: 2,
+};
+
+// Enum: SkillRecordingActionType
+mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionType = {
+  kLeftClick: 0,
 };
 
 // Enum: CopyAttachmentsToClipboardStatus
@@ -3190,21 +3196,15 @@ mojo.internal.Struct(
     ],
     [[0, 40]]);
 
-// Struct: MemoryBankFileAttachment
-mojo.internal.Struct(
-    mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec, 'browser.context_hub.mojom.MemoryBankFileAttachment', [
-      mojo.internal.StructField('arg_filename', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Struct: SkillRecordingAction
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec, 'browser.context_hub.mojom.SkillRecordingAction', [
-      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screenshot_data_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 40]]);
 
 // Struct: SkillRecordingSessionData
 mojo.internal.Struct(
@@ -3212,6 +3212,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingActionSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+// Struct: MemoryBankFileAttachment
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.MemoryBankFileAttachmentSpec, 'browser.context_hub.mojom.MemoryBankFileAttachment', [
+      mojo.internal.StructField('arg_filename', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.Page_OnAutoTodosChanged_ParamsSpec, 'browser.context_hub.mojom.Page_OnAutoTodosChanged_Params', [
       mojo.internal.StructField('arg_todos', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.AutoTodoItemSpec, false), null, false, 0, undefined),

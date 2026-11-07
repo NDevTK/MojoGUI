@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -166,6 +166,8 @@ mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_Params
 if (mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.chrome.mojom.AppShim_SynchronizeNotificationPermissionStatus_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_SynchronizeNotificationPermissionStatus_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.chrome.mojom.AppShim_SynchronizeNotificationPermissionStatus_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_SynchronizeNotificationPermissionStatus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_SynchronizeNotificationPermissionStatus_ParamsSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec = mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$.structSpec && mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$ = {};
 mojo.internal.bindings.chrome.mojom.AppShimHost = mojo.internal.bindings.chrome.mojom.AppShimHost || {};
@@ -332,6 +334,9 @@ mojo.internal.bindings.chrome.mojom.AppShimRemote = class {
   requestNotificationPermission() {
     return this.$.requestNotificationPermission();
   }
+  synchronizeNotificationPermissionStatus() {
+    return this.$.synchronizeNotificationPermissionStatus();
+  }
   bindChildHistogramFetcherFactory(arg_receiver) {
     return this.$.bindChildHistogramFetcherFactory(arg_receiver);
   }
@@ -341,6 +346,7 @@ mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.AppShim', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -425,9 +431,18 @@ mojo.internal.bindings.chrome.mojom.AppShimRemoteCallHandler = class {
       false);
   }
 
-  bindChildHistogramFetcherFactory(arg_receiver) {
+  synchronizeNotificationPermissionStatus() {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
+      mojo.internal.bindings.chrome.mojom.AppShim_SynchronizeNotificationPermissionStatus_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  bindChildHistogramFetcherFactory(arg_receiver) {
+    return this.proxy.sendMessage(
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec,
       null,
       [arg_receiver],
@@ -452,6 +467,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('chrome.mojom.AppShim', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -572,6 +588,13 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
           break;
         }
         case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_SynchronizeNotificationPermissionStatus_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.synchronizeNotificationPermissionStatus');
+          const result = this.impl.synchronizeNotificationPermissionStatus();
+          break;
+        }
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindChildHistogramFetcherFactory');
@@ -1157,6 +1180,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mac_notifications.mojom.RequestPermissionResultSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShim_SynchronizeNotificationPermissionStatus_ParamsSpec, 'chrome.mojom.AppShim_SynchronizeNotificationPermissionStatus_Params', [
+    ],
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec, 'chrome.mojom.AppShim_BindChildHistogramFetcherFactory_Params', [

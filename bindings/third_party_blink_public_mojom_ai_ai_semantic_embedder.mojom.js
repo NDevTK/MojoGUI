@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 
 mojo.internal.bindings.blink.mojom.AISemanticEmbedderTaskTypeSpec = mojo.internal.bindings.blink.mojom.AISemanticEmbedderTaskTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec = mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AISemanticEmbedderEmbedOptionsSpec = mojo.internal.bindings.blink.mojom.AISemanticEmbedderEmbedOptionsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.AISemanticEmbedderEmbedOptionsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AISemanticEmbedderEmbedOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AISemanticEmbedderEmbedOptionsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ContentEmbeddingSpec = mojo.internal.bindings.blink.mojom.ContentEmbeddingSpec || { $: {} };
@@ -321,6 +323,13 @@ mojo.internal.bindings.blink.mojom.AISemanticEmbedderRequest = mojo.internal.bin
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AISemanticEmbedderCreateOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec, 'blink.mojom.AISemanticEmbedderCreateOptions', [
+      mojo.internal.StructField('arg_embedding_space', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: AISemanticEmbedderEmbedOptions
 mojo.internal.Struct(

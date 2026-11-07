@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -273,6 +273,9 @@ mojo.internal.bindings.blink.mojom.AISemanticEmbedderRemote = mojo.internal.bind
 mojo.internal.bindings.blink.mojom.AISemanticEmbedderPendingReceiver = mojo.internal.bindings.blink.mojom.AISemanticEmbedderPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec = mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.AISummarizerSpec = mojo.internal.bindings.blink.mojom.AISummarizerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.AISummarizerRemote = mojo.internal.bindings.blink.mojom.AISummarizerRemote || class {};
 mojo.internal.bindings.blink.mojom.AISummarizerPendingReceiver = mojo.internal.bindings.blink.mojom.AISummarizerPendingReceiver || class { constructor(handle) { this.handle = handle; } };
@@ -321,6 +324,7 @@ mojo.internal.bindings.blink.mojom.ModelAvailabilityCheckResult = {
   kUnavailableEnterprisePolicyDisabled: 20,
   kUnavailableIncompatiblePreferenceOptions: 21,
   kUnavailableInsufficientDiskSpaceForCaches: 22,
+  kUnavailableUnsupportedEmbeddingSpace: 23,
 };
 
 // Interface: AIManagerCreateWriterClient
@@ -1322,11 +1326,11 @@ mojo.internal.bindings.blink.mojom.AIManagerRemote = class {
   createProofreader(arg_client, arg_options, arg_monitor) {
     return this.$.createProofreader(arg_client, arg_options, arg_monitor);
   }
-  canCreateSemanticEmbedder() {
-    return this.$.canCreateSemanticEmbedder();
+  canCreateSemanticEmbedder(arg_options) {
+    return this.$.canCreateSemanticEmbedder(arg_options);
   }
-  createSemanticEmbedder(arg_client, arg_monitor) {
-    return this.$.createSemanticEmbedder(arg_client, arg_monitor);
+  createSemanticEmbedder(arg_client, arg_options, arg_monitor) {
+    return this.$.createSemanticEmbedder(arg_client, arg_options, arg_monitor);
   }
   canCreateDecisionModel(arg_options) {
     return this.$.canCreateDecisionModel(arg_options);
@@ -1457,21 +1461,21 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       false);
   }
 
-  canCreateSemanticEmbedder() {
+  canCreateSemanticEmbedder(arg_options) {
     return this.proxy.sendMessage(
       this.ordinals[11],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateSemanticEmbedder_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateSemanticEmbedder_ResponseParamsSpec,
-      [],
+      [arg_options],
       false);
   }
 
-  createSemanticEmbedder(arg_client, arg_monitor) {
+  createSemanticEmbedder(arg_client, arg_options, arg_monitor) {
     return this.proxy.sendMessage(
       this.ordinals[12],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateSemanticEmbedder_ParamsSpec,
       null,
-      [arg_client, arg_monitor],
+      [arg_client, arg_options, arg_monitor],
       false);
   }
 
@@ -1716,7 +1720,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateSemanticEmbedder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateSemanticEmbedder');
-          const result = this.impl.canCreateSemanticEmbedder();
+          const result = this.impl.canCreateSemanticEmbedder(params.arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -1734,7 +1738,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateSemanticEmbedder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSemanticEmbedder');
-          const result = this.impl.createSemanticEmbedder(params.arg_client, params.arg_monitor);
+          const result = this.impl.createSemanticEmbedder(params.arg_client, params.arg_options, params.arg_monitor);
           break;
         }
         case 13: {
@@ -1971,8 +1975,9 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManager_CanCreateSemanticEmbedder_ParamsSpec, 'blink.mojom.AIManager_CanCreateSemanticEmbedder_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec, null, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManager_CanCreateSemanticEmbedder_ResponseParamsSpec, 'blink.mojom.AIManager_CanCreateSemanticEmbedder_ResponseParams', [
@@ -1983,9 +1988,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManager_CreateSemanticEmbedder_ParamsSpec, 'blink.mojom.AIManager_CreateSemanticEmbedder_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AIManagerCreateSemanticEmbedderClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_monitor', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.DownloadObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_monitor', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.DownloadObserverRemote), null, true, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ParamsSpec, 'blink.mojom.AIManager_CanCreateDecisionModel_Params', [

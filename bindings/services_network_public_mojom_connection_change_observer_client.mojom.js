@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -130,6 +130,8 @@ mojo.internal.bindings.network.mojom.ConnectionEstablishmentInitiatorSpec = mojo
 mojo.internal.bindings.network.mojom.NetworkChangeEventSpec = mojo.internal.bindings.network.mojom.NetworkChangeEventSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.network.mojom.EstablishedConnectionInfoSpec = mojo.internal.bindings.network.mojom.EstablishedConnectionInfoSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.EstablishedConnectionInfoSpec.$.structSpec && mojo.internal.bindings.network.mojom.EstablishedConnectionInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.EstablishedConnectionInfoSpec.$ = {};
+mojo.internal.bindings.network.mojom.QuicKeepAliveTimeoutsSpec = mojo.internal.bindings.network.mojom.QuicKeepAliveTimeoutsSpec || { $: {} };
+if (mojo.internal.bindings.network.mojom.QuicKeepAliveTimeoutsSpec.$.structSpec && mojo.internal.bindings.network.mojom.QuicKeepAliveTimeoutsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.QuicKeepAliveTimeoutsSpec.$ = {};
 mojo.internal.bindings.network.mojom.ConnectionKeepAliveConfigSpec = mojo.internal.bindings.network.mojom.ConnectionKeepAliveConfigSpec || { $: {} };
 if (mojo.internal.bindings.network.mojom.ConnectionKeepAliveConfigSpec.$.structSpec && mojo.internal.bindings.network.mojom.ConnectionKeepAliveConfigSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.network.mojom.ConnectionKeepAliveConfigSpec.$ = {};
 mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient = mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient || {};
@@ -376,15 +378,23 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
+// Struct: QuicKeepAliveTimeouts
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.QuicKeepAliveTimeoutsSpec, 'network.mojom.QuicKeepAliveTimeouts', [
+      mojo.internal.StructField('arg_idle_timeout', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ping_interval', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: ConnectionKeepAliveConfig
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ConnectionKeepAliveConfigSpec, 'network.mojom.ConnectionKeepAliveConfig', [
-      mojo.internal.StructField('arg_idle_timeout_in_seconds', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ping_interval_in_seconds', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_alive_timeouts', 0, 0, mojo.internal.bindings.network.mojom.QuicKeepAliveTimeoutsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_enable_connection_keep_alive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_quic_connection_options', 16, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_initial_rtt', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_quic_connection_options', 24, 0, mojo.internal.String, 0, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 40]]);
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnSessionClosed_Params', [
       mojo.internal.StructField('arg_was_ever_used_to_create_streams', 0, 0, mojo.internal.Bool, false, false, 0, undefined),

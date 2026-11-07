@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -158,6 +158,9 @@ mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsS
 if (mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions_bar.mojom.Page_ActionPoppedOut_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.extensions_bar = mojo.internal.bindings.extensions_bar || {};
+mojo.internal.bindings.extensions_bar.mojom = mojo.internal.bindings.extensions_bar.mojom || {};
+mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec = mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.extensions_bar = mojo.internal.bindings.extensions_bar || {};
 mojo.internal.bindings.extensions_bar.mojom = mojo.internal.bindings.extensions_bar.mojom || {};
 mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec = mojo.internal.bindings.extensions_bar.mojom.ExtensionActionInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -677,16 +680,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions_bar.mojom.PageHandler_ExecuteUserAction_ParamsSpec, 'extensions_bar.mojom.PageHandler_ExecuteUserAction_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions_bar.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'extensions_bar.mojom.PageHandler_ShowContextMenu_Params', [
       mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.bindings.extensions_bar.mojom.ExtensionActionIdSpec, null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_ParamsSpec, 'extensions_bar.mojom.PageHandler_ToggleExtensionsMenuFromWebUI_Params', [

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8146.0';
+        const versionStr = window.mojoVersion || '159.0.8148.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -165,6 +165,14 @@ mojo.internal.bindings.blink.mojom.ModelContextHost_CancelRemoteScriptTool_Param
 if (mojo.internal.bindings.blink.mojom.ModelContextHost_CancelRemoteScriptTool_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextHost_CancelRemoteScriptTool_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextHost_CancelRemoteScriptTool_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ModelContextHost_SetScriptToolsReady_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelContextHost_SetScriptToolsReady_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ModelContextHost_SetScriptToolsReady_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextHost_SetScriptToolsReady_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextHost_SetScriptToolsReady_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ModelContext = mojo.internal.bindings.blink.mojom.ModelContext || {};
 mojo.internal.bindings.blink.mojom.ModelContextSpec = mojo.internal.bindings.blink.mojom.ModelContextSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.ModelContextSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContextSpec.$ = {};
@@ -175,10 +183,17 @@ mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ParamsSpec = m
 if (mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ModelContext_CancelScriptTool_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelContext_CancelScriptTool_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ModelContext_CancelScriptTool_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelContext_CancelScriptTool_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelContext_CancelScriptTool_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.ContinuationTokenSpec = mojo.internal.bindings.blink.mojom.ContinuationTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FrameTokenSpec = mojo.internal.bindings.blink.mojom.FrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -396,12 +411,20 @@ mojo.internal.bindings.blink.mojom.ModelContextHostRemote = class {
   setScriptToolsReady(arg_ready) {
     return this.$.setScriptToolsReady(arg_ready);
   }
+  requestContinuationToken(arg_invocation_id) {
+    return this.$.requestContinuationToken(arg_invocation_id);
+  }
+  redeemContinuationToken(arg_token) {
+    return this.$.redeemContinuationToken(arg_token);
+  }
 };
 
 mojo.internal.bindings.blink.mojom.ModelContextHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ModelContextHost', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -475,6 +498,24 @@ mojo.internal.bindings.blink.mojom.ModelContextHostRemoteCallHandler = class {
       false);
   }
 
+  requestContinuationToken(arg_invocation_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[7],  // ordinal
+      mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ResponseParamsSpec,
+      [arg_invocation_id],
+      false);
+  }
+
+  redeemContinuationToken(arg_token) {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
+      mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ResponseParamsSpec,
+      [arg_token],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.blink.mojom.ModelContextHost.getRemote = function() {
@@ -493,6 +534,8 @@ mojo.internal.bindings.blink.mojom.ModelContextHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ModelContextHost', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -623,6 +666,42 @@ mojo.internal.bindings.blink.mojom.ModelContextHostReceiver = class {
           const result = this.impl.setScriptToolsReady(params.arg_ready);
           break;
         }
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestContinuationToken');
+          const result = this.impl.requestContinuationToken(params.arg_invocation_id);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_token' in response) ? response['arg_token'] : response;
+              const resp_obj = { 'arg_token': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] requestContinuationToken FAILED:', e));
+          }
+          break;
+        }
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.redeemContinuationToken');
+          const result = this.impl.redeemContinuationToken(params.arg_token);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_accepted' in response) ? response['arg_accepted'] : response;
+              const resp_obj = { 'arg_accepted': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] redeemContinuationToken FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -673,6 +752,9 @@ mojo.internal.bindings.blink.mojom.ModelContextRemote = class {
   executeScriptTool(arg_invocation_id, arg_tool_id, arg_input_arguments) {
     return this.$.executeScriptTool(arg_invocation_id, arg_tool_id, arg_input_arguments);
   }
+  resumeScriptTool(arg_invocation_id, arg_token, arg_tool_name, arg_input_arguments) {
+    return this.$.resumeScriptTool(arg_invocation_id, arg_token, arg_tool_name, arg_input_arguments);
+  }
   cancelScriptTool(arg_invocation_id) {
     return this.$.cancelScriptTool(arg_invocation_id);
   }
@@ -682,6 +764,7 @@ mojo.internal.bindings.blink.mojom.ModelContextRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ModelContext', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -706,9 +789,18 @@ mojo.internal.bindings.blink.mojom.ModelContextRemoteCallHandler = class {
       false);
   }
 
-  cancelScriptTool(arg_invocation_id) {
+  resumeScriptTool(arg_invocation_id, arg_token, arg_tool_name, arg_input_arguments) {
     return this.proxy.sendMessage(
       this.ordinals[2],  // ordinal
+      mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ResponseParamsSpec,
+      [arg_invocation_id, arg_token, arg_tool_name, arg_input_arguments],
+      false);
+  }
+
+  cancelScriptTool(arg_invocation_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelContext_CancelScriptTool_ParamsSpec,
       null,
       [arg_invocation_id],
@@ -733,6 +825,7 @@ mojo.internal.bindings.blink.mojom.ModelContextReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ModelContext', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -804,6 +897,23 @@ mojo.internal.bindings.blink.mojom.ModelContextReceiver = class {
           break;
         }
         case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.resumeScriptTool');
+          const result = this.impl.resumeScriptTool(params.arg_invocation_id, params.arg_token, params.arg_tool_name, params.arg_input_arguments);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] resumeScriptTool FAILED:', e));
+          }
+          break;
+        }
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelContext_CancelScriptTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelScriptTool');
@@ -928,6 +1038,30 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ParamsSpec, 'blink.mojom.ModelContextHost_RequestContinuationToken_Params', [
+      mojo.internal.StructField('arg_invocation_id', 0, 0, mojo.internal.bindings.blink.mojom.ToolInvocationTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelContextHost_RequestContinuationToken_ResponseParamsSpec, 'blink.mojom.ModelContextHost_RequestContinuationToken_ResponseParams', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.ContinuationTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ParamsSpec, 'blink.mojom.ModelContextHost_RedeemContinuationToken_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.ContinuationTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelContextHost_RedeemContinuationToken_ResponseParamsSpec, 'blink.mojom.ModelContextHost_RedeemContinuationToken_ResponseParams', [
+      mojo.internal.StructField('arg_accepted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelContext_NotifyToolChange_ParamsSpec, 'blink.mojom.ModelContext_NotifyToolChange_Params', [
     ],
     [[0, 8]]);
@@ -942,6 +1076,22 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelContext_ExecuteScriptTool_ResponseParamsSpec, 'blink.mojom.ModelContext_ExecuteScriptTool_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 8, 0, mojo.internal.bindings.blink.mojom.ScriptToolErrorCodeSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ParamsSpec, 'blink.mojom.ModelContext_ResumeScriptTool_Params', [
+      mojo.internal.StructField('arg_invocation_id', 0, 0, mojo.internal.bindings.blink.mojom.ToolInvocationTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.bindings.blink.mojom.ContinuationTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_arguments', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelContext_ResumeScriptTool_ResponseParamsSpec, 'blink.mojom.ModelContext_ResumeScriptTool_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_error_code', 8, 0, mojo.internal.bindings.blink.mojom.ScriptToolErrorCodeSpec, null, true, 0, undefined),
     ],
