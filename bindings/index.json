@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-07T16:01:52.792849Z",
-  "version": "159.0.8148.0",
+  "generated_at": "2026-11-08T16:29:20.808305Z",
+  "version": "159.0.8150.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -28984,8 +28984,6 @@
         "scope": "context",
         "category": "internal",
         "gates": [
-          "permission:MIDI",
-          "permission:MIDI_SYSEX",
           "feature:kWebViewMemoryProfilingClient",
           "feature:kWebPayments"
         ]
@@ -42577,6 +42575,7 @@
         "CreateProofreader",
         "CanCreateSemanticEmbedder",
         "CreateSemanticEmbedder",
+        "GetSupportedEmbeddingSpaces",
         "CanCreateDecisionModel",
         "CreateDecisionModel"
       ],
@@ -63554,6 +63553,7 @@
       "source": "third_party/blink/public/mojom/ai/ai_semantic_embedder.mojom",
       "module": "blink.mojom",
       "imports": [
+        "mojo/public/mojom/base/time.mojom",
         "third_party/blink/public/mojom/ai/ai_common.mojom"
       ]
     },

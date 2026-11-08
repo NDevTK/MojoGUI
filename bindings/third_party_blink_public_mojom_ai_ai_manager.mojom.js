@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8148.0';
+        const versionStr = window.mojoVersion || '159.0.8150.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -220,6 +220,10 @@ mojo.internal.bindings.blink.mojom.AIManager_CanCreateSemanticEmbedder_ResponseP
 if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateSemanticEmbedder_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateSemanticEmbedder_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateSemanticEmbedder_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIManager_CreateSemanticEmbedder_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CreateSemanticEmbedder_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.AIManager_CreateSemanticEmbedder_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CreateSemanticEmbedder_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CreateSemanticEmbedder_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ResponseParamsSpec || { $: {} };
@@ -274,6 +278,9 @@ mojo.internal.bindings.blink.mojom.AISemanticEmbedderPendingReceiver = mojo.inte
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec = mojo.internal.bindings.blink.mojom.AISemanticEmbedderCreateOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.AISemanticEmbedderSpaceInfoSpec = mojo.internal.bindings.blink.mojom.AISemanticEmbedderSpaceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.AISummarizerSpec = mojo.internal.bindings.blink.mojom.AISummarizerSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -1332,6 +1339,9 @@ mojo.internal.bindings.blink.mojom.AIManagerRemote = class {
   createSemanticEmbedder(arg_client, arg_options, arg_monitor) {
     return this.$.createSemanticEmbedder(arg_client, arg_options, arg_monitor);
   }
+  getSupportedEmbeddingSpaces() {
+    return this.$.getSupportedEmbeddingSpaces();
+  }
   canCreateDecisionModel(arg_options) {
     return this.$.canCreateDecisionModel(arg_options);
   }
@@ -1344,6 +1354,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManager', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1479,9 +1490,18 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
       false);
   }
 
-  canCreateDecisionModel(arg_options) {
+  getSupportedEmbeddingSpaces() {
     return this.proxy.sendMessage(
       this.ordinals[13],  // ordinal
+      mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  canCreateDecisionModel(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ParamsSpec,
       mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ResponseParamsSpec,
       [arg_options],
@@ -1490,7 +1510,7 @@ mojo.internal.bindings.blink.mojom.AIManagerRemoteCallHandler = class {
 
   createDecisionModel(arg_client, arg_options, arg_monitor) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.blink.mojom.AIManager_CreateDecisionModel_ParamsSpec,
       null,
       [arg_client, arg_options, arg_monitor],
@@ -1515,6 +1535,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIManager', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1743,6 +1764,24 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getSupportedEmbeddingSpaces');
+          const result = this.impl.getSupportedEmbeddingSpaces();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_supported_spaces' in response) ? response['arg_supported_spaces'] : response;
+              const resp_obj = { 'arg_supported_spaces': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getSupportedEmbeddingSpaces FAILED:', e));
+          }
+          break;
+        }
+        case 14: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canCreateDecisionModel');
           const result = this.impl.canCreateDecisionModel(params.arg_options);
@@ -1759,7 +1798,7 @@ mojo.internal.bindings.blink.mojom.AIManagerReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIManager_CreateDecisionModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDecisionModel');
@@ -1992,6 +2031,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_monitor', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_model.mojom.DownloadObserverRemote), null, true, 0, undefined),
     ],
     [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ParamsSpec, 'blink.mojom.AIManager_GetSupportedEmbeddingSpaces_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ResponseParamsSpec, 'blink.mojom.AIManager_GetSupportedEmbeddingSpaces_ResponseParams', [
+      mojo.internal.StructField('arg_supported_spaces', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AISemanticEmbedderSpaceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIManager_CanCreateDecisionModel_ParamsSpec, 'blink.mojom.AIManager_CanCreateDecisionModel_Params', [
