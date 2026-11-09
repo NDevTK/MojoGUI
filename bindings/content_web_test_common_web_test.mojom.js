@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8150.0';
+        const versionStr = window.mojoVersion || '159.0.8153.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -2065,10 +2065,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_current_working_directory', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_temp_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_test_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_external_pages', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_wpt_print_mode', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol_mode', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_pixel_hash', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_pixel_hash', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wpt_print_mode', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol_mode', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '159.0.8150.0';
+        const versionStr = window.mojoVersion || '159.0.8153.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -567,8 +567,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemote = class {
   onLhsChipDrag(arg_identifier, arg_source) {
     return this.$.onLhsChipDrag(arg_identifier, arg_source);
   }
-  onHomeButtonDropUrl(arg_url) {
-    return this.$.onHomeButtonDropUrl(arg_url);
+  onHomeButtonDropUrl() {
+    return this.$.onHomeButtonDropUrl();
   }
   onHomeButtonDropFile(arg_drop_position) {
     return this.$.onHomeButtonDropFile(arg_drop_position);
@@ -576,8 +576,8 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemote = class {
   onHomeButtonDropText(arg_text) {
     return this.$.onHomeButtonDropText(arg_text);
   }
-  onToolbarDropUrl(arg_url) {
-    return this.$.onToolbarDropUrl(arg_url);
+  onToolbarDropUrl() {
+    return this.$.onToolbarDropUrl();
   }
   onToolbarDropText(arg_text) {
     return this.$.onToolbarDropText(arg_text);
@@ -868,12 +868,12 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
       false);
   }
 
-  onHomeButtonDropUrl(arg_url) {
+  onHomeButtonDropUrl() {
     return this.proxy.sendMessage(
       this.ordinals[22],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnHomeButtonDropUrl_ParamsSpec,
       null,
-      [arg_url],
+      [],
       false);
   }
 
@@ -895,12 +895,12 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceRemoteCallHandler = 
       false);
   }
 
-  onToolbarDropUrl(arg_url) {
+  onToolbarDropUrl() {
     return this.proxy.sendMessage(
       this.ordinals[25],  // ordinal
       mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnToolbarDropUrl_ParamsSpec,
       null,
-      [arg_url],
+      [],
       false);
   }
 
@@ -1289,7 +1289,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnHomeButtonDropUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHomeButtonDropUrl');
-          const result = this.impl.onHomeButtonDropUrl(params.arg_url);
+          const result = this.impl.onHomeButtonDropUrl();
           break;
         }
         case 23: {
@@ -1310,7 +1310,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnToolbarDropUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onToolbarDropUrl');
-          const result = this.impl.onToolbarDropUrl(params.arg_url);
+          const result = this.impl.onToolbarDropUrl();
           break;
         }
         case 26: {
@@ -1634,9 +1634,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnHomeButtonDropUrl_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_OnHomeButtonDropUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnHomeButtonDropFile_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_OnHomeButtonDropFile_Params', [
@@ -1652,9 +1651,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnToolbarDropUrl_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_OnToolbarDropUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 8]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.toolbar_ui_api.mojom.ToolbarUIService_OnToolbarDropText_ParamsSpec, 'toolbar_ui_api.mojom.ToolbarUIService_OnToolbarDropText_Params', [
