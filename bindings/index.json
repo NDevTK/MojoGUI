@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-09T20:27:26.870053Z",
-  "version": "159.0.8153.0",
+  "generated_at": "2026-11-10T17:33:45.956954Z",
+  "version": "159.0.8154.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -9210,8 +9210,10 @@
         "InstallAppFromUpdateManifest",
         "LaunchApp",
         "ParseUpdateManifestFromUrl",
+        "RestartBrowser",
         "SelectAndInstallAppFromLocalWebBundle",
         "SelectAndUpdateAppFromLocalWebBundle",
+        "SetIwaDevModeEnabled",
         "SetUpdateChannel",
         "UninstallApp",
         "UpdateDevProxyInstalledApp",
@@ -13717,7 +13719,6 @@
       "file": "chrome_common_read_anything_read_anything.mojom.js",
       "methods": [
         "GetDependencyParserModel",
-        "GetPresentationState",
         "GetVoicePackInfo",
         "InstallVoicePack",
         "UninstallVoice",
@@ -13776,7 +13777,6 @@
       "file": "chrome_common_read_anything_read_anything.mojom.js",
       "methods": [
         "AccessibilityEventReceived",
-        "OnGetPresentationState",
         "OnGetVoicePackInfo",
         "OnActiveAXTreeIDChanged",
         "OnAXTreeDestroyed",
@@ -23434,6 +23434,24 @@
       }
     },
     {
+      "name": "CustomFormControlAgent",
+      "module": "autofill.mojom",
+      "file": "components_autofill_content_common_mojom_autofill_agent.mojom.js",
+      "methods": [
+        "LoadUnsafeScript"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
       "name": "AutofillDriver",
       "module": "autofill.mojom",
       "file": "components_autofill_content_common_mojom_autofill_driver.mojom.js",
@@ -24007,7 +24025,7 @@
       "module": "toolbar_ui_api.mojom",
       "file": "components_browser_apis_ui_controllers_toolbar_toolbar_ui_api.mojom.js",
       "methods": [
-        "Bind",
+        "GetInitialState",
         "ShowContextMenu",
         "ShowOverflowMenu",
         "OnOmniboxAction",
@@ -24650,45 +24668,6 @@
           ]
         },
         "scope": "process",
-        "category": "direct"
-      }
-    },
-    {
-      "name": "DistillabilityService",
-      "module": "dom_distiller.mojom",
-      "file": "components_dom_distiller_content_common_mojom_distillability_service.mojom.js",
-      "methods": [
-        "NotifyIsDistillable"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (Global Broker)"
-          ]
-        },
-        "scope": "context",
-        "category": "direct"
-      }
-    },
-    {
-      "name": "DistillerJavaScriptService",
-      "module": "dom_distiller.mojom",
-      "file": "components_dom_distiller_content_common_mojom_distiller_javascript_service.mojom.js",
-      "methods": [
-        "HandleDistillerOpenSettingsCall",
-        "HandleStoreThemePref",
-        "HandleStoreFontFamilyPref",
-        "HandleStoreFontScalingPref"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: BrowserInterfaceBroker (Global Broker)"
-          ]
-        },
-        "scope": "context",
         "category": "direct"
       }
     },
@@ -28562,6 +28541,45 @@
         },
         "scope": "context",
         "category": "internal"
+      }
+    },
+    {
+      "name": "DistillabilityService",
+      "module": "web_distiller.mojom",
+      "file": "components_web_distiller_content_common_mojom_distillability_service.mojom.js",
+      "methods": [
+        "NotifyIsDistillable"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct"
+      }
+    },
+    {
+      "name": "DistillerJavaScriptService",
+      "module": "web_distiller.mojom",
+      "file": "components_web_distiller_content_common_mojom_distiller_javascript_service.mojom.js",
+      "methods": [
+        "HandleDistillerOpenSettingsCall",
+        "HandleStoreThemePref",
+        "HandleStoreFontFamilyPref",
+        "HandleStoreFontScalingPref"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: BrowserInterfaceBroker (Global Broker)"
+          ]
+        },
+        "scope": "context",
+        "category": "direct"
       }
     },
     {
@@ -33869,7 +33887,6 @@
       "file": "media_mojo_mojom_remoting.mojom.js",
       "methods": [
         "Start",
-        "StartWithPermissionAlreadyGranted",
         "StartDataStreams",
         "Stop",
         "SendMessageToSink"
@@ -55758,7 +55775,8 @@
       "module": "autofill.mojom",
       "imports": [
         "components/autofill/core/common/mojom/autofill_types.mojom",
-        "mojo/public/mojom/base/string16.mojom"
+        "mojo/public/mojom/base/string16.mojom",
+        "third_party/blink/public/mojom/tokens/tokens.mojom"
       ]
     },
     {
@@ -56218,26 +56236,6 @@
       "imports": [
         "mojo/public/mojom/base/shared_memory.mojom"
       ]
-    },
-    {
-      "filename": "components_dom_distiller_content_common_mojom_distillability_service.mojom.js",
-      "source": "components/dom_distiller/content/common/mojom/distillability_service.mojom",
-      "module": "dom_distiller.mojom",
-      "imports": []
-    },
-    {
-      "filename": "components_dom_distiller_content_common_mojom_distiller_javascript_service.mojom.js",
-      "source": "components/dom_distiller/content/common/mojom/distiller_javascript_service.mojom",
-      "module": "dom_distiller.mojom",
-      "imports": [
-        "components/dom_distiller/core/mojom/distilled_page_prefs.mojom"
-      ]
-    },
-    {
-      "filename": "components_dom_distiller_core_mojom_distilled_page_prefs.mojom.js",
-      "source": "components/dom_distiller/core/mojom/distilled_page_prefs.mojom",
-      "module": "dom_distiller.mojom",
-      "imports": []
     },
     {
       "filename": "components_download_public_common_download_stream.mojom.js",
@@ -57571,6 +57569,26 @@
       "filename": "components_web_cache_public_mojom_web_cache.mojom.js",
       "source": "components/web_cache/public/mojom/web_cache.mojom",
       "module": "web_cache.mojom",
+      "imports": []
+    },
+    {
+      "filename": "components_web_distiller_content_common_mojom_distillability_service.mojom.js",
+      "source": "components/web_distiller/content/common/mojom/distillability_service.mojom",
+      "module": "web_distiller.mojom",
+      "imports": []
+    },
+    {
+      "filename": "components_web_distiller_content_common_mojom_distiller_javascript_service.mojom.js",
+      "source": "components/web_distiller/content/common/mojom/distiller_javascript_service.mojom",
+      "module": "web_distiller.mojom",
+      "imports": [
+        "components/web_distiller/core/mojom/distilled_page_prefs.mojom"
+      ]
+    },
+    {
+      "filename": "components_web_distiller_core_mojom_distilled_page_prefs.mojom.js",
+      "source": "components/web_distiller/core/mojom/distilled_page_prefs.mojom",
+      "module": "web_distiller.mojom",
       "imports": []
     },
     {
@@ -60543,7 +60561,9 @@
       "filename": "services_image_annotation_public_mojom_image_annotation.mojom.js",
       "source": "services/image_annotation/public/mojom/image_annotation.mojom",
       "module": "image_annotation.mojom",
-      "imports": []
+      "imports": [
+        "url/mojom/origin.mojom"
+      ]
     },
     {
       "filename": "services_media_session_public_mojom_audio_focus.mojom.js",
