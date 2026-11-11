@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-10T17:33:45.956954Z",
-  "version": "159.0.8154.0",
+  "generated_at": "2026-11-11T17:39:11.015361Z",
+  "version": "160.0.8155.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -9211,13 +9211,18 @@
         "LaunchApp",
         "ParseUpdateManifestFromUrl",
         "RestartBrowser",
-        "SelectAndInstallAppFromLocalWebBundle",
         "SelectAndUpdateAppFromLocalWebBundle",
         "SetIwaDevModeEnabled",
         "SetUpdateChannel",
         "UninstallApp",
         "UpdateDevProxyInstalledApp",
-        "UpdateManifestInstalledApp"
+        "UpdateManifestInstalledApp",
+        "SelectLocalWebBundle",
+        "StageDroppedLocalWebBundle",
+        "InstallStagedLocalWebBundle",
+        "ClearStagedLocalWebBundle",
+        "NotifyDragBundleEnter",
+        "NotifyDragBundleLeave"
       ],
       "metadata": {
         "usage": {
@@ -10750,6 +10755,7 @@
       "module": "organizer_panel.mojom",
       "file": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
       "methods": [
+        "ShowUI",
         "ClosePanel",
         "GetSectionState",
         "SetSectionExpanded",
@@ -27545,8 +27551,7 @@
       "module": "storage.mojom",
       "file": "components_services_storage_public_mojom_blob_storage_context.mojom.js",
       "methods": [
-        "Read",
-        "ReadSideData"
+        "Read"
       ],
       "metadata": {
         "usage": {
@@ -29685,6 +29690,7 @@
         "MakeFirstResponder",
         "TakeFocus",
         "StartDrag",
+        "CancelDrag",
         "Destroy"
       ],
       "metadata": {
@@ -35841,8 +35847,7 @@
       "methods": [
         "BindImageDecoder",
         "BindXmlParser",
-        "BindGzipper",
-        "BindStructuredHeadersParser"
+        "BindGzipper"
       ],
       "metadata": {
         "usage": {
@@ -35889,26 +35894,6 @@
           "associated": [],
           "direct": [
             "Internal Interface: data_decoder.mojom.DataDecoderService.BindImageDecoder"
-          ]
-        },
-        "scope": "context",
-        "category": "internal"
-      }
-    },
-    {
-      "name": "StructuredHeadersParser",
-      "module": "data_decoder.mojom",
-      "file": "services_data_decoder_public_mojom_structured_headers_parser.mojom.js",
-      "methods": [
-        "ParseItem",
-        "ParseList",
-        "ParseDictionary"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: data_decoder.mojom.DataDecoderService.BindStructuredHeadersParser"
           ]
         },
         "scope": "context",
@@ -43102,7 +43087,6 @@
         "ReadAll",
         "ReadRange",
         "Load",
-        "ReadSideData",
         "CaptureSnapshot",
         "GetInternalUUID"
       ],
@@ -47096,8 +47080,6 @@
         "FocusCapturedSurface",
         "CancelRequest",
         "StopStreamDevice",
-        "OpenDevice",
-        "CloseDevice",
         "SetCapturingLinkSecured",
         "ApplySubCaptureTarget",
         "SendWheel",
@@ -57203,7 +57185,6 @@
       "source": "components/services/storage/public/mojom/blob_storage_context.mojom",
       "module": "storage.mojom",
       "imports": [
-        "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/time.mojom",
         "third_party/blink/public/mojom/blob/blob.mojom"
@@ -60208,7 +60189,6 @@
         "sandbox/policy/mojom/sandbox.mojom",
         "services/data_decoder/public/mojom/gzipper.mojom",
         "services/data_decoder/public/mojom/image_decoder.mojom",
-        "services/data_decoder/public/mojom/structured_headers_parser.mojom",
         "services/data_decoder/public/mojom/xml_parser.mojom"
       ]
     },
@@ -60229,14 +60209,6 @@
         "mojo/public/mojom/base/time.mojom",
         "skia/public/mojom/bitmap.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom"
-      ]
-    },
-    {
-      "filename": "services_data_decoder_public_mojom_structured_headers_parser.mojom.js",
-      "source": "services/data_decoder/public/mojom/structured_headers_parser.mojom",
-      "module": "data_decoder.mojom",
-      "imports": [
-        "services/network/public/mojom/structured_headers.mojom"
       ]
     },
     {
@@ -61789,14 +61761,6 @@
       "source": "services/network/public/mojom/storage_access_api.mojom",
       "module": "network.mojom",
       "imports": []
-    },
-    {
-      "filename": "services_network_public_mojom_structured_headers.mojom.js",
-      "source": "services/network/public/mojom/structured_headers.mojom",
-      "module": "network.mojom",
-      "imports": [
-        "mojo/public/mojom/base/byte_string.mojom"
-      ]
     },
     {
       "filename": "services_network_public_mojom_supports_loading_mode.mojom.js",
@@ -63689,7 +63653,6 @@
       "source": "third_party/blink/public/mojom/blob/blob.mojom",
       "module": "blink.mojom",
       "imports": [
-        "mojo/public/mojom/base/big_buffer.mojom",
         "mojo/public/mojom/base/time.mojom",
         "services/network/public/mojom/data_pipe_getter.mojom",
         "services/network/public/mojom/http_request_headers.mojom",
