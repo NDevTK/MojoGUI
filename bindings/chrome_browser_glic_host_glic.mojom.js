@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8155.0';
+        const versionStr = window.mojoVersion || '160.0.8157.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -162,6 +162,8 @@ mojo.internal.bindings.glic.mojom.WebUseCounterSpec = mojo.internal.bindings.gli
 mojo.internal.bindings.glic.mojom.ClientErrorDialogTypeSpec = mojo.internal.bindings.glic.mojom.ClientErrorDialogTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.ResponseStopCauseSpec = mojo.internal.bindings.glic.mojom.ResponseStopCauseSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.AdditionalContextSourceSpec = mojo.internal.bindings.glic.mojom.AdditionalContextSourceSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.DataTransferActionSpec = mojo.internal.bindings.glic.mojom.DataTransferActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.glic.mojom.DataTransferActionsBlockedReasonSpec = mojo.internal.bindings.glic.mojom.DataTransferActionsBlockedReasonSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.ExperimentalTriggeringUpdateTypeSpec = mojo.internal.bindings.glic.mojom.ExperimentalTriggeringUpdateTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.SubscriberObservationTypeSpec = mojo.internal.bindings.glic.mojom.SubscriberObservationTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.glic.mojom.LightweightPageFeatureSpec = mojo.internal.bindings.glic.mojom.LightweightPageFeatureSpec || { $: mojo.internal.Enum().$ };
@@ -272,6 +274,8 @@ mojo.internal.bindings.glic.mojom.ParentConversationMetadataSpec = mojo.internal
 if (mojo.internal.bindings.glic.mojom.ParentConversationMetadataSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ParentConversationMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ParentConversationMetadataSpec.$ = {};
 mojo.internal.bindings.glic.mojom.AdditionalContextSpec = mojo.internal.bindings.glic.mojom.AdditionalContextSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.AdditionalContextSpec.$.structSpec && mojo.internal.bindings.glic.mojom.AdditionalContextSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.AdditionalContextSpec.$ = {};
+mojo.internal.bindings.glic.mojom.DataTransferActionsBlockedNoticeSpec = mojo.internal.bindings.glic.mojom.DataTransferActionsBlockedNoticeSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.DataTransferActionsBlockedNoticeSpec.$.structSpec && mojo.internal.bindings.glic.mojom.DataTransferActionsBlockedNoticeSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.DataTransferActionsBlockedNoticeSpec.$ = {};
 mojo.internal.bindings.glic.mojom.ExperimentalTriggeringUpdateSpec = mojo.internal.bindings.glic.mojom.ExperimentalTriggeringUpdateSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.ExperimentalTriggeringUpdateSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ExperimentalTriggeringUpdateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ExperimentalTriggeringUpdateSpec.$ = {};
 mojo.internal.bindings.glic.mojom.TabContextResultSpec = mojo.internal.bindings.glic.mojom.TabContextResultSpec || { $: {} };
@@ -680,6 +684,8 @@ mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_Respo
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipHidden_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipHidden_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipHidden_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipHidden_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipHidden_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandler = mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandler || {};
 mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec = mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec || { $ : {} };
 if (mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec.$.structSpec && mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandlerSpec.$ = {};
@@ -806,6 +812,8 @@ mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_Param
 if (mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageItemChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClient_NotifyDataTransferActionsBlocked_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClient_NotifyDataTransferActionsBlocked_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClient_NotifyDataTransferActionsBlocked_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClient_NotifyDataTransferActionsBlocked_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClient_NotifyDataTransferActionsBlocked_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.CaptureRegionObserver = mojo.internal.bindings.glic.mojom.CaptureRegionObserver || {};
 mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec = mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec || { $ : {} };
 if (mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec.$.structSpec && mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.CaptureRegionObserverSpec.$ = {};
@@ -1233,6 +1241,21 @@ mojo.internal.bindings.glic.mojom.AdditionalContextSource = {
   kTextSelection: 3,
   MinVersion: 3,
   MinVersion: 3,
+};
+
+// Enum: DataTransferAction
+mojo.internal.bindings.glic.mojom.DataTransferAction = {
+  kUnknown: 0,
+  kPaste: 1,
+  kDrop: 2,
+};
+
+// Enum: DataTransferActionsBlockedReason
+mojo.internal.bindings.glic.mojom.DataTransferActionsBlockedReason = {
+  kUnknown: 0,
+  kIneligiblePageContext: 1,
+  kCrossProfile: 2,
+  kUnsupportedOrExpiredSource: 3,
 };
 
 // Enum: ExperimentalTriggeringUpdateType
@@ -3348,12 +3371,16 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemote = class {
   onTooltipImpression(arg_impression) {
     return this.$.onTooltipImpression(arg_impression);
   }
+  onTooltipHidden() {
+    return this.$.onTooltipHidden();
+  }
 };
 
 mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4207,6 +4234,15 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       false);
   }
 
+  onTooltipHidden() {
+    return this.proxy.sendMessage(
+      this.ordinals[85],  // ordinal
+      mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipHidden_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.mojom.WebClientHandler.getRemote = function() {
@@ -4225,6 +4261,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -5280,6 +5317,13 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           const result = this.impl.onTooltipImpression(params.arg_impression);
           break;
         }
+        case 85: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipHidden_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onTooltipHidden');
+          const result = this.impl.onTooltipHidden();
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -6316,12 +6360,16 @@ mojo.internal.bindings.glic.mojom.WebClientRemote = class {
   notifyClientStorageCleared() {
     return this.$.notifyClientStorageCleared();
   }
+  notifyDataTransferActionsBlocked(arg_notice) {
+    return this.$.notifyDataTransferActionsBlocked(arg_notice);
+  }
 };
 
 mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClient', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -6645,6 +6693,15 @@ mojo.internal.bindings.glic.mojom.WebClientRemoteCallHandler = class {
       false);
   }
 
+  notifyDataTransferActionsBlocked(arg_notice) {
+    return this.proxy.sendMessage(
+      this.ordinals[32],  // ordinal
+      mojo.internal.bindings.glic.mojom.WebClient_NotifyDataTransferActionsBlocked_ParamsSpec,
+      null,
+      [arg_notice],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.mojom.WebClient.getRemote = function() {
@@ -6663,6 +6720,7 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClient', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -7011,6 +7069,13 @@ mojo.internal.bindings.glic.mojom.WebClientReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyClientStorageCleared');
           const result = this.impl.notifyClientStorageCleared();
+          break;
+        }
+        case 32: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClient_NotifyDataTransferActionsBlocked_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.notifyDataTransferActionsBlocked');
+          const result = this.impl.notifyDataTransferActionsBlocked(params.arg_notice);
           break;
         }
       }
@@ -7773,6 +7838,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_parts', 40, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.AdditionalContextPartSpec, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
+
+// Struct: DataTransferActionsBlockedNotice
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.DataTransferActionsBlockedNoticeSpec, 'glic.mojom.DataTransferActionsBlockedNotice', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.glic.mojom.DataTransferActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.glic.mojom.DataTransferActionsBlockedReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 // Struct: ExperimentalTriggeringUpdate
 mojo.internal.Struct(
@@ -8977,6 +9050,11 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipHidden_ParamsSpec, 'glic.mojom.WebClientHandler_OnTooltipHidden_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsHandler_GetZeroStateSuggestionsAndSubscribe_ParamsSpec, 'glic.mojom.ZeroStateSuggestionsHandler_GetZeroStateSuggestionsAndSubscribe_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsClientRemote), null, true, 0, undefined),
       mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.glic.mojom.ZeroStateSuggestionsOptionsSpec, null, false, 0, undefined),
@@ -9266,6 +9344,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClient_NotifyClientStorageCleared_ParamsSpec, 'glic.mojom.WebClient_NotifyClientStorageCleared_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClient_NotifyDataTransferActionsBlocked_ParamsSpec, 'glic.mojom.WebClient_NotifyDataTransferActionsBlocked_Params', [
+      mojo.internal.StructField('arg_notice', 0, 0, mojo.internal.bindings.glic.mojom.DataTransferActionsBlockedNoticeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.CaptureRegionObserver_OnUpdate_ParamsSpec, 'glic.mojom.CaptureRegionObserver_OnUpdate_Params', [

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8155.0';
+        const versionStr = window.mojoVersion || '160.0.8157.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -147,6 +147,22 @@ mojo.internal.bindings.settings_search.mojom.SettingId = {
   kCustomizeFonts: 114,
   kPageZoom: 115,
   kSplitViewDragAndDrop: 116,
+  kSecurity: 400,
+  kSafeBrowsing: 401,
+  kAlwaysUseSecureConnections: 402,
+  kPasswordLeakDetection: 403,
+  kSecureDns: 404,
+  kSecureDnsProvider: 405,
+  kSecureDnsCustomProvider: 406,
+  kOpenChromeOsSecureDnsSettings: 407,
+  kJavascriptOptimization: 408,
+  kSecurityKeys: 409,
+  kSecurityKeysPin: 410,
+  kSecurityKeysSignInData: 411,
+  kSecurityKeysFingerprints: 412,
+  kSecurityKeysReset: 413,
+  kManageCertificates: 414,
+  kAdvancedProtectionProgram: 415,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

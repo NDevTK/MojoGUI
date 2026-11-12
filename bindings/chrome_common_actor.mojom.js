@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8155.0';
+        const versionStr = window.mojoVersion || '160.0.8157.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -162,10 +162,14 @@ mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec = mojo.internal.bind
 if (mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.DragAndReleaseActionSpec.$ = {};
 mojo.internal.bindings.actor.mojom.ScriptToolActionSpec = mojo.internal.bindings.actor.mojom.ScriptToolActionSpec || { $: {} };
 if (mojo.internal.bindings.actor.mojom.ScriptToolActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ScriptToolActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ScriptToolActionSpec.$ = {};
+mojo.internal.bindings.actor.mojom.ExecuteJsActionSpec = mojo.internal.bindings.actor.mojom.ExecuteJsActionSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ExecuteJsActionSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ExecuteJsActionSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ExecuteJsActionSpec.$ = {};
 mojo.internal.bindings.actor.mojom.ToolInvocationSpec = mojo.internal.bindings.actor.mojom.ToolInvocationSpec || { $: {} };
 if (mojo.internal.bindings.actor.mojom.ToolInvocationSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ToolInvocationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ToolInvocationSpec.$ = {};
 mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec = mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec || { $: {} };
 if (mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec.$ = {};
+mojo.internal.bindings.actor.mojom.ExecuteJsResponseSpec = mojo.internal.bindings.actor.mojom.ExecuteJsResponseSpec || { $: {} };
+if (mojo.internal.bindings.actor.mojom.ExecuteJsResponseSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ExecuteJsResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ExecuteJsResponseSpec.$ = {};
 mojo.internal.bindings.actor.mojom.ActionResultSpec = mojo.internal.bindings.actor.mojom.ActionResultSpec || { $: {} };
 if (mojo.internal.bindings.actor.mojom.ActionResultSpec.$.structSpec && mojo.internal.bindings.actor.mojom.ActionResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.actor.mojom.ActionResultSpec.$ = {};
 
@@ -331,6 +335,11 @@ mojo.internal.Union(
         'type': mojo.internal.bindings.actor.mojom.ScrollToActionSpec,
         'nullable': false,
       },
+      'arg_execute_js': {
+        'ordinal': 8,
+        'type': mojo.internal.bindings.actor.mojom.ExecuteJsActionSpec,
+        'nullable': false,
+      },
     });
 
 // Union: InitializeToolResult
@@ -416,6 +425,14 @@ mojo.internal.Struct(
     ],
     [[0, 32]]);
 
+// Struct: ExecuteJsAction
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.mojom.ExecuteJsActionSpec, 'actor.mojom.ExecuteJsAction', [
+      mojo.internal.StructField('arg_script_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout_ms', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: ToolInvocation
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ToolInvocationSpec, 'actor.mojom.ToolInvocation', [
@@ -436,6 +453,15 @@ mojo.internal.Struct(
     ],
     [[0, 32]]);
 
+// Struct: ExecuteJsResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.mojom.ExecuteJsResponseSpec, 'actor.mojom.ExecuteJsResponse', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_truncated', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_js_error_message', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
 // Struct: ActionResult
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.ActionResultSpec, 'actor.mojom.ActionResult', [
@@ -443,9 +469,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_requires_page_stabilization', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_script_tool_response', 16, 0, mojo.internal.bindings.actor.mojom.ScriptToolResponseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_execution_end_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_screenshot_policy', 32, 0, mojo.internal.bindings.actor.mojom.ScreenshotPolicySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_page_content_policy', 36, 0, mojo.internal.bindings.actor.mojom.PageContentExtractionPolicySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_attempt_login_status', 40, 0, mojo.internal.bindings.actor.mojom.AttemptLoginStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_execute_js_response', 24, 0, mojo.internal.bindings.actor.mojom.ExecuteJsResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_execution_end_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_screenshot_policy', 40, 0, mojo.internal.bindings.actor.mojom.ScreenshotPolicySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_page_content_policy', 44, 0, mojo.internal.bindings.actor.mojom.PageContentExtractionPolicySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_attempt_login_status', 48, 0, mojo.internal.bindings.actor.mojom.AttemptLoginStatusSpec, null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);

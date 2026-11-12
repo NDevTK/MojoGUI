@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8155.0';
+        const versionStr = window.mojoVersion || '160.0.8157.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -137,6 +137,8 @@ mojo.internal.bindings.blink.mojom.ContentEmbeddingSpec = mojo.internal.bindings
 if (mojo.internal.bindings.blink.mojom.ContentEmbeddingSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ContentEmbeddingSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ContentEmbeddingSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SemanticEmbedderResultSpec = mojo.internal.bindings.blink.mojom.SemanticEmbedderResultSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.SemanticEmbedderResultSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SemanticEmbedderResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SemanticEmbedderResultSpec.$ = {};
+mojo.internal.bindings.blink.mojom.AISemanticEmbedderInfoSpec = mojo.internal.bindings.blink.mojom.AISemanticEmbedderInfoSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.AISemanticEmbedderInfoSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AISemanticEmbedderInfoSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AISemanticEmbedderInfoSpec.$ = {};
 mojo.internal.bindings.blink.mojom.AISemanticEmbedder = mojo.internal.bindings.blink.mojom.AISemanticEmbedder || {};
 mojo.internal.bindings.blink.mojom.AISemanticEmbedderSpec = mojo.internal.bindings.blink.mojom.AISemanticEmbedderSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.AISemanticEmbedderSpec.$.structSpec && mojo.internal.bindings.blink.mojom.AISemanticEmbedderSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.AISemanticEmbedderSpec.$ = {};
@@ -364,6 +366,13 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SemanticEmbedderResultSpec, 'blink.mojom.SemanticEmbedderResult', [
       mojo.internal.StructField('arg_embeddings', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContentEmbeddingSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: AISemanticEmbedderInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AISemanticEmbedderInfoSpec, 'blink.mojom.AISemanticEmbedderInfo', [
+      mojo.internal.StructField('arg_max_input_tokens', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 mojo.internal.Struct(

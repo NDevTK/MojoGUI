@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8155.0';
+        const versionStr = window.mojoVersion || '160.0.8157.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1074,6 +1074,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_focused', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_show_full_url', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_tab_switch', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prefers_url_input', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_matches_update', 28, 0, mojo.internal.bindings.omnibox_popup.mojom.MatchesUpdateSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_full_url', 32, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_permanent_display_text', 40, 0, mojo.internal.String, null, false, 0, undefined),

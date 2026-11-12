@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8155.0';
+        const versionStr = window.mojoVersion || '160.0.8157.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -305,6 +305,10 @@ mojo.internal.bindings.actor.mojom.ActionResultCode = {
   kGeminiPanelServiceUnavailable: 2200,
   kGeminiPanelInvokeFailed: 2201,
   kGeminiPanelNotInTab: 2202,
+  kExecuteJsScriptFailed: 2300,
+  kExecuteJsTimeout: 2301,
+  kExecuteJsNavigated: 2302,
+  kExecuteJsTargetNotMainFrame: 2303,
 };
 
 // Enum: JournalEntryType

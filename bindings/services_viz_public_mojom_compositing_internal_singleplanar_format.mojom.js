@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8155.0';
+        const versionStr = window.mojoVersion || '160.0.8157.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -146,6 +146,7 @@ mojo.internal.bindings.viz.mojom.SingleplanarFormat = {
   BGRA_1010102: 13,
   R_F16: 14,
   Y410: 15,
+  Y210: 16,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

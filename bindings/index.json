@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-11T17:39:11.015361Z",
-  "version": "160.0.8155.0",
+  "generated_at": "2026-11-12T17:54:46.860350Z",
+  "version": "160.0.8157.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4099,7 +4099,8 @@
         "SetClientStorageItem",
         "ClearClientStorage",
         "GetSendTabToSelfDevices",
-        "OnTooltipImpression"
+        "OnTooltipImpression",
+        "OnTooltipHidden"
       ],
       "metadata": {
         "usage": {
@@ -4258,7 +4259,8 @@
         "NotifyActorTaskListRowClicked",
         "Invoke",
         "NotifyClientStorageItemChanged",
-        "NotifyClientStorageCleared"
+        "NotifyClientStorageCleared",
+        "NotifyDataTransferActionsBlocked"
       ],
       "metadata": {
         "usage": {
@@ -13800,6 +13802,7 @@
         "OnReadabilityDistillationStateChanged",
         "OnMainFrameSameDocumentNavigation",
         "OnReadingModeShown",
+        "OnPresentationTransitioned",
         "OnTranslationStateChanged",
         "OnTranslationFailed"
       ],
@@ -25941,6 +25944,7 @@
         "SetSmartComposeStats",
         "SetPopupSelection",
         "OpenPopupSelection",
+        "OpenPopupSelectionWithDisposition",
         "OnNavigationLikely",
         "DeleteAutocompleteMatch",
         "ActivateKeyword",
