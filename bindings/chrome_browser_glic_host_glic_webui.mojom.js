@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -289,6 +289,9 @@ mojo.internal.bindings.glic.mojom.GuestPageType = {
   kDisabledByAdmin: 4,
   kSecurityInterstitial: 5,
   kOriginBlocked: 6,
+  kOffline: 7,
+  kHttpClientError: 8,
+  kHttpServerError: 9,
 };
 
 // Enum: WebUiState
@@ -328,6 +331,8 @@ mojo.internal.bindings.glic.mojom.ClientLoadErrorReason = {
   kClientError: 10,
   kClientLoadTimeout: 11,
   kWarmedTimeout: 12,
+  MinVersion: 12,
+  MinVersion: 12,
   MinVersion: 12,
   MinVersion: 12,
   MinVersion: 12,

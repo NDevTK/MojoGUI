@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -130,6 +130,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.omnibox_popup.mojom.MatchesUpdateSpec = mojo.internal.bindings.omnibox_popup.mojom.MatchesUpdateSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.omnibox_popup.mojom.OmniboxEscapeActionSpec = mojo.internal.bindings.omnibox_popup.mojom.OmniboxEscapeActionSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.omnibox_popup.mojom.PlaceholderTypeSpec = mojo.internal.bindings.omnibox_popup.mojom.PlaceholderTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.omnibox_popup.mojom.OmniboxInputStateSpec = mojo.internal.bindings.omnibox_popup.mojom.OmniboxInputStateSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.OmniboxInputStateSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.OmniboxInputStateSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.OmniboxInputStateSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.PageHandlerFactory = mojo.internal.bindings.omnibox_popup.mojom.PageHandlerFactory || {};
@@ -150,10 +151,14 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnSelectionChanged_Params
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnSelectionChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnSelectionChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnSelectionChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.PageHandler_Revert_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_Revert_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_Revert_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_Revert_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_Revert_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RevertTemporaryText_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RevertTemporaryText_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RevertTemporaryText_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RevertTemporaryText_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RevertTemporaryText_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.PageHandler_LogEscapeAction_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_LogEscapeAction_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_LogEscapeAction_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_LogEscapeAction_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_LogEscapeAction_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup.mojom.PageHandler_StartUserInput_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_StartUserInput_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_StartUserInput_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_StartUserInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_StartUserInput_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnPaste_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnPaste_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnPaste_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnPaste_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnPaste_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnCutOrCopy_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnCutOrCopy_ParamsSpec || { $: {} };
@@ -224,6 +229,13 @@ mojo.internal.bindings.omnibox_popup.mojom.OmniboxEscapeAction = {
   kClearUserInput: 3,
   kClosePopupAndClearUserInput: 4,
   kBlur: 5,
+};
+
+// Enum: PlaceholderType
+mojo.internal.bindings.omnibox_popup.mojom.PlaceholderType = {
+  kNone: 0,
+  kSearchOrTypeUrl: 1,
+  kAskOrTypeUrl: 2,
 };
 
 // Interface: PageHandlerFactory
@@ -403,11 +415,17 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemote = class {
   revert(arg_sequence_number) {
     return this.$.revert(arg_sequence_number);
   }
+  revertTemporaryText(arg_sequence_number) {
+    return this.$.revertTemporaryText(arg_sequence_number);
+  }
   logEscapeAction(arg_action) {
     return this.$.logEscapeAction(arg_action);
   }
   onInputCleared(arg_sequence_number) {
     return this.$.onInputCleared(arg_sequence_number);
+  }
+  startUserInput(arg_sequence_number) {
+    return this.$.startUserInput(arg_sequence_number);
   }
   onPaste(arg_text, arg_selection, arg_sequence_number) {
     return this.$.onPaste(arg_text, arg_selection, arg_sequence_number);
@@ -439,6 +457,8 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('omnibox_popup.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -492,9 +512,18 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
       false);
   }
 
-  logEscapeAction(arg_action) {
+  revertTemporaryText(arg_sequence_number) {
     return this.proxy.sendMessage(
       this.ordinals[4],  // ordinal
+      mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RevertTemporaryText_ParamsSpec,
+      null,
+      [arg_sequence_number],
+      false);
+  }
+
+  logEscapeAction(arg_action) {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.PageHandler_LogEscapeAction_ParamsSpec,
       null,
       [arg_action],
@@ -503,8 +532,17 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
 
   onInputCleared(arg_sequence_number) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec,
+      null,
+      [arg_sequence_number],
+      false);
+  }
+
+  startUserInput(arg_sequence_number) {
+    return this.proxy.sendMessage(
+      this.ordinals[7],  // ordinal
+      mojo.internal.bindings.omnibox_popup.mojom.PageHandler_StartUserInput_ParamsSpec,
       null,
       [arg_sequence_number],
       false);
@@ -512,7 +550,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
 
   onPaste(arg_text, arg_selection, arg_sequence_number) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnPaste_ParamsSpec,
       null,
       [arg_text, arg_selection, arg_sequence_number],
@@ -521,7 +559,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
 
   onCutOrCopy(arg_sequence_number, arg_is_cut, arg_full_text, arg_selection) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnCutOrCopy_ParamsSpec,
       null,
       [arg_sequence_number, arg_is_cut, arg_full_text, arg_selection],
@@ -530,7 +568,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
 
   requestInputState() {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestInputState_ParamsSpec,
       null,
       [],
@@ -539,7 +577,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
 
   openAimPopup(arg_via_keyboard) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenAimPopup_ParamsSpec,
       null,
       [arg_via_keyboard],
@@ -548,7 +586,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
 
   setEditHistoryState(arg_can_undo, arg_can_redo) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.PageHandler_SetEditHistoryState_ParamsSpec,
       null,
       [arg_can_undo, arg_can_redo],
@@ -557,7 +595,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
 
   openDevTools() {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDevTools_ParamsSpec,
       null,
       [],
@@ -566,7 +604,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
 
   openDogfoodFeedback() {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec,
       null,
       [],
@@ -575,7 +613,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
 
   advanceFocus(arg_reverse) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec,
       null,
       [arg_reverse],
@@ -600,6 +638,8 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('omnibox_popup.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -687,68 +727,82 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RevertTemporaryText_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.revertTemporaryText');
+          const result = this.impl.revertTemporaryText(params.arg_sequence_number);
+          break;
+        }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_LogEscapeAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logEscapeAction');
           const result = this.impl.logEscapeAction(params.arg_action);
           break;
         }
-        case 5: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInputCleared');
           const result = this.impl.onInputCleared(params.arg_sequence_number);
           break;
         }
-        case 6: {
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_StartUserInput_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.startUserInput');
+          const result = this.impl.startUserInput(params.arg_sequence_number);
+          break;
+        }
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnPaste_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPaste');
           const result = this.impl.onPaste(params.arg_text, params.arg_selection, params.arg_sequence_number);
           break;
         }
-        case 7: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnCutOrCopy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCutOrCopy');
           const result = this.impl.onCutOrCopy(params.arg_sequence_number, params.arg_is_cut, params.arg_full_text, params.arg_selection);
           break;
         }
-        case 8: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestInputState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestInputState');
           const result = this.impl.requestInputState();
           break;
         }
-        case 9: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenAimPopup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAimPopup');
           const result = this.impl.openAimPopup(params.arg_via_keyboard);
           break;
         }
-        case 10: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_SetEditHistoryState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEditHistoryState');
           const result = this.impl.setEditHistoryState(params.arg_can_undo, params.arg_can_redo);
           break;
         }
-        case 11: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDevTools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDevTools');
           const result = this.impl.openDevTools();
           break;
         }
-        case 12: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDogfoodFeedback');
           const result = this.impl.openDogfoodFeedback();
           break;
         }
-        case 13: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.advanceFocus');
@@ -817,8 +871,8 @@ mojo.internal.bindings.omnibox_popup.mojom.PageRemote = class {
   clearPopup() {
     return this.$.clearPopup();
   }
-  setDefaultSearchProvider(arg_default_icon_path) {
-    return this.$.setDefaultSearchProvider(arg_default_icon_path);
+  setDefaultSearchProvider(arg_default_icon_path, arg_placeholder_type, arg_search_engine_name) {
+    return this.$.setDefaultSearchProvider(arg_default_icon_path, arg_placeholder_type, arg_search_engine_name);
   }
   focusSearchWithDefaultSearchEngineKeywordMode() {
     return this.$.focusSearchWithDefaultSearchEngineKeywordMode();
@@ -894,12 +948,12 @@ mojo.internal.bindings.omnibox_popup.mojom.PageRemoteCallHandler = class {
       false);
   }
 
-  setDefaultSearchProvider(arg_default_icon_path) {
+  setDefaultSearchProvider(arg_default_icon_path, arg_placeholder_type, arg_search_engine_name) {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.omnibox_popup.mojom.Page_SetDefaultSearchProvider_ParamsSpec,
       null,
-      [arg_default_icon_path],
+      [arg_default_icon_path, arg_placeholder_type, arg_search_engine_name],
       false);
   }
 
@@ -1037,7 +1091,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.Page_SetDefaultSearchProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDefaultSearchProvider');
-          const result = this.impl.setDefaultSearchProvider(params.arg_default_icon_path);
+          const result = this.impl.setDefaultSearchProvider(params.arg_default_icon_path, params.arg_placeholder_type, params.arg_search_engine_name);
           break;
         }
         case 7: {
@@ -1117,6 +1171,12 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RevertTemporaryText_ParamsSpec, 'omnibox_popup.mojom.PageHandler_RevertTemporaryText_Params', [
+      mojo.internal.StructField('arg_sequence_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.PageHandler_LogEscapeAction_ParamsSpec, 'omnibox_popup.mojom.PageHandler_LogEscapeAction_Params', [
       mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.omnibox_popup.mojom.OmniboxEscapeActionSpec, null, false, 0, undefined),
     ],
@@ -1124,6 +1184,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OnInputCleared_ParamsSpec, 'omnibox_popup.mojom.PageHandler_OnInputCleared_Params', [
+      mojo.internal.StructField('arg_sequence_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.omnibox_popup.mojom.PageHandler_StartUserInput_ParamsSpec, 'omnibox_popup.mojom.PageHandler_StartUserInput_Params', [
       mojo.internal.StructField('arg_sequence_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
@@ -1222,8 +1288,10 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.Page_SetDefaultSearchProvider_ParamsSpec, 'omnibox_popup.mojom.Page_SetDefaultSearchProvider_Params', [
       mojo.internal.StructField('arg_default_icon_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_placeholder_type', 8, 0, mojo.internal.bindings.omnibox_popup.mojom.PlaceholderTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_search_engine_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.Page_FocusSearchWithDefaultSearchEngineKeywordMode_ParamsSpec, 'omnibox_popup.mojom.Page_FocusSearchWithDefaultSearchEngineKeywordMode_Params', [

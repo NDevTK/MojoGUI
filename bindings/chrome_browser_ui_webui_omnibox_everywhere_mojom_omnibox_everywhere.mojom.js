@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -162,6 +162,10 @@ mojo.internal.bindings.omnibox_everywhere.mojom.Page_OpenComposebox_ParamsSpec =
 if (mojo.internal.bindings.omnibox_everywhere.mojom.Page_OpenComposebox_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_everywhere.mojom.Page_OpenComposebox_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_everywhere.mojom.Page_OpenComposebox_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec = mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec = mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnDemoted_ParamsSpec = mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnDemoted_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnDemoted_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnDemoted_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnDemoted_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.composebox_query = mojo.internal.bindings.composebox_query || {};
@@ -561,12 +565,20 @@ mojo.internal.bindings.omnibox_everywhere.mojom.PageRemote = class {
   onScreenshotCaptureCancelled() {
     return this.$.onScreenshotCaptureCancelled();
   }
+  focusInput() {
+    return this.$.focusInput();
+  }
+  onDemoted() {
+    return this.$.onDemoted();
+  }
 };
 
 mojo.internal.bindings.omnibox_everywhere.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('omnibox_everywhere.mojom.Page', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -610,6 +622,24 @@ mojo.internal.bindings.omnibox_everywhere.mojom.PageRemoteCallHandler = class {
       false);
   }
 
+  focusInput() {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  onDemoted() {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnDemoted_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.omnibox_everywhere.mojom.Page.getRemote = function() {
@@ -628,6 +658,8 @@ mojo.internal.bindings.omnibox_everywhere.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('omnibox_everywhere.mojom.Page', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -701,6 +733,20 @@ mojo.internal.bindings.omnibox_everywhere.mojom.PageReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreenshotCaptureCancelled');
           const result = this.impl.onScreenshotCaptureCancelled();
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.focusInput');
+          const result = this.impl.focusInput();
+          break;
+        }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnDemoted_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onDemoted');
+          const result = this.impl.onDemoted();
           break;
         }
       }
@@ -779,6 +825,16 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec, 'omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec, 'omnibox_everywhere.mojom.Page_FocusInput_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnDemoted_ParamsSpec, 'omnibox_everywhere.mojom.Page_OnDemoted_Params', [
     ],
     [[0, 8]]);
 

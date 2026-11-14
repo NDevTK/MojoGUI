@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -228,6 +228,8 @@ if (mojo.internal.bindings.blink.mojom.WebBluetoothServerClientSpec.$.structSpec
 mojo.internal.bindings.blink.mojom.WebBluetoothServerClient.$interfaceName = 'blink.mojom.WebBluetoothServerClient';
 mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec = mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_MaxWriteWithoutResponseSizeChanged_ParamsSpec = mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_MaxWriteWithoutResponseSizeChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_MaxWriteWithoutResponseSizeChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_MaxWriteWithoutResponseSizeChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_MaxWriteWithoutResponseSizeChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WebBluetoothCharacteristicClient = mojo.internal.bindings.blink.mojom.WebBluetoothCharacteristicClient || {};
 mojo.internal.bindings.blink.mojom.WebBluetoothCharacteristicClientSpec = mojo.internal.bindings.blink.mojom.WebBluetoothCharacteristicClientSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.WebBluetoothCharacteristicClientSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WebBluetoothCharacteristicClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WebBluetoothCharacteristicClientSpec.$ = {};
@@ -746,8 +748,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_result' in response) ? response['arg_result'] : response;
-              const resp_obj = { 'arg_result': val };
+              const resp_obj = response;
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec.$.structSpec, resp_obj);
@@ -1002,12 +1003,16 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServerClientRemote = class {
   gATTServerDisconnected() {
     return this.$.gATTServerDisconnected();
   }
+  maxWriteWithoutResponseSizeChanged(arg_max_write_without_response_size) {
+    return this.$.maxWriteWithoutResponseSizeChanged(arg_max_write_without_response_size);
+  }
 };
 
 mojo.internal.bindings.blink.mojom.WebBluetoothServerClientRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebBluetoothServerClient', [
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -1018,6 +1023,15 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServerClientRemoteCallHandler = c
       mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec,
       null,
       [],
+      false);
+  }
+
+  maxWriteWithoutResponseSizeChanged(arg_max_write_without_response_size) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_MaxWriteWithoutResponseSizeChanged_ParamsSpec,
+      null,
+      [arg_max_write_without_response_size],
       false);
   }
 
@@ -1039,6 +1053,7 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServerClientReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebBluetoothServerClient', [
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1088,6 +1103,13 @@ mojo.internal.bindings.blink.mojom.WebBluetoothServerClientReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gATTServerDisconnected');
           const result = this.impl.gATTServerDisconnected();
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_MaxWriteWithoutResponseSizeChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.maxWriteWithoutResponseSizeChanged');
+          const result = this.impl.maxWriteWithoutResponseSizeChanged(params.arg_max_write_without_response_size);
           break;
         }
       }
@@ -1533,6 +1555,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParamsSpec, 'blink.mojom.WebBluetoothService_RemoteServerConnect_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.WebBluetoothResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_write_without_response_size', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -1694,6 +1717,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_ParamsSpec, 'blink.mojom.WebBluetoothServerClient_GATTServerDisconnected_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebBluetoothServerClient_MaxWriteWithoutResponseSizeChanged_ParamsSpec, 'blink.mojom.WebBluetoothServerClient_MaxWriteWithoutResponseSizeChanged_Params', [
+      mojo.internal.StructField('arg_max_write_without_response_size', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_ParamsSpec, 'blink.mojom.WebBluetoothCharacteristicClient_RemoteCharacteristicValueChanged_Params', [

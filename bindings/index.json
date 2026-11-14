@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-12T17:54:46.860350Z",
-  "version": "160.0.8157.0",
+  "generated_at": "2026-11-14T16:15:14.779273Z",
+  "version": "160.0.8161.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -5167,7 +5167,8 @@
         "StartSession",
         "CloseSession",
         "SendText",
-        "SendAudio"
+        "SendAudio",
+        "SetPointerLocation"
       ],
       "metadata": {
         "usage": {
@@ -7795,6 +7796,7 @@
         "GetTodoFeedbacks",
         "GetSaveToMemoryBankContext",
         "GetAllMemoryBankEntries",
+        "SearchMemoryBankEntries",
         "DeleteMemoryBankEntries",
         "SaveMemoryBankEntry",
         "GetAllMemoryBankTags",
@@ -10168,7 +10170,9 @@
         "OnContextMenuClosed",
         "OnOverflowMenuClosed",
         "OpenComposebox",
-        "OnScreenshotCaptureCancelled"
+        "OnScreenshotCaptureCancelled",
+        "FocusInput",
+        "OnDemoted"
       ],
       "metadata": {
         "usage": {
@@ -10403,8 +10407,10 @@
         "CloseUI",
         "OnSelectionChanged",
         "Revert",
+        "RevertTemporaryText",
         "LogEscapeAction",
         "OnInputCleared",
+        "StartUserInput",
         "OnPaste",
         "OnCutOrCopy",
         "RequestInputState",
@@ -12441,7 +12447,7 @@
       "file": "chrome_browser_ui_webui_unexportable_keys_internals_unexportable_keys_internals.mojom.js",
       "methods": [
         "GetUnexportableKeysInfo",
-        "DeleteKey"
+        "DeleteKeys"
       ],
       "metadata": {
         "usage": {
@@ -23447,7 +23453,11 @@
       "module": "autofill.mojom",
       "file": "components_autofill_content_common_mojom_autofill_agent.mojom.js",
       "methods": [
-        "LoadUnsafeScript"
+        "LoadUnsafeScript",
+        "DetectCustomFormControls",
+        "ExtractOptions",
+        "ClosePopover",
+        "SetValue"
       ],
       "metadata": {
         "usage": {
@@ -25298,7 +25308,6 @@
       "file": "components_media_gallery_util_public_mojom_media_parser.mojom.js",
       "methods": [
         "ParseMediaMetadata",
-        "CheckMediaFile",
         "GetCpuInfo"
       ],
       "metadata": {
@@ -30716,6 +30725,7 @@
         "SetNextGATTDiscoveryResponse",
         "SimulateGATTOperationResponse",
         "SimulateGATTDisconnection",
+        "SimulateGATTMtuChange",
         "SimulateGATTServicesChanged",
         "SimulateCharacteristicOperationResponse",
         "SimulateDescriptorOperationResponse",
@@ -42241,8 +42251,7 @@
       "file": "services_webnn_public_mojom_webnn_graph_builder.mojom.js",
       "methods": [
         "CreatePendingConstant",
-        "CreateGraph",
-        "IsValidGraphForTesting"
+        "CreateGraph"
       ],
       "metadata": {
         "usage": {
@@ -42705,6 +42714,7 @@
         "OnCompletion",
         "OnError",
         "OnStreaming",
+        "OnStreamingThought",
         "OnToolCalls",
         "OnContextOverflow"
       ],
@@ -43301,7 +43311,8 @@
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_bluetooth_web_bluetooth.mojom.js",
       "methods": [
-        "GATTServerDisconnected"
+        "GATTServerDisconnected",
+        "MaxWriteWithoutResponseSizeChanged"
       ],
       "metadata": {
         "usage": {
@@ -48930,8 +48941,7 @@
         "scope": "context",
         "category": "direct",
         "gates": [
-          "feature:kWebOTP",
-          "feature:kWebLockScreenApi"
+          "permission:MIDI"
         ],
         "scrambled": false
       }
@@ -51266,7 +51276,8 @@
         "TrackedElementCanHighlightChanged",
         "TrackedElementVisibilityChanged",
         "TrackedElementActivated",
-        "TrackedElementCustomEvent"
+        "TrackedElementCustomEvent",
+        "FocusAnchoredDialog"
       ],
       "metadata": {
         "usage": {
@@ -51285,6 +51296,7 @@
       "file": "ui_webui_resources_js_tracked_element_tracked_element.mojom.js",
       "methods": [
         "OnElementHighlightChanged",
+        "OnElementAnchoredDialogChanged",
         "ClickElement",
         "FocusElement",
         "SelectTab",
@@ -52330,7 +52342,8 @@
       "source": "chrome/browser/ttc/core/eval_harness.mojom",
       "module": "ttc.mojom",
       "imports": [
-        "mojo/public/mojom/base/values.mojom"
+        "mojo/public/mojom/base/values.mojom",
+        "ui/gfx/geometry/mojom/geometry.mojom"
       ]
     },
     {
@@ -56385,8 +56398,6 @@
       "module": "chrome.mojom",
       "imports": [
         "media/mojo/mojom/media_types.mojom",
-        "mojo/public/mojom/base/file.mojom",
-        "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/values.mojom",
         "sandbox/policy/mojom/sandbox.mojom"
       ]
@@ -60729,6 +60740,7 @@
       "imports": [
         "services/network/public/mojom/load_timing_internal_info.mojom",
         "services/network/public/mojom/network_types.mojom",
+        "services/network/public/mojom/request_priority.mojom",
         "mojo/public/mojom/base/time.mojom"
       ]
     },
@@ -63343,7 +63355,6 @@
       "module": "webnn.mojom",
       "imports": [
         "mojo/public/mojom/base/big_buffer.mojom",
-        "services/webnn/public/mojom/webnn_context_properties.mojom",
         "services/webnn/public/mojom/webnn_device.mojom",
         "services/webnn/public/mojom/webnn_error.mojom",
         "services/webnn/public/mojom/webnn_graph.mojom",

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -154,6 +154,9 @@ mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mo
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.NextProtoSpec = mojo.internal.bindings.network.mojom.NextProtoSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.RequestPrioritySpec = mojo.internal.bindings.network.mojom.RequestPrioritySpec || { $: mojo.internal.Enum().$ };
 
 // Enum: ConnectionEstablishmentInitiator
 mojo.internal.bindings.network.mojom.ConnectionEstablishmentInitiator = {
@@ -391,6 +394,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ConnectionKeepAliveConfigSpec, 'network.mojom.ConnectionKeepAliveConfig', [
       mojo.internal.StructField('arg_keep_alive_timeouts', 0, 0, mojo.internal.bindings.network.mojom.QuicKeepAliveTimeoutsSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_enable_connection_keep_alive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_preconnect_priority', 12, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_initial_rtt', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_quic_connection_options', 24, 0, mojo.internal.String, 0, false, 0, undefined),
     ],

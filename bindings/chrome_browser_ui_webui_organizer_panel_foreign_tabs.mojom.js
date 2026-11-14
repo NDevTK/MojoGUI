@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -303,8 +303,7 @@ mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandlerReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_tabs' in response) ? response['arg_tabs'] : response;
-              const resp_obj = { 'arg_tabs': val };
+              const resp_obj = response;
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
                 header.ordinal, header.requestId, mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ResponseParamsSpec.$.structSpec, resp_obj);
@@ -497,8 +496,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ResponseParamsSpec, 'organizer_panel.mojom.ForeignTabsPageHandler_GetForeignTabs_ResponseParams', [
       mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.organizer_panel.mojom.ForeignTabSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_can_show_cross_device_sign_in_promo', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.organizer_panel.mojom.ForeignTabsPageHandler_OpenTab_ParamsSpec, 'organizer_panel.mojom.ForeignTabsPageHandler_OpenTab_Params', [

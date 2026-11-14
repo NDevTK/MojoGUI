@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,6 +127,10 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
+mojo.internal.bindings.autofill.mojom.DetectedCustomFormControlSpec = mojo.internal.bindings.autofill.mojom.DetectedCustomFormControlSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.DetectedCustomFormControlSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.DetectedCustomFormControlSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.DetectedCustomFormControlSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.ExtractedCustomFormControlOptionsSpec = mojo.internal.bindings.autofill.mojom.ExtractedCustomFormControlOptionsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.ExtractedCustomFormControlOptionsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.ExtractedCustomFormControlOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.ExtractedCustomFormControlOptionsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.AutofillAgent = mojo.internal.bindings.autofill.mojom.AutofillAgent || {};
 mojo.internal.bindings.autofill.mojom.AutofillAgentSpec = mojo.internal.bindings.autofill.mojom.AutofillAgentSpec || { $ : {} };
 if (mojo.internal.bindings.autofill.mojom.AutofillAgentSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.AutofillAgentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.AutofillAgentSpec.$ = {};
@@ -239,6 +243,22 @@ mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_LoadUnsafeScript_Pa
 if (mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_LoadUnsafeScript_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_LoadUnsafeScript_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_LoadUnsafeScript_ParamsSpec.$ = {};
 mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_LoadUnsafeScript_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_LoadUnsafeScript_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_LoadUnsafeScript_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_LoadUnsafeScript_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_LoadUnsafeScript_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ParamsSpec = mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ParamsSpec = mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ParamsSpec = mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ParamsSpec = mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ParamsSpec.$ = {};
+mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ResponseParamsSpec = mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
@@ -288,6 +308,9 @@ mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec = mojo.inte
 mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
 mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
 mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec = mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.autofill = mojo.internal.bindings.autofill || {};
+mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom || {};
+mojo.internal.bindings.autofill.mojom.SelectOptionSpec = mojo.internal.bindings.autofill.mojom.SelectOptionSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.DocumentTokenSpec = mojo.internal.bindings.blink.mojom.DocumentTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -1536,12 +1559,28 @@ mojo.internal.bindings.autofill.mojom.CustomFormControlAgentRemote = class {
   loadUnsafeScript(arg_document, arg_script) {
     return this.$.loadUnsafeScript(arg_document, arg_script);
   }
+  detectCustomFormControls(arg_document) {
+    return this.$.detectCustomFormControls(arg_document);
+  }
+  extractOptions(arg_document, arg_field) {
+    return this.$.extractOptions(arg_document, arg_field);
+  }
+  closePopover(arg_document, arg_field) {
+    return this.$.closePopover(arg_document, arg_field);
+  }
+  setValue(arg_document, arg_field, arg_option) {
+    return this.$.setValue(arg_document, arg_field, arg_option);
+  }
 };
 
 mojo.internal.bindings.autofill.mojom.CustomFormControlAgentRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.CustomFormControlAgent', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -1552,6 +1591,42 @@ mojo.internal.bindings.autofill.mojom.CustomFormControlAgentRemoteCallHandler = 
       mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_LoadUnsafeScript_ParamsSpec,
       mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_LoadUnsafeScript_ResponseParamsSpec,
       [arg_document, arg_script],
+      false);
+  }
+
+  detectCustomFormControls(arg_document) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ParamsSpec,
+      mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ResponseParamsSpec,
+      [arg_document],
+      false);
+  }
+
+  extractOptions(arg_document, arg_field) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ParamsSpec,
+      mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ResponseParamsSpec,
+      [arg_document, arg_field],
+      false);
+  }
+
+  closePopover(arg_document, arg_field) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ParamsSpec,
+      mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ResponseParamsSpec,
+      [arg_document, arg_field],
+      false);
+  }
+
+  setValue(arg_document, arg_field, arg_option) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ParamsSpec,
+      mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ResponseParamsSpec,
+      [arg_document, arg_field, arg_option],
       false);
   }
 
@@ -1573,6 +1648,10 @@ mojo.internal.bindings.autofill.mojom.CustomFormControlAgentReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('autofill.mojom.CustomFormControlAgent', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -1635,6 +1714,76 @@ mojo.internal.bindings.autofill.mojom.CustomFormControlAgentReceiver = class {
           }
           break;
         }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.detectCustomFormControls');
+          const result = this.impl.detectCustomFormControls(params.arg_document);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_controls' in response) ? response['arg_controls'] : response;
+              const resp_obj = { 'arg_controls': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] detectCustomFormControls FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.extractOptions');
+          const result = this.impl.extractOptions(params.arg_document, params.arg_field);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_options' in response) ? response['arg_options'] : response;
+              const resp_obj = { 'arg_options': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] extractOptions FAILED:', e));
+          }
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.closePopover');
+          const result = this.impl.closePopover(params.arg_document, params.arg_field);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] closePopover FAILED:', e));
+          }
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setValue');
+          const result = this.impl.setValue(params.arg_document, params.arg_field, params.arg_option);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] setValue FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -1650,6 +1799,23 @@ mojo.internal.bindings.autofill.mojom.CustomFormControlAgentRequest = mojo.inter
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DetectedCustomFormControl
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.DetectedCustomFormControlSpec, 'autofill.mojom.DetectedCustomFormControl', [
+      mojo.internal.StructField('arg_field_id', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_active', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: ExtractedCustomFormControlOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.ExtractedCustomFormControlOptionsSpec, 'autofill.mojom.ExtractedCustomFormControlOptions', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.SelectOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_popover_needs_to_be_closed', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.AutofillAgent_ScrollFieldIntoView_ParamsSpec, 'autofill.mojom.AutofillAgent_ScrollFieldIntoView_Params', [
       mojo.internal.StructField('arg_field_id', 0, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
@@ -1964,4 +2130,54 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ParamsSpec, 'autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_Params', [
+      mojo.internal.StructField('arg_document', 0, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ResponseParamsSpec, 'autofill.mojom.CustomFormControlAgent_DetectCustomFormControls_ResponseParams', [
+      mojo.internal.StructField('arg_controls', 0, 0, mojo.internal.Array(mojo.internal.bindings.autofill.mojom.DetectedCustomFormControlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ParamsSpec, 'autofill.mojom.CustomFormControlAgent_ExtractOptions_Params', [
+      mojo.internal.StructField('arg_document', 0, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ExtractOptions_ResponseParamsSpec, 'autofill.mojom.CustomFormControlAgent_ExtractOptions_ResponseParams', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.autofill.mojom.ExtractedCustomFormControlOptionsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ParamsSpec, 'autofill.mojom.CustomFormControlAgent_ClosePopover_Params', [
+      mojo.internal.StructField('arg_document', 0, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_ClosePopover_ResponseParamsSpec, 'autofill.mojom.CustomFormControlAgent_ClosePopover_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ParamsSpec, 'autofill.mojom.CustomFormControlAgent_SetValue_Params', [
+      mojo.internal.StructField('arg_document', 0, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field', 8, 0, mojo.internal.bindings.autofill.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_option', 16, 0, mojo.internal.bindings.autofill.mojom.SelectOptionSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.CustomFormControlAgent_SetValue_ResponseParamsSpec, 'autofill.mojom.CustomFormControlAgent_SetValue_ResponseParams', [
+    ],
+    [[0, 8]]);
 

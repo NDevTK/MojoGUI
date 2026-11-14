@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -205,8 +205,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_tpcd_metadata_rule_source', 36, 0, mojo.internal.bindings.content_settings.mojom.TpcdMetadataRuleSourceSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_lifetime', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_tpcd_metadata_cohort', 48, 0, mojo.internal.bindings.content_settings.mojom.TpcdMetadataCohortSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_decided_by_related_website_sets', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_autorevocation_bypassed_by_user', 52, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_autorevocation_bypassed_by_user', 52, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 64]]);
 

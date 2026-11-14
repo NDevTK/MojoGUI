@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -144,10 +144,10 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexport
 if (mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ParamsSpec.$ = {};
 mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec = mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_GetUnexportableKeysInfo_ResponseParamsSpec.$ = {};
-mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec = mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec.$ = {};
-mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec = mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ParamsSpec = mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ParamsSpec.$ = {};
+mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ResponseParamsSpec = mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
@@ -325,8 +325,8 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerRemote = cla
   getUnexportableKeysInfo() {
     return this.$.getUnexportableKeysInfo();
   }
-  deleteKey(arg_key_id) {
-    return this.$.deleteKey(arg_key_id);
+  deleteKeys(arg_key_ids) {
+    return this.$.deleteKeys(arg_key_ids);
   }
 };
 
@@ -348,12 +348,12 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerRemoteCallHa
       false);
   }
 
-  deleteKey(arg_key_id) {
+  deleteKeys(arg_key_ids) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
-      mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec,
-      mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec,
-      [arg_key_id],
+      mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ParamsSpec,
+      mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ResponseParamsSpec,
+      [arg_key_ids],
       false);
   }
 
@@ -440,9 +440,9 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerReceiver = c
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.deleteKey');
-          const result = this.impl.deleteKey(params.arg_key_id);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.deleteKeys');
+          const result = this.impl.deleteKeys(params.arg_key_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -450,9 +450,9 @@ mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandlerReceiver = c
               const resp_obj = { 'arg_success': val };
               const message = new mojo.internal.Message(
                 this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec.$.structSpec, resp_obj);
+                header.ordinal, header.requestId, mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] deleteKey FAILED:', e));
+            }).catch(e => console.error('[GeneratedReceiver] deleteKeys FAILED:', e));
           }
           break;
         }
@@ -507,13 +507,13 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_DeleteKey_Params', [
-      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.unexportable_keys_internals.mojom.UnexportableSigningKeyIdSpec, null, false, 0, undefined),
+    mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_DeleteKeys_Params', [
+      mojo.internal.StructField('arg_key_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.unexportable_keys_internals.mojom.UnexportableSigningKeyIdSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_DeleteKey_ResponseParams', [
+    mojo.internal.bindings.unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ResponseParamsSpec, 'unexportable_keys_internals.mojom.PageHandler_DeleteKeys_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);

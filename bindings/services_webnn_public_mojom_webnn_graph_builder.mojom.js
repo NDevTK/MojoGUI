@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -137,10 +137,6 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_Param
 if (mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreatePendingConstant_ParamsSpec.$ = {};
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec.$ = {};
-mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$ = {};
-mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec = mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
@@ -152,9 +148,6 @@ mojo.internal.bindings.blink.mojom.WebNNPendingConstantTokenSpec = mojo.internal
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
-mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
-mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec = mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.DataTypeSpec = mojo.internal.bindings.webnn.mojom.DataTypeSpec || { $: mojo.internal.Enum().$ };
@@ -201,16 +194,12 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemote = class {
   createGraph(arg_graph_info) {
     return this.$.createGraph(arg_graph_info);
   }
-  isValidGraphForTesting(arg_context_properties, arg_graph_info) {
-    return this.$.isValidGraphForTesting(arg_context_properties, arg_graph_info);
-  }
 };
 
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('webnn.mojom.WebNNGraphBuilder', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -234,15 +223,6 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemoteCallHandler = class {
       false);
   }
 
-  isValidGraphForTesting(arg_context_properties, arg_graph_info) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec,
-      mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec,
-      [arg_context_properties, arg_graph_info],
-      false);
-  }
-
 };
 
 mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder.getRemote = function() {
@@ -261,7 +241,6 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('webnn.mojom.WebNNGraphBuilder', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -321,24 +300,6 @@ mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderReceiver = class {
           const result = this.impl.createGraph(params.arg_graph_info);
           break;
         }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isValidGraphForTesting');
-          const result = this.impl.isValidGraphForTesting(params.arg_context_properties, params.arg_graph_info);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_is_valid' in response) ? response['arg_is_valid'] : response;
-              const resp_obj = { 'arg_is_valid': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] isValidGraphForTesting FAILED:', e));
-          }
-          break;
-        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -373,19 +334,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_CreateGraph_ParamsSpec, 'webnn.mojom.WebNNGraphBuilder_CreateGraph_Params', [
       mojo.internal.StructField('arg_graph_info', 0, 0, mojo.internal.bindings.webnn.mojom.GraphInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ParamsSpec, 'webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_Params', [
-      mojo.internal.StructField('arg_context_properties', 0, 0, mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_graph_info', 8, 0, mojo.internal.bindings.webnn.mojom.GraphInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParamsSpec, 'webnn.mojom.WebNNGraphBuilder_IsValidGraphForTesting_ResponseParams', [
-      mojo.internal.StructField('arg_is_valid', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

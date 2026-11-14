@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -141,6 +141,8 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec = 
 if (mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreamingThought_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreamingThought_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreamingThought_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreamingThought_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreamingThought_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnToolCalls_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnToolCalls_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnToolCalls_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnToolCalls_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnToolCalls_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnContextOverflow_ParamsSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnContextOverflow_ParamsSpec || { $: {} };
@@ -218,6 +220,9 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote = class {
   onStreaming(arg_text) {
     return this.$.onStreaming(arg_text);
   }
+  onStreamingThought(arg_text) {
+    return this.$.onStreamingThought(arg_text);
+  }
   onToolCalls(arg_tool_calls) {
     return this.$.onToolCalls(arg_tool_calls);
   }
@@ -230,6 +235,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = cl
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ModelStreamingResponder', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -265,9 +271,18 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = cl
       false);
   }
 
-  onToolCalls(arg_tool_calls) {
+  onStreamingThought(arg_text) {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
+      mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreamingThought_ParamsSpec,
+      null,
+      [arg_text],
+      false);
+  }
+
+  onToolCalls(arg_tool_calls) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnToolCalls_ParamsSpec,
       null,
       [arg_tool_calls],
@@ -276,7 +291,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemoteCallHandler = cl
 
   onContextOverflow() {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnContextOverflow_ParamsSpec,
       null,
       [],
@@ -301,6 +316,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.ModelStreamingResponder', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -372,12 +388,19 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreamingThought_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onStreamingThought');
+          const result = this.impl.onStreamingThought(params.arg_text);
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnToolCalls_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onToolCalls');
           const result = this.impl.onToolCalls(params.arg_tool_calls);
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnContextOverflow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextOverflow');
@@ -431,6 +454,12 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnStreaming_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreamingThought_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnStreamingThought_Params', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);

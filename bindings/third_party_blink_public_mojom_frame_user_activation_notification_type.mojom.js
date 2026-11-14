@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -147,6 +147,7 @@ mojo.internal.bindings.blink.mojom.UserActivationNotificationType = {
   kExtensionMessagingReceiverPrivileged: 14,
   kExtensionMessagingNeitherPrivileged: 15,
   kActorWebMCP: 16,
+  kWebAppLaunch: 17,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

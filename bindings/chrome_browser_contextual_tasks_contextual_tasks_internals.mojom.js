@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -776,6 +776,13 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_cobrowse_eligible', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_context_sharing_enabled', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_is_default_search_engine_google', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_rearchitecture_enabled', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_contextual_tasks_rearchitecture_enabled', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_side_panel_rearchitecture_enabled', 1, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_api_contextual_tasks_private_enabled', 1, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_fusebox_eligible', 1, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_aim_tabs_picker_eligible', 1, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_rearchitected_side_panel_eligible', 1, 7, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 

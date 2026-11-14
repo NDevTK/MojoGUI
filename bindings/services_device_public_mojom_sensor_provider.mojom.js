@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -132,6 +132,8 @@ mojo.internal.bindings.device.mojom.UpdateVirtualSensorResultSpec = mojo.interna
 mojo.internal.bindings.device.mojom.GetVirtualSensorInformationErrorSpec = mojo.internal.bindings.device.mojom.GetVirtualSensorInformationErrorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec = mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec || { $: {} };
 if (mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec.$.structSpec && mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec.$ = {};
+mojo.internal.bindings.device.mojom.SensorSharedBufferSpec = mojo.internal.bindings.device.mojom.SensorSharedBufferSpec || { $: {} };
+if (mojo.internal.bindings.device.mojom.SensorSharedBufferSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorSharedBufferSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorSharedBufferSpec.$ = {};
 mojo.internal.bindings.device.mojom.SensorInitParamsSpec = mojo.internal.bindings.device.mojom.SensorInitParamsSpec || { $: {} };
 if (mojo.internal.bindings.device.mojom.SensorInitParamsSpec.$.structSpec && mojo.internal.bindings.device.mojom.SensorInitParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.device.mojom.SensorInitParamsSpec.$ = {};
 mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec = mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec || { $: {} };
@@ -672,19 +674,26 @@ mojo.internal.Union(
       },
     });
 
+// Struct: SensorSharedBuffer
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorSharedBufferSpec, 'device.mojom.SensorSharedBuffer', [
+      mojo.internal.StructField('arg_memory', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_offset', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
 // Struct: SensorInitParams
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SensorInitParamsSpec, 'device.mojom.SensorInitParams', [
       mojo.internal.StructField('arg_sensor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SensorRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.SensorClientPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_mode', 12, 0, mojo.internal.bindings.device.mojom.ReportingModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_memory', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_offset', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_default_configuration', 32, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_maximum_frequency', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum_frequency', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_buffer', 16, 0, mojo.internal.bindings.device.mojom.SensorSharedBufferSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_default_configuration', 24, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_maximum_frequency', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum_frequency', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 56]]);
 
 // Struct: VirtualSensorMetadata
 mojo.internal.Struct(

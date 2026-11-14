@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -3685,7 +3685,7 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kSandboxIneffectiveAllowOriginAllowScript: 4373,
   kDocumentOpenDifferentWindow: 4374,
   kDocumentOpenMutateSandbox: 4375,
-  kEligibleForImageLoadingPrioritizationFix: 4376,
+  kOBSOLETE_EligibleForImageLoadingPrioritizationFix: 4376,
   kExecutedNonTrivialJavaScriptURL: 4377,
   kStorageBucketsOpen: 4378,
   kOBSOLETE_PerformanceEntryBufferSwaps: 4379,
@@ -5046,10 +5046,10 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kV8PerformanceContainerTiming_Identifier_AttributeGetter: 5737,
   kV8PerformanceContainerTiming_LastPaintedElement_AttributeGetter: 5738,
   kV8PerformanceContainerTiming_FirstRenderTime_AttributeGetter: 5739,
-  kV8Element_ContainerTiming_AttributeGetter: 5740,
-  kV8Element_ContainerTiming_AttributeSetter: 5741,
-  kV8Element_ContainerTimingIgnore_AttributeGetter: 5742,
-  kV8Element_ContainerTimingIgnore_AttributeSetter: 5743,
+  kV8HTMLElement_ContainerTiming_AttributeGetter: 5740,
+  kV8HTMLElement_ContainerTiming_AttributeSetter: 5741,
+  kV8HTMLElement_ContainerTimingIgnore_AttributeGetter: 5742,
+  kV8HTMLElement_ContainerTimingIgnore_AttributeSetter: 5743,
   kContainerTimingExplicitlyRequested: 5744,
   kContainerTimingObserved: 5745,
   kCookieStoreMaxAge: 5746,
@@ -5403,6 +5403,7 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kWebAuthnAmbientUiGet: 6094,
   kV8MLGraph_Devices_AttributeGetter: 6095,
   kSemanticEmbedder_MaxInputTokens: 6096,
+  kViewportFitCoverAndSafeAreaInsetTop: 6097,
 };
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)

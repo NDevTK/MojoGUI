@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -2385,10 +2385,9 @@ mojo.internal.Struct(
 // Struct: DecisionQuery
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.DecisionQuerySpec, 'on_device_model.mojom.DecisionQuery', [
-      mojo.internal.StructField('arg_shared_context', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_questions', 8, 0, mojo.internal.Array(mojo.internal.bindings.on_device_model.mojom.DecisionQuestionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_questions', 0, 0, mojo.internal.Array(mojo.internal.bindings.on_device_model.mojom.DecisionQuestionSpec, false), null, false, 0, undefined),
     ],
-    [[0, 24]]);
+    [[0, 16]]);
 
 // Struct: DecisionQuestionResult
 mojo.internal.Struct(

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -210,10 +210,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_supports_loading_mode', 144, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.LoadingModeSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_reporting_endpoints', 152, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
       mojo.internal.StructField('arg_cookie_indices', 160, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_avail_language', 168, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_content_language', 176, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_no_vary_search_with_parse_error', 184, 0, mojo.internal.bindings.network.mojom.NoVarySearchWithParseErrorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_declarative_performance_observer_policy', 200, 0, mojo.internal.bindings.network.mojom.DeclarativePerformanceObserverPolicySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_prefetch_activation_beacon_endpoint', 208, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_no_vary_search_with_parse_error', 168, 0, mojo.internal.bindings.network.mojom.NoVarySearchWithParseErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_declarative_performance_observer_policy', 184, 0, mojo.internal.bindings.network.mojom.DeclarativePerformanceObserverPolicySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_prefetch_activation_beacon_endpoint', 192, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
     ],
-    [[0, 224]]);
+    [[0, 208]]);

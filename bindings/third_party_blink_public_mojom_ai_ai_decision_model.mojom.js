@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -338,11 +338,10 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIDecisionModelCreateOptionsSpec, 'blink.mojom.AIDecisionModelCreateOptions', [
       mojo.internal.StructField('arg_backend', 0, 0, mojo.internal.bindings.blink.mojom.AIDecisionModelBackendSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_preference', 4, 0, mojo.internal.bindings.blink.mojom.PerformancePreferenceSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_expected_input_languages', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_questions', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AIDecisionModelQuestionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_input_languages', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_questions', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AIDecisionModelQuestionSpec, false), null, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 32]]);
 
 // Struct: AIDecisionModelOptionProbability
 mojo.internal.Struct(

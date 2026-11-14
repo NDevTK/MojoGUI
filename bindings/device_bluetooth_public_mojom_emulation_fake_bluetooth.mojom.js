@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -191,6 +191,10 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_Par
 if (mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ParamsSpec.$ = {};
 mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec = mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ParamsSpec = mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ParamsSpec.$ = {};
+mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ResponseParamsSpec = mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec = mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec = mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec || { $: {} };
@@ -584,6 +588,9 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemote = class {
   simulateGATTDisconnection(arg_address) {
     return this.$.simulateGATTDisconnection(arg_address);
   }
+  simulateGATTMtuChange(arg_address, arg_mtu) {
+    return this.$.simulateGATTMtuChange(arg_address, arg_mtu);
+  }
   simulateGATTServicesChanged(arg_address) {
     return this.$.simulateGATTServicesChanged(arg_address);
   }
@@ -647,6 +654,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('bluetooth.mojom.FakeCentral', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -739,9 +747,18 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
       false);
   }
 
-  simulateGATTServicesChanged(arg_address) {
+  simulateGATTMtuChange(arg_address, arg_mtu) {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
+      mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ParamsSpec,
+      mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ResponseParamsSpec,
+      [arg_address, arg_mtu],
+      false);
+  }
+
+  simulateGATTServicesChanged(arg_address) {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ResponseParamsSpec,
       [arg_address],
@@ -750,7 +767,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   simulateCharacteristicOperationResponse(arg_type, arg_characteristic_id, arg_service_id, arg_peripheral_address, arg_code, arg_data) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ResponseParamsSpec,
       [arg_type, arg_characteristic_id, arg_service_id, arg_peripheral_address, arg_code, arg_data],
@@ -759,7 +776,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   simulateDescriptorOperationResponse(arg_type, arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address, arg_code, arg_data) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ResponseParamsSpec,
       [arg_type, arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address, arg_code, arg_data],
@@ -768,7 +785,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   addFakeService(arg_peripheral_address, arg_service_uuid) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeService_ResponseParamsSpec,
       [arg_peripheral_address, arg_service_uuid],
@@ -777,7 +794,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   removeFakeService(arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeService_ResponseParamsSpec,
       [arg_service_id, arg_peripheral_address],
@@ -786,7 +803,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   addFakeCharacteristic(arg_characteristic_uuid, arg_properties, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ResponseParamsSpec,
       [arg_characteristic_uuid, arg_properties, arg_service_id, arg_peripheral_address],
@@ -795,7 +812,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   removeFakeCharacteristic(arg_identifier, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ResponseParamsSpec,
       [arg_identifier, arg_service_id, arg_peripheral_address],
@@ -804,7 +821,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   addFakeDescriptor(arg_descriptor_uuid, arg_characteristic_id, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeDescriptor_ResponseParamsSpec,
       [arg_descriptor_uuid, arg_characteristic_id, arg_service_id, arg_peripheral_address],
@@ -813,7 +830,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   removeFakeDescriptor(arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ResponseParamsSpec,
       [arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address],
@@ -822,7 +839,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   setNextReadCharacteristicResponse(arg_gatt_code, arg_value, arg_characteristic_id, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[16],  // ordinal
+      this.ordinals[17],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ResponseParamsSpec,
       [arg_gatt_code, arg_value, arg_characteristic_id, arg_service_id, arg_peripheral_address],
@@ -831,7 +848,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   setNextWriteCharacteristicResponse(arg_gatt_code, arg_characteristic_id, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[17],  // ordinal
+      this.ordinals[18],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ResponseParamsSpec,
       [arg_gatt_code, arg_characteristic_id, arg_service_id, arg_peripheral_address],
@@ -840,7 +857,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   setNextSubscribeToNotificationsResponse(arg_gatt_code, arg_characteristic_id, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[18],  // ordinal
+      this.ordinals[19],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ResponseParamsSpec,
       [arg_gatt_code, arg_characteristic_id, arg_service_id, arg_peripheral_address],
@@ -849,7 +866,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   setNextUnsubscribeFromNotificationsResponse(arg_gatt_code, arg_characteristic_id, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[19],  // ordinal
+      this.ordinals[20],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ResponseParamsSpec,
       [arg_gatt_code, arg_characteristic_id, arg_service_id, arg_peripheral_address],
@@ -858,7 +875,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   isNotifying(arg_characteristic_id, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[20],  // ordinal
+      this.ordinals[21],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_IsNotifying_ResponseParamsSpec,
       [arg_characteristic_id, arg_service_id, arg_peripheral_address],
@@ -867,7 +884,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   getLastWrittenCharacteristicValue(arg_characteristic_id, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[21],  // ordinal
+      this.ordinals[22],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ResponseParamsSpec,
       [arg_characteristic_id, arg_service_id, arg_peripheral_address],
@@ -876,7 +893,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   setNextReadDescriptorResponse(arg_gatt_code, arg_value, arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[22],  // ordinal
+      this.ordinals[23],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ResponseParamsSpec,
       [arg_gatt_code, arg_value, arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address],
@@ -885,7 +902,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   setNextWriteDescriptorResponse(arg_gatt_code, arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[23],  // ordinal
+      this.ordinals[24],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ResponseParamsSpec,
       [arg_gatt_code, arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address],
@@ -894,7 +911,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   getLastWrittenDescriptorValue(arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address) {
     return this.proxy.sendMessage(
-      this.ordinals[24],  // ordinal
+      this.ordinals[25],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ResponseParamsSpec,
       [arg_descriptor_id, arg_characteristic_id, arg_service_id, arg_peripheral_address],
@@ -903,7 +920,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralRemoteCallHandler = class {
 
   setClient(arg_client) {
     return this.proxy.sendMessage(
-      this.ordinals[25],  // ordinal
+      this.ordinals[26],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetClient_ParamsSpec,
       null,
       [arg_client],
@@ -928,6 +945,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('bluetooth.mojom.FakeCentral', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1122,6 +1140,24 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.simulateGATTMtuChange');
+          const result = this.impl.simulateGATTMtuChange(params.arg_address, params.arg_mtu);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] simulateGATTMtuChange FAILED:', e));
+          }
+          break;
+        }
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTServicesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.simulateGATTServicesChanged');
           const result = this.impl.simulateGATTServicesChanged(params.arg_address);
@@ -1138,7 +1174,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 8: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateCharacteristicOperationResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.simulateCharacteristicOperationResponse');
@@ -1156,7 +1192,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 9: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateDescriptorOperationResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.simulateDescriptorOperationResponse');
@@ -1174,7 +1210,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 10: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFakeService');
@@ -1192,7 +1228,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeFakeService');
@@ -1210,7 +1246,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeCharacteristic_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFakeCharacteristic');
@@ -1228,7 +1264,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeCharacteristic_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeFakeCharacteristic');
@@ -1246,7 +1282,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_AddFakeDescriptor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFakeDescriptor');
@@ -1264,7 +1300,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_RemoveFakeDescriptor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeFakeDescriptor');
@@ -1282,7 +1318,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 16: {
+        case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadCharacteristicResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNextReadCharacteristicResponse');
@@ -1300,7 +1336,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 17: {
+        case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteCharacteristicResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNextWriteCharacteristicResponse');
@@ -1318,7 +1354,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 18: {
+        case 19: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextSubscribeToNotificationsResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNextSubscribeToNotificationsResponse');
@@ -1336,7 +1372,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 19: {
+        case 20: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextUnsubscribeFromNotificationsResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNextUnsubscribeFromNotificationsResponse');
@@ -1354,7 +1390,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 20: {
+        case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_IsNotifying_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isNotifying');
@@ -1371,7 +1407,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 21: {
+        case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenCharacteristicValue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLastWrittenCharacteristicValue');
@@ -1388,7 +1424,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 22: {
+        case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextReadDescriptorResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNextReadDescriptorResponse');
@@ -1406,7 +1442,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 23: {
+        case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetNextWriteDescriptorResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNextWriteDescriptorResponse');
@@ -1424,7 +1460,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 24: {
+        case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_GetLastWrittenDescriptorValue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLastWrittenDescriptorValue');
@@ -1441,7 +1477,7 @@ mojo.internal.bindings.bluetooth.mojom.FakeCentralReceiver = class {
           }
           break;
         }
-        case 25: {
+        case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.FakeCentral_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
@@ -1816,6 +1852,19 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParamsSpec, 'bluetooth.mojom.FakeCentral_SimulateGATTDisconnection_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ParamsSpec, 'bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_Params', [
+      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mtu', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ResponseParamsSpec, 'bluetooth.mojom.FakeCentral_SimulateGATTMtuChange_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);

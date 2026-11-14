@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -502,6 +502,7 @@ mojo.internal.bindings.searchbox.mojom.SelectionLineState = {
   kFocusedButtonVoiceSearch: 8,
   kFocusedButtonLensSearch: 9,
   kFocusedButtonContextualChip: 10,
+  kFocusedButtonProfile: 11,
 };
 
 // Enum: SelectionDirection

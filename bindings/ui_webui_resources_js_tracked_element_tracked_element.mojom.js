@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -145,12 +145,18 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElemen
 if (mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec.$.structSpec && mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec.$ = {};
 mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec = mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec.$.structSpec && mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec.$ = {};
+mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ParamsSpec = mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ParamsSpec.$.structSpec && mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ParamsSpec.$ = {};
+mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ResponseParamsSpec = mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.tracked_element.mojom.TrackedElementManager = mojo.internal.bindings.tracked_element.mojom.TrackedElementManager || {};
 mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerSpec = mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerSpec || { $ : {} };
 if (mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerSpec.$.structSpec && mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerSpec.$ = {};
 mojo.internal.bindings.tracked_element.mojom.TrackedElementManager.$interfaceName = 'tracked_element.mojom.TrackedElementManager';
 mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementHighlightChanged_ParamsSpec = mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementHighlightChanged_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementHighlightChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementHighlightChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementHighlightChanged_ParamsSpec.$ = {};
+mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementAnchoredDialogChanged_ParamsSpec = mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementAnchoredDialogChanged_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementAnchoredDialogChanged_ParamsSpec.$.structSpec && mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementAnchoredDialogChanged_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementAnchoredDialogChanged_ParamsSpec.$ = {};
 mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_ClickElement_ParamsSpec = mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_ClickElement_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_ClickElement_ParamsSpec.$.structSpec && mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_ClickElement_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_ClickElement_ParamsSpec.$ = {};
 mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_ClickElement_ResponseParamsSpec = mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_ClickElement_ResponseParamsSpec || { $: {} };
@@ -244,12 +250,16 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemote = class
   trackedElementCustomEvent(arg_identifier, arg_custom_event_name) {
     return this.$.trackedElementCustomEvent(arg_identifier, arg_custom_event_name);
   }
+  focusAnchoredDialog(arg_identifier, arg_reverse) {
+    return this.$.focusAnchoredDialog(arg_identifier, arg_reverse);
+  }
 };
 
 mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('tracked_element.mojom.TrackedElementHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -303,6 +313,15 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemoteCallHand
       false);
   }
 
+  focusAnchoredDialog(arg_identifier, arg_reverse) {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ParamsSpec,
+      mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ResponseParamsSpec,
+      [arg_identifier, arg_reverse],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler.getRemote = function() {
@@ -321,6 +340,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerReceiver = cla
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('tracked_element.mojom.TrackedElementHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -404,6 +424,24 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerReceiver = cla
           const result = this.impl.trackedElementCustomEvent(params.arg_identifier, params.arg_custom_event_name);
           break;
         }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.focusAnchoredDialog');
+          const result = this.impl.focusAnchoredDialog(params.arg_identifier, params.arg_reverse);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] focusAnchoredDialog FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -451,6 +489,9 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerRemote = class
   onElementHighlightChanged(arg_identifier, arg_highlighted) {
     return this.$.onElementHighlightChanged(arg_identifier, arg_highlighted);
   }
+  onElementAnchoredDialogChanged(arg_identifier, arg_has_anchored_dialog) {
+    return this.$.onElementAnchoredDialogChanged(arg_identifier, arg_has_anchored_dialog);
+  }
   clickElement(arg_identifier, arg_input_type) {
     return this.$.clickElement(arg_identifier, arg_input_type);
   }
@@ -482,6 +523,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerRemoteCallHand
       { explicit: null },
       { explicit: null },
       { explicit: null },
+      { explicit: null },
     ]);
   }
 
@@ -494,9 +536,18 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerRemoteCallHand
       false);
   }
 
-  clickElement(arg_identifier, arg_input_type) {
+  onElementAnchoredDialogChanged(arg_identifier, arg_has_anchored_dialog) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
+      mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementAnchoredDialogChanged_ParamsSpec,
+      null,
+      [arg_identifier, arg_has_anchored_dialog],
+      false);
+  }
+
+  clickElement(arg_identifier, arg_input_type) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_ClickElement_ParamsSpec,
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_ClickElement_ResponseParamsSpec,
       [arg_identifier, arg_input_type],
@@ -505,7 +556,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerRemoteCallHand
 
   focusElement(arg_identifier) {
     return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
+      this.ordinals[3],  // ordinal
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_FocusElement_ParamsSpec,
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_FocusElement_ResponseParamsSpec,
       [arg_identifier],
@@ -514,7 +565,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerRemoteCallHand
 
   selectTab(arg_identifier, arg_index) {
     return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_SelectTab_ParamsSpec,
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_SelectTab_ResponseParamsSpec,
       [arg_identifier, arg_index],
@@ -523,7 +574,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerRemoteCallHand
 
   selectDropdownItem(arg_identifier, arg_index) {
     return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_SelectDropdownItem_ParamsSpec,
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_SelectDropdownItem_ResponseParamsSpec,
       [arg_identifier, arg_index],
@@ -532,7 +583,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerRemoteCallHand
 
   enterText(arg_identifier, arg_text, arg_mode) {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_EnterText_ParamsSpec,
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_EnterText_ResponseParamsSpec,
       [arg_identifier, arg_text, arg_mode],
@@ -541,7 +592,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerRemoteCallHand
 
   confirm(arg_identifier) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_Confirm_ParamsSpec,
       mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_Confirm_ResponseParamsSpec,
       [arg_identifier],
@@ -566,6 +617,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerReceiver = cla
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('tracked_element.mojom.TrackedElementManager', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -625,6 +677,13 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerReceiver = cla
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementAnchoredDialogChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onElementAnchoredDialogChanged');
+          const result = this.impl.onElementAnchoredDialogChanged(params.arg_identifier, params.arg_has_anchored_dialog);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_ClickElement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clickElement');
           const result = this.impl.clickElement(params.arg_identifier, params.arg_input_type);
@@ -641,7 +700,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerReceiver = cla
           }
           break;
         }
-        case 2: {
+        case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_FocusElement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusElement');
@@ -659,7 +718,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerReceiver = cla
           }
           break;
         }
-        case 3: {
+        case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_SelectTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectTab');
@@ -677,7 +736,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerReceiver = cla
           }
           break;
         }
-        case 4: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_SelectDropdownItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectDropdownItem');
@@ -695,7 +754,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerReceiver = cla
           }
           break;
         }
-        case 5: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_EnterText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enterText');
@@ -713,7 +772,7 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementManagerReceiver = cla
           }
           break;
         }
-        case 6: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_Confirm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.confirm');
@@ -789,9 +848,29 @@ mojo.internal.Struct(
     [[0, 24]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ParamsSpec, 'tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_Params', [
+      mojo.internal.StructField('arg_identifier', 0, 0, mojo.internal.bindings.tracked_element.mojom.TrackedElementIdentifierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reverse', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ResponseParamsSpec, 'tracked_element.mojom.TrackedElementHandler_FocusAnchoredDialog_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementHighlightChanged_ParamsSpec, 'tracked_element.mojom.TrackedElementManager_OnElementHighlightChanged_Params', [
       mojo.internal.StructField('arg_identifier', 0, 0, mojo.internal.bindings.tracked_element.mojom.TrackedElementIdentifierSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_highlighted', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracked_element.mojom.TrackedElementManager_OnElementAnchoredDialogChanged_ParamsSpec, 'tracked_element.mojom.TrackedElementManager_OnElementAnchoredDialogChanged_Params', [
+      mojo.internal.StructField('arg_identifier', 0, 0, mojo.internal.bindings.tracked_element.mojom.TrackedElementIdentifierSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_anchored_dialog', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
 

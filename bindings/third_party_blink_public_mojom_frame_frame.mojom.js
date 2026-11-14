@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1106,8 +1106,8 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostRemote = class {
   focusedElementChanged(arg_is_editable_element, arg_is_richly_editable_element, arg_bounds_in_frame_widget, arg_focus_type, arg_editable_dom_node_id) {
     return this.$.focusedElementChanged(arg_is_editable_element, arg_is_richly_editable_element, arg_bounds_in_frame_widget, arg_focus_type, arg_editable_dom_node_id);
   }
-  textSelectionChanged(arg_text, arg_offset, arg_range) {
-    return this.$.textSelectionChanged(arg_text, arg_offset, arg_range);
+  textSelectionChanged(arg_text, arg_offset, arg_range, arg_has_selection) {
+    return this.$.textSelectionChanged(arg_text, arg_offset, arg_range, arg_has_selection);
   }
   showPopupMenu(arg_popup_client, arg_bounds, arg_font_size, arg_selected_item, arg_menu_items, arg_right_aligned, arg_allow_multiple_selection) {
     return this.$.showPopupMenu(arg_popup_client, arg_bounds, arg_font_size, arg_selected_item, arg_menu_items, arg_right_aligned, arg_allow_multiple_selection);
@@ -1699,12 +1699,12 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostRemoteCallHandler = class {
       false);
   }
 
-  textSelectionChanged(arg_text, arg_offset, arg_range) {
+  textSelectionChanged(arg_text, arg_offset, arg_range, arg_has_selection) {
     return this.proxy.sendMessage(
       this.ordinals[46],  // ordinal
       mojo.internal.bindings.blink.mojom.LocalFrameHost_TextSelectionChanged_ParamsSpec,
       null,
-      [arg_text, arg_offset, arg_range],
+      [arg_text, arg_offset, arg_range, arg_has_selection],
       false);
   }
 
@@ -2495,7 +2495,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_TextSelectionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.textSelectionChanged');
-          const result = this.impl.textSelectionChanged(params.arg_text, params.arg_offset, params.arg_range);
+          const result = this.impl.textSelectionChanged(params.arg_text, params.arg_offset, params.arg_range, params.arg_has_selection);
           break;
         }
         case 47: {
@@ -5607,6 +5607,7 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_TextSelectionChanged_ParamsSpec, 'blink.mojom.LocalFrameHost_TextSelectionChanged_Params', [
       mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigString16Spec, null, false, 0, undefined),
       mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_selection', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_range', 16, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

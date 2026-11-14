@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1352,8 +1352,8 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ParamsSpec, 'blink.mojom.FrameWidget_DragSourceEndedAt_Params', [
-      mojo.internal.StructField('arg_point_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_screen_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_screen_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_drag_operation', 16, 0, mojo.internal.bindings.ui.mojom.DragOperationSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);

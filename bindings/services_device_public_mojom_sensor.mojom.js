@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -476,8 +476,8 @@ mojo.internal.bindings.device.mojom.SensorClientRemote = class {
   raiseError() {
     return this.$.raiseError();
   }
-  sensorReadingChanged() {
-    return this.$.sensorReadingChanged();
+  sensorReadingChanged(arg_reading) {
+    return this.$.sensorReadingChanged(arg_reading);
   }
 };
 
@@ -499,12 +499,12 @@ mojo.internal.bindings.device.mojom.SensorClientRemoteCallHandler = class {
       false);
   }
 
-  sensorReadingChanged() {
+  sensorReadingChanged(arg_reading) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
       mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec,
       null,
-      [],
+      [arg_reading],
       false);
   }
 
@@ -582,7 +582,7 @@ mojo.internal.bindings.device.mojom.SensorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sensorReadingChanged');
-          const result = this.impl.sensorReadingChanged();
+          const result = this.impl.sensorReadingChanged(params.arg_reading);
           break;
         }
       }
@@ -667,6 +667,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec, 'device.mojom.SensorClient_SensorReadingChanged_Params', [
+      mojo.internal.StructField('arg_reading', 0, 0, mojo.internal.bindings.device.mojom.SensorReadingRawSpec, null, false, 0, undefined),
     ],
-    [[0, 8]]);
+    [[0, 16]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -145,6 +145,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PageActionAnimationStyleSpec = mojo.
 mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxTextColorSpec = mojo.internal.bindings.toolbar_ui_api.mojom.OmniboxTextColorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.DownloadProgressRingStatusSpec = mojo.internal.bindings.toolbar_ui_api.mojom.DownloadProgressRingStatusSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionEngagedIndicatorStyleSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionEngagedIndicatorStyleSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipIdentifierSpec = mojo.internal.bindings.toolbar_ui_api.mojom.LhsChipIdentifierSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipThemeSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PermissionChipThemeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.toolbar_ui_api.mojom.PermissionPromptStyleSpec = mojo.internal.bindings.toolbar_ui_api.mojom.PermissionPromptStyleSpec || { $: mojo.internal.Enum().$ };
@@ -296,11 +297,12 @@ mojo.internal.bindings.toolbar_ui_api.mojom.ContextMenuType = {
   kPinnedActionSidePanelShowComments: 36,
   kPinnedActionShowAiOverlayDialog: 37,
   kPinnedActionTtcToolbar: 38,
-  kPinnedActionSidePanelShowHistory: 39,
-  kPinnedActionShowChromeLabs: 40,
-  kPinnedActionSidePanelShowGlic: 41,
-  kAppMenu: 42,
-  kGlic: 43,
+  kPinnedActionGlicSmartSelection: 39,
+  kPinnedActionSidePanelShowHistory: 40,
+  kPinnedActionShowChromeLabs: 41,
+  kPinnedActionSidePanelShowGlic: 42,
+  kAppMenu: 43,
+  kGlic: 44,
 };
 
 // Enum: SplitTabActiveLocation
@@ -472,10 +474,11 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarAction = {
   kSidePanelShowComments: 28,
   kShowAiOverlayDialog: 29,
   kTtcToolbar: 30,
-  kSidePanelShowHistory: 31,
-  kShowChromeLabs: 32,
-  kSidePanelShowGlic: 33,
-  kDivider: 34,
+  kGlicSmartSelectionToolbar: 31,
+  kSidePanelShowHistory: 32,
+  kShowChromeLabs: 33,
+  kSidePanelShowGlic: 34,
+  kDivider: 35,
 };
 
 // Enum: DownloadProgressRingStatus
@@ -483,6 +486,12 @@ mojo.internal.bindings.toolbar_ui_api.mojom.DownloadProgressRingStatus = {
   kDormant: 0,
   kScanning: 1,
   kDownloading: 2,
+};
+
+// Enum: PinnedToolbarActionEngagedIndicatorStyle
+mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionEngagedIndicatorStyle = {
+  kUnderline: 0,
+  kCircleHighlight: 1,
 };
 
 // Enum: LhsChipIdentifier
@@ -884,15 +893,16 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_enabled', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_activated', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_badge_number_$flag', 4, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_badge_number_$value', originalFieldName: 'arg_badge_number' }),
-      mojo.internal.StructField('arg_tooltip', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_accessibility_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_element_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_icon', 32, 0, mojo.internal.bindings.toolbar_ui_api.mojom.IconHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress_ring', 40, 0, mojo.internal.bindings.toolbar_ui_api.mojom.DownloadProgressRingStateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_badge_number_$value', 48, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_badge_number_$flag', originalFieldName: 'arg_badge_number' }),
-      mojo.internal.StructField('arg_icon_size_delta', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_engaged_indicator_style', 8, 0, mojo.internal.bindings.toolbar_ui_api.mojom.PinnedToolbarActionEngagedIndicatorStyleSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_badge_number_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_badge_number_$flag', originalFieldName: 'arg_badge_number' }),
+      mojo.internal.StructField('arg_tooltip', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accessibility_text', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_element_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_icon', 40, 0, mojo.internal.bindings.toolbar_ui_api.mojom.IconHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_progress_ring', 48, 0, mojo.internal.bindings.toolbar_ui_api.mojom.DownloadProgressRingStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_icon_size_delta', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
     ],
-    [[0, 64]]);
+    [[0, 72]]);
 
 // Struct: LocationBarState
 mojo.internal.Struct(

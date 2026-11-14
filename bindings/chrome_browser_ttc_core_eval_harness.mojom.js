@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8157.0';
+        const versionStr = window.mojoVersion || '160.0.8161.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,6 +125,7 @@
 mojo.internal.bindings.ttc.mojom = mojo.internal.bindings.ttc.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 
 mojo.internal.bindings.ttc.mojom.TurnStatusSpec = mojo.internal.bindings.ttc.mojom.TurnStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.ttc.mojom.TurnToolCallSpec = mojo.internal.bindings.ttc.mojom.TurnToolCallSpec || { $: {} };
@@ -155,8 +156,15 @@ mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SendAudio_ParamsSpec = mojo.
 if (mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SendAudio_ParamsSpec.$.structSpec && mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SendAudio_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SendAudio_ParamsSpec.$ = {};
 mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SendAudio_ResponseParamsSpec = mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SendAudio_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SendAudio_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SendAudio_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SendAudio_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ParamsSpec = mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ParamsSpec.$.structSpec && mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ParamsSpec.$ = {};
+mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ResponseParamsSpec = mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
+mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
+mojo.internal.bindings.gfx.mojom.PointFSpec = mojo.internal.bindings.gfx.mojom.PointFSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_base.mojom.ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -345,12 +353,16 @@ mojo.internal.bindings.ttc.mojom.HarnessPageHandlerRemote = class {
   sendAudio(arg_pcm16_bytes) {
     return this.$.sendAudio(arg_pcm16_bytes);
   }
+  setPointerLocation(arg_point) {
+    return this.$.setPointerLocation(arg_point);
+  }
 };
 
 mojo.internal.bindings.ttc.mojom.HarnessPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('ttc.mojom.HarnessPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -394,6 +406,15 @@ mojo.internal.bindings.ttc.mojom.HarnessPageHandlerRemoteCallHandler = class {
       false);
   }
 
+  setPointerLocation(arg_point) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ParamsSpec,
+      mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ResponseParamsSpec,
+      [arg_point],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.ttc.mojom.HarnessPageHandler.getRemote = function() {
@@ -412,6 +433,7 @@ mojo.internal.bindings.ttc.mojom.HarnessPageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('ttc.mojom.HarnessPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -520,6 +542,24 @@ mojo.internal.bindings.ttc.mojom.HarnessPageHandlerReceiver = class {
           }
           break;
         }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setPointerLocation');
+          const result = this.impl.setPointerLocation(params.arg_point);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_success' in response) ? response['arg_success'] : response;
+              const resp_obj = { 'arg_success': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] setPointerLocation FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -598,6 +638,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SendAudio_ResponseParamsSpec, 'ttc.mojom.HarnessPageHandler_SendAudio_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ttc.mojom.TurnResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ParamsSpec, 'ttc.mojom.HarnessPageHandler_SetPointerLocation_Params', [
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ttc.mojom.HarnessPageHandler_SetPointerLocation_ResponseParamsSpec, 'ttc.mojom.HarnessPageHandler_SetPointerLocation_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 16]]);
 
