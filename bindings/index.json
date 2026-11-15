@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-14T16:15:14.779273Z",
-  "version": "160.0.8161.0",
+  "generated_at": "2026-11-15T16:43:11.588378Z",
+  "version": "160.0.8163.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -7733,7 +7733,8 @@
         "OnThirdPartyAutoTodosGenerationStateChanged",
         "OnMemoryBankEntryAdded",
         "OnMemoryBankEntryUpdated",
-        "OnMemoryBankEntriesDeleted"
+        "OnMemoryBankEntriesDeleted",
+        "OnTranscriptUpdate"
       ],
       "metadata": {
         "usage": {
@@ -23898,7 +23899,10 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -29105,7 +29109,6 @@
       "methods": [
         "CommitSameDocumentNavigation",
         "UpdateSubresourceLoaderFactories",
-        "SetWantErrorMessageStackTrace",
         "Unload",
         "Delete",
         "GetInterfaceProvider",
@@ -29199,7 +29202,6 @@
         "SubresourceResponseStarted",
         "ResourceLoadComplete",
         "DidChangeName",
-        "CancelInitialHistoryLoad",
         "UpdateEncoding",
         "UpdateState",
         "OpenURL",
@@ -31168,6 +31170,24 @@
         "DestroyCompositionLayer",
         "UpdateCompositionLayer",
         "SetEnabledCompositionLayers"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "XRFrameRateController",
+      "module": "device.mojom",
+      "file": "device_vr_public_mojom_vr_service.mojom.js",
+      "methods": [
+        "UpdateTargetFrameRate"
       ],
       "metadata": {
         "usage": {
@@ -38437,6 +38457,7 @@
         "ClearSharedDictionaryCache",
         "ClearSharedDictionaryCacheForIsolationKey",
         "ClearSharedDictionarySessionOnlyData",
+        "ClearDeviceBoundSessionsSessionOnlyData",
         "RegisterHttpCacheClient",
         "SetDocumentReportingEndpoints",
         "SendReportsAndRemoveSource",
@@ -45381,7 +45402,8 @@
         "NotifyViewTransitionAbortedToOldDocument",
         "DispatchPageSwap",
         "AddResourceTimingEntryForFailedSubframeNavigation",
-        "GetScrollPosition"
+        "GetScrollPosition",
+        "SetWantErrorMessageStackTrace"
       ],
       "metadata": {
         "usage": {
