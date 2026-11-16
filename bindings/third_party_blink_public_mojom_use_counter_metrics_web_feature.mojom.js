@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8163.0';
+        const versionStr = window.mojoVersion || '160.0.8166.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -3606,8 +3606,8 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kPseudoBeforeAfterForDateTimeInputElement: 4294,
   kOBSOLETE_kV8PendingBeacon_IsPending_AttributeGetter: 4295,
   kParentOfDisabledFormControlRespondsToMouseEvents: 4296,
-  kUnhandledExceptionCountInMainThread: 4297,
-  kUnhandledExceptionCountInWorker: 4298,
+  kOBSOLETE_UnhandledExceptionCountInMainThread: 4297,
+  kOBSOLETE_UnhandledExceptionCountInWorker: 4298,
   kOBSOLETE_WebCodecsImageDecoderPremultiplyAlphaDeprecation: 4299,
   kCookieDomainNonASCII: 4300,
   kClientHintsMetaEquivDelegateCH: 4301,

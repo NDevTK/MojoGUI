@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8163.0';
+        const versionStr = window.mojoVersion || '160.0.8166.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -133,6 +133,7 @@ mojo.internal.bindings.suggest_template_info.mojom.SuggestStyleSpec = mojo.inter
 mojo.internal.bindings.suggest_template_info.mojom.IconTypeSpec = mojo.internal.bindings.suggest_template_info.mojom.IconTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.suggest_template_info.mojom.SecondaryTextPlacementSpec = mojo.internal.bindings.suggest_template_info.mojom.SecondaryTextPlacementSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.suggest_template_info.mojom.ActionIconTypeSpec = mojo.internal.bindings.suggest_template_info.mojom.ActionIconTypeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.suggest_template_info.mojom.BadgeTypeSpec = mojo.internal.bindings.suggest_template_info.mojom.BadgeTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.suggest_template_info.mojom.FormattedStringFragmentSpec = mojo.internal.bindings.suggest_template_info.mojom.FormattedStringFragmentSpec || { $: {} };
 if (mojo.internal.bindings.suggest_template_info.mojom.FormattedStringFragmentSpec.$.structSpec && mojo.internal.bindings.suggest_template_info.mojom.FormattedStringFragmentSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.suggest_template_info.mojom.FormattedStringFragmentSpec.$ = {};
 mojo.internal.bindings.suggest_template_info.mojom.FormattedStringSpec = mojo.internal.bindings.suggest_template_info.mojom.FormattedStringSpec || { $: {} };
@@ -222,6 +223,12 @@ mojo.internal.bindings.suggest_template_info.mojom.ActionIconType = {
   kBlueDot: 3,
 };
 
+// Enum: BadgeType
+mojo.internal.bindings.suggest_template_info.mojom.BadgeType = {
+  kBadgeTypeUnspecified: 0,
+  kDot: 1,
+};
+
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 
 // Struct: FormattedStringFragment
@@ -261,5 +268,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_type_icon', 32, 0, mojo.internal.bindings.suggest_template_info.mojom.IconTypeSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_action_icon', 36, 0, mojo.internal.bindings.suggest_template_info.mojom.ActionIconTypeSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_fusebox_action', 40, 0, mojo.internal.bindings.fusebox_action.mojom.FuseboxActionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type_icon_badge', 48, 0, mojo.internal.bindings.suggest_template_info.mojom.BadgeTypeSpec, null, true, 0, undefined),
     ],
-    [[0, 56]]);
+    [[0, 64]]);
