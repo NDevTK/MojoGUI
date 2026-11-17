@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8166.0';
+        const versionStr = window.mojoVersion || '160.0.8167.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,6 +125,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 
 mojo.internal.bindings.blink.mojom.SharedWorkerHost = mojo.internal.bindings.blink.mojom.SharedWorkerHost || {};
 mojo.internal.bindings.blink.mojom.SharedWorkerHostSpec = mojo.internal.bindings.blink.mojom.SharedWorkerHostSpec || { $ : {} };
@@ -142,6 +143,8 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec
 if (mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnReportException_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec = mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SharedWorkerHost_SetPermissionsPolicyHeader_ParamsSpec = mojo.internal.bindings.blink.mojom.SharedWorkerHost_SetPermissionsPolicyHeader_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SharedWorkerHost_SetPermissionsPolicyHeader_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SharedWorkerHost_SetPermissionsPolicyHeader_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SharedWorkerHost_SetPermissionsPolicyHeader_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
@@ -160,6 +163,9 @@ mojo.internal.bindings.blink.mojom.SharedWorkerExceptionDetailsSpec = mojo.inter
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WebFeatureSpec = mojo.internal.bindings.blink.mojom.WebFeatureSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec = mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SharedWorkerHost
 mojo.internal.bindings.blink.mojom.SharedWorkerHostPendingReceiver = class {
@@ -209,12 +215,16 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostRemote = class {
   onFeatureUsed(arg_feature) {
     return this.$.onFeatureUsed(arg_feature);
   }
+  setPermissionsPolicyHeader(arg_permissions_policy_header) {
+    return this.$.setPermissionsPolicyHeader(arg_permissions_policy_header);
+  }
 };
 
 mojo.internal.bindings.blink.mojom.SharedWorkerHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedWorkerHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -278,6 +288,15 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostRemoteCallHandler = class {
       false);
   }
 
+  setPermissionsPolicyHeader(arg_permissions_policy_header) {
+    return this.proxy.sendMessage(
+      this.ordinals[6],  // ordinal
+      mojo.internal.bindings.blink.mojom.SharedWorkerHost_SetPermissionsPolicyHeader_ParamsSpec,
+      null,
+      [arg_permissions_policy_header],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.blink.mojom.SharedWorkerHost.getRemote = function() {
@@ -296,6 +315,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.SharedWorkerHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -387,6 +407,13 @@ mojo.internal.bindings.blink.mojom.SharedWorkerHostReceiver = class {
           const result = this.impl.onFeatureUsed(params.arg_feature);
           break;
         }
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerHost_SetPermissionsPolicyHeader_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setPermissionsPolicyHeader');
+          const result = this.impl.setPermissionsPolicyHeader(params.arg_permissions_policy_header);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -435,6 +462,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerHost_OnFeatureUsed_ParamsSpec, 'blink.mojom.SharedWorkerHost_OnFeatureUsed_Params', [
       mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.blink.mojom.WebFeatureSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SharedWorkerHost_SetPermissionsPolicyHeader_ParamsSpec, 'blink.mojom.SharedWorkerHost_SetPermissionsPolicyHeader_Params', [
+      mojo.internal.StructField('arg_permissions_policy_header', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

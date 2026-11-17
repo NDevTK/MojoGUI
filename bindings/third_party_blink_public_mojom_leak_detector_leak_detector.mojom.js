@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8166.0';
+        const versionStr = window.mojoVersion || '160.0.8167.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -295,10 +295,11 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_number_of_live_resources', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_number_of_live_context_lifecycle_state_observers', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
       mojo.internal.StructField('arg_number_of_live_frames', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_v8_per_context_data', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_worker_global_scopes', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_ua_css_resources', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_resource_fetchers', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_web_frames', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_v8_per_context_data', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_worker_global_scopes', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_ua_css_resources', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_resource_fetchers', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 56]]);
 mojo.internal.Struct(

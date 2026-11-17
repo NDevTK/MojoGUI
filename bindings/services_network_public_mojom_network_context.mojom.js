@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8166.0';
+        const versionStr = window.mojoVersion || '160.0.8167.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1900,11 +1900,11 @@ mojo.internal.bindings.network.mojom.NetworkContextRemote = class {
   setNetworkConditions(arg_throttling_profile_id, arg_throttling_client_id, arg_conditions) {
     return this.$.setNetworkConditions(arg_throttling_profile_id, arg_throttling_client_id, arg_conditions);
   }
-  setSocketLayerNetworkConditions(arg_throttling_profile_id, arg_latency, arg_download_throughput_bytes_per_second, arg_upload_throughput_bytes_per_second) {
-    return this.$.setSocketLayerNetworkConditions(arg_throttling_profile_id, arg_latency, arg_download_throughput_bytes_per_second, arg_upload_throughput_bytes_per_second);
+  setSocketLayerNetworkConditions(arg_throttling_profile_id, arg_throttling_client_id, arg_client_order, arg_latency, arg_download_throughput_bytes_per_second, arg_upload_throughput_bytes_per_second) {
+    return this.$.setSocketLayerNetworkConditions(arg_throttling_profile_id, arg_throttling_client_id, arg_client_order, arg_latency, arg_download_throughput_bytes_per_second, arg_upload_throughput_bytes_per_second);
   }
-  clearSocketLayerNetworkConditions(arg_throttling_profile_id) {
-    return this.$.clearSocketLayerNetworkConditions(arg_throttling_profile_id);
+  clearSocketLayerNetworkConditions(arg_throttling_profile_id, arg_throttling_client_id) {
+    return this.$.clearSocketLayerNetworkConditions(arg_throttling_profile_id, arg_throttling_client_id);
   }
   setAcceptLanguage(arg_new_accept_language) {
     return this.$.setAcceptLanguage(arg_new_accept_language);
@@ -2561,21 +2561,21 @@ mojo.internal.bindings.network.mojom.NetworkContextRemoteCallHandler = class {
       false);
   }
 
-  setSocketLayerNetworkConditions(arg_throttling_profile_id, arg_latency, arg_download_throughput_bytes_per_second, arg_upload_throughput_bytes_per_second) {
+  setSocketLayerNetworkConditions(arg_throttling_profile_id, arg_throttling_client_id, arg_client_order, arg_latency, arg_download_throughput_bytes_per_second, arg_upload_throughput_bytes_per_second) {
     return this.proxy.sendMessage(
       this.ordinals[42],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContext_SetSocketLayerNetworkConditions_ParamsSpec,
       null,
-      [arg_throttling_profile_id, arg_latency, arg_download_throughput_bytes_per_second, arg_upload_throughput_bytes_per_second],
+      [arg_throttling_profile_id, arg_throttling_client_id, arg_client_order, arg_latency, arg_download_throughput_bytes_per_second, arg_upload_throughput_bytes_per_second],
       false);
   }
 
-  clearSocketLayerNetworkConditions(arg_throttling_profile_id) {
+  clearSocketLayerNetworkConditions(arg_throttling_profile_id, arg_throttling_client_id) {
     return this.proxy.sendMessage(
       this.ordinals[43],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContext_ClearSocketLayerNetworkConditions_ParamsSpec,
       null,
-      [arg_throttling_profile_id],
+      [arg_throttling_profile_id, arg_throttling_client_id],
       false);
   }
 
@@ -3766,14 +3766,14 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_SetSocketLayerNetworkConditions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSocketLayerNetworkConditions');
-          const result = this.impl.setSocketLayerNetworkConditions(params.arg_throttling_profile_id, params.arg_latency, params.arg_download_throughput_bytes_per_second, params.arg_upload_throughput_bytes_per_second);
+          const result = this.impl.setSocketLayerNetworkConditions(params.arg_throttling_profile_id, params.arg_throttling_client_id, params.arg_client_order, params.arg_latency, params.arg_download_throughput_bytes_per_second, params.arg_upload_throughput_bytes_per_second);
           break;
         }
         case 43: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_ClearSocketLayerNetworkConditions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearSocketLayerNetworkConditions');
-          const result = this.impl.clearSocketLayerNetworkConditions(params.arg_throttling_profile_id);
+          const result = this.impl.clearSocketLayerNetworkConditions(params.arg_throttling_profile_id, params.arg_throttling_client_id);
           break;
         }
         case 44: {
@@ -5195,17 +5195,20 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_SetSocketLayerNetworkConditions_ParamsSpec, 'network.mojom.NetworkContext_SetSocketLayerNetworkConditions_Params', [
       mojo.internal.StructField('arg_throttling_profile_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_latency', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_download_throughput_bytes_per_second', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_throughput_bytes_per_second', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_throttling_client_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_order', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_latency', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_download_throughput_bytes_per_second', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_throughput_bytes_per_second', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 56]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_ClearSocketLayerNetworkConditions_ParamsSpec, 'network.mojom.NetworkContext_ClearSocketLayerNetworkConditions_Params', [
       mojo.internal.StructField('arg_throttling_profile_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_throttling_client_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.NetworkContext_SetAcceptLanguage_ParamsSpec, 'network.mojom.NetworkContext_SetAcceptLanguage_Params', [

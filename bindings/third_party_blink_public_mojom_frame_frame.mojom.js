@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8166.0';
+        const versionStr = window.mojoVersion || '160.0.8167.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -327,6 +327,8 @@ mojo.internal.bindings.blink.mojom.LocalFrameHost_DidHaveFormEdit_ParamsSpec = m
 if (mojo.internal.bindings.blink.mojom.LocalFrameHost_DidHaveFormEdit_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrameHost_DidHaveFormEdit_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrameHost_DidHaveFormEdit_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LocalFrameHost_DidHaveUserEdit_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalFrameHost_DidHaveUserEdit_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.LocalFrameHost_DidHaveUserEdit_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrameHost_DidHaveUserEdit_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrameHost_DidHaveUserEdit_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LocalFrameHost_DidOpenDocumentInputStream_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalFrameHost_DidOpenDocumentInputStream_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LocalFrameHost_DidOpenDocumentInputStream_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrameHost_DidOpenDocumentInputStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrameHost_DidOpenDocumentInputStream_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHost = mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHost || {};
 mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHostSpec = mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHostSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHostSpec.$ = {};
@@ -1201,12 +1203,16 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostRemote = class {
   didHaveUserEdit() {
     return this.$.didHaveUserEdit();
   }
+  didOpenDocumentInputStream(arg_url) {
+    return this.$.didOpenDocumentInputStream(arg_url);
+  }
 };
 
 mojo.internal.bindings.blink.mojom.LocalFrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LocalFrameHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1980,6 +1986,15 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostRemoteCallHandler = class {
       false);
   }
 
+  didOpenDocumentInputStream(arg_url) {
+    return this.proxy.sendMessage(
+      this.ordinals[77],  // ordinal
+      mojo.internal.bindings.blink.mojom.LocalFrameHost_DidOpenDocumentInputStream_ParamsSpec,
+      null,
+      [arg_url],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.blink.mojom.LocalFrameHost.getRemote = function() {
@@ -1998,6 +2013,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LocalFrameHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2719,6 +2735,13 @@ mojo.internal.bindings.blink.mojom.LocalFrameHostReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_DidHaveUserEdit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didHaveUserEdit');
           const result = this.impl.didHaveUserEdit();
+          break;
+        }
+        case 77: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrameHost_DidOpenDocumentInputStream_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.didOpenDocumentInputStream');
+          const result = this.impl.didOpenDocumentInputStream(params.arg_url);
           break;
         }
       }
@@ -5848,6 +5871,12 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalFrameHost_DidHaveUserEdit_ParamsSpec, 'blink.mojom.LocalFrameHost_DidHaveUserEdit_Params', [
     ],
     [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LocalFrameHost_DidOpenDocumentInputStream_ParamsSpec, 'blink.mojom.LocalFrameHost_DidOpenDocumentInputStream_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NonAssociatedLocalFrameHost_MaybeStartOutermostMainFrameNavigation_ParamsSpec, 'blink.mojom.NonAssociatedLocalFrameHost_MaybeStartOutermostMainFrameNavigation_Params', [

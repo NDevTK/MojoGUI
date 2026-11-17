@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-16T20:00:58.573313Z",
-  "version": "160.0.8166.0",
+  "generated_at": "2026-11-17T18:56:39.890772Z",
+  "version": "160.0.8167.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4071,6 +4071,7 @@
         "ReportClientTransientError",
         "ProcessCounterAbuseVerdict",
         "OnOptinImpression",
+        "OnOptinRejected",
         "OnInputFocused",
         "OnUserInputSubmitted",
         "OnContextUploadStarted",
@@ -10444,6 +10445,7 @@
         "OnShow",
         "OnContextMenuClosed",
         "SetInputState",
+        "SetPrefersUrlInput",
         "SetFocus",
         "ClearAutocompleteMatches",
         "ClearPopup",
@@ -29196,7 +29198,6 @@
         "CreateChildFrame",
         "DidCommitProvisionalLoad",
         "DidCommitSameDocumentNavigation",
-        "DidOpenDocumentInputStream",
         "DidCommitDocumentReplacement",
         "BeginNavigation",
         "SubresourceResponseStarted",
@@ -45316,7 +45317,8 @@
         "RequestUnboundedSurface",
         "SuppressXSLTDeprecationBanner",
         "DidHaveFormEdit",
-        "DidHaveUserEdit"
+        "DidHaveUserEdit",
+        "DidOpenDocumentInputStream"
       ],
       "metadata": {
         "usage": {
@@ -46240,7 +46242,8 @@
         "WaitForInputProcessed",
         "PingMainThread",
         "GetFrameWidgetInputHandler",
-        "UpdateBrowserControlsState"
+        "UpdateBrowserControlsState",
+        "StartBrowserControlsAnimation"
       ],
       "metadata": {
         "usage": {
@@ -49860,7 +49863,8 @@
         "OnReadyForInspection",
         "OnScriptLoadFailed",
         "OnReportException",
-        "OnFeatureUsed"
+        "OnFeatureUsed",
+        "SetPermissionsPolicyHeader"
       ],
       "metadata": {
         "usage": {
@@ -51874,6 +51878,14 @@
       "source": "ash/webui/status_area_internals/mojom/status_area_internals.mojom",
       "module": "ash.mojom.status_area_internals",
       "imports": []
+    },
+    {
+      "filename": "cc_mojom_browser_controls_animation_params.mojom.js",
+      "source": "cc/mojom/browser_controls_animation_params.mojom",
+      "module": "cc.mojom",
+      "imports": [
+        "mojo/public/mojom/base/time.mojom"
+      ]
     },
     {
       "filename": "cc_mojom_browser_controls_offset_tag_modifications.mojom.js",
@@ -64940,6 +64952,7 @@
       "source": "third_party/blink/public/mojom/input/input_handler.mojom",
       "module": "blink.mojom",
       "imports": [
+        "cc/mojom/browser_controls_animation_params.mojom",
         "cc/mojom/browser_controls_offset_tag_modifications.mojom",
         "cc/mojom/browser_controls_state.mojom",
         "cc/mojom/overscroll_behavior.mojom",
@@ -66890,6 +66903,7 @@
       "module": "blink.mojom",
       "imports": [
         "mojo/public/mojom/base/unguessable_token.mojom",
+        "services/network/public/mojom/storage_access_api.mojom",
         "third_party/blink/public/mojom/user_agent/user_agent_metadata.mojom",
         "third_party/blink/public/mojom/browser_interface_broker.mojom",
         "third_party/blink/public/mojom/loader/url_loader_factory_bundle.mojom",
@@ -66915,6 +66929,7 @@
       "source": "third_party/blink/public/mojom/worker/shared_worker_host.mojom",
       "module": "blink.mojom",
       "imports": [
+        "services/network/public/mojom/permissions_policy/permissions_policy.mojom",
         "third_party/blink/public/mojom/devtools/devtools_agent.mojom",
         "third_party/blink/public/mojom/use_counter/metrics/web_feature.mojom",
         "third_party/blink/public/mojom/worker/shared_worker_exception_details.mojom"

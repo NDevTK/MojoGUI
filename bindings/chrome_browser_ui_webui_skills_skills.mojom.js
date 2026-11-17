@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8166.0';
+        const versionStr = window.mojoVersion || '160.0.8167.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1472,8 +1472,8 @@ mojo.internal.bindings.skills.mojom.SkillsPageHandlerRemote = class {
   invokeSkill(arg_skill_id, arg_skill_name, arg_skill_icon) {
     return this.$.invokeSkill(arg_skill_id, arg_skill_name, arg_skill_icon);
   }
-  sendPrompt(arg_prompt) {
-    return this.$.sendPrompt(arg_prompt);
+  sendPrompt(arg_prompt, arg_new_conversation) {
+    return this.$.sendPrompt(arg_prompt, arg_new_conversation);
   }
   closeDialog(arg_data) {
     return this.$.closeDialog(arg_data);
@@ -1577,12 +1577,12 @@ mojo.internal.bindings.skills.mojom.SkillsPageHandlerRemoteCallHandler = class {
       false);
   }
 
-  sendPrompt(arg_prompt) {
+  sendPrompt(arg_prompt, arg_new_conversation) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.skills.mojom.SkillsPageHandler_SendPrompt_ParamsSpec,
       null,
-      [arg_prompt],
+      [arg_prompt, arg_new_conversation],
       false);
   }
 
@@ -1790,7 +1790,7 @@ mojo.internal.bindings.skills.mojom.SkillsPageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.skills.mojom.SkillsPageHandler_SendPrompt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendPrompt');
-          const result = this.impl.sendPrompt(params.arg_prompt);
+          const result = this.impl.sendPrompt(params.arg_prompt, params.arg_new_conversation);
           break;
         }
         case 9: {
@@ -2125,8 +2125,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.skills.mojom.SkillsPageHandler_SendPrompt_ParamsSpec, 'skills.mojom.SkillsPageHandler_SendPrompt_Params', [
       mojo.internal.StructField('arg_prompt', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_conversation', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.skills.mojom.SkillsPageHandler_CloseDialog_ParamsSpec, 'skills.mojom.SkillsPageHandler_CloseDialog_Params', [

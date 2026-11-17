@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8166.0';
+        const versionStr = window.mojoVersion || '160.0.8167.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -315,6 +315,8 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler
 if (mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetInputHandler_GetFrameWidgetInputHandler_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec = mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.WidgetInputHandler_StartBrowserControlsAnimation_ParamsSpec = mojo.internal.bindings.blink.mojom.WidgetInputHandler_StartBrowserControlsAnimation_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.WidgetInputHandler_StartBrowserControlsAnimation_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.WidgetInputHandler_StartBrowserControlsAnimation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.WidgetInputHandler_StartBrowserControlsAnimation_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
@@ -364,6 +366,9 @@ mojo.internal.bindings.blink.mojom.StylusWritingGestureDataSpec = mojo.internal.
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.TouchStateSpec = mojo.internal.bindings.blink.mojom.TouchStateSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
+mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
+mojo.internal.bindings.cc.mojom.BrowserControlsAnimationParamsSpec = mojo.internal.bindings.cc.mojom.BrowserControlsAnimationParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagModificationsSpec = mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagModificationsSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -1658,12 +1663,16 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemote = class {
   updateBrowserControlsState(arg_constraints, arg_current, arg_animate, arg_offset_tag_modifications) {
     return this.$.updateBrowserControlsState(arg_constraints, arg_current, arg_animate, arg_offset_tag_modifications);
   }
+  startBrowserControlsAnimation(arg_params) {
+    return this.$.startBrowserControlsAnimation(arg_params);
+  }
 };
 
 mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WidgetInputHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1827,6 +1836,15 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemoteCallHandler = class {
       false);
   }
 
+  startBrowserControlsAnimation(arg_params) {
+    return this.proxy.sendMessage(
+      this.ordinals[16],  // ordinal
+      mojo.internal.bindings.blink.mojom.WidgetInputHandler_StartBrowserControlsAnimation_ParamsSpec,
+      null,
+      [arg_params],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.blink.mojom.WidgetInputHandler.getRemote = function() {
@@ -1845,6 +1863,7 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WidgetInputHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2065,6 +2084,13 @@ mojo.internal.bindings.blink.mojom.WidgetInputHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_UpdateBrowserControlsState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateBrowserControlsState');
           const result = this.impl.updateBrowserControlsState(params.arg_constraints, params.arg_current, params.arg_animate, params.arg_offset_tag_modifications);
+          break;
+        }
+        case 16: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetInputHandler_StartBrowserControlsAnimation_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.startBrowserControlsAnimation');
+          const result = this.impl.startBrowserControlsAnimation(params.arg_params);
           break;
         }
       }
@@ -2717,4 +2743,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_offset_tag_modifications', 16, 0, mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagModificationsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WidgetInputHandler_StartBrowserControlsAnimation_ParamsSpec, 'blink.mojom.WidgetInputHandler_StartBrowserControlsAnimation_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.cc.mojom.BrowserControlsAnimationParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

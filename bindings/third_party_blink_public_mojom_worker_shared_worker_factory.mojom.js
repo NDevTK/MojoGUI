@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8166.0';
+        const versionStr = window.mojoVersion || '160.0.8167.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,6 +125,7 @@
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.blink.mojom.SharedWorkerFactory = mojo.internal.bindings.blink.mojom.SharedWorkerFactory || {};
@@ -198,6 +199,9 @@ mojo.internal.bindings.blink.mojom.WorkerMainScriptLoadParamsSpec = mojo.interna
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.network = mojo.internal.bindings.network || {};
+mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
+mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec = mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -234,8 +238,8 @@ mojo.internal.bindings.blink.mojom.SharedWorkerFactoryRemote = class {
   close() {
     this.proxy.close();
   }
-  createSharedWorker(arg_info, arg_token, arg_constructor_key, arg_origin, arg_is_constructor_secure_context, arg_user_agent, arg_ua_metadata, arg_pause_on_start, arg_devtools_worker_token, arg_renderer_preferences, arg_preference_watcher_receiver, arg_content_settings, arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_controller_info, arg_policy_container, arg_host, arg_shared_worker, arg_browser_interface_broker, arg_ukm_source_id, arg_require_cross_site_request_for_cookies, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver, arg_cross_origin_isolated) {
-    return this.$.createSharedWorker(arg_info, arg_token, arg_constructor_key, arg_origin, arg_is_constructor_secure_context, arg_user_agent, arg_ua_metadata, arg_pause_on_start, arg_devtools_worker_token, arg_renderer_preferences, arg_preference_watcher_receiver, arg_content_settings, arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_controller_info, arg_policy_container, arg_host, arg_shared_worker, arg_browser_interface_broker, arg_ukm_source_id, arg_require_cross_site_request_for_cookies, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver, arg_cross_origin_isolated);
+  createSharedWorker(arg_info, arg_token, arg_constructor_key, arg_origin, arg_is_constructor_secure_context, arg_user_agent, arg_ua_metadata, arg_pause_on_start, arg_devtools_worker_token, arg_renderer_preferences, arg_preference_watcher_receiver, arg_content_settings, arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_controller_info, arg_policy_container, arg_host, arg_shared_worker, arg_browser_interface_broker, arg_ukm_source_id, arg_require_cross_site_request_for_cookies, arg_storage_access_api_status, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver, arg_cross_origin_isolated) {
+    return this.$.createSharedWorker(arg_info, arg_token, arg_constructor_key, arg_origin, arg_is_constructor_secure_context, arg_user_agent, arg_ua_metadata, arg_pause_on_start, arg_devtools_worker_token, arg_renderer_preferences, arg_preference_watcher_receiver, arg_content_settings, arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_controller_info, arg_policy_container, arg_host, arg_shared_worker, arg_browser_interface_broker, arg_ukm_source_id, arg_require_cross_site_request_for_cookies, arg_storage_access_api_status, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver, arg_cross_origin_isolated);
   }
 };
 
@@ -247,12 +251,12 @@ mojo.internal.bindings.blink.mojom.SharedWorkerFactoryRemoteCallHandler = class 
     ]);
   }
 
-  createSharedWorker(arg_info, arg_token, arg_constructor_key, arg_origin, arg_is_constructor_secure_context, arg_user_agent, arg_ua_metadata, arg_pause_on_start, arg_devtools_worker_token, arg_renderer_preferences, arg_preference_watcher_receiver, arg_content_settings, arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_controller_info, arg_policy_container, arg_host, arg_shared_worker, arg_browser_interface_broker, arg_ukm_source_id, arg_require_cross_site_request_for_cookies, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver, arg_cross_origin_isolated) {
+  createSharedWorker(arg_info, arg_token, arg_constructor_key, arg_origin, arg_is_constructor_secure_context, arg_user_agent, arg_ua_metadata, arg_pause_on_start, arg_devtools_worker_token, arg_renderer_preferences, arg_preference_watcher_receiver, arg_content_settings, arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_controller_info, arg_policy_container, arg_host, arg_shared_worker, arg_browser_interface_broker, arg_ukm_source_id, arg_require_cross_site_request_for_cookies, arg_storage_access_api_status, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver, arg_cross_origin_isolated) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.blink.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec,
       null,
-      [arg_info, arg_token, arg_constructor_key, arg_origin, arg_is_constructor_secure_context, arg_user_agent, arg_ua_metadata, arg_pause_on_start, arg_devtools_worker_token, arg_renderer_preferences, arg_preference_watcher_receiver, arg_content_settings, arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_controller_info, arg_policy_container, arg_host, arg_shared_worker, arg_browser_interface_broker, arg_ukm_source_id, arg_require_cross_site_request_for_cookies, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver, arg_cross_origin_isolated],
+      [arg_info, arg_token, arg_constructor_key, arg_origin, arg_is_constructor_secure_context, arg_user_agent, arg_ua_metadata, arg_pause_on_start, arg_devtools_worker_token, arg_renderer_preferences, arg_preference_watcher_receiver, arg_content_settings, arg_service_worker_container_info, arg_main_script_load_params, arg_subresource_loader_factories, arg_controller_info, arg_policy_container, arg_host, arg_shared_worker, arg_browser_interface_broker, arg_ukm_source_id, arg_require_cross_site_request_for_cookies, arg_storage_access_api_status, arg_coep_reporting_observer_receiver, arg_dip_reporting_observer_receiver, arg_cross_origin_isolated],
       false);
   }
 
@@ -322,7 +326,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerFactory_CreateSharedWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSharedWorker');
-          const result = this.impl.createSharedWorker(params.arg_info, params.arg_token, params.arg_constructor_key, params.arg_origin, params.arg_is_constructor_secure_context, params.arg_user_agent, params.arg_ua_metadata, params.arg_pause_on_start, params.arg_devtools_worker_token, params.arg_renderer_preferences, params.arg_preference_watcher_receiver, params.arg_content_settings, params.arg_service_worker_container_info, params.arg_main_script_load_params, params.arg_subresource_loader_factories, params.arg_controller_info, params.arg_policy_container, params.arg_host, params.arg_shared_worker, params.arg_browser_interface_broker, params.arg_ukm_source_id, params.arg_require_cross_site_request_for_cookies, params.arg_coep_reporting_observer_receiver, params.arg_dip_reporting_observer_receiver, params.arg_cross_origin_isolated);
+          const result = this.impl.createSharedWorker(params.arg_info, params.arg_token, params.arg_constructor_key, params.arg_origin, params.arg_is_constructor_secure_context, params.arg_user_agent, params.arg_ua_metadata, params.arg_pause_on_start, params.arg_devtools_worker_token, params.arg_renderer_preferences, params.arg_preference_watcher_receiver, params.arg_content_settings, params.arg_service_worker_container_info, params.arg_main_script_load_params, params.arg_subresource_loader_factories, params.arg_controller_info, params.arg_policy_container, params.arg_host, params.arg_shared_worker, params.arg_browser_interface_broker, params.arg_ukm_source_id, params.arg_require_cross_site_request_for_cookies, params.arg_storage_access_api_status, params.arg_coep_reporting_observer_receiver, params.arg_dip_reporting_observer_receiver, params.arg_cross_origin_isolated);
           break;
         }
       }
@@ -364,9 +368,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_host', 120, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SharedWorkerHostRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_shared_worker', 128, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SharedWorkerPendingReceiver), null, false, 0, undefined),
       mojo.internal.StructField('arg_browser_interface_broker', 132, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_coep_reporting_observer_receiver', 140, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverPendingReceiver), null, true, 0, undefined),
+      mojo.internal.StructField('arg_storage_access_api_status', 140, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_ukm_source_id', 144, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_dip_reporting_observer_receiver', 152, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverPendingReceiver), null, true, 0, undefined),
+      mojo.internal.StructField('arg_coep_reporting_observer_receiver', 152, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverPendingReceiver), null, true, 0, undefined),
+      mojo.internal.StructField('arg_dip_reporting_observer_receiver', 156, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverPendingReceiver), null, true, 0, undefined),
     ],
     [[0, 168]]);
 

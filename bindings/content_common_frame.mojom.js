@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8166.0';
+        const versionStr = window.mojoVersion || '160.0.8167.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -229,8 +229,6 @@ mojo.internal.bindings.content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSp
 if (mojo.internal.bindings.content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FrameHost_DidCommitProvisionalLoad_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec = mojo.internal.bindings.content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FrameHost_DidCommitSameDocumentNavigation_ParamsSpec.$ = {};
-mojo.internal.bindings.content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec = mojo.internal.bindings.content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.FrameHost_DidCommitDocumentReplacement_ParamsSpec = mojo.internal.bindings.content.mojom.FrameHost_DidCommitDocumentReplacement_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.FrameHost_DidCommitDocumentReplacement_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FrameHost_DidCommitDocumentReplacement_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FrameHost_DidCommitDocumentReplacement_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.FrameHost_BeginNavigation_ParamsSpec = mojo.internal.bindings.content.mojom.FrameHost_BeginNavigation_ParamsSpec || { $: {} };
@@ -1448,9 +1446,6 @@ mojo.internal.bindings.content.mojom.FrameHostRemote = class {
   didCommitSameDocumentNavigation(arg_params, arg_same_document_params) {
     return this.$.didCommitSameDocumentNavigation(arg_params, arg_same_document_params);
   }
-  didOpenDocumentInputStream(arg_url) {
-    return this.$.didOpenDocumentInputStream(arg_url);
-  }
   didCommitDocumentReplacement() {
     return this.$.didCommitDocumentReplacement();
   }
@@ -1484,7 +1479,6 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.FrameHost', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1537,18 +1531,9 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       false);
   }
 
-  didOpenDocumentInputStream(arg_url) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec,
-      null,
-      [arg_url],
-      false);
-  }
-
   didCommitDocumentReplacement() {
     return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
+      this.ordinals[4],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_DidCommitDocumentReplacement_ParamsSpec,
       null,
       [],
@@ -1557,7 +1542,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   beginNavigation(arg_common_params, arg_begin_params, arg_blob_url_token, arg_navigation_client, arg_initiator_navigation_state_keep_alive_handle, arg_renderer_cancellation_listener, arg_renderer_ignore_duplicate_navigation_listener, arg_resume_deferred_commit_listener) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_BeginNavigation_ParamsSpec,
       null,
       [arg_common_params, arg_begin_params, arg_blob_url_token, arg_navigation_client, arg_initiator_navigation_state_keep_alive_handle, arg_renderer_cancellation_listener, arg_renderer_ignore_duplicate_navigation_listener, arg_resume_deferred_commit_listener],
@@ -1566,7 +1551,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   subresourceResponseStarted(arg_final_response_url, arg_cert_status) {
     return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
+      this.ordinals[6],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec,
       null,
       [arg_final_response_url, arg_cert_status],
@@ -1575,7 +1560,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   resourceLoadComplete(arg_url_load_info) {
     return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
+      this.ordinals[7],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec,
       null,
       [arg_url_load_info],
@@ -1584,7 +1569,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   didChangeName(arg_name, arg_unique_name) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_DidChangeName_ParamsSpec,
       null,
       [arg_name, arg_unique_name],
@@ -1593,7 +1578,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   updateEncoding(arg_encoding_name) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec,
       null,
       [arg_encoding_name],
@@ -1602,7 +1587,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   updateState(arg_state) {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec,
       null,
       [arg_state],
@@ -1611,7 +1596,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   openURL(arg_params) {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec,
       null,
       [arg_params],
@@ -1620,7 +1605,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   didStopLoading() {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec,
       null,
       [],
@@ -1645,7 +1630,6 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('content.mojom.FrameHost', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1742,68 +1726,61 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.didOpenDocumentInputStream');
-          const result = this.impl.didOpenDocumentInputStream(params.arg_url);
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_DidCommitDocumentReplacement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didCommitDocumentReplacement');
           const result = this.impl.didCommitDocumentReplacement();
           break;
         }
-        case 6: {
+        case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_BeginNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.beginNavigation');
           const result = this.impl.beginNavigation(params.arg_common_params, params.arg_begin_params, params.arg_blob_url_token, params.arg_navigation_client, params.arg_initiator_navigation_state_keep_alive_handle, params.arg_renderer_cancellation_listener, params.arg_renderer_ignore_duplicate_navigation_listener, params.arg_resume_deferred_commit_listener);
           break;
         }
-        case 7: {
+        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_SubresourceResponseStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subresourceResponseStarted');
           const result = this.impl.subresourceResponseStarted(params.arg_final_response_url, params.arg_cert_status);
           break;
         }
-        case 8: {
+        case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resourceLoadComplete');
           const result = this.impl.resourceLoadComplete(params.arg_url_load_info);
           break;
         }
-        case 9: {
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_DidChangeName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeName');
           const result = this.impl.didChangeName(params.arg_name, params.arg_unique_name);
           break;
         }
-        case 10: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateEncoding');
           const result = this.impl.updateEncoding(params.arg_encoding_name);
           break;
         }
-        case 11: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateState');
           const result = this.impl.updateState(params.arg_state);
           break;
         }
-        case 12: {
+        case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openURL');
           const result = this.impl.openURL(params.arg_params);
           break;
         }
-        case 13: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStopLoading');
@@ -2162,12 +2139,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_same_document_params', 8, 0, mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FrameHost_DidOpenDocumentInputStream_ParamsSpec, 'content.mojom.FrameHost_DidOpenDocumentInputStream_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FrameHost_DidCommitDocumentReplacement_ParamsSpec, 'content.mojom.FrameHost_DidCommitDocumentReplacement_Params', [
