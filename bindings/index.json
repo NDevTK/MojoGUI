@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-17T18:56:39.890772Z",
-  "version": "160.0.8167.0",
+  "generated_at": "2026-11-18T18:35:39.466775Z",
+  "version": "160.0.8169.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3473,7 +3473,8 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -3526,7 +3527,8 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -3549,7 +3551,8 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -3567,7 +3570,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -3589,7 +3593,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -3610,7 +3615,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -3631,7 +3637,8 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -3656,7 +3663,8 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -3677,7 +3685,8 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -3700,7 +3709,8 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -3739,7 +3749,8 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -3774,7 +3785,8 @@
           "feature:kPolicyPageMojoMigration",
           "feature:kGlicActorUi",
           "feature:kGlicActorUiOverlay"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -3792,7 +3804,8 @@
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "scrambled": false
       }
     },
     {
@@ -3819,7 +3832,8 @@
         "category": "internal",
         "gates": [
           "feature:kPolicyPageMojoMigration"
-        ]
+        ],
+        "scrambled": false
       }
     },
     {
@@ -4074,6 +4088,7 @@
         "OnOptinRejected",
         "OnInputFocused",
         "OnUserInputSubmitted",
+        "OnUserInputHeldForOnboarding",
         "OnContextUploadStarted",
         "OnContextUploadCompleted",
         "OnReaction",
@@ -4307,7 +4322,8 @@
         "RevokeExperimentalTriggeringConsent",
         "RevokeGlicConsent",
         "RevokeActuationConsent",
-        "SetHotkeyGlobalScopeMigratedV2"
+        "SetHotkeyGlobalScopeMigratedV2",
+        "SetUiLocaleOverride"
       ],
       "metadata": {
         "usage": {
@@ -10738,7 +10754,6 @@
       "module": "organizer_panel.mojom",
       "file": "chrome_browser_ui_webui_organizer_panel_organizer_panel.mojom.js",
       "methods": [
-        "OnVerticalTabsEnabledChanged",
         "OnIsInTrayViewChanged",
         "OnSectionsStateChanged"
       ],
@@ -24089,7 +24104,8 @@
         "OnPerformanceInterventionButtonClicked",
         "OnMediaButtonClicked",
         "OnGlicButtonClicked",
-        "OnGlicActorTaskIconClicked"
+        "OnGlicActorTaskIconClicked",
+        "FocusOut"
       ],
       "metadata": {
         "usage": {
@@ -29198,7 +29214,6 @@
         "CreateChildFrame",
         "DidCommitProvisionalLoad",
         "DidCommitSameDocumentNavigation",
-        "DidCommitDocumentReplacement",
         "BeginNavigation",
         "SubresourceResponseStarted",
         "ResourceLoadComplete",
@@ -45318,7 +45333,8 @@
         "SuppressXSLTDeprecationBanner",
         "DidHaveFormEdit",
         "DidHaveUserEdit",
-        "DidOpenDocumentInputStream"
+        "DidOpenDocumentInputStream",
+        "DidCommitDocumentReplacement"
       ],
       "metadata": {
         "usage": {
@@ -51910,6 +51926,12 @@
       "imports": []
     },
     {
+      "filename": "cc_mojom_browser_controls_snap_hint.mojom.js",
+      "source": "cc/mojom/browser_controls_snap_hint.mojom",
+      "module": "cc.mojom",
+      "imports": []
+    },
+    {
       "filename": "cc_mojom_browser_controls_state.mojom.js",
       "source": "cc/mojom/browser_controls_state.mojom",
       "module": "cc.mojom",
@@ -51971,6 +51993,7 @@
       "source": "cc/mojom/render_frame_metadata.mojom",
       "module": "cc.mojom",
       "imports": [
+        "cc/mojom/browser_controls_snap_hint.mojom",
         "cc/mojom/root_scroll_offset_update_frequency.mojom",
         "services/viz/public/mojom/compositing/local_surface_id.mojom",
         "services/viz/public/mojom/compositing/selection.mojom",
@@ -53063,8 +53086,10 @@
       "module": "omnibox_popup.mojom",
       "imports": [
         "components/omnibox/browser/searchbox.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
-        "ui/gfx/range/mojom/range.mojom"
+        "ui/gfx/range/mojom/range.mojom",
+        "url/mojom/url.mojom"
       ]
     },
     {
