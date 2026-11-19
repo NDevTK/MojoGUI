@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8169.0';
+        const versionStr = window.mojoVersion || '160.0.8171.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -160,8 +160,8 @@ mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnOverflowMenuClosed_Params
 if (mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnOverflowMenuClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnOverflowMenuClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnOverflowMenuClosed_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_everywhere.mojom.Page_OpenComposebox_ParamsSpec = mojo.internal.bindings.omnibox_everywhere.mojom.Page_OpenComposebox_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_everywhere.mojom.Page_OpenComposebox_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_everywhere.mojom.Page_OpenComposebox_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_everywhere.mojom.Page_OpenComposebox_ParamsSpec.$ = {};
-mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec = mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnContextUploadCancelled_ParamsSpec = mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnContextUploadCancelled_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnContextUploadCancelled_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnContextUploadCancelled_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnContextUploadCancelled_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec = mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_everywhere.mojom.Page_FocusInput_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnDemoted_ParamsSpec = mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnDemoted_ParamsSpec || { $: {} };
@@ -562,8 +562,8 @@ mojo.internal.bindings.omnibox_everywhere.mojom.PageRemote = class {
   openComposebox(arg_initial_state) {
     return this.$.openComposebox(arg_initial_state);
   }
-  onScreenshotCaptureCancelled() {
-    return this.$.onScreenshotCaptureCancelled();
+  onContextUploadCancelled() {
+    return this.$.onContextUploadCancelled();
   }
   focusInput() {
     return this.$.focusInput();
@@ -613,10 +613,10 @@ mojo.internal.bindings.omnibox_everywhere.mojom.PageRemoteCallHandler = class {
       false);
   }
 
-  onScreenshotCaptureCancelled() {
+  onContextUploadCancelled() {
     return this.proxy.sendMessage(
       this.ordinals[3],  // ordinal
-      mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec,
+      mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnContextUploadCancelled_ParamsSpec,
       null,
       [],
       false);
@@ -730,9 +730,9 @@ mojo.internal.bindings.omnibox_everywhere.mojom.PageReceiver = class {
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onScreenshotCaptureCancelled');
-          const result = this.impl.onScreenshotCaptureCancelled();
+          const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnContextUploadCancelled_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onContextUploadCancelled');
+          const result = this.impl.onContextUploadCancelled();
           break;
         }
         case 4: {
@@ -824,7 +824,7 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
-    mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_ParamsSpec, 'omnibox_everywhere.mojom.Page_OnScreenshotCaptureCancelled_Params', [
+    mojo.internal.bindings.omnibox_everywhere.mojom.Page_OnContextUploadCancelled_ParamsSpec, 'omnibox_everywhere.mojom.Page_OnContextUploadCancelled_Params', [
     ],
     [[0, 8]]);
 

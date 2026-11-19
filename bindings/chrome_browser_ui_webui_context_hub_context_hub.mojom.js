@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8169.0';
+        const versionStr = window.mojoVersion || '160.0.8171.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -152,6 +152,8 @@ mojo.internal.bindings.browser.context_hub.mojom.DriveFileSpec = mojo.internal.b
 if (mojo.internal.bindings.browser.context_hub.mojom.DriveFileSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.DriveFileSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.DriveFileSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec = mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.SearchQuerySpec = mojo.internal.bindings.browser.context_hub.mojom.SearchQuerySpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.SearchQuerySpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.SearchQuerySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.SearchQuerySpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.FirstPartyDataSpec = mojo.internal.bindings.browser.context_hub.mojom.FirstPartyDataSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.FirstPartyDataSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.FirstPartyDataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.FirstPartyDataSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.ThirdPartyDataSpec = mojo.internal.bindings.browser.context_hub.mojom.ThirdPartyDataSpec || { $: {} };
@@ -2909,6 +2911,11 @@ mojo.internal.Union(
         'type': mojo.internal.bindings.browser.context_hub.mojom.ChromeHistoryEntrySpec,
         'nullable': false,
       },
+      'arg_search_query': {
+        'ordinal': 4,
+        'type': mojo.internal.bindings.browser.context_hub.mojom.SearchQuerySpec,
+        'nullable': false,
+      },
     });
 
 // Union: AutoTodoData
@@ -2970,6 +2977,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_visit_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SearchQuery
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.SearchQuerySpec, 'browser.context_hub.mojom.SearchQuery', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_search_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 

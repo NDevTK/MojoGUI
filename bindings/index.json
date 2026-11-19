@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-18T18:35:39.466775Z",
-  "version": "160.0.8169.0",
+  "generated_at": "2026-11-19T18:52:12.868627Z",
+  "version": "160.0.8171.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4647,7 +4647,8 @@
         "GetSuggestedActions",
         "ExecuteSuggestedAction",
         "OpenSettings",
-        "OpenDogfoodFeedback"
+        "OpenDogfoodFeedback",
+        "NotifyOverlayRendered"
       ],
       "metadata": {
         "usage": {
@@ -9837,6 +9838,7 @@
       "module": "ntp_promo.mojom",
       "file": "chrome_browser_ui_webui_new_tab_page_ntp_promo_ntp_promo.mojom.js",
       "methods": [
+        "GetBrowserPromoType",
         "RequestPromos",
         "OnPromoShown",
         "OnPromoClicked",
@@ -10188,7 +10190,7 @@
         "OnContextMenuClosed",
         "OnOverflowMenuClosed",
         "OpenComposebox",
-        "OnScreenshotCaptureCancelled",
+        "OnContextUploadCancelled",
         "FocusInput",
         "OnDemoted"
       ],
@@ -28396,7 +28398,8 @@
       "module": "user_data_importer.mojom",
       "file": "components_user_data_importer_mojom_bookmark_html_parser.mojom.js",
       "methods": [
-        "Parse"
+        "Parse",
+        "ReencodeFavicons"
       ],
       "metadata": {
         "usage": {
@@ -58482,6 +58485,7 @@
         "extensions/common/mojom/view_type.mojom",
         "mojo/public/mojom/base/string16.mojom",
         "mojo/public/mojom/base/values.mojom",
+        "third_party/blink/public/mojom/blob/blob.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/url.mojom",
         "third_party/blink/public/mojom/devtools/console_message.mojom"

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8169.0';
+        const versionStr = window.mojoVersion || '160.0.8171.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -177,6 +177,8 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_OpenSettings_P
 if (mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_OpenSettings_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_OpenSettings_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_OpenSettings_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_OpenDogfoodFeedback_ParamsSpec = mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_OpenDogfoodFeedback_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_OpenDogfoodFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_OpenDogfoodFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_OpenDogfoodFeedback_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_NotifyOverlayRendered_ParamsSpec = mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_NotifyOverlayRendered_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_NotifyOverlayRendered_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_NotifyOverlayRendered_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_NotifyOverlayRendered_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.selection.SelectionOverlayPage = mojo.internal.bindings.glic.selection.SelectionOverlayPage || {};
 mojo.internal.bindings.glic.selection.SelectionOverlayPageSpec = mojo.internal.bindings.glic.selection.SelectionOverlayPageSpec || { $ : {} };
 if (mojo.internal.bindings.glic.selection.SelectionOverlayPageSpec.$.structSpec && mojo.internal.bindings.glic.selection.SelectionOverlayPageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.selection.SelectionOverlayPageSpec.$ = {};
@@ -561,12 +563,16 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerRemote = class 
   openDogfoodFeedback() {
     return this.$.openDogfoodFeedback();
   }
+  notifyOverlayRendered() {
+    return this.$.notifyOverlayRendered();
+  }
 };
 
 mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.selection.SelectionOverlayPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -680,6 +686,15 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerRemoteCallHandl
       false);
   }
 
+  notifyOverlayRendered() {
+    return this.proxy.sendMessage(
+      this.ordinals[11],  // ordinal
+      mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_NotifyOverlayRendered_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler.getRemote = function() {
@@ -698,6 +713,7 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerReceiver = clas
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.selection.SelectionOverlayPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -827,6 +843,13 @@ mojo.internal.bindings.glic.selection.SelectionOverlayPageHandlerReceiver = clas
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_OpenDogfoodFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDogfoodFeedback');
           const result = this.impl.openDogfoodFeedback();
+          break;
+        }
+        case 11: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_NotifyOverlayRendered_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.notifyOverlayRendered');
+          const result = this.impl.notifyOverlayRendered();
           break;
         }
       }
@@ -1179,6 +1202,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_OpenDogfoodFeedback_ParamsSpec, 'glic.selection.SelectionOverlayPageHandler_OpenDogfoodFeedback_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.selection.SelectionOverlayPageHandler_NotifyOverlayRendered_ParamsSpec, 'glic.selection.SelectionOverlayPageHandler_NotifyOverlayRendered_Params', [
     ],
     [[0, 8]]);
 

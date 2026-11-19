@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8169.0';
+        const versionStr = window.mojoVersion || '160.0.8171.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,9 +125,9 @@
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
-mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 
 mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec = mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec || { $: {} };
 if (mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.ExecuteCodeParamsSpec.$ = {};
@@ -199,6 +199,11 @@ mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSp
 if (mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec.$.structSpec && mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.extensions.mojom.LocalFrameHost_OpenChannelToTab_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
+mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
+mojo.internal.bindings.blink.mojom.BlobSpec = mojo.internal.bindings.blink.mojom.BlobSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.blink.mojom.BlobRemote = mojo.internal.bindings.blink.mojom.BlobRemote || class {};
+mojo.internal.bindings.blink.mojom.BlobPendingReceiver = mojo.internal.bindings.blink.mojom.BlobPendingReceiver || class { constructor(handle) { this.handle = handle; } };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ConsoleMessageLevelSpec = mojo.internal.bindings.blink.mojom.ConsoleMessageLevelSpec || { $: mojo.internal.Enum().$ };
@@ -1053,17 +1058,18 @@ mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.RequestParamsSpec, 'extensions.mojom.RequestParams', [
       mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_arguments', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_extension_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_context_type', 32, 0, mojo.internal.bindings.extensions.mojom.ContextTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_callback', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_user_gesture', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_worker_thread_id', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_version_id', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_js_callstack', 56, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.StackFrameSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_blobs', 16, 0, mojo.internal.Array(mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobRemote), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context_type', 40, 0, mojo.internal.bindings.extensions.mojom.ContextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_callback', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_user_gesture', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_worker_thread_id', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_version_id', 56, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_js_callstack', 64, 0, mojo.internal.Array(mojo.internal.bindings.extensions.mojom.StackFrameSpec, false), null, true, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.LocalFrame_SetFrameName_ParamsSpec, 'extensions.mojom.LocalFrame_SetFrameName_Params', [
       mojo.internal.StructField('arg_frame_name', 0, 0, mojo.internal.String, null, false, 0, undefined),

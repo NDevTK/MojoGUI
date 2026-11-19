@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8169.0';
+        const versionStr = window.mojoVersion || '160.0.8171.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -144,6 +144,10 @@ mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsS
 if (mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec.$.structSpec && mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec.$ = {};
 mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec = mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ParamsSpec = mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ParamsSpec.$.structSpec && mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ParamsSpec.$ = {};
+mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ResponseParamsSpec = mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
@@ -189,12 +193,16 @@ mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserRemote = class
   parse(arg_raw_html) {
     return this.$.parse(arg_raw_html);
   }
+  reencodeFavicons(arg_raw_favicons) {
+    return this.$.reencodeFavicons(arg_raw_favicons);
+  }
 };
 
 mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('user_data_importer.mojom.BookmarkHtmlParser', [
+      { explicit: null },
       { explicit: null },
     ]);
   }
@@ -205,6 +213,15 @@ mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserRemoteCallHand
       mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ParamsSpec,
       mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec,
       [arg_raw_html],
+      false);
+  }
+
+  reencodeFavicons(arg_raw_favicons) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ParamsSpec,
+      mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ResponseParamsSpec,
+      [arg_raw_favicons],
       false);
   }
 
@@ -226,6 +243,7 @@ mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserReceiver = cla
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('user_data_importer.mojom.BookmarkHtmlParser', [
+      { explicit: null },
       { explicit: null },
     ]);
     ordinals.forEach((ord, idx) => {
@@ -285,6 +303,24 @@ mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParserReceiver = cla
                 header.ordinal, header.requestId, mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec.$.structSpec, resp_obj);
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] parse FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.reencodeFavicons');
+          const result = this.impl.reencodeFavicons(params.arg_raw_favicons);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_png_favicons' in response) ? response['arg_png_favicons'] : response;
+              const resp_obj = { 'arg_png_favicons': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] reencodeFavicons FAILED:', e));
           }
           break;
         }
@@ -353,6 +389,18 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParamsSpec, 'user_data_importer.mojom.BookmarkHtmlParser_Parse_ResponseParams', [
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.user_data_importer.mojom.ParsedBookmarksSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ParamsSpec, 'user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_Params', [
+      mojo.internal.StructField('arg_raw_favicons', 0, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ResponseParamsSpec, 'user_data_importer.mojom.BookmarkHtmlParser_ReencodeFavicons_ResponseParams', [
+      mojo.internal.StructField('arg_png_favicons', 0, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
