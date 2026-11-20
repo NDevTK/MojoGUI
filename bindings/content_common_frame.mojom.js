@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -132,7 +132,6 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.service_manager = mojo.internal.bindings.service_manager || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
-mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
@@ -155,8 +154,6 @@ mojo.internal.bindings.content.mojom.CreateFrameWidgetParamsSpec = mojo.internal
 if (mojo.internal.bindings.content.mojom.CreateFrameWidgetParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.CreateFrameWidgetParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.CreateFrameWidgetParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.CreateFrameParamsSpec = mojo.internal.bindings.content.mojom.CreateFrameParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.CreateFrameParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.CreateFrameParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.CreateFrameParamsSpec.$ = {};
-mojo.internal.bindings.content.mojom.SnapshotAccessibilityTreeParamsSpec = mojo.internal.bindings.content.mojom.SnapshotAccessibilityTreeParamsSpec || { $: {} };
-if (mojo.internal.bindings.content.mojom.SnapshotAccessibilityTreeParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.SnapshotAccessibilityTreeParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.SnapshotAccessibilityTreeParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.CreateNewWindowParamsSpec = mojo.internal.bindings.content.mojom.CreateNewWindowParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.CreateNewWindowParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.CreateNewWindowParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.CreateNewWindowParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.CreateNewWindowReplySpec = mojo.internal.bindings.content.mojom.CreateNewWindowReplySpec || { $: {} };
@@ -185,10 +182,6 @@ mojo.internal.bindings.content.mojom.Frame_Delete_ParamsSpec = mojo.internal.bin
 if (mojo.internal.bindings.content.mojom.Frame_Delete_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Frame_Delete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Frame_Delete_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.Frame_GetInterfaceProvider_ParamsSpec = mojo.internal.bindings.content.mojom.Frame_GetInterfaceProvider_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.Frame_GetInterfaceProvider_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Frame_GetInterfaceProvider_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Frame_GetInterfaceProvider_ParamsSpec.$ = {};
-mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec = mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$ = {};
-mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec = mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec || { $: {} };
-if (mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec = mojo.internal.bindings.content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.FrameBindingsControl = mojo.internal.bindings.content.mojom.FrameBindingsControl || {};
@@ -237,8 +230,6 @@ mojo.internal.bindings.content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec =
 if (mojo.internal.bindings.content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FrameHost_ResourceLoadComplete_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.FrameHost_DidChangeName_ParamsSpec = mojo.internal.bindings.content.mojom.FrameHost_DidChangeName_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.FrameHost_DidChangeName_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FrameHost_DidChangeName_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FrameHost_DidChangeName_ParamsSpec.$ = {};
-mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec = mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec || { $: {} };
-if (mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec = mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec.$ = {};
 mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec = mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec || { $: {} };
@@ -247,9 +238,6 @@ mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec = mojo.
 if (mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec.$.structSpec && mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
-mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
-mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
-mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec = mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderSpec = mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -435,9 +423,6 @@ mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.Rec
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -696,9 +681,6 @@ mojo.internal.bindings.content.mojom.FrameRemote = class {
   getInterfaceProvider(arg_interfaces) {
     return this.$.getInterfaceProvider(arg_interfaces);
   }
-  snapshotAccessibilityTree(arg_params) {
-    return this.$.snapshotAccessibilityTree(arg_params);
-  }
   getSerializedHtmlWithLocalLinks(arg_url_map, arg_frame_token_map, arg_save_with_empty_url, arg_handler_remote) {
     return this.$.getSerializedHtmlWithLocalLinks(arg_url_map, arg_frame_token_map, arg_save_with_empty_url, arg_handler_remote);
   }
@@ -708,7 +690,6 @@ mojo.internal.bindings.content.mojom.FrameRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.Frame', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -763,18 +744,9 @@ mojo.internal.bindings.content.mojom.FrameRemoteCallHandler = class {
       false);
   }
 
-  snapshotAccessibilityTree(arg_params) {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec,
-      mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec,
-      [arg_params],
-      false);
-  }
-
   getSerializedHtmlWithLocalLinks(arg_url_map, arg_frame_token_map, arg_save_with_empty_url, arg_handler_remote) {
     return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
+      this.ordinals[5],  // ordinal
       mojo.internal.bindings.content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec,
       null,
       [arg_url_map, arg_frame_token_map, arg_save_with_empty_url, arg_handler_remote],
@@ -799,7 +771,6 @@ mojo.internal.bindings.content.mojom.FrameReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('content.mojom.Frame', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -896,24 +867,6 @@ mojo.internal.bindings.content.mojom.FrameReceiver = class {
           break;
         }
         case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.snapshotAccessibilityTree');
-          const result = this.impl.snapshotAccessibilityTree(params.arg_params);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              const val = (response && typeof response === 'object' && 'arg_snapshot' in response) ? response['arg_snapshot'] : response;
-              const resp_obj = { 'arg_snapshot': val };
-              const message = new mojo.internal.Message(
-                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
-                header.ordinal, header.requestId, mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec.$.structSpec, resp_obj);
-              this.router_.send(message);
-            }).catch(e => console.error('[GeneratedReceiver] snapshotAccessibilityTree FAILED:', e));
-          }
-          break;
-        }
-        case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.Frame_GetSerializedHtmlWithLocalLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSerializedHtmlWithLocalLinks');
@@ -1456,9 +1409,6 @@ mojo.internal.bindings.content.mojom.FrameHostRemote = class {
   didChangeName(arg_name, arg_unique_name) {
     return this.$.didChangeName(arg_name, arg_unique_name);
   }
-  updateEncoding(arg_encoding_name) {
-    return this.$.updateEncoding(arg_encoding_name);
-  }
   updateState(arg_state) {
     return this.$.updateState(arg_state);
   }
@@ -1474,7 +1424,6 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('content.mojom.FrameHost', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1561,18 +1510,9 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
       false);
   }
 
-  updateEncoding(arg_encoding_name) {
-    return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
-      mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec,
-      null,
-      [arg_encoding_name],
-      false);
-  }
-
   updateState(arg_state) {
     return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec,
       null,
       [arg_state],
@@ -1581,7 +1521,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   openURL(arg_params) {
     return this.proxy.sendMessage(
-      this.ordinals[10],  // ordinal
+      this.ordinals[9],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec,
       null,
       [arg_params],
@@ -1590,7 +1530,7 @@ mojo.internal.bindings.content.mojom.FrameHostRemoteCallHandler = class {
 
   didStopLoading() {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[10],  // ordinal
       mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec,
       null,
       [],
@@ -1615,7 +1555,6 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('content.mojom.FrameHost', [
-      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1738,26 +1677,19 @@ mojo.internal.bindings.content.mojom.FrameHostReceiver = class {
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateEncoding');
-          const result = this.impl.updateEncoding(params.arg_encoding_name);
-          break;
-        }
-        case 9: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateState');
           const result = this.impl.updateState(params.arg_state);
           break;
         }
-        case 10: {
+        case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_OpenURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openURL');
           const result = this.impl.openURL(params.arg_params);
           break;
         }
-        case 11: {
+        case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHost_DidStopLoading_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStopLoading');
@@ -1901,15 +1833,6 @@ mojo.internal.Struct(
     ],
     [[0, 176]]);
 
-// Struct: SnapshotAccessibilityTreeParams
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SnapshotAccessibilityTreeParamsSpec, 'content.mojom.SnapshotAccessibilityTreeParams', [
-      mojo.internal.StructField('arg_ax_mode', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_nodes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Struct: CreateNewWindowParams
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.CreateNewWindowParamsSpec, 'content.mojom.CreateNewWindowParams', [
@@ -2012,18 +1935,6 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.Frame_GetInterfaceProvider_ParamsSpec, 'content.mojom.Frame_GetInterfaceProvider_Params', [
       mojo.internal.StructField('arg_interfaces', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.InterfaceProviderPendingReceiver), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ParamsSpec, 'content.mojom.Frame_SnapshotAccessibilityTree_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.SnapshotAccessibilityTreeParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.Frame_SnapshotAccessibilityTree_ResponseParamsSpec, 'content.mojom.Frame_SnapshotAccessibilityTree_ResponseParams', [
-      mojo.internal.StructField('arg_snapshot', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
@@ -2149,12 +2060,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_unique_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FrameHost_UpdateEncoding_ParamsSpec, 'content.mojom.FrameHost_UpdateEncoding_Params', [
-      mojo.internal.StructField('arg_encoding_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.FrameHost_UpdateState_ParamsSpec, 'content.mojom.FrameHost_UpdateState_Params', [

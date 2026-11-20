@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,12 +128,18 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.sandbox = mojo.internal.bindings.sandbox || {};
 
+mojo.internal.bindings.devtools_media_encoding_service.mojom.OutputSpec = mojo.internal.bindings.devtools_media_encoding_service.mojom.OutputSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.devtools_media_encoding_service.mojom.LatencyModeSpec = mojo.internal.bindings.devtools_media_encoding_service.mojom.LatencyModeSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.devtools_media_encoding_service.mojom.RecordingOptionsSpec = mojo.internal.bindings.devtools_media_encoding_service.mojom.RecordingOptionsSpec || { $: {} };
+if (mojo.internal.bindings.devtools_media_encoding_service.mojom.RecordingOptionsSpec.$.structSpec && mojo.internal.bindings.devtools_media_encoding_service.mojom.RecordingOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.devtools_media_encoding_service.mojom.RecordingOptionsSpec.$ = {};
 mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient = mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient || {};
 mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClientSpec = mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClientSpec || { $ : {} };
 if (mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClientSpec.$.structSpec && mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClientSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClientSpec.$ = {};
 mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient.$interfaceName = 'devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient';
 mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnData_ParamsSpec = mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnData_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnData_ParamsSpec.$.structSpec && mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnData_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnData_ParamsSpec.$ = {};
+mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnEncodedVideoFrame_ParamsSpec = mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnEncodedVideoFrame_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnEncodedVideoFrame_ParamsSpec.$.structSpec && mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnEncodedVideoFrame_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnEncodedVideoFrame_ParamsSpec.$ = {};
 mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnClosed_ParamsSpec = mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnClosed_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnClosed_ParamsSpec.$.structSpec && mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnClosed_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnClosed_ParamsSpec.$ = {};
 mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingService = mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingService || {};
@@ -156,6 +162,21 @@ mojo.internal.bindings.media.mojom.AudioBufferSpec = mojo.internal.bindings.medi
 mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoFrameSpec = mojo.internal.bindings.media.mojom.VideoFrameSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: Output
+mojo.internal.bindings.devtools_media_encoding_service.mojom.Output = {
+  kMp4: 0,
+  kEncodedFrames: 1,
+};
+
+// Enum: LatencyMode
+mojo.internal.bindings.devtools_media_encoding_service.mojom.LatencyMode = {
+  kRealtime: 0,
+  kQuality: 1,
+};
 
 // Interface: DevToolsMediaEncodingServiceClient
 mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClientPendingReceiver = class {
@@ -190,6 +211,9 @@ mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodi
   onData(arg_data) {
     return this.$.onData(arg_data);
   }
+  onEncodedVideoFrame(arg_data, arg_key_frame, arg_timestamp) {
+    return this.$.onEncodedVideoFrame(arg_data, arg_key_frame, arg_timestamp);
+  }
   onClosed() {
     return this.$.onClosed();
   }
@@ -199,6 +223,7 @@ mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodi
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -213,9 +238,18 @@ mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodi
       false);
   }
 
-  onClosed() {
+  onEncodedVideoFrame(arg_data, arg_key_frame, arg_timestamp) {
     return this.proxy.sendMessage(
       this.ordinals[1],  // ordinal
+      mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnEncodedVideoFrame_ParamsSpec,
+      null,
+      [arg_data, arg_key_frame, arg_timestamp],
+      false);
+  }
+
+  onClosed() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
       mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnClosed_ParamsSpec,
       null,
       [],
@@ -240,6 +274,7 @@ mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodi
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
     ]);
@@ -294,6 +329,13 @@ mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodi
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnEncodedVideoFrame_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onEncodedVideoFrame');
+          const result = this.impl.onEncodedVideoFrame(params.arg_data, params.arg_key_frame, params.arg_timestamp);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClosed');
           const result = this.impl.onClosed();
@@ -343,8 +385,8 @@ mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodi
   close() {
     this.proxy.close();
   }
-  startRecording(arg_client, arg_max_width, arg_max_height, arg_frame_rate, arg_has_audio) {
-    return this.$.startRecording(arg_client, arg_max_width, arg_max_height, arg_frame_rate, arg_has_audio);
+  startRecording(arg_client, arg_options) {
+    return this.$.startRecording(arg_client, arg_options);
   }
   recordVideoFrame(arg_frame) {
     return this.$.recordVideoFrame(arg_frame);
@@ -368,12 +410,12 @@ mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodi
     ]);
   }
 
-  startRecording(arg_client, arg_max_width, arg_max_height, arg_frame_rate, arg_has_audio) {
+  startRecording(arg_client, arg_options) {
     return this.proxy.sendMessage(
       this.ordinals[0],  // ordinal
       mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingService_StartRecording_ParamsSpec,
       null,
-      [arg_client, arg_max_width, arg_max_height, arg_frame_rate, arg_has_audio],
+      [arg_client, arg_options],
       false);
   }
 
@@ -473,7 +515,7 @@ mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodi
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingService_StartRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startRecording');
-          const result = this.impl.startRecording(params.arg_client, params.arg_max_width, params.arg_max_height, params.arg_frame_rate, params.arg_has_audio);
+          const result = this.impl.startRecording(params.arg_client, params.arg_options);
           break;
         }
         case 1: {
@@ -512,11 +554,30 @@ mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodi
 
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: RecordingOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.devtools_media_encoding_service.mojom.RecordingOptionsSpec, 'devtools_media_encoding_service.mojom.RecordingOptions', [
+      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.bindings.devtools_media_encoding_service.mojom.OutputSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_rate', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_record_audio', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_latency_mode', 12, 0, mojo.internal.bindings.devtools_media_encoding_service.mojom.LatencyModeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_keyframe_interval', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 mojo.internal.Struct(
     mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnData_ParamsSpec, 'devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnData_Params', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnEncodedVideoFrame_ParamsSpec, 'devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnEncodedVideoFrame_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_frame', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnClosed_ParamsSpec, 'devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClient_OnClosed_Params', [
@@ -526,12 +587,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingService_StartRecording_ParamsSpec, 'devtools_media_encoding_service.mojom.DevToolsMediaEncodingService_StartRecording_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingServiceClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_width', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_height', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_rate', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_audio', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.devtools_media_encoding_service.mojom.RecordingOptionsSpec, null, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.devtools_media_encoding_service.mojom.DevToolsMediaEncodingService_RecordVideoFrame_ParamsSpec, 'devtools_media_encoding_service.mojom.DevToolsMediaEncodingService_RecordVideoFrame_Params', [

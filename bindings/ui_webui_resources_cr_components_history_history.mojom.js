@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -125,11 +125,13 @@
 mojo.internal.bindings.history.mojom = mojo.internal.bindings.history.mojom || {};
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
 mojo.internal.bindings.history.mojom.FilteringBehaviorSpec = mojo.internal.bindings.history.mojom.FilteringBehaviorSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.history.mojom.CriticalActionTypeSpec = mojo.internal.bindings.history.mojom.CriticalActionTypeSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.history.mojom.OpenConversationResultSpec = mojo.internal.bindings.history.mojom.OpenConversationResultSpec || { $: mojo.internal.Enum().$ };
+mojo.internal.bindings.history.mojom.OpenConversationSourceSpec = mojo.internal.bindings.history.mojom.OpenConversationSourceSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.history.mojom.AccessPointSpec = mojo.internal.bindings.history.mojom.AccessPointSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.history.mojom.TimePeriodOptionIdSpec = mojo.internal.bindings.history.mojom.TimePeriodOptionIdSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.history.mojom.DeviceSpec = mojo.internal.bindings.history.mojom.DeviceSpec || { $: {} };
@@ -184,6 +186,8 @@ mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponsePara
 if (mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec = mojo.internal.bindings.history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec.$.structSpec && mojo.internal.bindings.history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec.$ = {};
+mojo.internal.bindings.history.mojom.PageHandler_NavigateToUrl_ParamsSpec = mojo.internal.bindings.history.mojom.PageHandler_NavigateToUrl_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.history.mojom.PageHandler_NavigateToUrl_ParamsSpec.$.structSpec && mojo.internal.bindings.history.mojom.PageHandler_NavigateToUrl_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.PageHandler_NavigateToUrl_ParamsSpec.$ = {};
 mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ParamsSpec = mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ParamsSpec.$.structSpec && mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ParamsSpec.$ = {};
 mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ResponseParamsSpec = mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ResponseParamsSpec || { $: {} };
@@ -219,6 +223,9 @@ if (mojo.internal.bindings.history.mojom.Page_SendAccountInfo_ParamsSpec.$.struc
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
+mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
+mojo.internal.bindings.ui.mojom.ClickModifiersSpec = mojo.internal.bindings.ui.mojom.ClickModifiersSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -242,6 +249,8 @@ mojo.internal.bindings.history.mojom.CriticalActionType = {
   kFederatedLogin: 6,
   kCredentialsOtp: 7,
   kWebMcpTool: 8,
+  kFormFillContactInfo: 9,
+  kFormFillPayments: 10,
 };
 
 // Enum: OpenConversationResult
@@ -249,6 +258,12 @@ mojo.internal.bindings.history.mojom.OpenConversationResult = {
   kSuccess: 0,
   kErrorInvalidActionEntry: 1,
   kErrorInternal: 2,
+};
+
+// Enum: OpenConversationSource
+mojo.internal.bindings.history.mojom.OpenConversationSource = {
+  kEntryMenu: 0,
+  kCriticalActionRow: 1,
 };
 
 // Enum: AccessPoint
@@ -326,8 +341,11 @@ mojo.internal.bindings.history.mojom.PageHandlerRemote = class {
   turnOnHistorySync(arg_access_point) {
     return this.$.turnOnHistorySync(arg_access_point);
   }
-  openCriticalActionConversation(arg_critical_action_id) {
-    return this.$.openCriticalActionConversation(arg_critical_action_id);
+  navigateToUrl(arg_url, arg_open_in_new_tab, arg_modifiers) {
+    return this.$.navigateToUrl(arg_url, arg_open_in_new_tab, arg_modifiers);
+  }
+  openCriticalActionConversation(arg_critical_action_id, arg_source) {
+    return this.$.openCriticalActionConversation(arg_critical_action_id, arg_source);
   }
   getSyncedDevicesForFiltering() {
     return this.$.getSyncedDevicesForFiltering();
@@ -350,6 +368,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('history.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -459,18 +478,27 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
       false);
   }
 
-  openCriticalActionConversation(arg_critical_action_id) {
+  navigateToUrl(arg_url, arg_open_in_new_tab, arg_modifiers) {
     return this.proxy.sendMessage(
       this.ordinals[10],  // ordinal
+      mojo.internal.bindings.history.mojom.PageHandler_NavigateToUrl_ParamsSpec,
+      null,
+      [arg_url, arg_open_in_new_tab, arg_modifiers],
+      false);
+  }
+
+  openCriticalActionConversation(arg_critical_action_id, arg_source) {
+    return this.proxy.sendMessage(
+      this.ordinals[11],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ResponseParamsSpec,
-      [arg_critical_action_id],
+      [arg_critical_action_id, arg_source],
       false);
   }
 
   getSyncedDevicesForFiltering() {
     return this.proxy.sendMessage(
-      this.ordinals[11],  // ordinal
+      this.ordinals[12],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_GetSyncedDevicesForFiltering_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_GetSyncedDevicesForFiltering_ResponseParamsSpec,
       [],
@@ -479,7 +507,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
 
   getTimePeriodOptions() {
     return this.proxy.sendMessage(
-      this.ordinals[12],  // ordinal
+      this.ordinals[13],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_GetTimePeriodOptions_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_GetTimePeriodOptions_ResponseParamsSpec,
       [],
@@ -488,7 +516,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
 
   shouldShowHistoryPageHistorySyncPromo() {
     return this.proxy.sendMessage(
-      this.ordinals[13],  // ordinal
+      this.ordinals[14],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec,
       mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec,
       [],
@@ -497,7 +525,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
 
   recordHistoryPageHistorySyncPromoDismissed() {
     return this.proxy.sendMessage(
-      this.ordinals[14],  // ordinal
+      this.ordinals[15],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec,
       null,
       [],
@@ -506,7 +534,7 @@ mojo.internal.bindings.history.mojom.PageHandlerRemoteCallHandler = class {
 
   incrementHistoryPageHistorySyncPromoShownCount() {
     return this.proxy.sendMessage(
-      this.ordinals[15],  // ordinal
+      this.ordinals[16],  // ordinal
       mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec,
       null,
       [],
@@ -531,6 +559,7 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('history.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -705,9 +734,16 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_NavigateToUrl_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.navigateToUrl');
+          const result = this.impl.navigateToUrl(params.arg_url, params.arg_open_in_new_tab, params.arg_modifiers);
+          break;
+        }
+        case 11: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openCriticalActionConversation');
-          const result = this.impl.openCriticalActionConversation(params.arg_critical_action_id);
+          const result = this.impl.openCriticalActionConversation(params.arg_critical_action_id, params.arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -721,7 +757,7 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 11: {
+        case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_GetSyncedDevicesForFiltering_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSyncedDevicesForFiltering');
@@ -739,7 +775,7 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 12: {
+        case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_GetTimePeriodOptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTimePeriodOptions');
@@ -757,7 +793,7 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 13: {
+        case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldShowHistoryPageHistorySyncPromo');
@@ -775,14 +811,14 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           }
           break;
         }
-        case 14: {
+        case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordHistoryPageHistorySyncPromoDismissed');
           const result = this.impl.recordHistoryPageHistorySyncPromoDismissed();
           break;
         }
-        case 15: {
+        case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.incrementHistoryPageHistorySyncPromoShownCount');
@@ -1059,6 +1095,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_tooltip', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_linkout_url', 24, 0, mojo.internal.String, null, true, 0, undefined),
       mojo.internal.StructField('arg_action_type', 32, 0, mojo.internal.bindings.history.mojom.CriticalActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_can_open_chat', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 48]]);
 
@@ -1183,10 +1220,19 @@ mojo.internal.Struct(
     [[0, 16]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_NavigateToUrl_ParamsSpec, 'history.mojom.PageHandler_NavigateToUrl_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_open_in_new_tab', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_modifiers', 16, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ParamsSpec, 'history.mojom.PageHandler_OpenCriticalActionConversation_Params', [
       mojo.internal.StructField('arg_critical_action_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.history.mojom.OpenConversationSourceSpec, null, false, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.history.mojom.PageHandler_OpenCriticalActionConversation_ResponseParamsSpec, 'history.mojom.PageHandler_OpenCriticalActionConversation_ResponseParams', [

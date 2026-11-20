@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -127,8 +127,11 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 
+mojo.internal.bindings.wallet.mojom.ImageSourceElementSpec = mojo.internal.bindings.wallet.mojom.ImageSourceElementSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.wallet.mojom.ImageExtractionOptionsSpec = mojo.internal.bindings.wallet.mojom.ImageExtractionOptionsSpec || { $: {} };
 if (mojo.internal.bindings.wallet.mojom.ImageExtractionOptionsSpec.$.structSpec && mojo.internal.bindings.wallet.mojom.ImageExtractionOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.wallet.mojom.ImageExtractionOptionsSpec.$ = {};
+mojo.internal.bindings.wallet.mojom.ExtractedImageSpec = mojo.internal.bindings.wallet.mojom.ExtractedImageSpec || { $: {} };
+if (mojo.internal.bindings.wallet.mojom.ExtractedImageSpec.$.structSpec && mojo.internal.bindings.wallet.mojom.ExtractedImageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.wallet.mojom.ExtractedImageSpec.$ = {};
 mojo.internal.bindings.wallet.mojom.ImageExtractor = mojo.internal.bindings.wallet.mojom.ImageExtractor || {};
 mojo.internal.bindings.wallet.mojom.ImageExtractorSpec = mojo.internal.bindings.wallet.mojom.ImageExtractorSpec || { $ : {} };
 if (mojo.internal.bindings.wallet.mojom.ImageExtractorSpec.$.structSpec && mojo.internal.bindings.wallet.mojom.ImageExtractorSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.wallet.mojom.ImageExtractorSpec.$ = {};
@@ -142,6 +145,12 @@ if (mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponsePar
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec = mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec || { $: mojo.internal.OpaqueStruct.$ };
+
+// Enum: ImageSourceElement
+mojo.internal.bindings.wallet.mojom.ImageSourceElement = {
+  kImg: 0,
+  kCanvas: 1,
+};
 
 // Interface: ImageExtractor
 mojo.internal.bindings.wallet.mojom.ImageExtractorPendingReceiver = class {
@@ -299,6 +308,14 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_max_aspect_ratio', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
     ],
     [[0, 24]]);
+
+// Struct: ExtractedImage
+mojo.internal.Struct(
+    mojo.internal.bindings.wallet.mojom.ExtractedImageSpec, 'wallet.mojom.ExtractedImage', [
+      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_element', 8, 0, mojo.internal.bindings.wallet.mojom.ImageSourceElementSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 mojo.internal.Struct(
     mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec, 'wallet.mojom.ImageExtractor_ExtractImages_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.wallet.mojom.ImageExtractionOptionsSpec, null, false, 0, undefined),
@@ -307,7 +324,7 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec, 'wallet.mojom.ImageExtractor_ExtractImages_ResponseParams', [
-      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Array(mojo.internal.bindings.wallet.mojom.ExtractedImageSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -240,6 +240,8 @@ mojo.internal.bindings.glic.mojom.OpenPinnedTabPickerOptionsSpec = mojo.internal
 if (mojo.internal.bindings.glic.mojom.OpenPinnedTabPickerOptionsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.OpenPinnedTabPickerOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.OpenPinnedTabPickerOptionsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.CreateActorTabOptionsSpec = mojo.internal.bindings.glic.mojom.CreateActorTabOptionsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.CreateActorTabOptionsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.CreateActorTabOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.CreateActorTabOptionsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.PerformActionsOptionsSpec = mojo.internal.bindings.glic.mojom.PerformActionsOptionsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.PerformActionsOptionsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.PerformActionsOptionsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.PerformActionsOptionsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.CaptureRegionParamsSpec = mojo.internal.bindings.glic.mojom.CaptureRegionParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.CaptureRegionParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.CaptureRegionParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.CaptureRegionParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.ActivateTabOptionsSpec = mojo.internal.bindings.glic.mojom.ActivateTabOptionsSpec || { $: {} };
@@ -682,6 +684,10 @@ mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec || { $: {} };
@@ -1846,8 +1852,8 @@ mojo.internal.bindings.glic.mojom.ActorHandlerRemote = class {
   createTask(arg_task_options) {
     return this.$.createTask(arg_task_options);
   }
-  performActions(arg_actions_proto) {
-    return this.$.performActions(arg_actions_proto);
+  performActions(arg_actions_proto, arg_options) {
+    return this.$.performActions(arg_actions_proto, arg_options);
   }
   cancelActions(arg_task_id) {
     return this.$.cancelActions(arg_task_id);
@@ -1973,12 +1979,12 @@ mojo.internal.bindings.glic.mojom.ActorHandlerRemoteCallHandler = class {
       false);
   }
 
-  performActions(arg_actions_proto) {
+  performActions(arg_actions_proto, arg_options) {
     return this.proxy.sendMessage(
       this.ordinals[5],  // ordinal
       mojo.internal.bindings.glic.mojom.ActorHandler_PerformActions_ParamsSpec,
       null,
-      [arg_actions_proto],
+      [arg_actions_proto, arg_options],
       false);
   }
 
@@ -2259,7 +2265,7 @@ mojo.internal.bindings.glic.mojom.ActorHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.ActorHandler_PerformActions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performActions');
-          const result = this.impl.performActions(params.arg_actions_proto);
+          const result = this.impl.performActions(params.arg_actions_proto, params.arg_options);
           break;
         }
         case 6: {
@@ -3376,6 +3382,9 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemote = class {
   clearClientStorage() {
     return this.$.clearClientStorage();
   }
+  setGuestUrlQueryParam(arg_key, arg_value) {
+    return this.$.setGuestUrlQueryParam(arg_key, arg_value);
+  }
   getSendTabToSelfDevices() {
     return this.$.getSendTabToSelfDevices();
   }
@@ -3391,6 +3400,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4247,9 +4257,18 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
       false);
   }
 
-  getSendTabToSelfDevices() {
+  setGuestUrlQueryParam(arg_key, arg_value) {
     return this.proxy.sendMessage(
       this.ordinals[85],  // ordinal
+      mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ParamsSpec,
+      mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ResponseParamsSpec,
+      [arg_key, arg_value],
+      false);
+  }
+
+  getSendTabToSelfDevices() {
+    return this.proxy.sendMessage(
+      this.ordinals[86],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ParamsSpec,
       mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ResponseParamsSpec,
       [],
@@ -4258,7 +4277,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onTooltipImpression(arg_impression) {
     return this.proxy.sendMessage(
-      this.ordinals[86],  // ordinal
+      this.ordinals[87],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec,
       null,
       [arg_impression],
@@ -4267,7 +4286,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerRemoteCallHandler = class {
 
   onTooltipHidden() {
     return this.proxy.sendMessage(
-      this.ordinals[87],  // ordinal
+      this.ordinals[88],  // ordinal
       mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipHidden_ParamsSpec,
       null,
       [],
@@ -4292,6 +4311,7 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.WebClientHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -5341,6 +5361,23 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
         }
         case 85: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setGuestUrlQueryParam');
+          const result = this.impl.setGuestUrlQueryParam(params.arg_key, params.arg_value);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const resp_obj = response;
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] setGuestUrlQueryParam FAILED:', e));
+          }
+          break;
+        }
+        case 86: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_GetSendTabToSelfDevices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSendTabToSelfDevices');
           const result = this.impl.getSendTabToSelfDevices();
@@ -5357,14 +5394,14 @@ mojo.internal.bindings.glic.mojom.WebClientHandlerReceiver = class {
           }
           break;
         }
-        case 86: {
+        case 87: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipImpression_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTooltipImpression');
           const result = this.impl.onTooltipImpression(params.arg_impression);
           break;
         }
-        case 87: {
+        case 88: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.WebClientHandler_OnTooltipHidden_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTooltipHidden');
@@ -7721,6 +7758,13 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
+// Struct: PerformActionsOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.PerformActionsOptionsSpec, 'glic.mojom.PerformActionsOptions', [
+      mojo.internal.StructField('arg_turn_id', 0, 0, mojo.internal.String, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
 // Struct: CaptureRegionParams
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.CaptureRegionParamsSpec, 'glic.mojom.CaptureRegionParams', [
@@ -8173,8 +8217,9 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.ActorHandler_PerformActions_ParamsSpec, 'glic.mojom.ActorHandler_PerformActions_Params', [
       mojo.internal.StructField('arg_actions_proto', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.glic.mojom.PerformActionsOptionsSpec, null, true, 0, undefined),
     ],
-    [[0, 16]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.ActorHandler_CancelActions_ParamsSpec, 'glic.mojom.ActorHandler_CancelActions_Params', [
@@ -9086,6 +9131,18 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.WebClientHandler_ClearClientStorage_ResponseParamsSpec, 'glic.mojom.WebClientHandler_ClearClientStorage_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ParamsSpec, 'glic.mojom.WebClientHandler_SetGuestUrlQueryParam_Params', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ResponseParamsSpec, 'glic.mojom.WebClientHandler_SetGuestUrlQueryParam_ResponseParams', [
     ],
     [[0, 8]]);
 

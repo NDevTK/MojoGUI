@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -417,6 +417,7 @@ mojo.internal.bindings.toolbar_ui_api.mojom.PageActionId = {
   kActionFakePageActionForDebug: 33,
   kActionWalletReminderNotice: 34,
   kActionGmailOtpOptIn: 35,
+  kActionOnDeviceAi: 36,
 };
 
 // Enum: PageActionTrigger

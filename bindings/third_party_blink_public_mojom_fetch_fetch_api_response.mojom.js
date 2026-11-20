@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -128,7 +128,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 
-mojo.internal.bindings.blink.mojom.FetchCacheStorageSideDataWriterTagSpec = mojo.internal.bindings.blink.mojom.FetchCacheStorageSideDataWriterTagSpec || { $: mojo.internal.Enum().$ };
 mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec = mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec.$.structSpec && mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec.$ = {};
 
@@ -168,11 +167,6 @@ mojo.internal.bindings.network.mojom.ParsedHeadersSpec = mojo.internal.bindings.
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
-
-// Enum: FetchCacheStorageSideDataWriterTag
-mojo.internal.bindings.blink.mojom.FetchCacheStorageSideDataWriterTag = {
-  kDefault: 0,
-};
 
 // Specs (at the end to ensure classes are defined for InterfaceProxy)
 

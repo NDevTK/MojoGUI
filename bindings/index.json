@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-19T18:52:12.868627Z",
-  "version": "160.0.8171.0",
+  "generated_at": "2026-11-20T18:12:50.948774Z",
+  "version": "160.0.8173.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4114,6 +4114,7 @@
         "CreateGeminiEnterpriseHandler",
         "SetClientStorageItem",
         "ClearClientStorage",
+        "SetGuestUrlQueryParam",
         "GetSendTabToSelfDevices",
         "OnTooltipImpression",
         "OnTooltipHidden"
@@ -4323,7 +4324,8 @@
         "RevokeGlicConsent",
         "RevokeActuationConsent",
         "SetHotkeyGlobalScopeMigratedV2",
-        "SetUiLocaleOverride"
+        "SetUiLocaleOverride",
+        "SetGuestUrlQueryParams"
       ],
       "metadata": {
         "usage": {
@@ -7860,7 +7862,9 @@
         "GetSuggestedBrowseMemoryBanksShortcut",
         "SetBrowseMemoryBanksShortcut",
         "StartSkillRecording",
-        "StopSkillRecording"
+        "StopSkillRecording",
+        "GenerateTasks",
+        "GetTasks"
       ],
       "metadata": {
         "usage": {
@@ -10438,7 +10442,8 @@
         "SetEditHistoryState",
         "OpenDevTools",
         "OpenDogfoodFeedback",
-        "AdvanceFocus"
+        "AdvanceFocus",
+        "RequestAimHint"
       ],
       "metadata": {
         "usage": {
@@ -29133,7 +29138,6 @@
         "Unload",
         "Delete",
         "GetInterfaceProvider",
-        "SnapshotAccessibilityTree",
         "GetSerializedHtmlWithLocalLinks"
       ],
       "metadata": {
@@ -29221,7 +29225,6 @@
         "SubresourceResponseStarted",
         "ResourceLoadComplete",
         "DidChangeName",
-        "UpdateEncoding",
         "UpdateState",
         "OpenURL",
         "DidStopLoading"
@@ -29967,6 +29970,7 @@
       "file": "content_services_devtools_media_encoding_service_public_mojom_devtools_media_encoding_service.mojom.js",
       "methods": [
         "OnData",
+        "OnEncodedVideoFrame",
         "OnClosed"
       ],
       "metadata": {
@@ -45424,7 +45428,8 @@
         "DispatchPageSwap",
         "AddResourceTimingEntryForFailedSubframeNavigation",
         "GetScrollPosition",
-        "SetWantErrorMessageStackTrace"
+        "SetWantErrorMessageStackTrace",
+        "SnapshotAccessibilityTree"
       ],
       "metadata": {
         "usage": {
@@ -45491,7 +45496,8 @@
         "SetResizable",
         "DraggableRegionsChanged",
         "OnFirstContentfulPaint",
-        "OnLargestContentfulPaint"
+        "OnLargestContentfulPaint",
+        "UpdateEncoding"
       ],
       "metadata": {
         "usage": {
@@ -50761,6 +50767,7 @@
         "ShowSidePanelUI",
         "RequestAccountInfo",
         "TurnOnHistorySync",
+        "NavigateToUrl",
         "OpenCriticalActionConversation",
         "GetSyncedDevicesForFiltering",
         "GetTimePeriodOptions",
@@ -57838,7 +57845,6 @@
         "third_party/blink/public/mojom/widget/platform_widget.mojom",
         "third_party/blink/public/mojom/widget/visual_properties.mojom",
         "third_party/blink/public/mojom/window_features/window_features.mojom",
-        "ui/accessibility/mojom/ax_tree_update.mojom",
         "ui/base/mojom/window_open_disposition.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
         "url/mojom/origin.mojom",
@@ -58120,6 +58126,7 @@
       "module": "devtools_media_encoding_service.mojom",
       "imports": [
         "media/mojo/mojom/media_types.mojom",
+        "mojo/public/mojom/base/time.mojom",
         "sandbox/policy/mojom/sandbox.mojom"
       ]
     },
@@ -58475,6 +58482,7 @@
         "extensions/common/mojom/code_injection.mojom",
         "extensions/common/mojom/context_type.mojom",
         "extensions/common/mojom/extra_response_data.mojom",
+        "extensions/common/mojom/response_wrapper.mojom",
         "extensions/common/mojom/host_id.mojom",
         "extensions/common/mojom/injection_type.mojom",
         "extensions/common/mojom/extension_id.mojom",
@@ -58585,6 +58593,14 @@
       ]
     },
     {
+      "filename": "extensions_common_mojom_response_wrapper.mojom.js",
+      "source": "extensions/common/mojom/response_wrapper.mojom",
+      "module": "extensions.mojom",
+      "imports": [
+        "mojo/public/mojom/base/values.mojom"
+      ]
+    },
+    {
       "filename": "extensions_common_mojom_run_location.mojom.js",
       "source": "extensions/common/mojom/run_location.mojom",
       "module": "extensions.mojom",
@@ -58609,8 +58625,8 @@
         "extensions/common/mojom/event_dispatcher.mojom",
         "extensions/common/mojom/extension_id.mojom",
         "extensions/common/mojom/extra_response_data.mojom",
+        "extensions/common/mojom/response_wrapper.mojom",
         "extensions/common/mojom/frame.mojom",
-        "mojo/public/mojom/base/values.mojom",
         "extensions/common/mojom/message_port.mojom",
         "third_party/blink/public/mojom/tokens/tokens.mojom",
         "url/mojom/url.mojom"
@@ -64635,6 +64651,7 @@
         "third_party/blink/public/mojom/use_counter/metrics/web_feature.mojom",
         "third_party/blink/public/mojom/widget/platform_widget.mojom",
         "third_party/blink/public/mojom/window_features/window_features.mojom",
+        "ui/accessibility/mojom/ax_tree_update.mojom",
         "ui/base/ime/mojom/virtual_keyboard_types.mojom",
         "ui/base/mojom/window_open_disposition.mojom",
         "ui/events/mojom/scroll_granularity.mojom",
@@ -67902,6 +67919,7 @@
       "module": "history.mojom",
       "imports": [
         "mojo/public/mojom/base/time.mojom",
+        "ui/base/mojom/window_open_disposition.mojom",
         "url/mojom/url.mojom"
       ]
     },

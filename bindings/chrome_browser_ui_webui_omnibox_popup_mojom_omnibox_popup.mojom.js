@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -178,6 +178,10 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_Param
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_OpenDogfoodFeedback_ParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ParamsSpec.$ = {};
+mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ResponseParamsSpec = mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.omnibox_popup.mojom.Page = mojo.internal.bindings.omnibox_popup.mojom.Page || {};
 mojo.internal.bindings.omnibox_popup.mojom.PageSpec = mojo.internal.bindings.omnibox_popup.mojom.PageSpec || { $ : {} };
 if (mojo.internal.bindings.omnibox_popup.mojom.PageSpec.$.structSpec && mojo.internal.bindings.omnibox_popup.mojom.PageSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.omnibox_popup.mojom.PageSpec.$ = {};
@@ -462,12 +466,16 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemote = class {
   advanceFocus(arg_reverse) {
     return this.$.advanceFocus(arg_reverse);
   }
+  requestAimHint() {
+    return this.$.requestAimHint();
+  }
 };
 
 mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('omnibox_popup.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -631,6 +639,15 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerRemoteCallHandler = class 
       false);
   }
 
+  requestAimHint() {
+    return this.proxy.sendMessage(
+      this.ordinals[16],  // ordinal
+      mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ParamsSpec,
+      mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.omnibox_popup.mojom.PageHandler.getRemote = function() {
@@ -649,6 +666,7 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('omnibox_popup.mojom.PageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -818,6 +836,24 @@ mojo.internal.bindings.omnibox_popup.mojom.PageHandlerReceiver = class {
           const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.advanceFocus');
           const result = this.impl.advanceFocus(params.arg_reverse);
+          break;
+        }
+        case 16: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestAimHint');
+          const result = this.impl.requestAimHint();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_hint' in response) ? response['arg_hint'] : response;
+              const resp_obj = { 'arg_hint': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] requestAimHint FAILED:', e));
+          }
           break;
         }
       }
@@ -1284,6 +1320,17 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.omnibox_popup.mojom.PageHandler_AdvanceFocus_ParamsSpec, 'omnibox_popup.mojom.PageHandler_AdvanceFocus_Params', [
       mojo.internal.StructField('arg_reverse', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ParamsSpec, 'omnibox_popup.mojom.PageHandler_RequestAimHint_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.omnibox_popup.mojom.PageHandler_RequestAimHint_ResponseParamsSpec, 'omnibox_popup.mojom.PageHandler_RequestAimHint_ResponseParams', [
+      mojo.internal.StructField('arg_hint', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

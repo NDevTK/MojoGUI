@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -129,6 +129,7 @@ mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.url = mojo.internal.bindings.url || {};
@@ -157,6 +158,8 @@ mojo.internal.bindings.blink.mojom.LegacyTechEventCodeLocationSpec = mojo.intern
 if (mojo.internal.bindings.blink.mojom.LegacyTechEventCodeLocationSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LegacyTechEventCodeLocationSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LegacyTechEventCodeLocationSpec.$ = {};
 mojo.internal.bindings.blink.mojom.SubframeResourceLengthsSpec = mojo.internal.bindings.blink.mojom.SubframeResourceLengthsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.SubframeResourceLengthsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SubframeResourceLengthsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SubframeResourceLengthsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.SnapshotAccessibilityTreeParamsSpec = mojo.internal.bindings.blink.mojom.SnapshotAccessibilityTreeParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.SnapshotAccessibilityTreeParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.SnapshotAccessibilityTreeParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.SnapshotAccessibilityTreeParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LocalFrameHost = mojo.internal.bindings.blink.mojom.LocalFrameHost || {};
 mojo.internal.bindings.blink.mojom.LocalFrameHostSpec = mojo.internal.bindings.blink.mojom.LocalFrameHostSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.LocalFrameHostSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrameHostSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrameHostSpec.$ = {};
@@ -473,6 +476,10 @@ mojo.internal.bindings.blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSp
 if (mojo.internal.bindings.blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrame_GetScrollPosition_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LocalFrame_SetWantErrorMessageStackTrace_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalFrame_SetWantErrorMessageStackTrace_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.LocalFrame_SetWantErrorMessageStackTrace_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrame_SetWantErrorMessageStackTrace_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrame_SetWantErrorMessageStackTrace_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ResponseParamsSpec = mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ResponseParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LocalMainFrame = mojo.internal.bindings.blink.mojom.LocalMainFrame || {};
 mojo.internal.bindings.blink.mojom.LocalMainFrameSpec = mojo.internal.bindings.blink.mojom.LocalMainFrameSpec || { $ : {} };
 if (mojo.internal.bindings.blink.mojom.LocalMainFrameSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalMainFrameSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalMainFrameSpec.$ = {};
@@ -561,8 +568,13 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnFirstContentfulPaint_Par
 if (mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnFirstContentfulPaint_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnFirstContentfulPaint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnFirstContentfulPaint_ParamsSpec.$ = {};
 mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnLargestContentfulPaint_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnLargestContentfulPaint_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnLargestContentfulPaint_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnLargestContentfulPaint_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnLargestContentfulPaint_ParamsSpec.$ = {};
+mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateEncoding_ParamsSpec = mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateEncoding_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateEncoding_ParamsSpec.$.structSpec && mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateEncoding_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateEncoding_ParamsSpec.$ = {};
 
 // External type stubs (from imports)
+mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
+mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
+mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec = mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec = mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -810,6 +822,9 @@ mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.int
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
+mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
+mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -3102,12 +3117,16 @@ mojo.internal.bindings.blink.mojom.LocalFrameRemote = class {
   setWantErrorMessageStackTrace() {
     return this.$.setWantErrorMessageStackTrace();
   }
+  snapshotAccessibilityTree(arg_params) {
+    return this.$.snapshotAccessibilityTree(arg_params);
+  }
 };
 
 mojo.internal.bindings.blink.mojom.LocalFrameRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LocalFrame', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -3631,6 +3650,15 @@ mojo.internal.bindings.blink.mojom.LocalFrameRemoteCallHandler = class {
       false);
   }
 
+  snapshotAccessibilityTree(arg_params) {
+    return this.proxy.sendMessage(
+      this.ordinals[52],  // ordinal
+      mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ResponseParamsSpec,
+      [arg_params],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.blink.mojom.LocalFrame.getRemote = function() {
@@ -3649,6 +3677,7 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LocalFrame', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4257,6 +4286,24 @@ mojo.internal.bindings.blink.mojom.LocalFrameReceiver = class {
           const result = this.impl.setWantErrorMessageStackTrace();
           break;
         }
+        case 52: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.snapshotAccessibilityTree');
+          const result = this.impl.snapshotAccessibilityTree(params.arg_params);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_snapshot' in response) ? response['arg_snapshot'] : response;
+              const resp_obj = { 'arg_snapshot': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] snapshotAccessibilityTree FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -4779,12 +4826,16 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemote = class {
   onLargestContentfulPaint(arg_presentation_time) {
     return this.$.onLargestContentfulPaint(arg_presentation_time);
   }
+  updateEncoding(arg_encoding_name) {
+    return this.$.updateEncoding(arg_encoding_name);
+  }
 };
 
 mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LocalMainFrameHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -4988,6 +5039,15 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostRemoteCallHandler = class {
       false);
   }
 
+  updateEncoding(arg_encoding_name) {
+    return this.proxy.sendMessage(
+      this.ordinals[20],  // ordinal
+      mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateEncoding_ParamsSpec,
+      null,
+      [arg_encoding_name],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.blink.mojom.LocalMainFrameHost.getRemote = function() {
@@ -5006,6 +5066,7 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.LocalMainFrameHost', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -5249,6 +5310,13 @@ mojo.internal.bindings.blink.mojom.LocalMainFrameHostReceiver = class {
           const result = this.impl.onLargestContentfulPaint(params.arg_presentation_time);
           break;
         }
+        case 20: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateEncoding_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateEncoding');
+          const result = this.impl.updateEncoding(params.arg_encoding_name);
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -5351,6 +5419,15 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_encoded_data_length', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_encoded_body_length', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_decoded_body_length', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SnapshotAccessibilityTreeParams
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SnapshotAccessibilityTreeParamsSpec, 'blink.mojom.SnapshotAccessibilityTreeParams', [
+      mojo.internal.StructField('arg_ax_mode', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_nodes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
 mojo.internal.Struct(
@@ -6355,6 +6432,18 @@ mojo.internal.Struct(
     [[0, 8]]);
 
 mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ParamsSpec, 'blink.mojom.LocalFrame_SnapshotAccessibilityTree_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.SnapshotAccessibilityTreeParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LocalFrame_SnapshotAccessibilityTree_ResponseParamsSpec, 'blink.mojom.LocalFrame_SnapshotAccessibilityTree_ResponseParams', [
+      mojo.internal.StructField('arg_snapshot', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalMainFrame_AnimateDoubleTapZoom_ParamsSpec, 'blink.mojom.LocalMainFrame_AnimateDoubleTapZoom_Params', [
       mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
@@ -6581,6 +6670,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.LocalMainFrameHost_OnLargestContentfulPaint_ParamsSpec, 'blink.mojom.LocalMainFrameHost_OnLargestContentfulPaint_Params', [
       mojo.internal.StructField('arg_presentation_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LocalMainFrameHost_UpdateEncoding_ParamsSpec, 'blink.mojom.LocalMainFrameHost_UpdateEncoding_Params', [
+      mojo.internal.StructField('arg_encoding_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

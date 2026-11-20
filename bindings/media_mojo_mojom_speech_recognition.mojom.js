@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -277,6 +277,7 @@ mojo.internal.bindings.media.mojom.RecognizerClientType = {
   kLiveCaption: 2,
   kProjector: 3,
   kCastModerator: 4,
+  MinVersion: 4,
   MinVersion: 4,
 };
 

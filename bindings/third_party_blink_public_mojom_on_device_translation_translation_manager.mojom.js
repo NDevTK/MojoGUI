@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -194,6 +194,9 @@ mojo.internal.bindings.blink.mojom.CreateTranslatorError = {
   kInvalidVersion: 9,
   kInvalidStoragePartition: 10,
   kNotSupportedLanguage: 11,
+  kLibraryInstallFailed: 12,
+  kLanguagePackDownloadFailed: 13,
+  kNotEnoughDiskSpace: 14,
 };
 
 // Interface: TranslationManagerCreateTranslatorClient

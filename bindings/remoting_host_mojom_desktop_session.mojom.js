@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -3599,7 +3599,7 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopSessionOptionsSpec, 'remoting.mojom.DesktopSessionOptions', [
       mojo.internal.StructField('arg_screen_resolution', 0, 0, mojo.internal.bindings.remoting.mojom.ScreenResolutionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_curtained', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_curtain_required', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_required_username', 16, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_client_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
     ],

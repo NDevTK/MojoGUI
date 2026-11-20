@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -162,6 +162,8 @@ mojo.internal.bindings.browser.context_hub.mojom.AutoTodoItemSpec = mojo.interna
 if (mojo.internal.bindings.browser.context_hub.mojom.AutoTodoItemSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.AutoTodoItemSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.AutoTodoItemSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.AutoTodosGenerationMetadataSpec = mojo.internal.bindings.browser.context_hub.mojom.AutoTodosGenerationMetadataSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.AutoTodosGenerationMetadataSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.AutoTodosGenerationMetadataSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.AutoTodosGenerationMetadataSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.LaunchpadTaskSpec = mojo.internal.bindings.browser.context_hub.mojom.LaunchpadTaskSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.LaunchpadTaskSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.LaunchpadTaskSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.LaunchpadTaskSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.MemoryBankEntrySpec = mojo.internal.bindings.browser.context_hub.mojom.MemoryBankEntrySpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.MemoryBankEntrySpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.MemoryBankEntrySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.MemoryBankEntrySpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.TabInfoSpec = mojo.internal.bindings.browser.context_hub.mojom.TabInfoSpec || { $: {} };
@@ -468,6 +470,14 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ParamsSpec.$ = {};
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ParamsSpec.$ = {};
+mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ResponseParamsSpec = mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ResponseParamsSpec || { $: {} };
+if (mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ResponseParamsSpec.$ = {};
 
 // External type stubs (from imports)
 mojo.internal.bindings.browser = mojo.internal.bindings.browser || {};
@@ -1195,12 +1205,20 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemote = class {
   stopSkillRecording() {
     return this.$.stopSkillRecording();
   }
+  generateTasks() {
+    return this.$.generateTasks();
+  }
+  getTasks() {
+    return this.$.getTasks();
+  }
 };
 
 mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -1784,6 +1802,24 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerRemoteCallHandler = 
       false);
   }
 
+  generateTasks() {
+    return this.proxy.sendMessage(
+      this.ordinals[58],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  getTasks() {
+    return this.proxy.sendMessage(
+      this.ordinals[59],  // ordinal
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ParamsSpec,
+      mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ResponseParamsSpec,
+      [],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.browser.context_hub.mojom.PageHandler.getRemote = function() {
@@ -1802,6 +1838,8 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('browser.context_hub.mojom.PageHandler', [
+      { explicit: null },
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -2872,6 +2910,42 @@ mojo.internal.bindings.browser.context_hub.mojom.PageHandlerReceiver = class {
           }
           break;
         }
+        case 58: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.generateTasks');
+          const result = this.impl.generateTasks();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_tasks' in response) ? response['arg_tasks'] : response;
+              const resp_obj = { 'arg_tasks': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] generateTasks FAILED:', e));
+          }
+          break;
+        }
+        case 59: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getTasks');
+          const result = this.impl.getTasks();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const val = (response && typeof response === 'object' && 'arg_tasks' in response) ? response['arg_tasks'] : response;
+              const resp_obj = { 'arg_tasks': val };
+              const message = new mojo.internal.Message(
+                this.router_, 0, mojo.internal.kMessageFlagIsResponse,
+                header.ordinal, header.requestId, mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ResponseParamsSpec.$.structSpec, resp_obj);
+              this.router_.send(message);
+            }).catch(e => console.error('[GeneratedReceiver] getTasks FAILED:', e));
+          }
+          break;
+        }
       }
       } catch (err) {
         console.error('[GeneratedReceiver] Error processing message:', err);
@@ -3025,6 +3099,19 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_has_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
     [[0, 24]]);
+
+// Struct: LaunchpadTask
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.LaunchpadTaskSpec, 'browser.context_hub.mojom.LaunchpadTask', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 24, 0, mojo.internal.bindings.browser.context_hub.mojom.AutoTodoStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_score', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source_references', 32, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.SourceReferenceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_actionable_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
 
 // Struct: MemoryBankEntry
 mojo.internal.Struct(
@@ -3980,6 +4067,28 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_StopSkillRecording_ResponseParams', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.browser.context_hub.mojom.SkillRecordingSessionDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ParamsSpec, 'browser.context_hub.mojom.PageHandler_GenerateTasks_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GenerateTasks_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_GenerateTasks_ResponseParams', [
+      mojo.internal.StructField('arg_tasks', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.LaunchpadTaskSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ParamsSpec, 'browser.context_hub.mojom.PageHandler_GetTasks_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser.context_hub.mojom.PageHandler_GetTasks_ResponseParamsSpec, 'browser.context_hub.mojom.PageHandler_GetTasks_ResponseParams', [
+      mojo.internal.StructField('arg_tasks', 0, 0, mojo.internal.Array(mojo.internal.bindings.browser.context_hub.mojom.LaunchpadTaskSpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 

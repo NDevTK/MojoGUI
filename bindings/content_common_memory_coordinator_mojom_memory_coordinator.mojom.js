@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -567,6 +567,8 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_is_stateful', 10, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_recovery_behavior', 11, 0, mojo.internal.Uint8, 0, false, 0, undefined),
       mojo.internal.StructField('arg_release_memory_cpu_cost', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_affected_by_backgrounding', 13, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_affected_by_memory_pressure', 14, 0, mojo.internal.Uint8, 0, false, 0, undefined),
     ],
     [[0, 24]]);
 

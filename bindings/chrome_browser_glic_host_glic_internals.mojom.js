@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -199,6 +199,8 @@ mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetUiLocaleOverride_Param
 if (mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetUiLocaleOverride_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetUiLocaleOverride_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetUiLocaleOverride_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetUiLocaleOverride_ResponseParamsSpec = mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetUiLocaleOverride_ResponseParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetUiLocaleOverride_ResponseParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetUiLocaleOverride_ResponseParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetUiLocaleOverride_ResponseParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetGuestUrlQueryParams_ParamsSpec = mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetGuestUrlQueryParams_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetGuestUrlQueryParams_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetGuestUrlQueryParams_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetGuestUrlQueryParams_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactory = mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactory || {};
 mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactorySpec = mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactorySpec || { $ : {} };
 if (mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactorySpec.$.structSpec && mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactorySpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.InternalsPageHandlerFactorySpec.$ = {};
@@ -337,12 +339,16 @@ mojo.internal.bindings.glic.mojom.InternalsPageHandlerRemote = class {
   setUiLocaleOverride(arg_locale) {
     return this.$.setUiLocaleOverride(arg_locale);
   }
+  setGuestUrlQueryParams(arg_query_params) {
+    return this.$.setGuestUrlQueryParams(arg_query_params);
+  }
 };
 
 mojo.internal.bindings.glic.mojom.InternalsPageHandlerRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.InternalsPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -466,6 +472,15 @@ mojo.internal.bindings.glic.mojom.InternalsPageHandlerRemoteCallHandler = class 
       false);
   }
 
+  setGuestUrlQueryParams(arg_query_params) {
+    return this.proxy.sendMessage(
+      this.ordinals[12],  // ordinal
+      mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetGuestUrlQueryParams_ParamsSpec,
+      null,
+      [arg_query_params],
+      false);
+  }
+
 };
 
 mojo.internal.bindings.glic.mojom.InternalsPageHandler.getRemote = function() {
@@ -484,6 +499,7 @@ mojo.internal.bindings.glic.mojom.InternalsPageHandlerReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.InternalsPageHandler', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -664,6 +680,13 @@ mojo.internal.bindings.glic.mojom.InternalsPageHandlerReceiver = class {
               this.router_.send(message);
             }).catch(e => console.error('[GeneratedReceiver] setUiLocaleOverride FAILED:', e));
           }
+          break;
+        }
+        case 12: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetGuestUrlQueryParams_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setGuestUrlQueryParams');
+          const result = this.impl.setGuestUrlQueryParams(params.arg_query_params);
           break;
         }
       }
@@ -906,8 +929,9 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_ui_locale_override', 48, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_guest_url_explicit_locale', 56, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_available_ui_locales', 64, 0, mojo.internal.Array(mojo.internal.bindings.glic.mojom.LocaleOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_guest_url_query_params', 72, 0, mojo.internal.String, null, false, 0, undefined),
     ],
-    [[0, 80]]);
+    [[0, 88]]);
 
 // Struct: TieredRolloutInfo
 mojo.internal.Struct(
@@ -1127,6 +1151,12 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetUiLocaleOverride_ResponseParamsSpec, 'glic.mojom.InternalsPageHandler_SetUiLocaleOverride_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.InternalsPageHandler_SetGuestUrlQueryParams_ParamsSpec, 'glic.mojom.InternalsPageHandler_SetGuestUrlQueryParams_Params', [
+      mojo.internal.StructField('arg_query_params', 0, 0, mojo.internal.String, null, false, 0, undefined),
     ],
     [[0, 16]]);
 

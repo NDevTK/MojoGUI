@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8171.0';
+        const versionStr = window.mojoVersion || '160.0.8173.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -188,9 +188,9 @@ mojo.internal.bindings.extensions.mojom.PortIdSpec = mojo.internal.bindings.exte
 mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
 mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
 mojo.internal.bindings.extensions.mojom.RequestParamsSpec = mojo.internal.bindings.extensions.mojom.RequestParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
-mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
-mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
-mojo.internal.bindings.mojo_base.mojom.ListValueSpec = mojo.internal.bindings.mojo_base.mojom.ListValueSpec || { $: mojo.internal.OpaqueStruct.$ };
+mojo.internal.bindings.extensions = mojo.internal.bindings.extensions || {};
+mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojom || {};
+mojo.internal.bindings.extensions.mojom.ResponseWrapperSpec = mojo.internal.bindings.extensions.mojom.ResponseWrapperSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
@@ -536,11 +536,11 @@ mojo.internal.Struct(
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParamsSpec, 'extensions.mojom.ServiceWorkerHost_RequestWorker_ResponseParams', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_response_wrapper', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_extra_data', 24, 0, mojo.internal.bindings.extensions.mojom.ExtraResponseDataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_response_wrapper', 8, 0, mojo.internal.bindings.extensions.mojom.ResponseWrapperSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extra_data', 32, 0, mojo.internal.bindings.extensions.mojom.ExtraResponseDataSpec, null, true, 0, undefined),
     ],
-    [[0, 40]]);
+    [[0, 48]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ServiceWorkerHost_WorkerResponseAck_ParamsSpec, 'extensions.mojom.ServiceWorkerHost_WorkerResponseAck_Params', [
