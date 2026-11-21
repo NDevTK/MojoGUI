@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-20T18:12:50.948774Z",
-  "version": "160.0.8173.0",
+  "generated_at": "2026-11-21T17:04:35.982671Z",
+  "version": "160.0.8175.1",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -718,6 +718,54 @@
         "category": "internal",
         "gates": [
           "feature:kImeSystemEmojiPickerMojoSearch"
+        ]
+      }
+    },
+    {
+      "name": "PageHandlerFactory",
+      "module": "ash.office_fallback.mojom",
+      "file": "ash_webui_common_mojom_office_fallback.mojom.js",
+      "methods": [
+        "CreatePageHandler"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Source: WebUI Binder (Restricted)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
+        ]
+      }
+    },
+    {
+      "name": "PageHandler",
+      "module": "ash.office_fallback.mojom",
+      "file": "ash_webui_common_mojom_office_fallback.mojom.js",
+      "methods": [
+        "Close"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: ash.office_fallback.mojom.PageHandlerFactory.CreatePageHandler"
+          ]
+        },
+        "scope": "context",
+        "category": "internal",
+        "gates": [
+          "feature:kGlicActorUi",
+          "feature:kGlicActorUiOverlay",
+          "feature:kSkyVault",
+          "feature:kSkyVaultV2"
         ]
       }
     },
@@ -3583,7 +3631,8 @@
         "OnWebviewMessage",
         "SetTaskId",
         "GetLensCropPreview",
-        "RemoveLensCrop"
+        "RemoveLensCrop",
+        "OpenDogfoodFeedback"
       ],
       "metadata": {
         "usage": {
@@ -3725,6 +3774,7 @@
         "OpenManageAccountUi",
         "OpenLogOutFlow",
         "OpenFeedbackUi",
+        "OpenDogfoodFeedback",
         "MoveTaskUiToNewTab",
         "ShowThreadHistory",
         "OnTabClickedFromSourcesMenu",
@@ -4117,7 +4167,9 @@
         "SetGuestUrlQueryParam",
         "GetSendTabToSelfDevices",
         "OnTooltipImpression",
-        "OnTooltipHidden"
+        "OnTooltipHidden",
+        "SwitchAssistant",
+        "ShowDrivePicker"
       ],
       "metadata": {
         "usage": {
@@ -4397,7 +4449,8 @@
         "OnDisabledByAdminLinkClicked",
         "OnClosePanelClicked",
         "OnShowErrorClicked",
-        "OnRelaunchClicked"
+        "OnRelaunchClicked",
+        "OnProviderSwitchNoticeContinueClicked"
       ],
       "metadata": {
         "usage": {
@@ -4462,6 +4515,7 @@
         "UpdatePageState",
         "ClientReadyStateChanged",
         "ShowPendingProviderChange",
+        "ShowProviderSwitchNotice",
         "Zoom"
       ],
       "metadata": {
@@ -4557,6 +4611,7 @@
         "OpenDisabledByAdminLinkAndClosePanel",
         "SignInAndClosePanel",
         "RelaunchForProviderChange",
+        "AcknowledgeProviderSwitchNotice",
         "ResizeWidget",
         "OnWebUiStateChanged",
         "NotifyClientLoadError",
@@ -6546,54 +6601,6 @@
         },
         "scope": "context",
         "category": "internal"
-      }
-    },
-    {
-      "name": "PageHandlerFactory",
-      "module": "ash.office_fallback.mojom",
-      "file": "chrome_browser_ui_webui_ash_office_fallback_office_fallback.mojom.js",
-      "methods": [
-        "CreatePageHandler"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Source: WebUI Binder (Restricted)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kSkyVault",
-          "feature:kSkyVaultV2"
-        ]
-      }
-    },
-    {
-      "name": "PageHandler",
-      "module": "ash.office_fallback.mojom",
-      "file": "chrome_browser_ui_webui_ash_office_fallback_office_fallback.mojom.js",
-      "methods": [
-        "Close"
-      ],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: ash.office_fallback.mojom.PageHandlerFactory.CreatePageHandler"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "gates": [
-          "feature:kGlicActorUi",
-          "feature:kGlicActorUiOverlay",
-          "feature:kSkyVault",
-          "feature:kSkyVaultV2"
-        ]
       }
     },
     {
@@ -30103,7 +30110,8 @@
       "file": "content_shell_common_render_frame_test_helper.mojom.js",
       "methods": [
         "GetDocumentToken",
-        "GetInitiatorStateToken"
+        "GetInitiatorStateToken",
+        "HasRendererProcessCapability"
       ],
       "metadata": {
         "usage": {
@@ -50767,6 +50775,8 @@
         "ShowSidePanelUI",
         "RequestAccountInfo",
         "TurnOnHistorySync",
+        "RecordSigninPendingOffered",
+        "GetInitialIdentityState",
         "NavigateToUrl",
         "OpenCriticalActionConversation",
         "GetSyncedDevicesForFiltering",
@@ -50797,7 +50807,8 @@
       "methods": [
         "OnHistoryDeleted",
         "OnHasOtherFormsChanged",
-        "SendAccountInfo"
+        "SendAccountInfo",
+        "OnIdentityStateChanged"
       ],
       "metadata": {
         "usage": {
@@ -51584,6 +51595,12 @@
       "filename": "ash_webui_common_mojom_accessibility_features.mojom.js",
       "source": "ash/webui/common/mojom/accessibility_features.mojom",
       "module": "ash.common.mojom",
+      "imports": []
+    },
+    {
+      "filename": "ash_webui_common_mojom_office_fallback.mojom.js",
+      "source": "ash/webui/common/mojom/office_fallback.mojom",
+      "module": "ash.office_fallback.mojom",
       "imports": []
     },
     {
@@ -52587,12 +52604,6 @@
       "filename": "chrome_browser_ui_webui_ash_login_mojom_screens_osauth.mojom.js",
       "source": "chrome/browser/ui/webui/ash/login/mojom/screens_osauth.mojom",
       "module": "ash.screens_osauth.mojom",
-      "imports": []
-    },
-    {
-      "filename": "chrome_browser_ui_webui_ash_office_fallback_office_fallback.mojom.js",
-      "source": "chrome/browser/ui/webui/ash/office_fallback/office_fallback.mojom",
-      "module": "ash.office_fallback.mojom",
       "imports": []
     },
     {
@@ -56058,7 +56069,6 @@
         "ui/base/dragdrop/mojom/drag_drop_types.mojom",
         "ui/base/mojom/menu_source_type.mojom",
         "ui/gfx/geometry/mojom/geometry.mojom",
-        "ui/webui/resources/js/tracked_element/tracked_element.mojom",
         "mojo/public/mojom/base/empty.mojom",
         "mojo/public/mojom/base/error.mojom",
         "mojo/public/mojom/base/string16.mojom",
