@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8175.1';
+        const versionStr = window.mojoVersion || '160.0.8177.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -172,6 +172,8 @@ mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec = mo
 if (mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.Page_ShowPendingProviderChange_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.Page_ShowProviderSwitchNotice_ParamsSpec = mojo.internal.bindings.glic.mojom.Page_ShowProviderSwitchNotice_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.Page_ShowProviderSwitchNotice_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.Page_ShowProviderSwitchNotice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.Page_ShowProviderSwitchNotice_ParamsSpec.$ = {};
+mojo.internal.bindings.glic.mojom.Page_HideProviderSwitchNotice_ParamsSpec = mojo.internal.bindings.glic.mojom.Page_HideProviderSwitchNotice_ParamsSpec || { $: {} };
+if (mojo.internal.bindings.glic.mojom.Page_HideProviderSwitchNotice_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.Page_HideProviderSwitchNotice_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.Page_HideProviderSwitchNotice_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec = mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec || { $: {} };
 if (mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec.$.structSpec && mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec.$.structSpec.name === 'OpaqueStruct') mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec.$ = {};
 mojo.internal.bindings.glic.mojom.GlicPreloadHandler = mojo.internal.bindings.glic.mojom.GlicPreloadHandler || {};
@@ -654,6 +656,9 @@ mojo.internal.bindings.glic.mojom.PageRemote = class {
   showProviderSwitchNotice() {
     return this.$.showProviderSwitchNotice();
   }
+  hideProviderSwitchNotice() {
+    return this.$.hideProviderSwitchNotice();
+  }
   zoom(arg_action) {
     return this.$.zoom(arg_action);
   }
@@ -663,6 +668,7 @@ mojo.internal.bindings.glic.mojom.PageRemoteCallHandler = class {
   constructor(proxy) {
     this.proxy = proxy;
     this.ordinals = window.mojoScrambler.getOrdinals('glic.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -737,9 +743,18 @@ mojo.internal.bindings.glic.mojom.PageRemoteCallHandler = class {
       false);
   }
 
-  zoom(arg_action) {
+  hideProviderSwitchNotice() {
     return this.proxy.sendMessage(
       this.ordinals[7],  // ordinal
+      mojo.internal.bindings.glic.mojom.Page_HideProviderSwitchNotice_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  zoom(arg_action) {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
       mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec,
       null,
       [arg_action],
@@ -764,6 +779,7 @@ mojo.internal.bindings.glic.mojom.PageReceiver = class {
     this.endpoint = null;
     this.ordinalMap = new Map();
     const ordinals = window.mojoScrambler.getOrdinals('glic.mojom.Page', [
+      { explicit: null },
       { explicit: null },
       { explicit: null },
       { explicit: null },
@@ -876,6 +892,13 @@ mojo.internal.bindings.glic.mojom.PageReceiver = class {
           break;
         }
         case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.Page_HideProviderSwitchNotice_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.hideProviderSwitchNotice');
+          const result = this.impl.hideProviderSwitchNotice();
+          break;
+        }
+        case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.glic.mojom.Page_Zoom_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.zoom');
@@ -1915,6 +1938,11 @@ mojo.internal.Struct(
 
 mojo.internal.Struct(
     mojo.internal.bindings.glic.mojom.Page_ShowProviderSwitchNotice_ParamsSpec, 'glic.mojom.Page_ShowProviderSwitchNotice_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.glic.mojom.Page_HideProviderSwitchNotice_ParamsSpec, 'glic.mojom.Page_HideProviderSwitchNotice_Params', [
     ],
     [[0, 8]]);
 

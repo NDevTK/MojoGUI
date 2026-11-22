@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-21T17:04:35.982671Z",
-  "version": "160.0.8175.1",
+  "generated_at": "2026-11-22T17:31:09.107259Z",
+  "version": "160.0.8177.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -4516,6 +4516,7 @@
         "ClientReadyStateChanged",
         "ShowPendingProviderChange",
         "ShowProviderSwitchNotice",
+        "HideProviderSwitchNotice",
         "Zoom"
       ],
       "metadata": {
@@ -62029,6 +62030,7 @@
       "module": "network.mojom",
       "imports": [
         "mojo/public/mojom/base/big_buffer.mojom",
+        "mojo/public/mojom/base/byte_string.mojom",
         "mojo/public/mojom/base/file_path.mojom",
         "mojo/public/mojom/base/time.mojom",
         "mojo/public/mojom/base/unguessable_token.mojom",

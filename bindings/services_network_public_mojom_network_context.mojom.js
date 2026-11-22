@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8175.1';
+        const versionStr = window.mojoVersion || '160.0.8177.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1792,8 +1792,8 @@ mojo.internal.bindings.network.mojom.NetworkContextRemote = class {
   getCookieManager(arg_cookie_manager) {
     return this.$.getCookieManager(arg_cookie_manager);
   }
-  getRestrictedCookieManager(arg_restricted_cookie_manager, arg_role, arg_origin, arg_isolation_info, arg_cookie_setting_overrides, arg_devtools_cookie_setting_overrides, arg_prefer_bound_cookie_context, arg_cookie_observer) {
-    return this.$.getRestrictedCookieManager(arg_restricted_cookie_manager, arg_role, arg_origin, arg_isolation_info, arg_cookie_setting_overrides, arg_devtools_cookie_setting_overrides, arg_prefer_bound_cookie_context, arg_cookie_observer);
+  getRestrictedCookieManager(arg_restricted_cookie_manager, arg_role, arg_origin, arg_isolation_info, arg_cookie_setting_overrides, arg_devtools_cookie_setting_overrides, arg_prefer_bound_cookie_context, arg_is_storage_access_potentially_allowed, arg_cookie_observer) {
+    return this.$.getRestrictedCookieManager(arg_restricted_cookie_manager, arg_role, arg_origin, arg_isolation_info, arg_cookie_setting_overrides, arg_devtools_cookie_setting_overrides, arg_prefer_bound_cookie_context, arg_is_storage_access_potentially_allowed, arg_cookie_observer);
   }
   getRestrictedDeviceBoundSessionManager(arg_manager, arg_origin, arg_isolation_info) {
     return this.$.getRestrictedDeviceBoundSessionManager(arg_manager, arg_origin, arg_isolation_info);
@@ -2237,12 +2237,12 @@ mojo.internal.bindings.network.mojom.NetworkContextRemoteCallHandler = class {
       false);
   }
 
-  getRestrictedCookieManager(arg_restricted_cookie_manager, arg_role, arg_origin, arg_isolation_info, arg_cookie_setting_overrides, arg_devtools_cookie_setting_overrides, arg_prefer_bound_cookie_context, arg_cookie_observer) {
+  getRestrictedCookieManager(arg_restricted_cookie_manager, arg_role, arg_origin, arg_isolation_info, arg_cookie_setting_overrides, arg_devtools_cookie_setting_overrides, arg_prefer_bound_cookie_context, arg_is_storage_access_potentially_allowed, arg_cookie_observer) {
     return this.proxy.sendMessage(
       this.ordinals[6],  // ordinal
       mojo.internal.bindings.network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec,
       null,
-      [arg_restricted_cookie_manager, arg_role, arg_origin, arg_isolation_info, arg_cookie_setting_overrides, arg_devtools_cookie_setting_overrides, arg_prefer_bound_cookie_context, arg_cookie_observer],
+      [arg_restricted_cookie_manager, arg_role, arg_origin, arg_isolation_info, arg_cookie_setting_overrides, arg_devtools_cookie_setting_overrides, arg_prefer_bound_cookie_context, arg_is_storage_access_potentially_allowed, arg_cookie_observer],
       false);
   }
 
@@ -3290,7 +3290,7 @@ mojo.internal.bindings.network.mojom.NetworkContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkContext_GetRestrictedCookieManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRestrictedCookieManager');
-          const result = this.impl.getRestrictedCookieManager(params.arg_restricted_cookie_manager, params.arg_role, params.arg_origin, params.arg_isolation_info, params.arg_cookie_setting_overrides, params.arg_devtools_cookie_setting_overrides, params.arg_prefer_bound_cookie_context, params.arg_cookie_observer);
+          const result = this.impl.getRestrictedCookieManager(params.arg_restricted_cookie_manager, params.arg_role, params.arg_origin, params.arg_isolation_info, params.arg_cookie_setting_overrides, params.arg_devtools_cookie_setting_overrides, params.arg_prefer_bound_cookie_context, params.arg_is_storage_access_potentially_allowed, params.arg_cookie_observer);
           break;
         }
         case 7: {
@@ -4676,6 +4676,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_renderer_accessible_http_cache_write_enabled', 25, 3, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_prefer_factory_site_for_cookies', 25, 4, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_target_network_$flag', 25, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_target_network_$value', originalFieldName: 'arg_target_network' }),
+      mojo.internal.StructField('arg_is_storage_access_potentially_allowed', 25, 6, mojo.internal.Bool, true, false, 0, undefined),
       mojo.internal.StructField('arg_trust_token_issuance_policy', 28, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationPolicyVerdictSpec, 0, false, 0, undefined),
       mojo.internal.StructField('arg_isolated_world_origin_lock', 32, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
       mojo.internal.StructField('arg_header_client', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.TrustedURLLoaderHeaderClientRemote), null, true, 0, undefined),
@@ -4839,6 +4840,7 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_cookie_setting_overrides', 24, 0, mojo.internal.bindings.network.mojom.CookieSettingOverridesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_devtools_cookie_setting_overrides', 32, 0, mojo.internal.bindings.network.mojom.CookieSettingOverridesSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_prefer_bound_cookie_context', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_storage_access_potentially_allowed', 40, 1, mojo.internal.Bool, false, false, 0, undefined),
       mojo.internal.StructField('arg_cookie_observer', 44, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CookieAccessObserverRemote), null, true, 0, undefined),
     ],
     [[0, 64]]);

@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8175.1';
+        const versionStr = window.mojoVersion || '160.0.8177.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -164,11 +164,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_mailbox', 0, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageMetadataSpec, null, false, 0, undefined),
       mojo.internal.StructField('arg_creation_sync_token', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_managed_sync_tokens', 24, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.SyncTokenSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_label', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_handle', 40, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_buffer_usage', 48, 0, mojo.internal.bindings.gfx.mojom.BufferUsageSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_texture_target', 52, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_software', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_write_sync_token', 24, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_read_sync_tokens', 32, 0, mojo.internal.Array(mojo.internal.bindings.gpu.mojom.SyncTokenSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_label', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 48, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_buffer_usage', 56, 0, mojo.internal.bindings.gfx.mojom.BufferUsageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_texture_target', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_software', 64, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 72]]);
+    [[0, 80]]);

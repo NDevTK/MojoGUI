@@ -50,7 +50,7 @@
         }
         
         // Get current version (may change after async detection)
-        const versionStr = window.mojoVersion || '160.0.8175.1';
+        const versionStr = window.mojoVersion || '160.0.8177.0';
         
         // Invalidate cache if version changed
         if (this._lastVersion !== versionStr) {
@@ -1341,8 +1341,8 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemote = class {
   startDiscoverySession(arg_client_name) {
     return this.$.startDiscoverySession(arg_client_name);
   }
-  connectToServiceInsecurely(arg_address, arg_service_uuid, arg_should_unbond_on_error) {
-    return this.$.connectToServiceInsecurely(arg_address, arg_service_uuid, arg_should_unbond_on_error);
+  connectToServiceInsecurely(arg_address, arg_service_uuid) {
+    return this.$.connectToServiceInsecurely(arg_address, arg_service_uuid);
   }
   createRfcommServiceInsecurely(arg_service_name, arg_service_uuid) {
     return this.$.createRfcommServiceInsecurely(arg_service_name, arg_service_uuid);
@@ -1446,12 +1446,12 @@ mojo.internal.bindings.bluetooth.mojom.AdapterRemoteCallHandler = class {
       false);
   }
 
-  connectToServiceInsecurely(arg_address, arg_service_uuid, arg_should_unbond_on_error) {
+  connectToServiceInsecurely(arg_address, arg_service_uuid) {
     return this.proxy.sendMessage(
       this.ordinals[8],  // ordinal
       mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec,
       mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec,
-      [arg_address, arg_service_uuid, arg_should_unbond_on_error],
+      [arg_address, arg_service_uuid],
       false);
   }
 
@@ -1701,7 +1701,7 @@ mojo.internal.bindings.bluetooth.mojom.AdapterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToServiceInsecurely');
-          const result = this.impl.connectToServiceInsecurely(params.arg_address, params.arg_service_uuid, params.arg_should_unbond_on_error);
+          const result = this.impl.connectToServiceInsecurely(params.arg_address, params.arg_service_uuid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
@@ -2299,9 +2299,8 @@ mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ParamsSpec, 'bluetooth.mojom.Adapter_ConnectToServiceInsecurely_Params', [
       mojo.internal.StructField('arg_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
       mojo.internal.StructField('arg_service_uuid', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_should_unbond_on_error', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
     ],
-    [[0, 32]]);
+    [[0, 24]]);
 
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParamsSpec, 'bluetooth.mojom.Adapter_ConnectToServiceInsecurely_ResponseParams', [
