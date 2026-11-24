@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-23T21:54:31.874383Z",
-  "version": "160.0.8180.0",
+  "generated_at": "2026-11-24T20:28:48.055389Z",
+  "version": "160.0.8181.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -3916,7 +3916,9 @@
         "OpenSignInTab",
         "CloseSignInTab",
         "OpenAuthTab",
-        "CloseAuthTab"
+        "CloseAuthTab",
+        "GetRolloutStages",
+        "SelectRolloutStage"
       ],
       "metadata": {
         "usage": {
@@ -26472,6 +26474,24 @@
       "file": "components_password_manager_services_csv_password_public_mojom_csv_password_parser.mojom.js",
       "methods": [
         "ParseCSV"
+      ],
+      "metadata": {
+        "usage": {
+          "associated": [],
+          "direct": [
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
+          ]
+        },
+        "scope": "context",
+        "category": "internal"
+      }
+    },
+    {
+      "name": "PdfAccessibilityImageProvider",
+      "module": "pdf.mojom",
+      "file": "components_pdf_common_pdf_accessibility.mojom.js",
+      "methods": [
+        "GetImageForNode"
       ],
       "metadata": {
         "usage": {
@@ -56915,6 +56935,14 @@
       "source": "components/payments/mojom/payment_request_data.mojom",
       "module": "payments.mojom",
       "imports": []
+    },
+    {
+      "filename": "components_pdf_common_pdf_accessibility.mojom.js",
+      "source": "components/pdf/common/pdf_accessibility.mojom",
+      "module": "pdf.mojom",
+      "imports": [
+        "skia/public/mojom/bitmap.mojom"
+      ]
     },
     {
       "filename": "components_performance_manager_public_mojom_coordination_unit.mojom.js",
