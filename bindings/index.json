@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-26T19:22:23.461661Z",
-  "version": "160.0.8185.0",
+  "generated_at": "2026-11-27T19:17:12.778893Z",
+  "version": "160.0.8188.0",
   "interfaces": [
     {
       "name": "LocalMainFrame",
@@ -8460,11 +8460,14 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
-        "category": "internal"
+        "category": "internal",
+        "gates": [
+          "feature:kNtpFooter"
+        ]
       }
     },
     {
@@ -8530,7 +8533,7 @@
         "usage": {
           "associated": [],
           "direct": [
-            "Source: WebUI Binder (Restricted)"
+            "Internal Interface: Inferred (Not in Desktop BinderMap)"
           ]
         },
         "scope": "context",
@@ -29659,7 +29662,6 @@
         "WriteClangProfilingProfile",
         "SetIsWebSecurityDisabled",
         "SetIsIsolatedContext",
-        "SetWebUIResourceUrlToCodeCacheMap",
         "InitializeRenderer"
       ],
       "metadata": {
@@ -43342,23 +43344,6 @@
       }
     },
     {
-      "name": "SnapshotPermissionToken",
-      "module": "blink.mojom",
-      "file": "third_party_blink_public_mojom_blob_file_backed_blob_factory.mojom.js",
-      "methods": [],
-      "metadata": {
-        "usage": {
-          "associated": [],
-          "direct": [
-            "Internal Interface: Inferred (Not in Desktop BinderMap)"
-          ]
-        },
-        "scope": "context",
-        "category": "internal",
-        "scrambled": false
-      }
-    },
-    {
       "name": "FileBackedBlobFactory",
       "module": "blink.mojom",
       "file": "third_party_blink_public_mojom_blob_file_backed_blob_factory.mojom.js",
@@ -50825,6 +50810,7 @@
         "SetPage",
         "QueryHistory",
         "QueryHistoryContinuation",
+        "RetryPendingWebHistoryNow",
         "RemoveVisits",
         "OpenClearBrowsingDataDialog",
         "RemoveBookmark",
@@ -58071,8 +58057,7 @@
         "third_party/blink/public/mojom/browser_interface_broker.mojom",
         "third_party/blink/public/mojom/cpu_performance.mojom",
         "third_party/blink/public/mojom/origin_trials/origin_trials_settings.mojom",
-        "third_party/blink/public/mojom/user_agent/user_agent_metadata.mojom",
-        "url/mojom/url.mojom"
+        "third_party/blink/public/mojom/user_agent/user_agent_metadata.mojom"
       ]
     },
     {
@@ -64571,8 +64556,7 @@
         "mojo/public/mojom/base/file_info.mojom",
         "mojo/public/mojom/base/time.mojom",
         "third_party/blink/public/mojom/blob/serialized_blob.mojom",
-        "third_party/blink/public/mojom/blob/blob.mojom",
-        "third_party/blink/public/mojom/blob/file_backed_blob_factory.mojom"
+        "third_party/blink/public/mojom/blob/blob.mojom"
       ]
     },
     {
